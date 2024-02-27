@@ -1,0 +1,53 @@
+<div class="dialog">
+    <h3 mat-dialog-title>
+        Quiero la Guía Inflalible
+        <br>
+        GRATUITA de ensaladas!
+    </h3>
+    <mat-dialog-content>
+        <ng-container *ngIf="!enviado; else elseTemplate">
+            <mat-form-field>
+                <mat-label> Nombre </mat-label>
+                <input matInput [(ngModel)]="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label> Email </mat-label>
+                <input matInput [(ngModel)]="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Necesito ayuda con</mat-label>
+                <mat-select [(ngModel)]="ayuda">
+                    <mat-option value="Grasa">Pérdida de grasa y alimentación antiinflamatoria</mat-option>
+                    <mat-option value="Digestiva">Patología digestiva </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <h3>
+                ¡Gracias por interesarte por mi trabajo!
+            </h3>
+            <p>
+                En la mayor brevedad posible contactaré contigo vía email para que podamos hablar y
+                <br> facilitarte toda la información sobre los acompañamientos.
+                <br>
+                “Deja de anhelar ser diferente. SE diferente.
+                <br>
+                Transformar tu vida y vivir como quieres, solo depende de TI.”
+                <br>
+                Clara Fuertes Colegiada CAT00866
+                <br>
+                Especialista en Nutrición Digestiva, Nutrición Antiinflamatoria y Pérdida de grasa.
+                <br> Coach Nutricional.
+                <br>
+                <a href="https://www.instagram.com/clara_nutricion/">&#64;clara_nutricion</a>
+            </p>
+        </ng-template>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="send()">Enviar</button>
+        <button mat-button cdkFocusInitial (click)="close()">Cancelar</button>
+    </mat-dialog-actions>
+</div>

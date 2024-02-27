@@ -1,0 +1,94 @@
+<div class="row" style="text-align: -webkit-center;">
+    <div class="col">
+        <p>
+            Llevo 14 años ayudando a cientos de personas a mejorar su alimentación.
+            A lo largo de estos años me he formado regladamente en Nutrición Clínica, Nutrición Deportiva, Coaching
+            Nutricional y Patología Digestiva
+        </p>
+        <p>
+            En los últimos años en consulta he visto la necesidad de especializarme en Nutrición Digestiva, dado el
+            crecimiento exponencial que han tenido estos casos en la población. Esto ha hecho que mis 4 formaciones más
+            recientes hayan sido en este campo, y sigo leyendo y aprendiendo de este mundo tan complejo y apasionante,
+            que requiere una actualización constante. Especialmente el Sibo es el trastorno que más he tratado en estos
+            últimos años.
+            No concibo mi vida sin ayudar a otras personas a encontrar su bienestar, tanto físico como mental. A ser
+            como quieren ser para vivir en congruencia con sus valores y contribuir en su felicidad. Nos alimentamos
+            cada día y varias veces al día, es la actividad que más hacemos a lo largo de nuestra vida, es la manera que
+            tenemos de relacionarnos con los demás, de celebrar, y nuestra fuente de energía para la vida.
+        </p>
+        <p>
+            ¡Sobran motivos para entender la importancia que tiene tanto a nivel físico como mental! Y no encuentro
+            mejor satisfacción para mí que poder contribuir a que esta parte tan importante de tu vida mejore.
+        </p>
+        <button mat-raised-button style="color: white;background-color: green; margin: 10px;" (click)="modal=true">
+            ¡Clara, Necesito tu ayuda!
+        </button>
+        <h2>
+            ¿Qué conseguirás con este acompañamiento?
+        </h2>
+        <p>
+            &#9658; Tener un plan 100% personalizado para tratar tu patología.
+            <br>
+            &#9658; Tener claro cuál es tu proceso, qué ocurre y que necesitas para recuperar la salud.<br>
+            &#9658; Te doy cuadros de alimentos aconsejados y desaconsejados.<br>
+            &#9658; Elaboro un menú semanal respetando tus gustos en base a las necesidades.<br>
+            &#9658; En cada visita te modifico el menú para ir avanzando en el tratamiento y reincorporación de
+            alimentos de
+            forma individualizada.<br>
+            &#9658; Te recomiendo los mejores suplementos en cada etapa o fase para facilitar tu recuperación.<br>
+            &#9658; Te entrego recomendaciones específicas en caso de tener otras patologías.<br>
+            &#9658; Te enseño las bases de la alimentación antiinflamatoria para que tras este proceso haya un cambio en
+            tu
+            alimentación.<br>
+            &#9658; Te propongo cambios de hábitos que mejoren tu salud digestiva.<br>
+            &#9658; Te acompaño en este proceso. Soy tu guía.<br>
+            &#9658; Resuelvo tus dudas e inquietudes en un plazo máximo de 24h mediante email, estoy contigo.
+        </p>
+        <h2>
+            Imagina…
+        </h2>
+        <p>
+            • Imagina volver a disfrutar de la comida.
+            <br>• Imagina sentirte con más energía, con confianza, porque estás tratándote de forma personalizada.
+            <br>• Imagina conocer las bases de la alimentación antiinflamatoria e incorporarlas a tu vida, porque vas de
+            la
+            mano de una Coach que sabe que la base de cualquier patología es la inflamación, y que de la misma manera,
+            la alimentación antiinflamatoria protege a tu organismo de una inflamación crónica.
+            <br> • Imagina aumentar tu autoestima, estar contenta porque por fin estás haciendo aquello que sabes que te
+            hace
+            sentir bien y por fin te priorizas por encima de los demás.
+        </p>
+        <h2>
+            Esto es para ti si:
+        </h2>
+        <p>
+            &#9658; Estas cansada de leer infinidad de consejos, recomendaciones, listas interminables de alimentos que
+            no
+            sabes cómo incorporarlos a tu vida.
+            <br> &#9658; Quieres una visión integrativa, que permita buscar las causas que te han llevado a esta
+            situación.
+            ¡Basta
+            de parches!
+            <br> &#9658; Sientes que ha llegado el momento de hacer un cambio distinto, pero no sabes cómo enfocarlo,
+            por
+            dónde
+            empezar. Necesitas una persona que te guíe.
+            <br> &#9658; Te sientes hinchada, inflamada, sin energía. El enfoque antiinflamatorio es el que necesitas.
+            <br> &#9658; Estas dispuesta a empezar a priorizarte, ¡dejando las excusas a un lado!
+        </p>
+        <h2>
+            Esto no es para ti si:
+        </h2>
+        <p>
+            &#9658; Estás buscando una mejora rápida y de forma milagrosa.
+            <br> &#9658; Quieres la solución a tu situación digestiva sin hacer ningún cambio.
+        </p>
+        <h2>
+            ¿Lista para empezar?
+        </h2>
+        <button mat-raised-button style="color: white;background-color: green; margin: 10px;" (click)="modal=true">
+            ¡Clara, Necesito tu ayuda!
+        </button>
+        <app-patologia-form (modal)="modal=$event" *ngIf="modal"></app-patologia-form>
+    </div>
+</div>

@@ -10,7 +10,10 @@
 a {
   text-decoration-line: none;
   color: rgb(106, 107, 108);
+  i {
+    color: white;
+  }
 }
-i{
+i {
   padding: 5px;
 }
