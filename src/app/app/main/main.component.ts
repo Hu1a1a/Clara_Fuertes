@@ -13,7 +13,7 @@ import { PatologiaFormComponent } from '../patologia-form/main.component';
   styleUrls: ['./main.component.css', "../style.component.css"]
 })
 export class MainComponent {
-  constructor(private Api: ApiService, private router: Router) { }
+  constructor(private Api: ApiService, public  router: Router) { }
   patologia() {
     this.router.navigate(['patologia']);
   }

@@ -1,6 +1,6 @@
-<div class="cuerpo row" style="text-align: -webkit-center;">
+<div class="cuerpo row">
     <div class="col">
-        <h1>
+        <h1 style="text-align: center;">
             Te regalo la guía gratuita que necesitas para hacer tus ensaladas equilibradas, completas y suficientes. ¡Se
             acabaron
             las dudas!
@@ -27,13 +27,16 @@
             &#9658; ¡Resuelve todas tus dudas sobre este plato tan recurrido y disfrútalas sabiendo que te lo estás
             haciendo bien!
         </p>
-        <h2>
+        <h2 style="text-align: center;">
             ¡Reclama tu Guía GRATUITA de ensaladas completas haciendo click al botón verde!
             Botón: Quiero la Guía Gratuita de ensaladas
         </h2>
-        <button mat-raised-button style="color: white;background-color: green; margin: 10px;" (click)="modal=true">
-            Quiero la Guía Inflalible GRATUITA de ensaladas!
-        </button>
+        <div style="text-align: center;">
+            <button mat-raised-button style="color: white;background-color: green; margin: 10px;" (click)="modal=true">
+                Quiero la Guía Inflalible GRATUITA de ensaladas!
+            </button>
+        </div>
+        <br>
     </div>
 </div>
 <div class="dialog" *ngIf="modal">

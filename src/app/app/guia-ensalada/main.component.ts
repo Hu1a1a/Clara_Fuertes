@@ -21,6 +21,7 @@ export class GuiaEnsaladaComponent {
   async send() {
     if (this.name && this.email) {
       const data = this.Api.GuiaEnsalada(this.name, this.email)
+      window.open("./assets/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf", '_blank');
       this.router.navigate(['']);
     }
   }
