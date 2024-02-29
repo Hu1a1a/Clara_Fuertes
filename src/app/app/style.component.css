@@ -60,7 +60,7 @@
 
 .dialog {
   position: fixed;
-  top: 30%;
+  top: 5%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -68,8 +68,8 @@
   text-align: center;
   height: auto;
   width: fit-content;
-  background-color: gray;
-  border-radius: 10px;
+  background-color: #f5cec7;
+  border-radius: 25px;
   padding: 25px;
   z-index: 99;
   button {

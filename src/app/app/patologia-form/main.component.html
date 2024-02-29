@@ -1,49 +1,57 @@
 <div class="dialog">
-    <h3 mat-dialog-title>
-        Quiero la Guía Inflalible
-        <br>
-        GRATUITA de ensaladas!
-    </h3>
     <mat-dialog-content>
         <ng-container *ngIf="!enviado; else elseTemplate">
+            <h3 mat-dialog-title>
+                ¡Me encantaría ayudarte!
+            </h3>
+            <p>
+                Si me dejas tu mensaje me pondré en contacte contigo para facilitarte toda la información qué necesitas
+            </p>
             <mat-form-field>
-                <mat-label> Nombre </mat-label>
+                <mat-label> Tu Nombre </mat-label>
                 <input matInput [(ngModel)]="name">
             </mat-form-field>
             <br>
             <mat-form-field>
-                <mat-label> Email </mat-label>
+                <mat-label> Tu Correo </mat-label>
                 <input matInput [(ngModel)]="email">
             </mat-form-field>
-            <br>
-            <mat-form-field>
-                <mat-label>Necesito ayuda con</mat-label>
-                <mat-select [(ngModel)]="ayuda">
-                    <mat-option value="Grasa">Pérdida de grasa y alimentación antiinflamatoria</mat-option>
-                    <mat-option value="Digestiva">Patología digestiva </mat-option>
-                </mat-select>
+            <p
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <strong><span style="font-size:16px;line-height:107%;">Necesito ayuda
+                        con&hellip;</span></strong><em>&nbsp;(y que permita clickar una de las 2 opciones):</em>
+            </p>
+            <p
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <em>P&eacute;rdida de grasa y alimentaci&oacute;n antiinflamatoria</em>
+            </p>
+            <p
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <em>&nbsp; &nbsp; &nbsp; &nbsp; Patolog&iacute;a digestiva&nbsp;</em>
+            </p>
+            <mat-form-field style="width: 100%;">
+                <textarea matInput placeholder="Algo que me quieras comentar" [(ngModel)]="ayuda"></textarea>
             </mat-form-field>
             <br>
         </ng-container>
         <ng-template #elseTemplate>
-            <h3>
-                ¡Gracias por interesarte por mi trabajo!
-            </h3>
-            <p>
-                En la mayor brevedad posible contactaré contigo vía email para que podamos hablar y facilitarte toda la
-                información sobre los acompañamientos.
-                <br> <br>
-                “Deja de anhelar ser diferente. SE diferente.
-                <br>
-                Transformar tu vida y vivir como quieres, solo depende de TI.”
-                <br> <br>
-                Clara Fuertes Colegiada CAT00866
-                <br>
-                Especialista en Nutrición Digestiva, Nutrición Antiinflamatoria y Pérdida de grasa.
-                <br> Coach Nutricional.
-                <br>
-                <a href="https://www.instagram.com/clara_nutricion/">&#64;clara_nutricion</a>
-            </p>
+            <p><strong><em>&iexcl;Gracias por interesarte por mi trabajo!</em></strong></p>
+            <div style="text-align: start;">
+                <p><em>En la mayor brevedad posible contactar&eacute; contigo v&iacute;a email para facilitarte toda la
+                        informaci&oacute;n sobre los acompa&ntilde;amientos y que puedas resolver tus dudas. </em></p>
+            </div>
+
+            <p><em>&ldquo;Deja de anhelar ser diferente. <strong>SE diferente.</strong></em></p>
+            <p><strong><em>Transformar tu vida</em></strong><em> y vivir como quieres, <strong>solo depende de
+                        TI</strong>.&rdquo;</em></p>
+            <div style="text-align: start;">
+                <p><em>Clara Fuertes Colegiada CAT00866</em></p>
+                <p><em>Especialista en Nutrici&oacute;n Digestiva, Nutrici&oacute;n Antiinflamatoria y P&eacute;rdida de
+                        grasa. Coach Nutricional. </em></p>
+            </div>
+            <a href="https://www.instagram.com/clara_nutricion/">
+                <p><em>&#64;clara_nutricion</em></p>
+            </a>
         </ng-template>
     </mat-dialog-content>
     <mat-dialog-actions>

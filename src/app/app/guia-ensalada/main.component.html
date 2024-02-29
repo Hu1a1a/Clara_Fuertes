@@ -1,64 +1,59 @@
 <div class="cuerpo row">
     <div class="col">
-        <h1 style="text-align: center;">
-            Te regalo la guía gratuita que necesitas para hacer tus ensaladas equilibradas, completas y suficientes. ¡Se
-            acabaron
-            las dudas!
-        </h1>
+        <h3 style="text-align: center;">
+            Te regalo la <b> Guía GRATUITA </b> que necesitas para hacer tus
+            <br>
+            <b> ensaladas equilibradas, completas y suficientes </b>
+        </h3>
+        <br>
+        <h4 style="text-align: center;">
+            ¡Se acabaron las dudas!
+        </h4>
+        <br>
         <p>
             &#9658; Llega el buen tiempo y sabes que vas a recurrir más de una vez a las ensaladas
-            <br>
-            &#9658; Deja de preguntarte si tus ensaladas están bien hechas, te descubro todo lo que debes saber
-            <br>
-            &#9658; ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué lleva una ensalada que es plato único?
-            <br>
-            &#9658; ¿Una ensalada es buena opción en una alimentación antiinflamatoria? Te explico como potenciarlo.
-            <br>
-            &#9658; ¡No te aburras y hazlas variadas! Hay opciones más allá de la lechuga y el tomate
-            <br>
-            &#9658; Combínalas, hay infinitas posibilidades
-            <br>
-            &#9658; Te dejo un menú semanal a base de ensaladas fáciles y completas
-            <br>
-            &#9658; Descubre opciones de aliños saludables más allá del aceite y el vinagre.
-            <br>
-            &#9658; Descubre los trucos para que se conserven mejor si te las dejas preparadas
-            <br>
-            &#9658; ¡Resuelve todas tus dudas sobre este plato tan recurrido y disfrútalas sabiendo que te lo estás
-            haciendo bien!
+            <br>&#9658; Deja de preguntarte si tus ensaladas están bien hechas, te descubro todo lo que
+            debes
+            saber
+            <br>&#9658; ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué lleva una ensalada que
+            es plato
+            único?
+            <br>&#9658; ¿Una ensalada es buena opción en una alimentación antiinflamatoria? Te explico
+            como
+            potenciarlo.
+            <br>&#9658; ¡No te aburras y hazlas variadas! Hay opciones más allá de la lechuga y el
+            tomate
+            <br>&#9658; Combínalas, hay infinitas posibilidades
+            <br>&#9658; Te dejo un menú semanal a base de ensaladas fáciles y completas
+            <br>&#9658; Descubre opciones de aliños saludables más allá del aceite y el vinagre.
+            <br>&#9658; Descubre los trucos para que se conserven mejor si te las dejas preparadas
+            <br>&#9658; ¡Resuelve todas tus dudas sobre este plato tan recurrido y disfrútalas sabiendo
+            que te lo
+            estás haciendo bien!
         </p>
-        <h2 style="text-align: center;">
-            ¡Reclama tu Guía GRATUITA de ensaladas completas haciendo click al botón verde!
-            Botón: Quiero la Guía Gratuita de ensaladas
-        </h2>
-        <div style="text-align: center;">
-            <button mat-raised-button style="color: white;background-color: green; margin: 10px;" (click)="modal=true">
-                Quiero la Guía Inflalible GRATUITA de ensaladas!
-            </button>
+        <div class="row" style="text-align: center;">
+            <h4>
+                ¡Recibe tu Guía GRATUITA de ensaladas a tu correo!
+            </h4>
+            <div class="col">
+                <mat-form-field style="width: 100%;">
+                    <mat-label> Tu Nombre: </mat-label>
+                    <input matInput [(ngModel)]="name">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field style="width: 100%;">
+                    <mat-label> Tu Correo: </mat-label>
+                    <input matInput [(ngModel)]="email">
+                </mat-form-field>
+            </div>
         </div>
-        <br>
+        <div class="row" style="text-align: center;">
+            <div class="col">
+                <button mat-raised-button style="color: black;background-color: #ADD1C5;" (click)="send()">
+                    QUIERO LA GUÍA GRATUITA DE ENSALADAS
+                </button>
+            </div>
+        </div>
     </div>
-</div>
-<div class="dialog" *ngIf="modal">
-    <h3 mat-dialog-title>
-        Quiero la Guía Inflalible
-        <br>
-        GRATUITA de ensaladas!
-    </h3>
-    <mat-dialog-content>
-        <mat-form-field>
-            <mat-label> Nombre </mat-label>
-            <input matInput [(ngModel)]="name">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <mat-label> Email </mat-label>
-            <input matInput [(ngModel)]="email">
-        </mat-form-field>
-        <br>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-        <button mat-button (click)="send()">Enviar</button>
-        <button mat-button cdkFocusInitial (click)="modal=false">Cancelar</button>
-    </mat-dialog-actions>
 </div>
