@@ -1,12 +1,30 @@
 <div class="dialog">
     <mat-dialog-content>
         <ng-container *ngIf="!enviado; else elseTemplate">
-            <h3 mat-dialog-title>
-                ¡Me encantaría ayudarte!
-            </h3>
-            <p>
-                Si me dejas tu mensaje me pondré en contacte contigo para facilitarte toda la información qué necesitas
+
+
+
+
+
+
+
+
+
+            <p mat-dialog-title
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <strong><span style='font-size:21px;font-family:"Bradley Hand ITC";'>&iexcl;Me encantar&iacute;a
+                        ayudarte!</span></strong>
             </p>
+            <p
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'>
+                <span style='font-size:16px;line-height:107%;font-family:"Segoe UI",sans-serif;'>Si me dejas tu mensaje
+                    me pondr&eacute; en contacte contigo para facilitarte toda la informaci&oacute;n
+                    qu&eacute;</span><span
+                    style='font-size:19px;line-height:107%;font-family:"Segoe UI",sans-serif;'>&nbsp;</span><span
+                    style='font-size:16px;line-height:107%;font-family:"Segoe UI",sans-serif;'>necesitas</span>
+            </p>
+
+
             <mat-form-field>
                 <mat-label> Tu Nombre </mat-label>
                 <input matInput [(ngModel)]="name">
@@ -16,19 +34,30 @@
                 <mat-label> Tu Correo </mat-label>
                 <input matInput [(ngModel)]="email">
             </mat-form-field>
+
             <p
-                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
-                <strong><span style="font-size:16px;line-height:107%;">Necesito ayuda
-                        con&hellip;</span></strong><em>&nbsp;(y que permita clickar una de las 2 opciones):</em>
+                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>
+                <strong><span style='font-size:16px;font-family:"Segoe UI",sans-serif;'>Necesito ayuda
+                        con&hellip;</span></strong><em><span style='font-family:"Segoe UI",sans-serif;'>&nbsp;(y que
+                        permita clickar una de las 2 opciones):</span></em>
             </p>
-            <p
-                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
-                <em>P&eacute;rdida de grasa y alimentaci&oacute;n antiinflamatoria</em>
-            </p>
-            <p
-                style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:18.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
-                <em>&nbsp; &nbsp; &nbsp; &nbsp; Patolog&iacute;a digestiva&nbsp;</em>
-            </p>
+            <div style="text-align: start; padding-left: 25px;">
+                <input type="checkbox" (input)="num=1;check()" [checked]="num===1"
+                    style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <strong><em><span style='font-family:"Segoe UI",sans-serif;'>P&eacute;rdida de grasa y
+                            alimentaci&oacute;n antiinflamatoria</span></em></strong>
+                <br>
+                <input type="checkbox" (input)="num=2;check()" [checked]="num===2"
+                    style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+                <em><span style='font-family:"Segoe UI",sans-serif;'><strong>Patolog&iacute;a
+                            digestiva&nbsp;</strong></span></em>
+            </div>
+
+
+            <br>
+
+
+
             <mat-form-field style="width: 100%;">
                 <textarea matInput placeholder="Algo que me quieras comentar" [(ngModel)]="ayuda"></textarea>
             </mat-form-field>
@@ -55,7 +84,7 @@
         </ng-template>
     </mat-dialog-content>
     <mat-dialog-actions>
-        <button mat-button (click)="send()">Enviar</button>
-        <button mat-button cdkFocusInitial (click)="close()">Cancelar</button>
+        <button mat-button (click)="send()" class="form">Enviar</button>
+        <button mat-button cdkFocusInitial (click)="close()" class="form">Cancelar</button>
     </mat-dialog-actions>
 </div>

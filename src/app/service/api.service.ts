@@ -8,7 +8,7 @@ export class ApiService {
         //funcion de mailing al back
         console.log(name, email)
     }
-    AyudaMsg(name: string, email: string, type: string) {
+    AyudaMsg(name: string, email: string, opt: string, type: string) {
         //funcion de mailing al back
         console.log(name, email, type)
     }

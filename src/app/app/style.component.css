@@ -1,58 +1,6 @@
 .cuerpo {
   z-index: 1;
 
-  h1 {
-    color: rgb(12, 17, 21);
-    --tcb-applied-color: rgb(106, 107, 108);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: var(--g-bold-weight, bold);
-    font-size: 40px;
-    background-color: rgba(0, 0, 0, 0);
-    font-style: normal;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 24px;
-    text-decoration: rgba(10, 10, 10, 0.85);
-    text-transform: none;
-    border-left: 0 rgba(10, 10, 10, 0.85);
-    line-height: 1.3em;
-    --tcb-typography-font-family: Arial, Helvetica, sans-serif;
-  }
-  h2 {
-    color: red;
-    --tcb-applied-color: rgb(106, 107, 108);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: var(--g-bold-weight, bold);
-    font-size: 40px;
-    background-color: rgba(0, 0, 0, 0);
-    font-style: normal;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 24px;
-    text-decoration: rgba(10, 10, 10, 0.85);
-    text-transform: none;
-    border-left: 0 rgba(10, 10, 10, 0.85);
-    line-height: 1.3em;
-    --tcb-typography-font-family: Arial, Helvetica, sans-serif;
-  }
-
-  p {
-    color: rgb(106, 107, 108);
-    --tcb-applied-color: rgb(106, 107, 108);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: var(--g-regular-weight, normal);
-    font-size: 18px;
-    padding-top: 0;
-    margin-top: 0;
-    padding-bottom: 24px;
-    margin-bottom: 0;
-    --tcb-typography-font-family: Arial, Helvetica, sans-serif;
-    white-space: pre-line;
-  }
-  button {
-    height: 50px;
-    z-index: 0;
-  }
   .row {
     padding: 10px;
   }
@@ -72,11 +20,6 @@
   border-radius: 25px;
   padding: 25px;
   z-index: 99;
-  button {
-    margin: 5px;
-    background-color: green;
-    border: 1px black solid;
-  }
 }
 
 b {
@@ -85,4 +28,18 @@ b {
 
 a {
   color: black;
+}
+
+button {
+  height: 50px;
+  z-index: 0;
+  border: 2px solid gray;
+  border-radius: 15px;
+  font-weight: 800;
+}
+
+button.form {
+  margin: 5px;
+  background-color: green;
+  border: 1px black solid;
 }

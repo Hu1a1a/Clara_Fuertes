@@ -18,16 +18,25 @@ export class PatologiaFormComponent {
 
   name: string = ""
   email: string = ""
+  opt: string = ""
+  num!: number
   ayuda: string = ""
   enviado: boolean = false
   async send() {
     if (this.name && this.email && this.ayuda) {
-      const data = this.Api.AyudaMsg(this.name, this.email, this.ayuda)
+      const data = this.Api.AyudaMsg(this.name, this.email, this.opt, this.ayuda)
       this.enviado = true
     }
   }
   close() {
     this.modal.emit(false)
+  }
+  check() {
+    if (this.num === 1) {
+      this.opt = "Pérdida de grasa y alimentación antiinflamatoria"
+    } else {
+      this.opt = "Patología digestiva"
+    }
   }
 }
 
