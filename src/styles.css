@@ -2,3 +2,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+body{
+  padding: 0;
+  margin: 0;
+}

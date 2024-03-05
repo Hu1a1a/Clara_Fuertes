@@ -1,3 +1,6 @@
 a {
   text-decoration: none;
 }
+.cuerpo {
+  background: linear-gradient(180deg, #f2f4f4 45%, #ecf0f1 55%);
+}

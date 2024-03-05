@@ -1,3 +1,6 @@
-.dialog{
-    max-width: 600px;
+.dialog {
+  max-width: 600px;
+}
+.cuerpo {
+    background: linear-gradient(180deg, #faeae7 45%, #faeae7 55%);
 }
