@@ -1,0 +1,39 @@
+require("dotenv").config();
+
+const express = require("express");
+const expressLayout = require("express-ejs-layouts");
+const flash = require("connect-flash");
+const session = require("express-session");
+const methodOverride = require("method-override");
+const cookieParser = require("cookie-parser");
+const app = express();
+app.set("json space", 2);
+app.use(express.static("public"));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride("_method"));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, PATCH, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
+  })
+);
+app.use(flash({ sessionKeyName: "flashMessage" }));
+app.use(expressLayout);
+app.set("view engine", "ejs");
+app.set("layout", "./layouts/main");
+app.use("/", require("./server/router/router"));
+app.get("*", (req, res) => res.redirect("/"));
+app.listen(process.env.PORT || 3000);
