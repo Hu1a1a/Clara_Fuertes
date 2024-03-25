@@ -34,22 +34,36 @@
       rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap"
       rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Kite+One&amp;display=swap"
+      rel="stylesheet">
   </head>
 
   <body>
-    <%- body %>
+    <div>
+      <%- body %>
+    </div>
 
     <footer>
       <div class="row">
         <div class="col-3"></div>
-        <div class="col-2"><a href>
-            <i class="bi bi-instagram"></i></a>
+        <div class="col-2">
+          <a href>
+            <i class="bi bi-instagram">
+            </i>
+          </a>
         </div>
-        <div class="col-2"><a href>
-            <i class="bi bi-whatsapp"></i></a>
+        <div class="col-2">
+          <a href>
+            <i class="bi bi-whatsapp">
+            </i>
+          </a>
         </div>
-        <div class="col-2"><a href>
-            <i class="bi bi-envelope"></i></a>
+        <div class="col-2">
+          <a href>
+            <i class="bi bi-envelope">
+            </i>
+          </a>
         </div>
       </div>
       <div class="row">
@@ -64,10 +78,15 @@
   </body>
   <style>
     footer {
+      background: rgba(217, 217, 217, 0.3100000023841858);
       text-align: -webkit-center;
+      height: 20vh;
       .row{
         padding: 1%;
       }
+    }
+    .body{
+      min-height: 70vh;
     }
     .row {
       --bs-gutter-x: 0;
@@ -76,5 +95,8 @@
       color: black;
       text-decoration: none;
     }
-  </style>
+    i{
+    font-size: 24px;
+    }
+</style>
 </html>
