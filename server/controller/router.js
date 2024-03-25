@@ -34,6 +34,7 @@ exports.email_ensalada = async (req, res) => {
       to: req.body.Email,
       subject: "ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS",
       html: `
+      <h3>Hi ${eq.body.Name}, </h3>
       <div class="e0">
         Te regalo la Guía GRATUITA que necesitas para hacer tus ensaladas
         equilibradas, completas y suficientes
