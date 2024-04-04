@@ -23,7 +23,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      maxAge: 1000 * 60 * 60 * 24 * 7,
     },
   })
 );
@@ -34,4 +34,4 @@ app.set("view engine", "ejs");
 app.set("layout", "./layouts/main");
 app.use("/", require("./server/router/router"));
 app.get("*", (req, res) => res.redirect("/"));
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT | 3000);

@@ -1,8 +1,11 @@
+const title = "Clara Fuertes";
+const description = "¡Hola! Soy Clara, Dietista-Nutricionista Colegiada, Especializada en inflamación, patología digestiva y pérdida de grasa";
+
 exports.main = async (req, res) => {
   const messages = await req.flash("info");
   const locals = {
-    title: "El Vestidor de Sofía - App",
-    description: "CRM - El Vestidor de Sofía",
+    title: title + " - Nutrición",
+    description: description,
     messages: messages,
   };
   res.render("main", locals);
@@ -11,8 +14,8 @@ exports.main = async (req, res) => {
 exports.ensalada = async (req, res) => {
   const messages = await req.flash("info");
   const locals = {
-    title: "El Vestidor de Sofía - Ensalada",
-    description: "CRM - El Vestidor de Sofía",
+    title: title + " - Ensalada",
+    description: description,
     messages: messages,
   };
   res.render("ensalada", locals);
@@ -21,8 +24,8 @@ exports.ensalada = async (req, res) => {
 const nodeoutlook = require("nodejs-nodemailer-outlook");
 exports.email_ensalada = async (req, res) => {
   const locals = {
-    title: "El Vestidor de Sofía - Mensage",
-    description: "CRM - El Vestidor de Sofía",
+    title: title + " - Mensage",
+    description: description,
   };
   if (req.body.Name && req.body.Email) {
     nodeoutlook.sendEmail({
@@ -100,8 +103,8 @@ exports.email_ensalada = async (req, res) => {
 exports.patologia = async (req, res) => {
   const messages = await req.flash("info");
   const locals = {
-    title: "El Vestidor de Sofía - Patologia Digestiva",
-    description: "CRM - El Vestidor de Sofía",
+    title: title + " - Patologia Digestiva",
+    description: description,
     messages: messages,
   };
   res.render("patologia", locals);
