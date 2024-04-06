@@ -18,9 +18,7 @@
     "express": "^4.19.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.0",
-    "mariadb": "^3.3.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.9.3",
     "nodejs-nodemailer-outlook": "^1.2.4"
   },
   "devDependencies": {

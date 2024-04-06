@@ -1,32 +1,5 @@
-const title = "Clara Fuertes";
-const description = "¡Hola! Soy Clara, Dietista-Nutricionista Colegiada, Especializada en inflamación, patología digestiva y pérdida de grasa";
-
-exports.main = async (req, res) => {
-  const messages = await req.flash("info");
-  const locals = {
-    title: title + " - Nutrición",
-    description: description,
-    messages: messages,
-  };
-  res.render("main", locals);
-};
-
-exports.ensalada = async (req, res) => {
-  const messages = await req.flash("info");
-  const locals = {
-    title: title + " - Ensalada",
-    description: description,
-    messages: messages,
-  };
-  res.render("ensalada", locals);
-};
-
 const nodeoutlook = require("nodejs-nodemailer-outlook");
 exports.email_ensalada = async (req, res) => {
-  const locals = {
-    title: title + " - Mensage",
-    description: description,
-  };
   if (req.body.Name && req.body.Email) {
     nodeoutlook.sendEmail({
       auth: {
@@ -91,21 +64,10 @@ exports.email_ensalada = async (req, res) => {
           path: __dirname + "../../../public/ENSALADAS.pdf",
         },
       ],
-      onError: () => (locals.messages = ["No se ha enviado correctamente, contacte con el administrador!"]),
-      onSuccess: () => (locals.messages = ["Tienes Tu Guía de Ensaladas en tu e-mail", "Espero de corazón que te sirva de ayuda"]),
+      onError: () => res.json({ ok: true, msg: "error send" }),
+      onSuccess: () => res.json({ ok: true, msg: "email send" }),
     });
   } else {
-    locals.messages = ["Introducir nombre y correo correctamente!"];
+    res.json({ ok: false, msg: "error desconocido" });
   }
-  res.render("msg", locals);
-};
-
-exports.patologia = async (req, res) => {
-  const messages = await req.flash("info");
-  const locals = {
-    title: title + " - Patologia Digestiva",
-    description: description,
-    messages: messages,
-  };
-  res.render("patologia", locals);
 };

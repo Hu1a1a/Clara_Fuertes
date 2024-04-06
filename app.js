@@ -1,40 +1,26 @@
 require("dotenv").config();
-
+const path = require("path");
 const express = require("express");
-const expressLayout = require("express-ejs-layouts");
-const flash = require("connect-flash");
-const session = require("express-session");
-
+const cors = require("cors");
 const app = express();
-app.set("json space", 2);
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, PATCH, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
-app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7,
-    },
-  })
-);
-
 const connection = require("./db/db");
 connection.connect();
+app.set("json space", 2);
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("build"));
 
-app.use(flash({ sessionKeyName: "flashMessage" }));
-app.use(expressLayout);
-app.set("view engine", "ejs");
-app.set("layout", "./layouts/main");
-app.use("/", require("./server/router/router"));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Max-Age", "1800");
+  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, PATCH, DELETE");
+  next();
+});
+
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
+app.use("/api", require("./server/router/router"));
 app.get("*", (req, res) => res.redirect("/"));
 app.listen(process.env.PORT | 3000);
