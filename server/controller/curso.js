@@ -16,7 +16,7 @@ exports.login_auth = (req, res) => {
     if (err) {
       await req.flash("info", "Error desconocido, contacte con administrador!");
     } else if (result.length > 0) {
-      if (result[0].Expiration > new Date()) {
+      if (new Date(result[0].Expiration) > new Date()) {
         return res.redirect("/curso/index");
       } else {
         await req.flash("info", "Usuario caducado, renueve los cursos!");

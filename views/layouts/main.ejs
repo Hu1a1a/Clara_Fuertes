@@ -1,106 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= locals.title %></title>
-    <meta name="description" content="<%= locals.description %>" />
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
-      crossorigin="anonymous"></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Asap+Condensed&amp;display=swap"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Bad+Script&amp;display=swap"
-      rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Asap&amp;display=swap"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Handlee&amp;display=swap"
-      rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap"
-      rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Kite+One&amp;display=swap"
-      rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css?family=Artifika&amp;display=swap"
-      rel="stylesheet">
-  </head>
 
-  <body>
-    <div>
-      <%- body %>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= locals.title %>
+  </title>
+  <meta name="description" content="<%= locals.description %>" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Asap+Condensed&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bad+Script&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Asap&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Handlee&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Allura&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Kite+One&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Artifika&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div>
+    <%- body %>
+  </div>
+
+  <footer>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-2">
+        <a href>
+          <i class="bi bi-instagram">
+          </i>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href>
+          <i class="bi bi-whatsapp">
+          </i>
+        </a>
+      </div>
+      <div class="col-2">
+        <a href>
+          <i class="bi bi-envelope">
+          </i>
+        </a>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-3"><a href="/curso/login"> Cursos </a></div>
+      <div class="col-3"><a href> Aviso legal </a></div>
+      <div class="col-3"><a href> Política de privacidad </a></div>
+      <div class="col-3"><a href> Política de cookies </a></div>
+    </div>
+    <div class="row">
+      <div class="col">Copyright c 2023 Clara Fuertes</div>
+    </div>
+  </footer>
+</body>
+<style>
+  footer {
+    background: rgba(217, 217, 217, 0.3100000023841858);
+    text-align: -webkit-center;
+    height: 25vh;
 
-    <footer>
-      <div class="row">
-        <div class="col-3"></div>
-        <div class="col-2">
-          <a href>
-            <i class="bi bi-instagram">
-            </i>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href>
-            <i class="bi bi-whatsapp">
-            </i>
-          </a>
-        </div>
-        <div class="col-2">
-          <a href>
-            <i class="bi bi-envelope">
-            </i>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3"><a href="/curso"> Cursos </a></div>
-        <div class="col-3"><a href> Aviso legal </a></div>
-        <div class="col-3"><a href> Política de privacidad </a></div>
-        <div class="col-3"><a href> Política de cookies </a></div>
-      </div>
-      <div class="row">
-        <div class="col">Copyright c 2023 Clara Fuertes</div>
-      </div>
-    </footer>
-  </body>
-  <style>
-    footer {
-      background: rgba(217, 217, 217, 0.3100000023841858);
-      text-align: -webkit-center;
-      height: 25vh;
-      .row{
-        padding: 1%;
-      }
-    }
-    .body{
-      min-height: 75vh;
-    }
     .row {
-      --bs-gutter-x: 0;
+      padding: 1%;
     }
-    a{
-      color: black;
-      text-decoration: none;
-    }
-    i{
+  }
+
+  .body {
+    min-height: 75vh;
+  }
+
+  .row {
+    --bs-gutter-x: 0;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  i {
     font-size: 24px;
-    }
+  }
 </style>
+
 </html>
