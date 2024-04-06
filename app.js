@@ -28,6 +28,9 @@ app.use(
   })
 );
 
+const connection = require("./db/db");
+connection.connect();
+
 app.use(flash({ sessionKeyName: "flashMessage" }));
 app.use(expressLayout);
 app.set("view engine", "ejs");
