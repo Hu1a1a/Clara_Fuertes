@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("build"));
+app.use(express.static("public"));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Max-Age", "1800");

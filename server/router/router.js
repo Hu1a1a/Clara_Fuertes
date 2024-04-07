@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const c_router = require("../controller/router");
-const c_curso = require("../controller/curso");
+const email = require("../controller/email");
+const curso = require("../controller/curso");
 
-router.post("/email/ensalada", c_router.email_ensalada);
-router.post("/curso/login", c_curso.login);
+router.post("/email/ensalada", email.email_ensalada);
+router.post("/curso/login", curso.login);
 
 module.exports = router;

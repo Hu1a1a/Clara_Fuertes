@@ -8,7 +8,7 @@
         <br>
         ¡Se acabaron las dudas!
     </div>
-    <div class="e1">
+    <div class="e4">
         <li>
             Llega el buen tiempo y sabes que vas a recurrir más de una vez a las
             ensaladas
@@ -51,17 +51,39 @@
     <div class="e2">
         ¡Recibe tu Guía GRATUITA de ensaladas a tu correo!
         <div>
-            <input type="text" placeholder="Tu nombre" id="Name"
-                name="Name" minlength="1">
+            <input type="text" placeholder="Tu nombre"
+                [(ngModel)]="Name" minlength="1">
         </div>
         <div>
-            <input type="email" placeholder="Tu Email" id="Email"
-                name="Email" minlength="1">
+            <input type="email" placeholder="Tu Email"
+                [(ngModel)]="Email" minlength="1">
         </div>
         <div>
             <button type="button" (click)="sendGuia()">
                 QUIERO LA GUÍA GRATUITA
             </button>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5"
+                            id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <br>
