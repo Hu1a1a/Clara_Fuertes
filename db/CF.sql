@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost:3306
--- 生成日期： 2024-04-06 18:21:03
+-- 生成日期： 2024-04-07 16:46:47
 -- 服务器版本： 10.6.16-MariaDB-0ubuntu0.22.04.1
 -- PHP 版本： 8.2.17
 
@@ -33,6 +33,26 @@ CREATE TABLE `Course` (
   `CourseSrc` int(11) NOT NULL,
   `CoursePrice` float(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `RegEmail`
+--
+
+CREATE TABLE `RegEmail` (
+  `Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Date` datetime NOT NULL,
+  `Tipo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- 转存表中的数据 `RegEmail`
+--
+
+INSERT INTO `RegEmail` (`Name`, `Email`, `Date`, `Tipo`) VALUES
+('yang', 'yang.ye.1@hotmail.com', '2024-04-07 18:33:53', 'Guia Ensalada');
 
 -- --------------------------------------------------------
 

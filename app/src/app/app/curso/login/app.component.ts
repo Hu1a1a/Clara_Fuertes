@@ -18,9 +18,19 @@ export class AppCursoLoginComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { }
   ngOnInit(): void {
     document.title = "Link en biografía de IG de ensaladas"
+    const token = sessionStorage.getItem("jwt")!
+    if (token) {
+      this.api.setHeader(token)
+      //await this.api.Token()
+      this.router.navigate(['curso/portal'])
+    }
   }
   async login() {
     this.Response = await this.api.Login(this.User, this.Pass)
-    if (this.Response.ok) this.router.navigate(["curso/portal"])
+    if (this.Response.ok) {
+      this.router.navigate(["curso/portal"])
+      sessionStorage.setItem("jwt", this.Response.token)
+      this.api.setHeader(this.Response.token)
+    }
   }
 }

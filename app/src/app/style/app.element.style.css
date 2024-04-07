@@ -19,7 +19,7 @@
   font-size: 30px;
   text-align: center;
 }
-button {
+button.Front {
   width: 300px;
   height: 100px;
   background: rgba(245, 206, 199, 1);

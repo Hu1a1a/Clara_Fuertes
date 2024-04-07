@@ -1,0 +1,39 @@
+<div style="text-align: -webkit-center;padding: 5%;">
+    <div class="login-box"
+        style="text-align-last: center;max-width: 90vw;"><div
+            class="login-logo">
+            <img src="assets/LogoClaraM.jpg" style="max-width: 100%;">
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td colspan="2">Curso</td>
+                    <td>Precio</td>
+                </tr>
+            </thead>
+            <tbody *ngIf="curso">
+                <ng-container *ngFor="let item of curso.data">
+                    <tr>
+                        <td style="width: 40vw;">
+                            <img [src]="'assets/resource/'+item.CoursePorta" alt
+                                style="width: 100%;">
+                        </td>
+                        <td>{{item.CourseName}}
+                            <br>
+                            <p>
+                                {{item.CourseDescrip}}
+                            </p>
+                        </td>
+                        <td>
+                            <b> {{item.CoursePrice | number:'0.2-2'}} € </b>
+                            <br>
+                            <button mat-flat-button
+                                color="primary" (click)="ComprarCurso(item.id)">
+                                Comprar curso </button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
