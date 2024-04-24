@@ -1,19 +1,17 @@
 .footer {
-  background-color: black;
-  color: white;
   width: 100%;
-  text-align: -webkit-center;
+  height: 205px;
+  background-color: #cdddd7;
 }
-.row {
-  padding: 15px 16px;
+.contact {
+  width: 95%;
+  height: 114px;
+  background-color: #f6f5f5;
 }
-a {
-  text-decoration-line: none;
-  color: rgb(106, 107, 108);
-  i {
-    color: black;
-  }
+img{
+  width: 50px;
+  height: 50px;
 }
-i {
-  padding: 5px;
+a.contaco{
+  margin:0px 50px;
 }

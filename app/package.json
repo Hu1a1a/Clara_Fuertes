@@ -2,7 +2,7 @@
   "name": "clara-fuertes",
   "version": "0.0.0",
   "scripts": {
-    "serve": "ng serve",
+    "start": "ng serve",
     "build": "ng build"
   },
   "private": true,
