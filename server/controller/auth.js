@@ -9,20 +9,20 @@ exports.login = (req, res) => {
   try {
     if (req.body.User && req.body.Password) {
       pool.getConnection((e, c) => {
-        c.query(`SELECT Expiration, Admin FROM User WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (err, result) => {
-          if (err) {
+        c.query(`SELECT Expiration, Admin FROM User WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
+          if (e) {
             c.release();
-            return res.json({ ok: false, msg: "Error desconocido, contacte con administrador!" });
-          } else if (result.length > 0) {
-            if (new Date(result[0].Expiration) > new Date()) {
+            return res.json({ ok: false, msg: e });
+          } else if (r.length > 0) {
+            if (new Date(r[0].Expiration) > new Date()) {
               const token = crypto.randomBytes(64).toString("hex");
               c.query(`UPDATE User SET Token = ? WHERE USER = ?;`, [token, req.body.User], () => {
                 c.release();
                 const TokenFind = tokenFile.data.find((a) => a.User === req.body.User);
                 if (TokenFind) TokenFind.token = token;
-                else tokenFile.data.push({ User: req.body.User, token, admin: result[0].Admin });
+                else tokenFile.data.push({ User: req.body.User, token, admin: r[0].Admin });
                 fs.writeFileSync(file, JSON.stringify(tokenFile));
-                if (result[0].Admin) {
+                if (r[0].Admin) {
                   return res.json({ ok: true, token, admin: true });
                 } else {
                   return res.json({ ok: true, token });

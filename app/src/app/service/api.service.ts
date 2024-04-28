@@ -14,16 +14,16 @@ export class ApiService {
     UrlApi: string = environment.URL_API
 
     async Login(User: string, Password: string): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}login`, { User, Password }, this.options));
+        return await firstValueFrom(this.http.post(`${this.UrlApi}login/`, { User, Password }, this.options));
     }
     async Token(): Promise<any> {
-        return await firstValueFrom(this.http.get(`${this.UrlApi}token`, this.options));
+        return await firstValueFrom(this.http.get(`${this.UrlApi}token/`, this.options));
     }
     async SendEmail(Email: string, Name: string): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}email/ensalada`, { Email, Name }, this.options));
+        return await firstValueFrom(this.http.post(`${this.UrlApi}email/ensalada/`, { Email, Name }, this.options));
     }
     async GetCourseList(): Promise<any> {
-        return await firstValueFrom(this.http.get(`${this.UrlApi}curso`, this.options));
+        return await firstValueFrom(this.http.get(`${this.UrlApi}curso/`, this.options));
     }
 
 } 
