@@ -7,7 +7,7 @@ import { AngularModule } from '../../../module/app.angular.component copy';
   standalone: true,
   imports: [AngularMaterialModule, AngularModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', "../../style.component.css"]
+  styleUrls: ['./app.component.css']
 })
 export class AppAdminPortalComponent implements OnInit {
   ngOnInit(): void {

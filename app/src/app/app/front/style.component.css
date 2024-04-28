@@ -1,3 +1,6 @@
+@import "../../style/app.element.style.css";
+@import "../../style/app.text.style.css";
+
 .body {
   text-align: -webkit-center;
   margin: 10% 5% 5% 5%;

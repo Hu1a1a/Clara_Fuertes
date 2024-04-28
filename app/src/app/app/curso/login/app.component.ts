@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [AngularMaterialModule, AngularModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', "../../style.component.css"]
+  styleUrls: ['./app.component.css']
 })
 export class AppCursoLoginComponent implements OnInit {
   User: string = ""
