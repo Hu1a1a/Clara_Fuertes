@@ -12,7 +12,7 @@ exports.login = (req, res) => {
         c.query(`SELECT Expiration, Admin FROM user WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
           if (e) {
             c.release();
-            return res.json({ ok: false, msg: e });
+            return res.json({ ok: false, msg: JSON.stringify(e) });
           } else if (r.length > 0) {
             if (new Date(r[0].Expiration) > new Date()) {
               const token = crypto.randomBytes(64).toString("hex");
@@ -40,7 +40,7 @@ exports.login = (req, res) => {
       return res.json({ ok: false, msg: "Introducir usuario y contraseña!" });
     }
   } catch (e) {
-    return res.json({ ok: false, msg: e });
+    return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 

@@ -2,11 +2,15 @@
 const pool = require("../../db/db");
 
 exports.curso = (req, res) => {
-  pool.query(`SELECT * FROM course;`, async (err, result, fields) => {
-    if (err) {
-      return res.json({ ok: false, msg: "Error desconocido, contacte con administrador!" });
-    } else if (result.length > 0) {
-      return res.json({ ok: true, data: result });
-    }
-  });
+  try {
+    pool.getConnection((e, c) => {
+      pool.query(`SELECT * FROM course;`, async (e, r) => {
+        if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
+        else if (r.length > 0) return res.json({ ok: true, data: r });
+        c.release();
+      });
+    });
+  } catch (e) {
+    return res.json({ ok: false, msg: JSON.stringify(e) });
+  }
 };

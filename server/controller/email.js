@@ -1,16 +1,18 @@
 const nodeoutlook = require("nodejs-nodemailer-outlook");
-const connection = require("../../db/db");
+const pool = require("../../db/db");
+
 exports.email_ensalada = async (req, res) => {
-  if (req.body.Name && req.body.Email) {
-    nodeoutlook.sendEmail({
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      from: process.env.EMAIL_USER,
-      to: req.body.Email,
-      subject: "ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS",
-      html: `
+  try {
+    if (req.body.Name && req.body.Email) {
+      nodeoutlook.sendEmail({
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+        from: process.env.EMAIL_USER,
+        to: req.body.Email,
+        subject: "ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS",
+        html: `
       <h3>Hi ${req.body.Name}, </h3>
       <div class="e0">
         Te regalo la Guía GRATUITA que necesitas para hacer tus ensaladas
@@ -59,28 +61,33 @@ exports.email_ensalada = async (req, res) => {
         </li>
     </div>
       `,
-      attachments: [
-        {
-          filename: "/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf",
-          path: __dirname + "../../../public/ENSALADAS.pdf",
+        attachments: [
+          {
+            filename: "/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf",
+            path: __dirname + "../../../public/ENSALADAS.pdf",
+          },
+        ],
+        onError: (err) => {
+          console.log(err);
+          res.json({ ok: false, msg: "Comprueba el email introducido." });
         },
-      ],
-      onError: (err) => {
-        console.log(err);
-        res.json({ ok: false, msg: "Comprueba el email introducido." });
-      },
-      onSuccess: () => {
-        res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
-        connection.query(
-          `INSERT INTO regemail VALUES (?,?,?,?);`,
-          [req.body.Name, req.body.Email, new Date(), "Guia Ensalada"],
-          (err, result, fields) => {
-            console.log(err);
+        onSuccess: () => {
+          try {
+            pool.getConnection((e, c) => {
+              pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Guia Ensalada"], () => {
+                res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+                c.release();
+              });
+            });
+          } catch (e) {
+            return res.json({ ok: false, msg: JSON.stringify(e) });
           }
-        );
-      },
-    });
-  } else {
-    res.json({ ok: false, msg: "error desconocido" });
+        },
+      });
+    } else {
+      res.json({ ok: false, msg: "Introducir usuario y correo!" });
+    }
+  } catch (e) {
+    return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
