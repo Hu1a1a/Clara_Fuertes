@@ -8,10 +8,22 @@
   height: 114px;
   background-color: #f6f5f5;
 }
-img{
+img {
   width: 50px;
   height: 50px;
 }
-a.contaco{
-  margin:0px 50px;
+a.contaco {
+  margin: 0px 50px;
+}
+.link {
+  font-family: Rajdhani;
+  font-size: 30px;
+  font-weight: 500;
+  color: #626d68;
+}
+.foottext {
+  font-family: Cormorant;
+  font-size: 25px;
+  font-weight: 400;
+  color: #333333;
 }

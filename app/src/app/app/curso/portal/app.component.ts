@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
+import { ApiService } from '../../../service/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-curso-portal',
@@ -10,7 +12,12 @@ import { AngularModule } from '../../../module/app.angular.component copy';
   styleUrls: ['./app.component.css']
 })
 export class AppCursoPortalComponent implements OnInit {
+  constructor(private api: ApiService, private router: Router) { }
   ngOnInit(): void {
-    document.title = "Link en biografía de IG de ensaladas"
+    document.title = "Portal de curso"
+  }
+  CerrarSession() {
+    localStorage.removeItem("jwt")
+    this.router.navigate(["/login/"])
   }
 }

@@ -9,10 +9,4 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT,
 });
 
-pool.getConnection((err, connection) => {
-  if (err) throw err;
-  console.log("Database connected successfully");
-  connection.release();
-});
-
 module.exports = pool;

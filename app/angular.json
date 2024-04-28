@@ -38,9 +38,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": {
-                "runtimeChunk": true
-              },
+              "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
               "fileReplacements": [
