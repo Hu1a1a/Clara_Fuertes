@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AngularMaterialModule } from '../../module/app.angular.material.component';
-import { AngularModule } from '../../module/app.angular.component copy';
-import { ApiService } from '../../service/api.service';
+import { AngularMaterialModule } from '../../../module/app.angular.material.component';
+import { AngularModule } from '../../../module/app.angular.component copy';
+import { ApiService } from '../../../service/api.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 @Component({

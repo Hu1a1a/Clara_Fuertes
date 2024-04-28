@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularMaterialModule } from '../../module/app.angular.material.component';
-import { AngularModule } from '../../module/app.angular.component copy';
+import { AngularMaterialModule } from '../../../module/app.angular.material.component';
+import { AngularModule } from '../../../module/app.angular.component copy';
 
 @Component({
   selector: 'app-main',

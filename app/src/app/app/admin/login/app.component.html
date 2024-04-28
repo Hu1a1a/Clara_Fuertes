@@ -1,0 +1,37 @@
+<div style="text-align: -webkit-center;padding: 5%;">
+    <div class="login-box" style="text-align-last: center;max-width: 500px;">
+        <div class="login-logo">
+            <img src="assets/LogoClaraM.jpg" style="max-width: 100%;">
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Pon tus credenciales para iniciar
+                    sesión</p>
+                <div class="input-group mb-3">
+                    <input type="text" name="User" class="form-control"
+                        placeholder="Correo electrónico/username"
+                        [(ngModel)]="User">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" name="Password"
+                        class="form-control" placeholder="Contraseña"
+                        [(ngModel)]="Pass">
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button"
+                            class="btn btn-primary btn-block"
+                            (click)="login()">Iniciar
+                            sesión</button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="Response?.msg">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                        role="alert">
+                        {{Response.msg}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

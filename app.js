@@ -3,8 +3,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const connection = require("./db/db");
-connection.connect();
+
 app.set("json space", 2);
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));

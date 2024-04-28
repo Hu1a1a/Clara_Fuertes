@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularMaterialModule } from '../../module/app.angular.material.component';
-import { AngularModule } from '../../module/app.angular.component copy';
-import { ApiService } from '../../service/api.service';
+import { AngularMaterialModule } from '../../../module/app.angular.material.component';
+import { AngularModule } from '../../../module/app.angular.component copy';
+import { ApiService } from '../../../service/api.service';
 
 @Component({
   selector: 'app-compra',

@@ -16,5 +16,6 @@ export class HeadComponent {
     { Name: "Sana tus digestiones", Router: "#/" },
     { Name: "Pérdida de grasa", Router: "#/" },
     { Name: "Asesoramiento único", Router: "#/" },
+    { Name: "Portal Curso", Router: "#/curso/login/" },
   ]
 }
