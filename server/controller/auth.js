@@ -9,7 +9,7 @@ exports.login = (req, res) => {
   try {
     if (req.body.User && req.body.Password) {
       pool.getConnection((e, c) => {
-        c.query(`SELECT Expiration, Admin FROM User WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
+        c.query(`SELECT Expiration, Admin FROM user WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
           if (e) {
             c.release();
             return res.json({ ok: false, msg: e });

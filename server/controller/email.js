@@ -72,7 +72,7 @@ exports.email_ensalada = async (req, res) => {
       onSuccess: () => {
         res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
         connection.query(
-          `INSERT INTO RegEmail VALUES (?,?,?,?);`,
+          `INSERT INTO regemail VALUES (?,?,?,?);`,
           [req.body.Name, req.body.Email, new Date(), "Guia Ensalada"],
           (err, result, fields) => {
             console.log(err);
