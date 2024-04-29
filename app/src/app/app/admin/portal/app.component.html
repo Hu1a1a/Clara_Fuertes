@@ -1,3 +1,97 @@
-<button mat-raised-button color="primary" (click)="CerrarSession()">
-    Cerrar Sessión
-</button>
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="First">
+            <table class="table table-striped" *ngIf="level1&&level2&&video">
+                <thead>
+                    <tr>
+                        <td> Grupo </td>
+                        <td> Fase </td>
+                        <td> Video </td>
+                        <td> Nombre </td>
+                        <td width="50%"> Descripción </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let i1 of level1.data;index as i">
+                        <tr (click)="OpenModal(i1,'level1','update')">
+                            <td> {{i+1}} </td>
+                            <td></td>
+                            <td></td>
+                            <td> {{i1.Name}} </td>
+                            <td width="50%">
+                                {{i1.Description}}
+                            </td>
+                        </tr>
+                        <ng-container *ngFor="let i2 of level2.data;index as j">
+                            <ng-container *ngIf="i1.id===i2.level1">
+                                <tr (click)="OpenModal(i2,'level2','update')">
+                                    <td></td>
+                                    <td>{{j+1}}</td>
+                                    <td></td>
+                                    <td> {{i2.Name}} </td>
+                                    <td width="50%">
+                                        {{i2.Description}}
+                                    </td>
+                                </tr>
+                                <ng-container
+                                    *ngFor="let v of video.data;index as k">
+                                    <ng-container *ngIf="i2.id===v.level2">
+                                        <tr
+                                            (click)="OpenModal(v,'video','update')">
+                                            <td></td>
+                                            <td></td>
+                                            <td>{{k+1}}</td>
+                                            <td> {{v.Name}} </td>
+                                            <td width="50%">
+                                                {{v.Description}}
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </tbody>
+            </table>
+            <button mat-raised-button color="primary"
+                (click)="OpenModal(level1.data[0],'level1','create')">
+                Añadir Grupo
+            </button>
+            <button mat-raised-button color="primary"
+                (click)="OpenModal(level2.data[0], 'level2','create')">
+                Añadir Fase
+            </button>
+            <button mat-raised-button color="primary"
+                (click)="OpenModal(video.data[0], 'video','create')">
+                Añadir Video
+            </button>
+        </mat-tab>
+        <mat-tab label="Second"> </mat-tab>
+        <mat-tab label="Third"> </mat-tab>
+    </mat-tab-group>
+    <button mat-raised-button color="primary" (click)="CerrarSession()">
+        Cerrar Sessión
+    </button>
+</div>
+
+<section class="modal-form" *ngIf="modal">
+    <div class="form-container">
+        <div (click)="modal=false" class="close-modal"> × </div>
+        <h2 style="margin: 0;"> {{ sAccion }} {{ sRouter }} </h2>
+        <ng-container *ngFor="let item of Key(sData)">
+            <mat-form-field style="width: 100%;">
+                <mat-label> {{item}} </mat-label>
+                <input matInput [(ngModel)]="sData[item]"
+                    [disabled]="item==='id'">
+            </mat-form-field>
+        </ng-container>
+        <button mat-raised-button color="primary"
+            (click)="Accion(sData,sRouter,sAccion)">
+            {{ sAccion }} {{ sRouter }}
+        </button>
+        <button mat-raised-button color="primary" *ngIf="sAccion==='update'"
+            (click)="Accion(sData,sRouter,'delete')">
+            delete {{ sRouter }}
+        </button>
+    </div>
+</section>

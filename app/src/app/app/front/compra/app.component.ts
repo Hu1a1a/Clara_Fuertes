@@ -15,7 +15,7 @@ export class AppCompraComponent implements OnInit {
   curso!: any
   async ngOnInit() {
     document.title = "Link en biografía de IG de ensaladas"
-    this.curso = await this.api.GetCourseList()
+    this.curso = await this.api.GetCurso("level1")
     console.log(this.curso)
   }
   ComprarCurso(id: number) {

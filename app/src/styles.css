@@ -10,3 +10,112 @@
 .row {
   --bs-gutter-x: 0;
 }
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f7fa;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin: 0 0 1.25rem 0;
+  box-shadow: 0 0.25rem 0.5rem #e6edef;
+
+  .card-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 1rem 1.5rem;
+  }
+}
+
+.table-container {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.flex-end {
+  display: flex;
+}
+
+.modal-form {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(170, 170, 170, 0);
+  backdrop-filter: blur(5px);
+
+  .close-modal {
+    width: 40px;
+    height: 40px;
+    line-height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .close-modal:hover {
+    background-color: #eee;
+  }
+
+  .close-modal:active {
+    background-color: #ddd;
+  }
+
+  .form-container {
+    background-color: white;
+    border: 1px solid rgba(170, 170, 170, 0.2);
+    width: 1000px;
+    max-width: 80vw;
+    height: 850px;
+    max-height: 90vh;
+    padding: 30px;
+    padding-bottom: 0;
+    position: absolute;
+    top: 5%;
+    left: 13%;
+    transform: translate(0%, 0%);
+  }
+}
+
+.modal-form.delete-modal {
+  .form-container {
+    height: 300px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.input-group {
+  z-index: 0;
+}

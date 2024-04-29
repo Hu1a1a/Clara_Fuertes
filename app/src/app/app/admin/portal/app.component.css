@@ -1,0 +1,18 @@
+tr {
+  cursor: pointer;
+}
+
+tr:hover td {
+  background-color: gray;
+}
+
+button {
+  margin: 10px 20px;
+}
+
+table {
+  table-layout: fixed;
+}
+td {
+  word-wrap: break-word;
+}
