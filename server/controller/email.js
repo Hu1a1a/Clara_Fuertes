@@ -80,7 +80,7 @@ exports.email_ensalada = async (req, res) => {
               });
             });
           } catch (e) {
-            return res.json({ ok: false, msg: JSON.stringify(e) });
+            return res.json({ ok: false, msg: e.toString() });
           }
         },
       });
@@ -88,6 +88,6 @@ exports.email_ensalada = async (req, res) => {
       res.json({ ok: false, msg: "Introducir usuario y correo!" });
     }
   } catch (e) {
-    return res.json({ ok: false, msg: JSON.stringify(e) });
+    return res.json({ ok: false, msg: e.toString() });
   }
 };

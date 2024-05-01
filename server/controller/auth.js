@@ -40,7 +40,7 @@ exports.login = (req, res) => {
       return res.json({ ok: false, msg: "Introducir usuario y contraseña!" });
     }
   } catch (e) {
-    return res.json({ ok: false, msg: JSON.stringify(e) });
+    return res.json({ ok: false, msg: e.toString() });
   }
 };
 

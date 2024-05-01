@@ -1,9 +1,6 @@
 <div style="text-align: -webkit-center;padding: 5%;">
     <div class="login-box"
-        style="text-align-last: center;max-width: 90vw;"><div
-            class="login-logo">
-            <img src="assets/LogoClaraM.jpg" style="max-width: 100%;">
-        </div>
+        style="text-align-last: center;max-width: 90vw;">
         <table class="table">
             <thead>
                 <tr>
@@ -18,17 +15,17 @@
                             <img [src]="'assets/resource/'+item.CoursePorta" alt
                                 style="width: 100%;">
                         </td>
-                        <td>{{item.CourseName}}
+                        <td>{{item.Name}}
                             <br>
                             <p>
-                                {{item.CourseDescrip}}
+                                {{item.Description}}
                             </p>
                         </td>
                         <td>
-                            <b> {{item.CoursePrice | number:'0.2-2'}} € </b>
+                            <b> {{item.Price | number:'0.2-2'}} € </b>
                             <br>
                             <button mat-flat-button
-                                color="primary" (click)="ComprarCurso(item.id)">
+                                color="primary" (click)="ComprarCurso(item)">
                                 Comprar curso </button>
                         </td>
                     </tr>

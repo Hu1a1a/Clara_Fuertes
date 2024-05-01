@@ -22,11 +22,16 @@ export class ApiService {
     async SendEmail(Email: string, Name: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}email/ensalada/`, { Email, Name }, this.options));
     }
-
-    async GetCurso(router: string): Promise<any> {
-        return await firstValueFrom(this.http.get(`${this.UrlApi}curso/${router}/`, this.options));
+    async Get(router: string): Promise<any> {
+        return await firstValueFrom(this.http.get(`${this.UrlApi}${router}/`, this.options));
     }
-    async AccionCurso(data: any, router: string, accion: "create" | "update" | "delete"): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}curso/${accion}/${router}/`, { data }, this.options));
+    async Accion(data: any, router: string, accion: "create" | "update" | "delete"): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}${router}/${accion}/`, { data }, this.options));
+    }
+    async paySession(item: any): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/pay/`, item, this.options));
+    }
+    async checkSession(item: any): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/check/`, item, this.options));
     }
 }

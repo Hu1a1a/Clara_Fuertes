@@ -26,9 +26,9 @@ export class AppCursoPortalComponent implements OnInit {
     this.Get()
   }
   async Get() {
-    this.api.GetCurso("level1").then((a) => this.level1 = a)
-    this.api.GetCurso("level2").then((a) => this.level2 = a)
-    this.api.GetCurso("video").then((a) => this.video = a)
+    this.api.Get("curso/level1").then((a) => this.level1 = a)
+    this.api.Get("curso/level2").then((a) => this.level2 = a)
+    this.api.Get("curso/video").then((a) => this.video = a)
   }
   photoURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed"));

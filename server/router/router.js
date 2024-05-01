@@ -3,6 +3,8 @@ const router = express.Router();
 const email = require("../controller/email");
 const curso = require("../controller/curso");
 const auth = require("../controller/auth");
+const user = require("../controller/user");
+const stripe = require("../controller/stripe");
 
 router.post("/email/ensalada/", email.email_ensalada);
 
@@ -10,17 +12,25 @@ router.get("/curso/level1/", curso.level1);
 router.get("/curso/level2/", curso.level2);
 router.get("/curso/video/", curso.video);
 
-router.post("/curso/create/level1/", curso.add_level1);
-router.post("/curso/create/level2/", curso.add_level2);
-router.post("/curso/create/video/", curso.add_video);
+router.post("/curso/level1/create/", curso.add_level1);
+router.post("/curso/level2/create/", curso.add_level2);
+router.post("/curso/video/create/", curso.add_video);
 
-router.post("/curso/update/level1/", curso.update_level1);
-router.post("/curso/update/level2/", curso.update_level2);
-router.post("/curso/update/video/", curso.update_video);
+router.post("/curso/level1/update/", curso.update_level1);
+router.post("/curso/level2/update/", curso.update_level2);
+router.post("/curso/video/update/", curso.update_video);
 
-router.post("/curso/delete/level1/", curso.delete_level1);
-router.post("/curso/delete/level2/", curso.delete_level2);
-router.post("/curso/delete/video/", curso.delete_video);
+router.post("/curso/level1/delete/", curso.delete_level1);
+router.post("/curso/level2/delete/", curso.delete_level2);
+router.post("/curso/video/delete/", curso.delete_video);
+
+router.get("/user/", user.get);
+router.post("/user/create/", user.add);
+router.post("/user/update/", user.update);
+router.post("/user/delete/", user.delete);
+
+router.post("/stripe/pay/", stripe.paySession);
+router.post("/stripe/check/", stripe.paySession);
 
 router.post("/login/", auth.login);
 router.get("/token/", auth.checkToken);

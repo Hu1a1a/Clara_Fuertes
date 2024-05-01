@@ -17,6 +17,7 @@ export class AppAdminPortalComponent implements OnInit {
   level1!: any
   level2!: any
   video!: any
+  user!: any
 
   ngOnInit() {
     document.title = "Portal de curso"
@@ -35,15 +36,15 @@ export class AppAdminPortalComponent implements OnInit {
   }
 
   async Get() {
-    this.api.GetCurso("level1").then((a) => this.level1 = a)
-    this.api.GetCurso("level2").then((a) => this.level2 = a)
-    this.api.GetCurso("video").then((a) => this.video = a)
+    this.api.Get("curso/level1").then((a) => this.level1 = a)
+    this.api.Get("curso/level2").then((a) => this.level2 = a)
+    this.api.Get("curso/video").then((a) => this.video = a)
+    this.api.Get("user").then((a) => this.user = a)
   }
 
   OpenModal(data: any, router: string, accion: "create" | "update" | "delete") {
     this.sRouter = router
     this.sAccion = accion
-
     if (this.sAccion === "create") {
       this.sData = JSON.parse(JSON.stringify(data))
       for (const d of Object.keys(this.sData)) {
@@ -58,7 +59,7 @@ export class AppAdminPortalComponent implements OnInit {
 
 
   async Accion(data: any, router: string, accion: "create" | "update" | "delete") {
-    await this.api.AccionCurso(data, router, accion)
+    await this.api.Accion(data, router, accion)
     this.Get()
     this.modal = false
   }

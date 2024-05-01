@@ -9,6 +9,7 @@ import { AppAdminPortalComponent } from './app/admin/portal/app.component';
 import { AppCursoComponent } from './app/curso/app.component';
 import { AppAdminComponent } from './app/admin/app.component';
 import { AppLoginComponent } from './app/login/app.component';
+import { AppCompraCheckComponent, } from './app/front/compra/check/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'patologia', component: AppPatologiaComponent },
     { path: 'nutricion', component: AppNutricionComponent },
     { path: 'compra', component: AppCompraComponent },
+    { path: 'compra/pay', component: AppCompraCheckComponent },
     { path: "login", component: AppLoginComponent },
     {
         path: 'curso', component: AppCursoComponent, children: [
