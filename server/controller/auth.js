@@ -54,7 +54,17 @@ async function auth(req) {
 }
 
 exports.checkToken = async (req, res) => {
-  if ((await auth(req)) === 1) res.json({ ok: true, msg: "Token vàlido!" });
-  else if ((await auth(req)) === 2) res.json({ ok: true, msg: "Token vàlido!", admin: true });
+  if ((await auth(req)) === 1) res.json({ ok: true, msg: "Token válido!" });
+  else if ((await auth(req)) === 2) res.json({ ok: true, msg: "Token válido!", admin: true });
   else res.json({ ok: false, msg: "Token no vàlido!" });
+};
+
+exports.auth = async (req, res) => {
+  if ((await auth(req)) > 0) return true;
+  return res.json({ ok: false, msg: "Token no válido!" });
+};
+
+exports.authAdmin = async (req, res) => {
+  if ((await auth(req)) > 1) return true;
+  return res.json({ ok: false, msg: "Token no válido!" });
 };

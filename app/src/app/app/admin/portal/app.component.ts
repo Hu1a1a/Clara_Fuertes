@@ -23,10 +23,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.Get()
   }
 
-  CerrarSession() {
-    localStorage.removeItem("jwt")
-    this.router.navigate(["/login/"])
-  }
+
 
   modal: boolean = false
   sData!: any
@@ -49,7 +46,6 @@ export class AppAdminPortalComponent implements OnInit {
 
     if (this.sAccion === "create") {
       this.sData = JSON.parse(JSON.stringify(data))
-
       for (const d of Object.keys(this.sData)) {
         this.sData[d] = ""
       }

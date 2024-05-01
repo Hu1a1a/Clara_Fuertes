@@ -16,6 +16,8 @@ export class AppAdminComponent implements OnInit {
       this.api.setHeader(token)
       const check = await this.api.Token()
       if (!check.ok || !check.admin) this.router.navigate(['/login/'])
+    } else {
+      this.router.navigate(['/login/'])
     }
   }
 }

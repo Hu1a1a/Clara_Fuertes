@@ -1,0 +1,38 @@
+.label {
+    width: 100%;
+    height: 122px;
+    background-color: #dae4e0;
+    z-index: 1;
+  }
+  
+  li {
+    margin: 0px 5px;
+  }
+  .dropdown-menu {
+    background-color: #dae4e0;
+  }
+  .navbar-collapse {
+    background-color: #dae4e0;
+    padding: 25px;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .navbar-nav {
+    flex-direction: row;
+  }
+  
+  img {
+    width: 356px;
+    height: 114px;
+  }
+  a {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: Rajdhani;
+    color: #6a6056;
+    text-align: center;
+    padding: 0;
+  }
+  a:hover {
+    color: #9baba4;
+  }
+  

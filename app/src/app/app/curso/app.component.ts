@@ -16,6 +16,8 @@ export class AppCursoComponent implements OnInit {
       this.api.setHeader(token)
       const check = await this.api.Token()
       if (!check.ok) this.router.navigate(['/login/'])
+    } else {
+      this.router.navigate(['/login/'])
     }
   }
 }

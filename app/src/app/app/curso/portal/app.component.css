@@ -1,0 +1,18 @@
+.card-img-top {
+  width: 25vw;
+  min-width: 250px;
+  align-self: center;
+}
+.card,
+.card-body {
+  width: 30vw;
+  min-width: 300px;
+  align-self: center;
+  text-align: -webkit-center;
+  height: 500px;
+  margin: 5px;
+}
+
+.card {
+  padding: 5px;
+}

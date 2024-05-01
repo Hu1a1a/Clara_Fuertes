@@ -1,25 +1,25 @@
 "use strict";
 const pool = require("../../db/db");
-
-exports.level1 = (req, res) => {
+const { auth, authAdmin } = require("./auth");
+exports.level1 = async (req, res) => {
   try {
-    SELECT("level1", req, res);
+    if (await auth(req, res)) SELECT("level1", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.level2 = (req, res) => {
+exports.level2 = async (req, res) => {
   try {
-    SELECT("level2", req, res);
+    if (await auth(req, res)) SELECT("level2", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.video = (req, res) => {
+exports.video = async (req, res) => {
   try {
-    SELECT("video", req, res);
+    if (await auth(req, res)) SELECT("video", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
@@ -35,25 +35,25 @@ function SELECT(Table, req, res) {
   });
 }
 
-exports.add_level1 = (req, res) => {
+exports.add_level1 = async (req, res) => {
   try {
-    ADD("level1", req, res);
+    if (await authAdmin(req, res)) ADD("level1", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.add_level2 = (req, res) => {
+exports.add_level2 = async (req, res) => {
   try {
-    ADD("level2", req, res);
+    if (await authAdmin(req, res)) ADD("level2", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.add_video = (req, res) => {
+exports.add_video = async (req, res) => {
   try {
-    ADD("video", req, res);
+    if (await authAdmin(req, res)) ADD("video", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
@@ -79,25 +79,25 @@ function ADD(Table, req, res) {
   });
 }
 
-exports.update_level1 = (req, res) => {
+exports.update_level1 = async (req, res) => {
   try {
-    UPDATE("level1", req, res);
+    if (await authAdmin(req, res)) UPDATE("level1", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.update_level2 = (req, res) => {
+exports.update_level2 = async (req, res) => {
   try {
-    UPDATE("level2", req, res);
+    if (await authAdmin(req, res)) UPDATE("level2", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.update_video = (req, res) => {
+exports.update_video = async (req, res) => {
   try {
-    UPDATE("video", req, res);
+    if (await authAdmin(req, res)) UPDATE("video", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
@@ -116,25 +116,25 @@ function UPDATE(Table, req, res) {
   });
 }
 
-exports.delete_level1 = (req, res) => {
+exports.delete_level1 = async (req, res) => {
   try {
-    DELETE("level1", req, res);
+    if (await authAdmin(req, res)) DELETE("level1", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.delete_level2 = (req, res) => {
+exports.delete_level2 = async (req, res) => {
   try {
-    DELETE("level2", req, res);
+    if (await authAdmin(req, res)) DELETE("level2", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
 };
 
-exports.delete_video = (req, res) => {
+exports.delete_video = async (req, res) => {
   try {
-    DELETE("video", req, res);
+    if (await authAdmin(req, res)) DELETE("video", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: JSON.stringify(e) });
   }
