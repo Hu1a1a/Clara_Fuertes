@@ -16,3 +16,34 @@
 .card {
   padding: 5px;
 }
+p {
+  overflow-wrap: break-word;
+}
+.naver {
+  background-color: white;
+  cursor: pointer;
+}
+.level1 {
+  background-color: #dae4e0;
+  color: black;
+  border-color: gray;
+}
+.level2 {
+  background-color: #a3b3ac;
+  color: black;
+  border-color: gray;
+}
+.video {
+  background-color: #79978b;
+  color: black;
+  border-color: gray;
+}
+strong {
+  padding-left: 10px;
+}
+a {
+  padding: 25px 5px 25px 15px;
+}
+a:hover {
+  background-color: #9ce9ca;
+}

@@ -1,5 +1,6 @@
 "use strict";
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const pool = require("../../db/db");
 
 exports.paySession = async (req, res) => {
   try {
@@ -24,51 +25,32 @@ exports.paySession = async (req, res) => {
 };
 
 exports.checkSession = async (req, res) => {
-  console.log(req.body);
-  if (req.body.Url) {
-    const Url = req.body.Url.toString().split("/pay/")[1].split("#")[0];
+  if (req.body.url) {
+    const Url = req.body.url.toString().split("/pay/")[1].split("#")[0];
     try {
       const session = await stripe.checkout.sessions.retrieve(Url);
       if (session.status === "complete") {
-        let sqlString = "";
-        let date = [];
-        con.query(sqlPaying, (err, result) => {
-          if (err) res.send();
-          else {
-            for (const item of result) {
-              if (item.Striper === Url) {
-                sqlString += `,(${item.Date}, "${session.customer_details.phone}", "${session.customer_details.email}", 
-                "${session.customer_details.name}", "${Url}", "${session.amount_total / 100}")`;
-                date.push(item.Date);
-              }
-            }
-            if (sqlString) {
-              con.query(`INSERT INTO Reserva VALUES ${sqlString.replace(",", "")}`, (err) => {
-                if (!err) {
-                  con.query(`DELETE FROM Paying WHERE Striper = "${Url}"`, (err) => {
-                    if (!err) {
-                      con.query(
-                        `DELETE FROM Paying WHERE ExpireDate < ${GetDay(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())}`
-                      );
-                    }
-                  });
-                }
+        pool.getConnection((e, c) => {
+          pool.query(
+            `INSERT INTO user (User, Pass, Email, Phone, Admin) VALUES ('${session.customer_details.name}', 'Nutricion', '${session.customer_details.email}', '${session.customer_details.phone}', 0);`,
+            async (e, r) => {
+              pool.query(`UPDATE user SET User = '${session.customer_details.name + r.insertId}' WHERE id = ${r.insertId}`, async (e, r) => {
+                c.release();
+                res.json({
+                  ok: true,
+                  msg: "Curso comprado correctamente!",
+                  phone: session.customer_details.phone,
+                  email: session.customer_details.email,
+                  name: session.customer_details.name,
+                  importe: session.amount_total / 100,
+                });
               });
             }
-            res.json({
-              mensaje: "realizado!",
-              date: date,
-              phone: session.customer_details.phone,
-              email: session.customer_details.email,
-              name: session.customer_details.name,
-              importe: session.amount_total / 100,
-              Url: Url,
-            });
-          }
+          );
         });
-      } else res.json({ mensaje: "erronea!" });
-    } catch {
-      res.json({ mensaje: "erronea!" });
+      } else res.json({ ok: false, msg: "Pago fallido! Contacte con el administrador en caso de error!" });
+    } catch (e) {
+      res.json({ ok: false, msg: e.toString() });
     }
-  }
+  } else res.json({ ok: false, msg: "erronea!" });
 };

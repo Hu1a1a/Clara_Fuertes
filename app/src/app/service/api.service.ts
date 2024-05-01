@@ -16,6 +16,12 @@ export class ApiService {
     async Login(User: string, Password: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}login/`, { User, Password }, this.options));
     }
+    async PasswordReset(Email: string): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}resetPass/`, { Email }, this.options));
+    }
+    async PasswordReset2(email: string, token: string, password: string): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}resetPassword/`, { email, token, password }, this.options));
+    }
     async Token(): Promise<any> {
         return await firstValueFrom(this.http.get(`${this.UrlApi}token/`, this.options));
     }
@@ -31,7 +37,7 @@ export class ApiService {
     async paySession(item: any): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/pay/`, item, this.options));
     }
-    async checkSession(item: any): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/check/`, item, this.options));
+    async checkSession(url: string): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/check/`, { url }, this.options));
     }
 }

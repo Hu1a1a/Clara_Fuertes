@@ -10,9 +10,14 @@ import { ApiService } from '../../../../service/api.service';
 })
 export class AppCompraCheckComponent {
   constructor(private api: ApiService) { }
+  data!: any
   async ngOnInit() {
-
-    //const data = await this.api.Check()
-
+    const url = localStorage.getItem("stripe")
+    if (url) {
+      this.data = await this.api.checkSession(url)
+      if (this.data.ok) {
+        await this.api.PasswordReset(this.data.email)
+      }
+    }
   }
 }

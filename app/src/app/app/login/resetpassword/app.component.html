@@ -1,0 +1,44 @@
+<div style="text-align: -webkit-center;padding: 5%;">
+    <div class="login-box" style="text-align-last: center;max-width: 500px;">
+        <div class="login-logo">
+            <img src="assets/LogoClaraM.jpg" style="max-width: 100%;">
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg"> Introducir tu nueva contraseña</p>
+                <div class="input-group mb-3">
+                    <input type="password" name="Password"
+                        class="form-control" placeholder="Contraseña"
+                        [(ngModel)]="password">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" name="Password"
+                        class="form-control"
+                        placeholder="Volver a introducir la contraseña"
+                        [(ngModel)]="passwordconfirm">
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button"
+                            class="btn btn-primary btn-block"
+                            (click)="passwordReset()">
+                            Resetear
+                        </button>
+                    </div>
+                </div>
+                <div class="row" *ngIf="Response?.msg">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                        role="alert">
+                        {{Response.msg}}
+                    </div>
+                </div>
+                <div class="row" *ngIf="password!==passwordconfirm">
+                    <div class="alert alert-danger alert-dismissible fade show"
+                        role="alert">
+                        Las contraseñas no coinciden!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -30,9 +30,11 @@ router.post("/user/update/", user.update);
 router.post("/user/delete/", user.delete);
 
 router.post("/stripe/pay/", stripe.paySession);
-router.post("/stripe/check/", stripe.paySession);
+router.post("/stripe/check/", stripe.checkSession);
 
 router.post("/login/", auth.login);
+router.post("/resetPass/", email.email_resetPass);
+router.post("/resetPassword/", auth.resetPassword);
 router.get("/token/", auth.checkToken);
 
 module.exports = router;

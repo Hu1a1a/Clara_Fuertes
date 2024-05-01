@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
 export class AppCompraComponent implements OnInit {
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService) { }
   curso!: any
   async ngOnInit() {
     document.title = "Link en biografía de IG de ensaladas"
@@ -21,6 +21,7 @@ export class AppCompraComponent implements OnInit {
   async ComprarCurso(item: any) {
     const data = await this.api.paySession(item)
     if (data.ok) {
+      localStorage.setItem("stripe", data.url)
       window.location.href = data.url
     }
   }

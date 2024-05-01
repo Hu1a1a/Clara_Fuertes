@@ -91,3 +91,60 @@ exports.email_ensalada = async (req, res) => {
     return res.json({ ok: false, msg: e.toString() });
   }
 };
+
+const crypto = require("crypto");
+exports.email_resetPass = async (req, res) => {
+  try {
+    if (req.body.Email) {
+      const token = crypto.randomBytes(64).toString("hex");
+      pool.getConnection((e, c) => {
+        pool.query(`SELECT User FROM user WHERE Email = '${req.body.Email}';`, async (e, r) => {
+          if (r) {
+            pool.query(`UPDATE user SET Token = '${token}' WHERE Email = '${req.body.Email}';`, async (e, rx) => {
+              c.release();
+              nodeoutlook.sendEmail({
+                auth: {
+                  user: process.env.EMAIL_USER,
+                  pass: process.env.EMAIL_PASSWORD,
+                },
+                from: process.env.EMAIL_USER,
+                to: req.body.Email,
+                subject: "Clara Fuertes Reset de contraseña",
+                html: `
+                <h3>Hi, </h3>
+                <div>
+                You are receiving this email because we received a password reset request for your account.
+                <br>
+                Your user: ${r[0].User}
+                <br>
+                <a href="${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}">
+                ${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}
+                </a>
+                <br>
+                If you did not request a password reset, no further action is required.
+                Regards,
+                </div>
+                `,
+                onError: (err) => {
+                  console.log(err);
+                  res.json({ ok: true, msg: "Compruebe en su buzon." });
+                },
+                onSuccess: () => {
+                  console.log("succ");
+                  res.json({ ok: true, msg: "Compruebe en su buzon." });
+                },
+              });
+            });
+          } else {
+            c.release();
+            res.json({ ok: true, msg: "Compruebe en su buzon." });
+          }
+        });
+      });
+    } else {
+      res.json({ ok: false, msg: "Introducir el correo!" });
+    }
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};

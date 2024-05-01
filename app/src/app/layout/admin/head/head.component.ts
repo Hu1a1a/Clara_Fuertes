@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-head-admin-panel',
@@ -10,5 +11,9 @@ import { AngularMaterialModule } from '../../../module/app.angular.material.comp
   styleUrl: './head.component.css'
 })
 export class HeadAdminPanelComponent {
-
+  constructor(private router: Router) { }
+  CerrarSession() {
+    localStorage.removeItem("jwt")
+    this.router.navigate(["/login/"])
+  }
 }

@@ -10,6 +10,7 @@ import { AppCursoComponent } from './app/curso/app.component';
 import { AppAdminComponent } from './app/admin/app.component';
 import { AppLoginComponent } from './app/login/app.component';
 import { AppCompraCheckComponent, } from './app/front/compra/check/app.component';
+import { AppResetPasswordComponent } from './app/login/resetpassword/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'compra', component: AppCompraComponent },
     { path: 'compra/pay', component: AppCompraCheckComponent },
     { path: "login", component: AppLoginComponent },
+    { path: "resetPass", component: AppResetPasswordComponent },
     {
         path: 'curso', component: AppCursoComponent, children: [
             { path: "portal", component: AppCursoPortalComponent },

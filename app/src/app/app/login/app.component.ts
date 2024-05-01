@@ -14,7 +14,9 @@ import { Router } from '@angular/router';
 export class AppLoginComponent implements OnInit {
   User: string = ""
   Pass: string = ""
+  Email: string = ""
   Response!: any
+  Login: boolean = true
   constructor(private api: ApiService, private router: Router) { }
   ngOnInit(): void {
     document.title = "Login"
@@ -28,5 +30,8 @@ export class AppLoginComponent implements OnInit {
       localStorage.setItem("jwt", this.Response.token)
       this.api.setHeader(this.Response.token)
     }
+  }
+  async passwordReset() {
+    this.Response = await this.api.PasswordReset(this.Email)
   }
 }
