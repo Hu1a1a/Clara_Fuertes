@@ -33,7 +33,7 @@ export class AppMainComponent implements OnInit {
     {
       Name: "Lorena P.",
       Text: "“Clara me ha acompañado en mi proceso para conseguir mis objetivos personales enseñándome hábitos alimenticios con disciplina. ¡Super contenta con los resultados conseguidos!”",
-      Star: 4
+      Star: 5
     },
     {
       Name: "Sara P.",
@@ -48,12 +48,12 @@ export class AppMainComponent implements OnInit {
     {
       Name: "Oscar L.",
       Text: "“Clara es mi dietista desde hace unos años, puedo decir que mi experiencia con ella es inmejorable. He tenido un seguimiento exhaustivo de la evolución. La recomiendo 100%.”",
-      Star: 3
+      Star: 5
     },
     {
       Name: "Vinyet P.",
       Text: "“Me ha ayudado con la dieta baja en FODMAPS para recuperarme del SIBO y otras intolerancias que sufro.Siempre dispuesta a despejar todo tipo de dudas, soy muy preguntona :). ¡La recomiendo sin lugar a dudas!”",
-      Star: 4
+      Star: 5
     },
     {
       Name: "Joan N.",

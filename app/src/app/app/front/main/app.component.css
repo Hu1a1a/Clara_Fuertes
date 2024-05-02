@@ -1,18 +1,40 @@
 .picture {
-  width: 40vw;
-  max-width: 600px;
+  width: 50%;
+  max-width: 500px;
   height: auto;
 }
 
 .picturediv {
   animation: fadeIn 3s;
 }
-.textdiv {
+.textdiv1 {
   animation: fadeOut 3s;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  width: 50%;
+}
+.textdiv2 {
+  animation: fadeOut 3s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+  @media only screen and (max-width: 670px) {
+    width: 100%;
+  }
+}
+.xhidden {
+  @media only screen and (max-width: 670px) {
+    display: none;
+  }
+}
+.xhidden2 {
+  @media only screen and (min-width: 670px) {
+    display: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -108,3 +130,16 @@ button {
   color: #605e5e;
 }
 
+button:hover {
+  background-color: #8cd2a3;
+  animation: buttonn 1s;
+}
+
+@keyframes buttonn {
+  0% {
+    background-color: #c1e4d6;
+  }
+  100% {
+    background-color: #8cd2a3;
+  }
+}

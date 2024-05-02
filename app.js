@@ -25,4 +25,3 @@ app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./publ
 app.use("/api", require("./server/router/router"));
 app.get("*", (req, res) => res.redirect("/"));
 app.listen(process.env.PORT | 3000);
- 
