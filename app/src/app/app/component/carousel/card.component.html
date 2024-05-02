@@ -1,0 +1,30 @@
+<div class="card" style="width: 18rem;height: 250px;">
+  <img [src]="data.img" class="card-img-top" alt>
+  <div class="card-body">
+    <p class="card-text" style="font-family: Public Sans;
+    font-size: 13.02px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: 15.3px;
+    text-align: center;color: #1D3F28;
+    "> {{data.Text}} </p>
+  
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" style="font-family: Sedan SC;
+    font-size: 13.02px;
+    font-weight: 400;
+    line-height: 18.03px;
+    text-align: center;color: #1D3F28;
+    "> {{data.Name}} </h5>
+    <ng-container *ngFor="let item of [1,2,3,4,5]">
+      <ng-container *ngIf="item<=data.Star">
+        <img src="assets/starx.png" alt>
+      </ng-container>
+      <ng-container *ngIf="item>data.Star">
+        <img src="assets/star.png" alt>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

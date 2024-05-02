@@ -21,7 +21,8 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
-app.get("/public/:id", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.id)));
+app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
 app.get("*", (req, res) => res.redirect("/"));
 app.listen(process.env.PORT | 3000);
+ 

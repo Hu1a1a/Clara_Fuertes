@@ -3,7 +3,7 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 .body {
-  min-height: 75vh;
+  min-height: 73vh;
   width: 100%;
 }
 
@@ -22,7 +22,7 @@
 body {
   position: relative;
   font-family: "Roboto", sans-serif;
-  background-color: #f4f7fa;
+  background-color: #ffffff;
 }
 
 .card {

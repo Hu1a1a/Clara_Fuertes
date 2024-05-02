@@ -103,4 +103,4 @@ dist
 .tern-port
 .angular
 .github
-.nx
+.nx/

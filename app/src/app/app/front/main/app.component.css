@@ -1,0 +1,110 @@
+.picture {
+  width: 40vw;
+  max-width: 600px;
+  height: auto;
+}
+
+.picturediv {
+  animation: fadeIn 3s;
+}
+.textdiv {
+  animation: fadeOut 3s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-30rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(30rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.textflow {
+  animation: textf 6s;
+  top: 0;
+  left: 100%;
+  position: absolute;
+  background-color: #efefef;
+  height: 100%;
+  border-radius: 15px;
+  width: 110%;
+  transform: translateX(-95%);
+  z-index: -1;
+}
+
+@keyframes textf {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 0%;
+  }
+  100% {
+    width: 110%;
+  }
+}
+
+.textflow1 {
+  animation: textf2 6s;
+  bottom: 25%;
+  left: 100%;
+  position: absolute;
+  background-color: #cff2e4;
+  height: 20%;
+  border-radius: 15px;
+  width: 110%;
+  transform: translateX(-95%);
+  z-index: -1;
+}
+
+@keyframes textf2 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 0%;
+  }
+  100% {
+    width: 110%;
+  }
+}
+
+button {
+  width: 447.92px;
+  height: 66.71px;
+  border-radius: 40px;
+  background-color: #c1e4d6;
+  border-color: #c1e4d6;
+}
+
+.bottontext1 {
+  font-family: Reem Kufi Ink;
+  font-size: 15.62px;
+  font-weight: 700;
+  line-height: 23.44px;
+  text-align: center;
+  color: #605e5e;
+}
+.bottontext2 {
+  font-family: Reem Kufi Ink;
+  font-size: 13.02px;
+  font-weight: 700;
+  line-height: 19.53px;
+  text-align: center;
+  color: #605e5e;
+}
+
