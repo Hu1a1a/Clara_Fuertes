@@ -22,6 +22,12 @@ p {
 .naver {
   background-color: white;
   cursor: pointer;
+  a {
+    padding: 25px 5px 25px 15px;
+  }
+  a:hover {
+    background-color: #9ce9ca;
+  }
 }
 .level1 {
   background-color: #dae4e0;
@@ -40,10 +46,4 @@ p {
 }
 strong {
   padding-left: 10px;
-}
-a {
-  padding: 25px 5px 25px 15px;
-}
-a:hover {
-  background-color: #9ce9ca;
 }
