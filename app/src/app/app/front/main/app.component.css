@@ -1,7 +1,7 @@
 .picture {
   width: 50%;
   max-width: 500px;
-  height: auto;
+  height: max-content;
 }
 
 .picturediv {
