@@ -12,19 +12,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppAdminPortalComponent implements OnInit {
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService) { }
   panelOpenState = false;
   level1!: any
   level2!: any
   video!: any
   user!: any
+  comentario!: any
 
   ngOnInit() {
     document.title = "Portal de curso"
     this.Get()
   }
-
-
 
   modal: boolean = false
   sData!: any
@@ -40,6 +39,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.api.Get("curso/level2").then((a) => this.level2 = a)
     this.api.Get("curso/video").then((a) => this.video = a)
     this.api.Get("user").then((a) => this.user = a)
+    this.api.Get("comentario").then((a) => this.comentario = a)
   }
 
   OpenModal(data: any, router: string, accion: "create" | "update" | "delete") {

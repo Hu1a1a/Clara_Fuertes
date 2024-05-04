@@ -24,8 +24,7 @@
                         </tr>
                         <ng-container *ngFor="let i2 of level2.data;index as j">
                             <ng-container *ngIf="i1.id===i2.level1">
-                                <tr
-                                    (click)="OpenModal(i2,'curso/level2','update')">
+                                <tr (click)="OpenModal(i2,'curso/level2','update')">
                                     <td></td>
                                     <td>{{j+1}}</td>
                                     <td></td>
@@ -34,11 +33,9 @@
                                         {{i2.Description}}
                                     </td>
                                 </tr>
-                                <ng-container
-                                    *ngFor="let v of video.data;index as k">
+                                <ng-container *ngFor="let v of video.data;index as k">
                                     <ng-container *ngIf="i2.id===v.level2">
-                                        <tr
-                                            (click)="OpenModal(v,'curso/video','update')">
+                                        <tr (click)="OpenModal(v,'curso/video','update')">
                                             <td></td>
                                             <td></td>
                                             <td>{{k+1}}</td>
@@ -54,16 +51,13 @@
                     </ng-container>
                 </tbody>
             </table>
-            <button mat-raised-button color="primary"
-                (click)="OpenModal(level1.data[0],'curso/level1','create')">
+            <button mat-raised-button color="primary" (click)="OpenModal(level1.data[0],'curso/level1','create')">
                 Añadir Grupo
             </button>
-            <button mat-raised-button color="primary"
-                (click)="OpenModal(level2.data[0], 'curso/level2','create')">
+            <button mat-raised-button color="primary" (click)="OpenModal(level2.data[0], 'curso/level2','create')">
                 Añadir Fase
             </button>
-            <button mat-raised-button color="primary"
-                (click)="OpenModal(video.data[0], 'curso/video','create')">
+            <button mat-raised-button color="primary" (click)="OpenModal(video.data[0], 'curso/video','create')">
                 Añadir Video
             </button>
         </mat-tab>
@@ -90,11 +84,33 @@
                     </ng-container>
                 </tbody>
             </table>
-            <button mat-raised-button color="primary"
-                (click)="OpenModal(user.data[0],'user','create')">
+            <button mat-raised-button color="primary" (click)="OpenModal(user.data[0],'user','create')">
                 Añadir Usuario
             </button>
         </mat-tab>
+        <mat-tab label="Comentario">
+            <table class="table table-striped" *ngIf="comentario">
+                <thead>
+                    <tr>
+                        <td> id </td>
+                        <td> Nombre </td>
+                        <td> Descripción </td>
+                        <td> Estrella </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let u of comentario.data;index as i">
+                        <tr (click)="OpenModal(u,'comentario','update')">
+                            <td> {{u.id}} </td>
+                            <td> {{u.Name}} </td>
+                            <td> {{u.Description}} </td>
+                            <td> {{u.Start}} </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </mat-tab>
+
     </mat-tab-group>
 </div>
 
@@ -103,18 +119,30 @@
         <div (click)="modal=false" class="close-modal"> × </div>
         <h2 style="margin: 0;"> {{ sAccion }} {{ sRouter }} </h2>
         <ng-container *ngFor="let item of Key(sData)">
-            <mat-form-field style="width: 100%;">
-                <mat-label> {{item}} </mat-label>
-                <input matInput [(ngModel)]="sData[item]"
-                    [disabled]="item==='id'">
-            </mat-form-field>
+            <ng-container *ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
+                <mat-form-field style="width: 100%;">
+                    <mat-label> {{item}} </mat-label>
+                    <mat-select [(ngModel)]="sData[item]">
+                        <mat-option *ngFor="let i of this[item].data" [value]="i.id">
+                            {{i.id}} - {{i.Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <mat-form-field style="width: 100%;">
+                    <mat-label> {{item}} </mat-label>
+                    <input matInput [(ngModel)]="sData[item]" [disabled]="item==='id'">
+                </mat-form-field>
+            </ng-template>
+
+
+
         </ng-container>
-        <button mat-raised-button color="primary"
-            (click)="Accion(sData,sRouter,sAccion)">
+        <button mat-raised-button color="primary" (click)="Accion(sData,sRouter,sAccion)">
             {{ sAccion }} {{ sRouter }}
         </button>
-        <button mat-raised-button color="primary" *ngIf="sAccion==='update'"
-            (click)="Accion(sData,sRouter,'delete')">
+        <button mat-raised-button color="primary" *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')">
             delete {{ sRouter }}
         </button>
     </div>

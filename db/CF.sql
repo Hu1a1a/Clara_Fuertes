@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- 主机： 127.0.0.1
--- 生成日期： 2024-05-01 21:44:25
--- 服务器版本： 10.4.32-MariaDB
--- PHP 版本： 8.2.12
+-- 主机： localhost:3306
+-- 生成日期： 2024-05-04 20:47:21
+-- 服务器版本： 10.6.16-MariaDB-0ubuntu0.22.04.1
+-- PHP 版本： 8.2.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `cf`
+-- 数据库： `CF`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id` int(11) NOT NULL,
+  `Name` varchar(25) NOT NULL,
+  `Description` longtext NOT NULL,
+  `Start` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- 转存表中的数据 `comentario`
+--
+
+INSERT INTO `comentario` (`id`, `Name`, `Description`, `Start`) VALUES
+(1, 'Leni N.', '“Es una gran profesional que desde el principio abordó mi problema digestivo dando soluciones y consiguiendo que en poco tiempo mejorase de forma abismal.”', 5),
+(2, 'Ariadna F.', '“Es muy cercana. Sabe lo que necesitas y te anima en todo momento a alcanzar los objetivos. ¡Muy profesional! ¡La recomiendo 100%!”', 5),
+(3, 'Carmen G.', '“El trabajo de Clara conmigo ha sido excepcional. He aprendido a comer y ahora me siento mejor con mi cuerpo.”', 5),
+(4, 'Lorena P.', '“Clara me ha acompañado en mi proceso para conseguir mis objetivos personales enseñándome hábitos alimenticios con disciplina. ¡Super contenta con los resultados conseguidos!”', 5),
+(5, 'Sara P.', '“Una gran profesional que se preocupa mucho por tus necesidades. El trato es inmejorable. Atenta, respetuosa y dedicada. Estoy encantada desde visito con ella y sigo sus dietas y pautas”', 5),
+(6, 'Joan N.', '“El mejor método para mejorar la alimentación. Seguimiento constante y acompañamiento en todo el proceso”', 5),
+(7, 'Oscar L.', '“Clara es mi dietista desde hace unos años, puedo decir que mi experiencia con ella es inmejorable. He tenido un seguimiento exhaustivo de la evolución. La recomiendo 100%.”', 5),
+(8, 'Vinyet P.', '“Me ha ayudado con la dieta baja en FODMAPS para recuperarme del SIBO y otras intolerancias que sufro.Siempre dispuesta a despejar todo tipo de dudas, soy muy preguntona :). ¡La recomiendo sin lugar a dudas!”', 5),
+(9, 'Joan N.', '“¡Voy a estar eternamente agradecida a Clara! En todo momento me ayudó, me guió y lo más importante empatizó conmigo desde el minuto 1. Gracias por tu gran labor te voy a seguir recomendando siempre!”', 5);
 
 -- --------------------------------------------------------
 
@@ -89,7 +117,7 @@ CREATE TABLE `regemail` (
   `Email` varchar(255) NOT NULL,
   `Date` datetime NOT NULL,
   `Tipo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- 转存表中的数据 `regemail`
@@ -112,7 +140,7 @@ CREATE TABLE `user` (
   `Email` varchar(255) NOT NULL,
   `Phone` varchar(255) NOT NULL,
   `Admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- 转存表中的数据 `user`
@@ -120,31 +148,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `User`, `Pass`, `Token`, `Email`, `Phone`, `Admin`) VALUES
 (1, 'ClaraFuertes', 'Nutricionista80', 'd44693f32b0c8b14f46f5fb8a6de26f5e19bfb9ff2af8a9210de7b3c291f47b1c98e25cc6ab6fd826956951c9f8b73fb4784204a7aa593611f4f629b876eabfa', 'clarafuertes.nutricion@gmail.com', '  b341', 1),
-(2, 'YYZ', '123', 'ef047a798db653fb7f03acab30533f16d895357056fbd90b8959a54f228ebb3eee5d51bfd6061e9b945936cb69f0d6a31633bba43f87200609c704bbaa01bd46', 'yang.ye.1@hotmail.com', '', 0),
-(3, 'adrian', 'Yang1231111', '', 'sfasdfda', '', 0),
-(4, '5464564646', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(16, '546456464616', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(17, '546456464617', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(18, '546456464618', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(19, '546456464619', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(20, '546456464620', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(21, '546456464621', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(22, '546456464622', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(23, '546456464623', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(24, '546456464624', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(25, '546456464625', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(26, '546456464626', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(27, '546456464627', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(28, '546456464628', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(29, '546456464629', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(30, '546456464630', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(31, '546456464631', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(32, '546456464632', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(33, '546456464633', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(34, '546456464634', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(35, '546456464635', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(36, '546456464636', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0),
-(37, '546456464637', 'Nutricion', '31d985ca7ce9e2db334fb0261774c10f3e36b2dd63fccb4d64629c5f72e81fc0d0dc1ca35cb1e44091db9eedead5d60b5a7329e5e2c3e91dd46f8eac3059bd47', 'yang.ye@e-bcsystems.com', '+34663571733', 0);
+(2, 'YYZ', '123', 'ef047a798db653fb7f03acab30533f16d895357056fbd90b8959a54f228ebb3eee5d51bfd6061e9b945936cb69f0d6a31633bba43f87200609c704bbaa01bd46', 'yang.ye.1@hotmail.com', '', 0);
 
 -- --------------------------------------------------------
 
@@ -159,7 +163,7 @@ CREATE TABLE `userpay` (
   `Price` float(10,2) NOT NULL,
   `BuyTime` date NOT NULL,
   `Expiration` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 -- --------------------------------------------------------
 
@@ -173,26 +177,34 @@ CREATE TABLE `video` (
   `Src` text NOT NULL,
   `Description` longtext NOT NULL,
   `Adjunt` text NOT NULL,
+  `Canva` longtext NOT NULL,
   `level2` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- 转存表中的数据 `video`
 --
 
-INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `level2`) VALUES
-(17, 'Vídeos semana 0', '', 'Vídeos semana 0', '', 5),
-(18, 'Vídeo 1. Titulo: Cómo va a ser el proceso de estas semanas', '', 'Vídeo 1. Titulo: Cómo va a ser el proceso de estas semanas', '', 5),
-(19, 'Vídeo 2. explicación ficha de seguimiento', 'https://www.loom.com/share/1680ec4aec1343ec8233947e33815a3e?sid=bf133da0-8040-4b5b-ae3f-f83cadcabc72', 'Vídeo 2. explicación ficha de seguimiento', '', 5),
-(20, 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable\r\n', '', 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable', '', 5),
-(21, 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', '', 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', '', 5),
-(22, 'Descargables semana 0', '', 'Descargables semana 0', '', 5),
-(23, 'Descargable 1. La prueba del bicarbonato', '', 'Descargable 1. La prueba del bicarbonato', '', 5),
-(24, 'Descargable 2. Ejercicio de Coaching ', '', 'Descargable 2. Ejercicio de Coaching ', '', 5);
+INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `Canva`, `level2`) VALUES
+(17, 'Vídeos semana 0', '', 'Vídeos semana 0', '', '', 5),
+(18, 'Vídeo 1. Titulo: Cómo va a ser el proceso de estas semanas', 'https://www.loom.com/share/f9e1da2977504d89b2c5b3e45e49d0e5?sid=3bec5954-2728-4a26-b9df-5578a9544eb0', 'Vídeo 1. Titulo: Cómo va a ser el proceso de estas semanas', '', '', 5),
+(19, 'Vídeo 2. explicación ficha de seguimiento', 'https://www.loom.com/share/1680ec4aec1343ec8233947e33815a3e?sid=f15a07b7-d395-4da9-9207-18dd1d39cfdd', 'Vídeo 2. explicación ficha de seguimiento', '', '', 5),
+(20, 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable\r\n', 'https://www.loom.com/share/1c811df0cd154bb889907ef9aa11c2f5?sid=48385f51-57d4-4788-a57d-0aa5fc1ec745', 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable', '', '', 5),
+(21, 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', 'https://www.loom.com/share/a7ff642150894acc8037f8673d6e00c9?sid=5544da95-6297-455e-8ebd-1f2537650810', 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', '', '', 5),
+(22, 'Descargables semana 0', '', 'Descargables semana 0', '', '', 5),
+(23, 'Descargable 1. La prueba del bicarbonato', '', 'La prueba del bicarbonato es una prueba casera muy sencilla que puede orientarnos sobre la acidez del estómago, aspecto fundamental a tener en cuenta para el buen manejo de las digestiones.  Realiza esta prueba tal como se indica en el documento y envíame los resultados cuando los tengas. Repítela 3-4 días para confirmar los resultados. ', ' Prueba del bicarbonoato.pdf', '', 5),
+(24, 'Descargable 2. Ejercicio de Coaching ', '', 'En este documento encontrarás las plantillas de todos los ejercicios de Coaching que te voy proponiendo en estas semanas.  Simplemente descárgala para tenerla a mano y que puedas visualizar mejor los ejercicios que se irán planteando. ', 'Ejercicios prácticos de Coaching (4).pdf', '', 5),
+(26, 'comidaaaaaaaaaaaaaa', '', '', '', '', 0);
 
 --
 -- 转储表的索引
 --
+
+--
+-- 表的索引 `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 表的索引 `level1`
@@ -230,6 +242,12 @@ ALTER TABLE `video`
 --
 
 --
+-- 使用表AUTO_INCREMENT `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- 使用表AUTO_INCREMENT `level1`
 --
 ALTER TABLE `level1`
@@ -245,7 +263,7 @@ ALTER TABLE `level2`
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- 使用表AUTO_INCREMENT `userpay`
@@ -257,7 +275,7 @@ ALTER TABLE `userpay`
 -- 使用表AUTO_INCREMENT `video`
 --
 ALTER TABLE `video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

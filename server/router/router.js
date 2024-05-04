@@ -4,6 +4,7 @@ const email = require("../controller/email");
 const curso = require("../controller/curso");
 const auth = require("../controller/auth");
 const user = require("../controller/user");
+const comentario = require("../controller/comment");
 const stripe = require("../controller/stripe");
 
 router.post("/email/ensalada/", email.email_ensalada);
@@ -28,6 +29,11 @@ router.get("/user/", user.get);
 router.post("/user/create/", user.add);
 router.post("/user/update/", user.update);
 router.post("/user/delete/", user.delete);
+
+router.get("/comentario/", comentario.get);
+router.post("/comentario/create/", comentario.add);
+router.post("/comentario/update/", comentario.update);
+router.post("/comentario/delete/", comentario.delete);
 
 router.post("/stripe/pay/", stripe.paySession);
 router.post("/stripe/check/", stripe.checkSession);

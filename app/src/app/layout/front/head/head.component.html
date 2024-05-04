@@ -4,41 +4,20 @@
             <img src="assets/LogoC.png" style="width: auto; height: 81px;">
         </a>
         <div>
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <ng-container *ngFor="let item of Menu">
-                    <ng-container *ngIf="item?.Router; else elseTemplate">
-                        <li class="nav-item">
-                            <a class="nav-link menu" [href]="item.Router"
-                                [ngClass]="router.url===item.Router.replace('#','')?'active':''">
-                                {{item.Name}}
-                            </a>
-                        </li>
-                    </ng-container>
-                    <ng-template #elseTemplate>
-                        <li class="nav-item dropdown">
-                            <a class="menu nav-link dropdown-toggle"
-                                role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                {{item.Name}}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li *ngFor="let child of item.Children">
-                                    <a class="dropdown-item"
-                                        [href]="child.Router">
-                                        {{child.Name}}
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ng-template>
+                    <li class="nav-item">
+                        <a class="nav-link menu" [href]="item.Disabled?'':item.Router"
+                            [ngClass]="router.url===item.Router.replace('#','')?'active':''" (click)="openModal(item)">
+                            {{item.Name}}
+                        </a>
+                    </li>
                 </ng-container>
             </ul>
         </div>

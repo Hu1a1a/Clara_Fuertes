@@ -1,16 +1,10 @@
 <div class="row">
-    <div
-        class="d-flex flex-column align-items-stretch naver"
-        style="width: 20vw;height: 100vh;">
-        <div class="list-group list-group-flush border-bottom scrollarea"
-            *ngIf="level1">
+    <div class="d-flex flex-column align-items-stretch naver" style="width: 20vw;height: 100vh;">
+        <div class="list-group list-group-flush border-bottom scrollarea" *ngIf="level1">
             <ng-container *ngFor="let i1 of level1.data;index as i">
-                <a
-                    class="list-group-item list-group-item-action active py-3 lh-sm level1"
-                    aria-current="true"
+                <a class="list-group-item list-group-item-action active py-3 lh-sm level1" aria-current="true"
                     (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
-                    <div
-                        class="d-flex w-100 align-items-center">
+                    <div class="d-flex w-100 align-items-center">
                         <i class="bi bi-brilliance"></i>
                         <p>
                             <strong class="mb-1"> {{i1.Name}} </strong>
@@ -25,12 +19,9 @@
                 <ng-container *ngIf="slevel1===i1">
                     <ng-container *ngFor="let i2 of level2.data;index as j">
                         <ng-container *ngIf="slevel1.id===i2.level1">
-                            <a
-                                class="list-group-item list-group-item-action active py-3 lh-sm level2"
-                                aria-current="true"
-                                (click)="slevel2=slevel2===i2?null:i2;svideo=null">
-                                <div
-                                    class="d-flex w-100 align-items-center">
+                            <a class="list-group-item list-group-item-action active py-3 lh-sm level2"
+                                aria-current="true" (click)="slevel2=slevel2===i2?null:i2;svideo=null">
+                                <div class="d-flex w-100 align-items-center">
                                     <i class="bi bi-folder-fill"></i>
                                     <strong class="mb-1"> {{i2.Name}}
                                     </strong>
@@ -42,17 +33,12 @@
                                 </div>
                             </a>
                             <ng-container *ngIf="slevel2===i2">
-                                <ng-container
-                                    *ngFor="let v of video.data;index as j">
+                                <ng-container *ngFor="let v of video.data;index as j">
                                     <ng-container *ngIf="slevel2.id===v.level2">
-                                        <a
-                                            class="list-group-item list-group-item-action active py-3 lh-sm video"
-                                            aria-current="true"
-                                            (click)="svideo=svideo===v?null:v">
-                                            <div
-                                                class="d-flex w-100 align-items-center">
-                                                <i
-                                                    class="bi bi-person-video2"></i>
+                                        <a class="list-group-item list-group-item-action active py-3 lh-sm video"
+                                            aria-current="true" (click)="svideo=svideo===v?null:v">
+                                            <div class="d-flex w-100 align-items-center">
+                                                <i class="bi bi-person-video2"></i>
                                                 <strong class="mb-1"> {{v.Name}}
                                                 </strong>
                                             </div>
@@ -67,44 +53,33 @@
     </div>
     <div class="container" *ngIf="svideo" style="width: 75vw;">
         <h1>{{svideo.Name}}</h1>
-        <div
-            style="max-height: 70vh; width: 70vw;height: 100%;"
-            *ngIf="svideo.Src">
-            <iframe
-                [src]="photoURL(svideo.Src)"
-                frameborder="0" webkitallowfullscreen mozallowfullscreen
-                allowfullscreen
-                style="height: 100%; width: 70vw; max-height: 70vh;">
+        <div style="max-height: 70vh; width: 70vw;height: 100%;" *ngIf="svideo.Src">
+            <iframe [src]="photoURL(svideo.Src)" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                allowfullscreen style="height: 100%; width: 70vw; max-height: 70vh;">
             </iframe>
         </div>
         <p> {{svideo.Description}} </p>
-        <div *ngIf="svideo.Canva"
-            style="max-height: 70vh;height: 100%;width: 70vw;">
-            <iframe loading="lazy"
-                style="height: 100%; width: 70vw; max-height: 70vh;"
-                [src]="canvaURL(svideo.Canva)"
+        <div *ngIf="svideo.Canva" style="max-height: 70vh;height: 100%;width: 70vw;">
+            <iframe loading="lazy" style="height: 100%; width: 70vw; max-height: 70vh;" [src]="canvaURL(svideo.Canva)"
                 allowfullscreen="allowfullscreen" allow="fullscreen">
             </iframe>
         </div>
         <div class="row" *ngIf="svideo.Adjunt">
+            <p style="    color: #9ba5af;
+            font-size: 14px;"> Archivos para descargar </p>
             <ng-container *ngFor="let link of svideo.Adjunt.split(';')">
                 <div class="col">
-                    <a [href]="UrlApi + link"
-                        class="btn"
-                        target="_blank"
-                        [download]="link">
-                        <mat-card
-                            style="width: 175px; margin: 20px; height: 120px; align-items: center;">
+                    <a [href]="UrlApi + link" class="btn" target="_blank" [download]="link">
+                        <mat-card style="width: 175px; margin: 10px 20px; min-height: 120px; align-items: center;">
                             <mat-card-content style="width: 100%;">
                                 <mat-card-title style="width: 100%;">
-                                    <p>
+                                    <p style="font-weight: 700;
+                                    font-size: 14px;    line-height: 15px;">
                                         {{link}}
                                     </p>
                                 </mat-card-title>
-                                <mat-card-subtitle
-                                    style="width: 100%; color: rgb(231, 76, 60);">
-                                    <p> <i
-                                            class="bi bi-file-earmark-pdf"></i>
+                                <mat-card-subtitle style="width: 100%; color: rgb(231, 76, 60);">
+                                    <p> <i class="bi bi-file-earmark-pdf"></i>
 
                                         {{link.split(".")[link.split(".").length-1]}}
                                     </p>
@@ -114,7 +89,6 @@
                     </a>
                 </div>
             </ng-container>
-
         </div>
     </div>
 </div>
