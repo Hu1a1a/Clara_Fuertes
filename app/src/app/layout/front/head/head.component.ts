@@ -15,9 +15,9 @@ export class HeadComponent {
     { Name: "Inicio", Router: "#/" },
     { Name: "Recursos gratuitos", Router: "#/recursos" },
     { Name: "Cursos para ti", Router: "#/compra" },
-    { Name: "Sana tus digestiones", Router: "#/nutricion" },
-    { Name: "Pérdida de grasa", Router: "#/patologia" },
-    { Name: "Asesoramiento único", Router: "#/" },
+    { Name: "Sana tus digestiones", Router: "#/digestion" },
+    { Name: "Pérdida de grasa", Router: "#/perdidagrasa" },
+    { Name: "Asesoramiento único", Router: "#/asesoramiento" },
     { Name: "Portal Curso", Router: "#/login" },
   ]
 }

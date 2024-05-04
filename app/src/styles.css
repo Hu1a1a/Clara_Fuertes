@@ -119,3 +119,8 @@ body {
 .input-group {
   z-index: 0;
 }
+
+mat-mdc-dialog-container {
+  box-shadow: none !important;
+  background-color: transparent !important;
+}

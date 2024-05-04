@@ -15,9 +15,7 @@ export class ComponentButtonComponent {
   @Input() text2: string = ""
   @Input() ref: string = ""
   @Input() disabled: boolean = false
-  @Output() click = new EventEmitter()
   butonc() {
-    this.click.emit()
     if (this.ref) this.router.navigate([this.ref])
   }
 }

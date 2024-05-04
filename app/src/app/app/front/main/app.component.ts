@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
-import { IMAGE_CONFIG } from '@angular/common';
 import { ComponentButtonComponent } from '../../component/button/c.component';
 
 @Component({

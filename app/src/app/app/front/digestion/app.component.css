@@ -1,0 +1,40 @@
+.sandia {
+  width: 60%;
+  background-color: #ffffff99;
+  padding: 20px;
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+.cactus {
+  width: 60%;
+  padding: 20px;
+  text-align-last: left;
+  text-align: left;
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+    background-color: #ffffff99;
+  }
+}
+button {
+  width: 170px;
+  height: 30px;
+  border-radius: 40px;
+  background-color: #c1e4d6;
+  border-color: transparent;
+  box-shadow: 7px 6px 16px 1px #c1e4d6;
+}
+button:hover {
+  background-color: #8cd2a3;
+  animation: buttonn 500ms;
+}
+
+@keyframes buttonn {
+  0% {
+    background-color: #c1e4d6;
+  }
+  100% {
+    background-color: #8cd2a3;
+  }
+}

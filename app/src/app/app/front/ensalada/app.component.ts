@@ -4,11 +4,12 @@ import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ComponentButtonComponent } from '../../component/button/c.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ensalada',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent],
+  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent,],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
@@ -21,10 +22,10 @@ export class AppEnsaladaComponent {
     if (this.Email && this.Name) {
       this.Response = await this.api.SendEmail(this.Email, this.Name)
     } else {
-      this.Response = { msg: "Introduce nombre y correo!" }
+      this.Response = { msg: "Introduce tu nombre y tu correo!" }
     }
-    this.dialog.open(Dialog, {
-      data: { msg: this.Response.msg }
+    this.dialog.open(DialogEnsalada, {
+      data: { msg: this.Response.msg, ok: this.Response.ok }
     });
   }
 }
@@ -33,8 +34,8 @@ export class AppEnsaladaComponent {
   selector: 'dialog-component',
   templateUrl: 'dialog.component.html',
   standalone: true,
-  imports: [AngularMaterialModule],
+  imports: [AngularMaterialModule, CommonModule],
 })
-export class Dialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { msg: string }) { }
+export class DialogEnsalada {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { msg: string, ok: boolean }) { }
 }

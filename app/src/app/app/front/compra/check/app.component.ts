@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../../../service/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-compra-check',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compra',
@@ -15,8 +14,7 @@ export class AppCompraComponent implements OnInit {
   constructor(private api: ApiService) { }
   curso!: any
   async ngOnInit() {
-    document.title = "Link en biografía de IG de ensaladas"
-    this.curso = await this.api.Get("curso/level1")
+    //this.curso = await this.api.Get("curso/level1")
   }
   async ComprarCurso(item: any) {
     const data = await this.api.paySession(item)
