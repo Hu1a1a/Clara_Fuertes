@@ -11,9 +11,11 @@ import { AppAdminComponent } from './app/admin/app.component';
 import { AppLoginComponent } from './app/login/app.component';
 import { AppCompraCheckComponent, } from './app/front/compra/check/app.component';
 import { AppResetPasswordComponent } from './app/login/resetpassword/app.component';
+import { AppRecursoComponent } from './app/front/recursos/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
+    { path: 'recursos', component: AppRecursoComponent },
     { path: 'ensalada', component: AppEnsaladaComponent },
     { path: 'patologia', component: AppPatologiaComponent },
     { path: 'nutricion', component: AppNutricionComponent },

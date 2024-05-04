@@ -10,10 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './head.component.css'
 })
 export class HeadComponent {
-  constructor(public router: Router ) { }
+  constructor(public router: Router) { }
   Menu: any = [
     { Name: "Inicio", Router: "#/" },
-    { Name: "Recursos gratuitos", Router: "#/ensalada" },
+    { Name: "Recursos gratuitos", Router: "#/recursos" },
     { Name: "Cursos para ti", Router: "#/compra" },
     { Name: "Sana tus digestiones", Router: "#/nutricion" },
     { Name: "Pérdida de grasa", Router: "#/patologia" },

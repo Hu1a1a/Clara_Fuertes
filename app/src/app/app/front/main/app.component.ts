@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
+import { IMAGE_CONFIG } from '@angular/common';
+import { ComponentButtonComponent } from '../../component/button/c.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentCardGroupComponent],
+  imports: [AngularMaterialModule, AngularModule, ComponentCardGroupComponent, ComponentButtonComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', "../style.component.css"]
+  styleUrls: ['./app.component.css', "../style.component.css"],
+
 })
-export class AppMainComponent implements OnInit {
-  ngOnInit(): void {
-    document.title = "Link en biografía de IG de ensaladas"
-  }
+
+export class AppMainComponent {
   card: { Name: string, Text: string, Star: number }[] = [
     {
       Name: "Leni N.",

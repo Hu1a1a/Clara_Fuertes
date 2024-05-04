@@ -1,105 +1,114 @@
-<div class="backscreen">
-    <img src="assets/v30_178.png" alt class="backimg">
-</div>
-<div class="body">
-    <div class="e2">
-        Te regalo la Guía GRATUITA que necesitas para hacer tus ensaladas
-        equilibradas, completas y suficientes
-        <br>
-        ¡Se acabaron las dudas!
-    </div>
-    <div class="e4">
-        <li>
-            Llega el buen tiempo y sabes que vas a recurrir más de una vez a las
-            ensaladas
-        </li>
-        <li>
-            Deja de preguntarte si tus ensaladas están bien hechas, te descubro
-            todo lo que debes saber
-        </li>
-        <li>
-            ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué lleva una
-            ensalada que es plato único?
-        </li>
-        <li>
-            ¿Una ensalada es buena opción en una alimentación antiinflamatoria?
-            Te explico como potenciarlo
-        </li>
-        <li>
-            ¡No te aburras y hazlas variadas! Hay opciones más allá de la
-            lechuga y el tomate
-        </li>
-        <li>
-            Combínalas, hay infinitas posibilidades
-        </li>
-        <li>
-            Te dejo un menú semanal a base de ensaladas fáciles y completas
-        </li>
-        <li>
-            Descubre opciones de aliños saludables más allá del aceite y el
-            vinagre.
-        </li>
-        <li>
-            Descubre los trucos para que se conserven mejor si te las dejas
-            preparadas
-        </li>
-        <li>
-            ¡Resuelve todas tus dudas sobre este plato tan recurrido y
-            disfrútalas sabiendo que te lo estás haciendo bien!
-        </li>
-    </div>
-    <div class="e2">
-        ¡Recibe tu Guía GRATUITA de ensaladas a tu correo!
-        <div>
-            <input type="text" placeholder="Tu nombre"
-                [(ngModel)]="Name" minlength="1">
+<div class="container">
+
+    <div class="row">
+        <div class="div1">
+            <div class="row">
+                <span style="font-family: Poppins;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21.87px;
+            text-align: justified;
+            color: #4D5C52;">
+                    Te regalo la guía
+                    <span style="position: relative;">
+                        GRATUITA
+                        <img src="assets/ensalada/pincelada amarilla.png" alt
+                            style="position: absolute;    top: 5%;
+                    height: 105%;
+                    left: -7.5%;z-index: -1;">
+                    </span>
+                    para hacer tus ensaladas equilibradas, completas y
+                    suficientes
+                </span>
+
+            </div>
+            <div class="row" style="justify-content: center;padding: 15px 0px;">
+                <span style="position: relative;font-family: Rajdhani;
+            font-size: 20px;
+            font-weight: 700;   
+            line-height: 19.94px;
+            text-align: center;color: #7DAD9B;width: fit-content;
+            ">
+                    ¡Se acabaron las dudas!
+                    <img src="assets/ensalada/pincelada amarilla.png" alt
+                        style="position: absolute;    top: 0%;
+                height: 125%;width: 120%;
+                left: -7.5%;z-index: -1;">
+                </span>
+            </div>
+            <div class="row">
+                <span
+                    style="word-break: break-all;white-space: pre-line;text-align-last: start;font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: justified;
+                    ">
+                    ✔ Llega el buen tiempo y sabes que vas a recurrir más de una
+                    vez a las ensaladas.
+                    <br><br>
+                    ✔ Deja de preguntarte si tus ensaladas están bien hechas, te
+                    descubro todo lo que debes saber.
+                    <br><br>
+                    ✔ ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué
+                    lleva una ensalada que es plato único?
+                    <br><br>
+                    ✔ ¿Una ensalada es buena opción en una alimentación
+                    antiinflamatoria? Te explico como potenciarlo.
+                    <br><br>
+                    ✔ Llega el buen tiempo y sabes que vas a recurrir más de una
+                    vez a las ensaladas.
+                    <br><br>
+                    ✔ Deja de preguntarte si tus ensaladas están bien hechas, te
+                    descubro todo lo que debes saber.
+                    <br><br>
+                    ✔ ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué
+                    lleva una ensalada que es plato único?
+                    <br><br>
+                    ✔ ¿Una ensalada es buena opción en una alimentación
+                    antiinflamatoria? Te explico como potenciarlo.
+                    <br><br>
+                    ✔ ¡Resuelve todas tus dudas sobre este plato tan recurrido y
+                    disfrútalas sabiendo que te lo estás haciendo bien!
+                </span>
+            </div>
         </div>
-        <div>
-            <input type="email" placeholder="Tu Email"
-                [(ngModel)]="Email" minlength="1">
-        </div>
-        <div>
-            <button class="Front" type="button" (click)="sendGuia()">
-                QUIERO LA GUÍA GRATUITA
-            </button>
-        </div>
-    </div>
-    <div>
-        <div class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5"
-                            id="exampleModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save
-                            changes</button>
-                    </div>
+        <div class="div2">
+            <div
+                style="background-color: #DAE4E0;border-radius: 15px;padding: 25px;padding-bottom: 10px;text-align: center;">
+                <span style="font-family: Poppins;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 21.87px;
+                text-align: center;color: #4D5C52;padding: 25px 50px;
+                ">
+                    ¡Recibe tu guía
+                    <span style="position: relative;z-index: 0;">
+                        <img src="assets/ensalada/pincelada amarilla.png" alt
+                            style="position: absolute;    top: 5%;
+                height: 105%;
+                left: -7.5%;z-index: -1;">
+                        GRATUITA
+                    </span>
+                    de ensaladas a tu correo!
+
+                </span>
+                <div style="margin: 15px;">
+                    <input type="text" [(ngModel)]="Name"
+                        placeholder="Tu nombre">
+                    <br>
+                    <input type="text" [(ngModel)]="Email"
+                        placeholder="Tu email">
+                    <br>
+                    <button type="submit" (click)="sendGuia()">
+                        OBTÉN TU GUÍA GRATUITA AHORA
+                    </button>
                 </div>
+
+            </div>
+            <div style="text-align-last: center;">
+                <img src="assets/ensalada/Post.png" alt>
             </div>
         </div>
     </div>
-    <br>
-    <div class="e5">
-        ¿Sabes cómo puedo ayudarte?
-    </div>
-    <button class="Front" type="button" onclick="location.href='#/compra'">
-        CURSOS PARA TI
-    </button>
-    <br>
-    <button class="Front" type="button" onclick="location.href='#/patologia'">
-        PATOLOGIA DIGESTIVA Y DIETA ANTIINFLAMATORIA PARA OTROS PROCESOS
-        ACOMPAÑAMIENTO NUTRICIONAL 1:1
-    </button>
-    <br>
-    <button class="Front" type="button" onclick="location.href='#/nutricion'">
-        PÉRDIDA DE GRASA ACOMPAÑAMIENTO NUTRICIONAL 1:1
-    </button>
 </div>

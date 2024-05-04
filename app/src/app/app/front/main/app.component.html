@@ -1,5 +1,5 @@
 <div class="row"
-    style="padding: 25px; overflow-x:hidden;    align-items: center;">
+    style="padding: 25px; overflow-x:hidden;align-items: center;justify-content: space-around;">
     <img src="assets/main/foto.png" class="picture picturediv">
     <div class="textdiv1">
         <div style="font-family: Allura;
@@ -100,41 +100,30 @@
     </div>
 </div>
 <div class="row"
-    style="justify-content: center;flex-direction: column;align-items: center;margin: 50px 15px;">
-    <button>
-        <span class="bottontext1">
-            RECURSO GRATUITO ENSALADAS
-        </span><br>
-        <span class="bottontext2">
-            LA GUÍA INFALIBLE QUE RESUELVE TODAS TUS DUDAS
-        </span>
-    </button> <br>
-    <button>
-        <span class="bottontext1">
-            CURSOS PARA TI
-        </span>
-    </button> <br>
-    <button>
-        <span class="bottontext1">
-            SANA TUS DIGESTIONES
-        </span><br>
-        <span class="bottontext2">
-            Acompañamiento 1:1
-        </span>
-    </button> <br>
-    <button>
-        <span class="bottontext1">
-            PÉRDIDA DE GRASA
-        </span><br>
-        <span class="bottontext2">
-            Acompañamiento 1:1
-        </span>
-    </button> <br>
-    <button>
-        <span class="bottontext1">
-            ÚNICO ASESORAMIENTO
-        </span>
-    </button>
+    style="justify-content: center;flex-direction: column;align-items: center;margin: 50px 15px;text-align: -webkit-center;">
+    <app-component-button
+        text1="RECURSO GRATUITO ENSALADAS"
+        text2="LA GUÍA INFALIBLE QUE RESUELVE TODAS TUS DUDAS"
+        ref="recursos">
+    </app-component-button> <br>
+    <app-component-button
+        text1="CURSOS PARA TI"
+        ref="compra">
+    </app-component-button> <br>
+    <app-component-button
+        text1="SANA TUS DIGESTIONES"
+        text2="Acompañamiento 1:1"
+        ref="recursos">
+    </app-component-button> <br>
+    <app-component-button
+        text1="PÉRDIDA DE GRASA"
+        text2="Acompañamiento 1:1"
+        ref="recursos">
+    </app-component-button> <br>
+    <app-component-button
+        text1="ÚNICO ASESORAMIENTO"
+        ref="recursos">
+    </app-component-button>
 </div>
 <div class="row" style="width: 100%;    justify-content: center;">
     <div class="col-11" style="width: 80%;  background-color: #eeeeee;
@@ -166,5 +155,5 @@
 <div class="row" style="position: relative;">
     <app-component-carouselgroup [data]="card"></app-component-carouselgroup>
     <img src="assets/main/band.jpg" alt
-        style="position: absolute; top: -10%;z-index: -1;height: 150%;">
+        style="position: absolute; top: -10%;z-index: -1;height: 150%;max-height: 500px;">
 </div>
