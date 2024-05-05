@@ -15,6 +15,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class AppCursoPortalComponent implements OnInit {
   constructor(private api: ApiService, private router: Router, private sanitizer: DomSanitizer) { }
+
   level1!: any
   slevel1!: any
   level2!: any
@@ -24,7 +25,6 @@ export class AppCursoPortalComponent implements OnInit {
   UrlApi: string = environment.URL_PUBLIC
 
   ngOnInit(): void {
-    document.title = "Portal de curso"
     this.Get()
   }
   async Get() {
@@ -45,5 +45,10 @@ export class AppCursoPortalComponent implements OnInit {
     link.href = data;
     link.download = "fgdsgfsd.pdf"; // set a name for the file
     link.click();
+  }
+
+  CerrarSession() {
+    localStorage.removeItem("jwt")
+    this.router.navigate(["/login/"])
   }
 }

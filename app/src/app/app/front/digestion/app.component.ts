@@ -35,7 +35,7 @@ export class DialogDigestion {
   Msg: string = ""
   done: boolean = false
   async Send() {
-    const data = await this.api.SendContacto(this.Email, this.Name, this.Msg)
+    const data = await this.api.SendContacto(this.Email, this.Name, this.Msg, "Contacto sana tus digestiones")
     this.done = data.ok
   }
 }

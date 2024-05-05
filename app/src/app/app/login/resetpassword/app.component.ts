@@ -19,10 +19,8 @@ export class AppResetPasswordComponent implements OnInit {
   Response!: any
   constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    document.title = "Login"
     this.email = this.route.snapshot.queryParams["email"]
     this.token = this.route.snapshot.queryParams["token"]
-
   }
 
   async passwordReset() {

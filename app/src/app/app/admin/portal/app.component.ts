@@ -21,7 +21,6 @@ export class AppAdminPortalComponent implements OnInit {
   comentario!: any
 
   ngOnInit() {
-    document.title = "Portal de curso"
     this.Get()
   }
 

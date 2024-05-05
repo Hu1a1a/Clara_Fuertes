@@ -1,58 +1,55 @@
-<div style="text-align: -webkit-center;padding: 5%;">
-    <div class="login-box" style="text-align-last: center;max-width: 500px;">
-        <div class="login-logo">
-            <img src="assets/LogoClaraM.jpg" style="max-width: 100%;">
-        </div>
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Pon tus credenciales para iniciar
-                    sesión</p>
-                <ng-container *ngIf="Login">
-                    <div class="input-group mb-3">
-                        <input type="text" name="User" class="form-control"
-                            placeholder="Usuario"
-                            [(ngModel)]="User">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="Password"
-                            class="form-control" placeholder="Contraseña"
-                            [(ngModel)]="Pass">
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="!Login">
-                    <div class="input-group mb-3">
-                        <input type="email" name="Email"
-                            class="form-control"
-                            placeholder="Correo electrónico"
-                            [(ngModel)]="Email">
-                    </div>
-                </ng-container>
-                <div class="row">
-                    <div class="col-12">
-                        <button type="button" *ngIf="Login"
-                            class="btn btn-primary btn-block"
-                            (click)="login()">Iniciar
-                            sesión</button>
-                        <button type="button"
-                            class="btn btn-primary btn-block"
-                            (click)="Login=false" *ngIf="Login">
-                            Has olvidado tu
-                            contraseña?
-                        </button>
-                        <button type="button"
-                            class="btn btn-primary btn-block" *ngIf="!Login"
-                            (click)="passwordReset()">
-                            Resetear
-                        </button>
-                    </div>
-                </div>
-                <div class="row" *ngIf="Response?.msg">
-                    <div class="alert alert-danger alert-dismissible fade show"
-                        role="alert">
-                        {{Response.msg}}
-                    </div>
-                </div>
-            </div>
+<div class="login">
+    <div style="text-align-last: center;">
+        <img src="assets/LogoClaraM.jpg" style="width: 100%;max-width: 300px;">
+    </div>
+    <span style="font-family: Rajdhani;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.26px;
+    text-align: center;
+    color: #4D5C52;">
+        ¡Nos alegra volver a verte!
+    </span>
+    <br><br>
+
+    <ng-container *ngIf="Login">
+        <input type="text" name="User" class="form-control" placeholder="Usuario" [(ngModel)]="User">
+        <input type="password" name="Password" class="form-control" placeholder="Contraseña" [(ngModel)]="Pass">
+    </ng-container>
+    <ng-container *ngIf="!Login">
+        <input type="email" name="Email" class="form-control" placeholder="Correo electrónico" [(ngModel)]="Email">
+    </ng-container>
+    <ng-container *ngIf="Login">
+        <button type="button" (click)="login()">
+            <span>
+                INICIAR SESIÓN
+            </span>
+        </button>
+        <br><br>
+        <button type="button" (click)="Login=!Login">
+            <span>
+                ¿HAS OLVIDADO TU CONTRASEÑA?
+            </span>
+        </button>
+        <br><br>
+    </ng-container>
+    <ng-container *ngIf="!Login">
+        <button type="button" (click)="passwordReset()">
+            <span>
+                RESETEAR TU CONTRASEÑA
+            </span>
+        </button>
+        <br><br>
+        <button type="button" (click)="Login=!Login">
+            <span>
+                INICIAR SESIÓN
+            </span>
+        </button>
+    </ng-container>
+    <div class="row" *ngIf="Response?.msg">
+        <br><br>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{Response.msg}}
         </div>
     </div>
 </div>

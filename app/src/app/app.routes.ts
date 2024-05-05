@@ -13,6 +13,8 @@ import { AppRecursoComponent } from './app/front/recursos/app.component';
 import { AppDigestionComponent } from './app/front/digestion/app.component';
 import { AppPerdidaComponent } from './app/front/perdida/app.component';
 import { AppAsesoramientoComponent } from './app/front/asesoramiento/app.component';
+import { AppAsesorPatologiaComponent } from './app/front/asesoramiento/patologia/app.component';
+import { AppAsesorPerdidaComponent } from './app/front/asesoramiento/perdida/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -22,8 +24,14 @@ export const routes: Routes = [
     { path: 'compra/pay', component: AppCompraCheckComponent },
     { path: 'digestion', component: AppDigestionComponent },
     { path: 'perdidagrasa', component: AppPerdidaComponent },
-    { path: 'asesoramiento', component: AppAsesoramientoComponent },
-
+    {
+        path: 'asesoramiento', children: [
+            { path: "", component: AppAsesoramientoComponent },
+            { path: "patologia", component: AppAsesorPatologiaComponent },
+            { path: "perdida", component: AppAsesorPerdidaComponent },
+            { path: "**", redirectTo: "", pathMatch: "full" },
+        ]
+    },
     { path: "login", component: AppLoginComponent },
     { path: "resetPass", component: AppResetPasswordComponent },
     {
@@ -38,6 +46,5 @@ export const routes: Routes = [
             { path: "**", redirectTo: "portal", pathMatch: "full" },
         ]
     },
-
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

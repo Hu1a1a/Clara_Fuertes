@@ -1,0 +1,54 @@
+input {
+    width: 100%;
+    height: 40px;
+    font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: left;
+    color: #4D5C52;
+    margin: 15px 0px;
+    border: 1px solid #4D5C52;
+    border-radius: 15px;
+    padding: 0px 15px;
+}
+
+.login {
+    min-height: 50vh;
+    width: 100%;
+    padding: 5vh 15vw;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    height: 35px;
+    border-radius: 40px;
+    background-color: #c1e4d6;
+    border-color: transparent;
+    box-shadow: 7px 6px 16px 1px #c1e4d6;
+
+    span {
+        font-family: Reem Kufi Ink;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 30px;
+        text-align: center;
+        color: #6A6056;
+    }
+}
+
+button:hover {
+    background-color: #8cd2a3;
+    animation: buttonn 500ms;
+}
+
+@keyframes buttonn {
+    0% {
+        background-color: #c1e4d6;
+    }
+
+    100% {
+        background-color: #8cd2a3;
+    }
+}

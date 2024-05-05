@@ -160,9 +160,9 @@ exports.email_contacto = async (req, res) => {
         },
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_CONTACTO,
-        subject: "Formulario de contacto",
+        subject: req.body.Title,
         html: `
-         <h1> Formulario de contacto: </h1> <br>
+         <h1> ${req.body.Title}: </h1> <br>
             Nombre: ${req.body.Name} <br>
             Email: ${req.body.Email} <br>
             Mensaje: ${req.body.Msg}

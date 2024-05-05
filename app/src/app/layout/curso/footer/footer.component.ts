@@ -9,10 +9,4 @@ import { AngularMaterialModule } from '../../../module/app.angular.material.comp
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterCursoPanelComponent {
-  constructor(private router: Router) { }
-  CerrarSession() {
-    localStorage.removeItem("jwt")
-    this.router.navigate(["/login/"])
-  }
-}
+export class FooterCursoPanelComponent {}

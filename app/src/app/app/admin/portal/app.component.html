@@ -116,7 +116,7 @@
 
 <section class="modal-form" *ngIf="modal">
     <div class="form-container">
-        <div (click)="modal=false" class="close-modal"> × </div>
+        <div (click)="modal=false" class="close-modal" style="justify-content: center;"> x </div>
         <h2 style="margin: 0;"> {{ sAccion }} {{ sRouter }} </h2>
         <ng-container *ngFor="let item of Key(sData)">
             <ng-container *ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
@@ -130,14 +130,19 @@
                 </mat-form-field>
             </ng-container>
             <ng-template #elseTemplate>
-                <mat-form-field style="width: 100%;">
-                    <mat-label> {{item}} </mat-label>
-                    <input matInput [(ngModel)]="sData[item]" [disabled]="item==='id'">
-                </mat-form-field>
+                <ng-container *ngIf="item === 'Description'; else elseTemplate">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label> {{item}} </mat-label>
+                        <textarea matInput [(ngModel)]="sData[item]" rows="5"></textarea>
+                    </mat-form-field>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <mat-form-field style="width: 100%;">
+                        <mat-label> {{item}} </mat-label>
+                        <input matInput [(ngModel)]="sData[item]" [disabled]="item==='id'">
+                    </mat-form-field>
+                </ng-template>
             </ng-template>
-
-
-
         </ng-container>
         <button mat-raised-button color="primary" (click)="Accion(sData,sRouter,sAccion)">
             {{ sAccion }} {{ sRouter }}

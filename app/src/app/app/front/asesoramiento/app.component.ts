@@ -10,6 +10,4 @@ import { ComponentButtonComponent } from '../../component/button/c.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
-export class AppAsesoramientoComponent {
-
-}
+export class AppAsesoramientoComponent { }

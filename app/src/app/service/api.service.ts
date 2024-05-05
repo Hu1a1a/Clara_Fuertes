@@ -40,7 +40,7 @@ export class ApiService {
     async checkSession(url: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/check/`, { url }, this.options));
     }
-    async SendContacto(Email: string, Name: string, Msg: string): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}email/contacto/`, { Email, Name, Msg }, this.options));
+    async SendContacto(Email: string, Name: string, Msg: string, Title: string): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}email/contacto/`, { Email, Name, Msg, Title }, this.options));
     }
 }

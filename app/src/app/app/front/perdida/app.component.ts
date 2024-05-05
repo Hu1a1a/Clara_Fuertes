@@ -18,24 +18,24 @@ import { Router } from '@angular/router';
 export class AppPerdidaComponent {
   constructor(private dialog: MatDialog, public router: Router) { }
   openModal() {
-    this.dialog.open(DialogDigestion, {})
+    this.dialog.open(DialogPerdida, {})
   }
 }
 @Component({
-  selector: 'dialog-component',
+  selector: 'dialog-component-perdida',
   templateUrl: 'dialog.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [AngularMaterialModule, FormsModule, CommonModule],
 })
-export class DialogDigestion {
+export class DialogPerdida {
   constructor(private api: ApiService) { }
   Email: string = ""
   Name: string = ""
   Msg: string = ""
   done: boolean = false
   async Send() {
-    const data = await this.api.SendContacto(this.Email, this.Name, this.Msg)
+    const data = await this.api.SendContacto(this.Email, this.Name, this.Msg, "Contacto pérdida de grasa")
     this.done = data.ok
   }
 }
