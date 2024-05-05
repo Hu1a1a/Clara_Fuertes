@@ -31,6 +31,9 @@ export class ApiService {
     async Get(router: string): Promise<any> {
         return await firstValueFrom(this.http.get(`${this.UrlApi}${router}/`, this.options));
     }
+    async GetID(router: string, id: number): Promise<any> {
+        return await firstValueFrom(this.http.get(`${this.UrlApi}${router}/id/` + id, this.options));
+    }
     async Accion(data: any, router: string, accion: "create" | "update" | "delete"): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}${router}/${accion}/`, { data }, this.options));
     }

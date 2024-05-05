@@ -13,6 +13,7 @@ exports.get = async (req, res) => {
 exports.add = async (req, res) => {
   try {
     if (await authAdmin(req, res)) ADD("comentario", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
   } catch (e) {
     return res.json({ ok: false, msg: e.toString() });
   }
@@ -21,6 +22,7 @@ exports.add = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     if (await authAdmin(req, res)) UPDATE("comentario", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
   } catch (e) {
     return res.json({ ok: false, msg: e.toString() });
   }
@@ -29,6 +31,7 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   try {
     if (await authAdmin(req, res)) DELETE("comentario", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
   } catch (e) {
     return res.json({ ok: false, msg: e.toString() });
   }

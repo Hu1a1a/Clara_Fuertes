@@ -26,7 +26,7 @@ export class AppLoginComponent {
       if (this.Response.admin) this.router.navigate(["/admin/portal/"])
       else this.router.navigate(["/curso/portal/"])
       localStorage.setItem("jwt", this.Response.token)
-      localStorage.setItem("jwz", this.User)
+      localStorage.setItem("jwz", this.Response.id)
       this.api.setHeader(this.Response.token)
     }
   }

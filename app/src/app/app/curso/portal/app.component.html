@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand titulo" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            Clara Fuertes - Portal Curso
+            Clara Fuertes
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -15,45 +15,55 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body" style="padding: 10px 5px 30px 5px;" *ngIf="level1">
-                <div class="list-group list-group-flush border-bottom scrollarea" *ngIf="level1">
+                <div class="list-group list-group-flush border-bottom scrollarea">
                     <ng-container *ngFor="let i1 of level1.data;index as i">
-                        <a class="list-group-item list-group-item-action py-3 lh-sm level1" aria-current="true"
-                            (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
-                            <div class="d-flex w-100 align-items-center subtitulo">
-                                <i class="bi bi-brilliance"></i>
-                                <p>
-                                    {{i1.Name}}
-                                </p>
-                            </div>
-                            <div class="col-12 cuerpo" [innerHTML]="i1.Description"></div>
-                        </a>
-                        <ng-container *ngIf="slevel1===i1">
-                            <ng-container *ngFor="let i2 of level2.data;index as j">
-                                <ng-container *ngIf="slevel1.id===i2.level1">
-                                    <a class="list-group-item list-group-item-action py-3 lh-sm level2"
-                                        aria-current="true" (click)="slevel2=slevel2===i2?null:i2;svideo=null">
-                                        <div class="d-flex w-100 align-items-center subtitulo">
-                                            <i class="bi bi-folder-fill"></i>
-                                            <p>
-                                                {{i2.Name}}
-                                            </p>
-                                        </div>
-                                        <div class="col-12 cuerpo" [innerHTML]="i2.Description"> </div>
-                                    </a>
-                                    <ng-container *ngIf="slevel2===i2">
-                                        <ng-container *ngFor="let v of video.data;index as j">
-                                            <ng-container *ngIf="slevel2.id===v.level2">
-                                                <a class="list-group-item list-group-item-action video"
-                                                    aria-current="true" (click)="svideo=svideo===v?null:v"
-                                                    data-bs-dismiss="offcanvas" [ngClass]="svideo===v?'active':''">
-                                                    <div class="d-flex w-100 align-items-center subtitulo">
-                                                        <i class="bi bi-person-video2"></i>
-                                                        <p>
-                                                            {{v.Name}}
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </ng-container> </ng-container>
+                        <ng-container *ngIf="i1.active">
+
+                            <a class="list-group-item list-group-item-action py-3 lh-sm level1" aria-current="true"
+                                (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
+                                <div class="d-flex w-100 align-items-center subtitulo">
+                                    <i class="bi bi-brilliance"></i>
+                                    <p>
+                                        {{i1.Name}}
+                                    </p>
+                                </div>
+                                <div class="col-12 cuerpo" [innerHTML]="i1.Description"></div>
+                            </a>
+                            <ng-container *ngIf="slevel1===i1">
+                                <ng-container *ngFor="let i2 of level2.data;index as j">
+                                    <ng-container *ngIf="slevel1.id===i2.level1">
+                                        <a class="list-group-item list-group-item-action py-3 lh-sm level2"
+                                            aria-current="true"
+                                            (click)="i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null">
+                                            <div class="d-flex w-100 align-items-center subtitulo">
+                                                <i class="bi bi-lock-fill" *ngIf="!i2.active"></i>
+                                                <i class="bi bi-folder-fill" *ngIf="i2.active"></i>
+                                                <p>
+                                                    {{i2.Name}}
+                                                </p>
+                                            </div>
+                                            <div class="col-12 cuerpo" [innerHTML]="i2.Description"> </div>
+                                        </a>
+                                        <ng-container *ngIf="slevel2===i2">
+                                            <ng-container *ngFor="let v of video.data;index as j">
+                                                <ng-container *ngIf="slevel2.id===v.level2">
+                                                    <a class="list-group-item list-group-item-action video"
+                                                        aria-current="true"
+                                                        (click)="v.active?svideo=svideo===v?null:v:null"
+                                                        data-bs-dismiss="offcanvas" [ngClass]="svideo===v?'active':''"
+                                                        (click)="seeVideo(v)">
+                                                        <div class="d-flex w-100 align-items-center subtitulo">
+                                                            <i class="bi bi-check-square-fill" *ngIf="v.active"
+                                                                style="color: greenyellow;"></i>
+
+                                                            <i class="bi bi-person-video2" *ngIf="!v.active"></i>
+                                                            <p>
+                                                                {{v.Name}}
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </ng-container> </ng-container>
+                                        </ng-container>
                                     </ng-container>
                                 </ng-container>
                             </ng-container>
@@ -98,7 +108,7 @@
                             <mat-card-content style="width: 100%;">
                                 <mat-card-title style="width: 100%;">
                                     <p style="font-weight: 700;
-                                    font-size: 14px;    line-height: 15px;">
+                                    font-size: 14px;line-height: 15px;">
                                         {{link}}
                                     </p>
                                 </mat-card-title>
@@ -116,6 +126,7 @@
         </div>
     </div>
     <div class="container" *ngIf="!svideo">
+        <br>
         <div class="titulo">
             Bienvenido a tu curso personalizado!
         </div>

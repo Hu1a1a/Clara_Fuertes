@@ -30,10 +30,14 @@ export class AppCursoPortalComponent implements OnInit {
     this.Get()
   }
   async Get() {
-    this.api.Get("curso/level1").then((a) => this.level1 = a)
-    this.api.Get("curso/level2").then((a) => this.level2 = a)
-    this.api.Get("curso/video").then((a) => this.video = a)
-    this.api.Get("curso/curso").then((a) => this.curso = a)
+    const id = localStorage.getItem("jwz")
+    if (id) {
+      this.level1 = await this.api.Get("curso/level1")
+      this.level2 = await this.api.Get("curso/level2")
+      this.video = await this.api.Get("curso/video")
+      this.curso = await this.api.GetID("curso/curso", +id)
+      this.checkprogress()
+    }
   }
   photoURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed"));
@@ -41,17 +45,50 @@ export class AppCursoPortalComponent implements OnInit {
   canvaURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replaceAll("&#x2F;", "/"));
   }
-  download(response: string) {
-    const newBlob = new Blob([response], { type: "pdf" });
-    const data = window.URL.createObjectURL(newBlob);
-    const link = document.createElement("a");
-    link.href = data;
-    link.download = "fgdsgfsd.pdf"; // set a name for the file
-    link.click();
-  }
 
   CerrarSession() {
     localStorage.removeItem("jwt")
     this.router.navigate(["/login/"])
+  }
+
+  async seeVideo(v: any) {
+    if (!v.active) {
+      for (const c of this.curso.data) {
+        const data = JSON.parse(c.progreso || "[]")
+        data.push({ id: v.id })
+        c.progreso = JSON.stringify(data)
+        await this.api.Accion(c, "curso/curso", "update")
+      }
+      this.checkprogress()
+    }
+  }
+
+  checkprogress() {
+    for (const c of this.curso.data) {
+      const l1 = this.level1.data.find((a: any) => a.id === c.cursoId)
+      l1["active"] = true
+      const progress = JSON.parse(c.progreso || "[]")
+      for (const p of progress) {
+        const v = this.video.data.find((a: any) => a.id === p.id)
+        v["active"] = true
+      }
+      const now = new Date()
+      const inicio = new Date(c.inicio)
+      for (const l2 of this.level2.data) {
+        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion))) {
+          l2["active"] = true
+        }
+      }
+      for (const l2 of this.level2.data) {
+        let act = true
+        for (const v of this.video.data) if (l2.id === v.level2) if (!v["active"]) act = false
+        if (!act) {
+          const l2d = this.level2.data.filter((a: any) => a.depId === l2.id)
+          for (const d of l2d) {
+            d["active"] = false
+          }
+        }
+      }
+    }
   }
 }

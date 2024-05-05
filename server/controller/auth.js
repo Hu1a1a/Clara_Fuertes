@@ -9,7 +9,7 @@ exports.login = (req, res) => {
   try {
     if (req.body.User && req.body.Password) {
       pool.getConnection((e, c) => {
-        c.query(`SELECT Admin FROM user WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
+        c.query(`SELECT Admin, id FROM user WHERE User = ? AND Pass = ?;`, [req.body.User, req.body.Password], (e, r) => {
           if (e) {
             c.release();
             return res.json({ ok: false, msg: JSON.stringify(e) });
@@ -24,7 +24,7 @@ exports.login = (req, res) => {
               if (r[0].Admin) {
                 return res.json({ ok: true, token, admin: true });
               } else {
-                return res.json({ ok: true, token });
+                return res.json({ ok: true, token, id: r[0].id });
               }
             });
           } else {
@@ -57,12 +57,12 @@ exports.checkToken = async (req, res) => {
 
 exports.auth = async (req, res) => {
   if ((await auth(req)) > 0) return true;
-  return res.json({ ok: false, msg: "Token no válido!" });
+  return false
 };
 
 exports.authAdmin = async (req, res) => {
   if ((await auth(req)) > 1) return true;
-  return res.json({ ok: false, msg: "Token no válido!" });
+  return false
 };
 
 exports.resetPassword = async (req, res) => {
