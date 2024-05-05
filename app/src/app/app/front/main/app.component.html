@@ -139,7 +139,7 @@
         </span>
     </div>
 </div>
-<div class="row" style="position: relative;">
+<div class="row" style="position: relative;" *ngIf="comentario">
     <app-component-carouselgroup [data]="comentario.data"></app-component-carouselgroup>
     <img src="assets/main/band.jpg" alt
         style="position: absolute; top: -10%;z-index: -1;height: 150%;max-height: 500px;">

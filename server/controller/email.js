@@ -148,3 +148,34 @@ exports.email_resetPass = async (req, res) => {
     return res.json({ ok: false, msg: e.toString() });
   }
 };
+
+
+exports.email_contacto = async (req, res) => {
+  try {
+    if (req.body.Name && req.body.Email) {
+      nodeoutlook.sendEmail({
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_CONTACTO,
+        subject: "Formulario de contacto",
+        html: `
+         <h1> Formulario de contacto: </h1> <br>
+            Nombre: ${req.body.Name} <br>
+            Email: ${req.body.Email} <br>
+            Mensaje: ${req.body.Msg}
+                `,
+        onError: (err) => {
+          console.log(err);
+          res.json({ ok: true });
+        },
+        onSuccess: () => {
+          console.log("succ");
+          res.json({ ok: true });
+        },
+      });
+    };
+  } catch (e) { res.json({ ok: false, msg: e.toString() }); }
+}; 

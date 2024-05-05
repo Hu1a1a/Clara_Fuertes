@@ -1,0 +1,72 @@
+<mat-dialog-content style="width: 480px;
+height: 100%; max-width: 80vw; max-height: 80vh;
+ align-content: space-evenly;
+  border-color: #4D5C52;
+  overflow: hidden;
+border: 1px solid black;    text-align: -webkit-center;
+padding: 25px 20px;
+  ">
+  <div *ngIf="!done">
+    <span style="font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.94px;
+    text-align: center;
+    color: #4D5C52;">
+      ¡Me encantaría ayudarte!
+    </span> <br>
+    <span style="font-family: Rajdhani;
+    font-size: 15.62px;
+    font-weight: 500;
+    line-height: 19.94px;
+    text-align: center;
+    color: #4D5C52;">
+      ¿Tienes alguna duda que quieras resolver antes? <br>
+      Déjame tu mensaje y me pondré en contacto contigo
+    </span>
+    <br>
+    <input type="text" [(ngModel)]="Name" style="height: 35px;" placeholder="Tu nombre">
+    <br>
+    <input type="text" style="height: 35px;" placeholder="Tu e-mail" [(ngModel)]="Email">
+    <br>
+    <textarea rows="5" placeholder="Algo que me quieras comentar" [(ngModel)]="Msg"></textarea>
+    <br>
+    <button (click)="Send()" style="background-color: #CDDDD7;font-family: Reem Kufi Ink;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 15.62px;
+    text-align: center;
+    margin-top: 10px;
+    color: #6A6056;">
+      ENVIAR
+    </button>
+  </div>
+  <div *ngIf="done">
+    <span style="font-family: Poppins;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21.87px;
+    text-align: center;
+    color: #4D5C52;">
+      ¡Gracias por interesarte por mi trabajo!
+    </span><br><br>
+    <span style="font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.94px;
+    text-align: center;
+    color: #4D5C52;">
+      En la mayor brevedad posible contactaré contigo vía email para facilitarte toda la información
+      sobre los
+      acompañamientos y que puedas resolver tus dudas.
+    </span><br><br>
+    <span style="font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.94px;
+    text-align: center;
+    color: #82BDA5;">“Deja de anhelar ser diferente. SE diferente. Transformar tu vida y vivir como quieres, solo
+      depende de
+      TI.”</span>
+  </div>
+</mat-dialog-content>

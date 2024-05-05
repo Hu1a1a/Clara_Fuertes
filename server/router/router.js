@@ -8,6 +8,8 @@ const comentario = require("../controller/comment");
 const stripe = require("../controller/stripe");
 
 router.post("/email/ensalada/", email.email_ensalada);
+router.post("/email/contacto/", email.email_contacto);
+router.post("/resetPass/", email.email_resetPass);
 
 router.get("/curso/level1/", curso.level1);
 router.get("/curso/level2/", curso.level2);
@@ -38,9 +40,8 @@ router.post("/comentario/delete/", comentario.delete);
 router.post("/stripe/pay/", stripe.paySession);
 router.post("/stripe/check/", stripe.checkSession);
 
-router.post("/login/", auth.login);
-router.post("/resetPass/", email.email_resetPass);
-router.post("/resetPassword/", auth.resetPassword);
 router.get("/token/", auth.checkToken);
+router.post("/login/", auth.login);
+router.post("/resetPassword/", auth.resetPassword);
 
 module.exports = router;

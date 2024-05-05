@@ -2,6 +2,7 @@
   width: 60%;
   background-color: #ffffff99;
   padding: 20px;
+
   @media only screen and (max-width: 990px) {
     width: 100%;
   }
@@ -12,11 +13,13 @@
   padding: 20px;
   text-align-last: left;
   text-align: left;
+
   @media only screen and (max-width: 990px) {
     width: 100%;
     background-color: #ffffff99;
   }
 }
+
 button {
   width: 170px;
   height: 30px;
@@ -25,6 +28,7 @@ button {
   border-color: transparent;
   box-shadow: 7px 6px 16px 1px #c1e4d6;
 }
+
 button:hover {
   background-color: #8cd2a3;
   animation: buttonn 500ms;
@@ -34,7 +38,28 @@ button:hover {
   0% {
     background-color: #c1e4d6;
   }
+
   100% {
     background-color: #8cd2a3;
   }
+}
+
+input,
+textarea {
+  width: 90%;
+  font-family: Rajdhani;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19.94px;
+  text-align: left;
+  color: #4D5C52;
+  margin: 10px 0px;
+  border: 1px solid #4D5C52;
+  border-radius: 15px;
+  padding: 0px 15px;
+}
+
+textarea {
+  padding-top: 10px;
+  resize: none;
 }

@@ -1,0 +1,55 @@
+<mat-dialog-content style="width: 480px;
+height: 380px; max-width: 80vw; max-height: 80vh;
+ align-content: space-evenly;
+  border-color: #4D5C52;
+  overflow: hidden;
+border: 1px solid black;    text-align: -webkit-center;
+padding: 5px 20px;
+  ">
+  <div *ngIf="!done">
+
+    <span style="font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.94px;
+    text-align: center;
+    color: #4D5C52;">
+      ¡Me encantaría ayudarte!
+    </span> <br>
+    <input type="text" [(ngModel)]="Name" style="height: 35px;" placeholder="Tu nombre">
+    <br>
+    <input type="text" style="height: 35px;" placeholder="Tu e-mail" [(ngModel)]="Email">
+    <br>
+    <textarea rows="3" placeholder="Algo que me quieras comentar" [(ngModel)]="Msg"></textarea>
+    <br>
+    <span style="font-family: Rajdhani;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+    color: #4D5C52;">
+      En las próximas 24h nos pondremos en contacto por email para facilitarle los documentos a rellenar y así elaborar
+      su
+      plan.
+    </span> <br>
+    <button (click)="Send()" style="background-color: #CDDDD7;font-family: Reem Kufi Ink;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 15.62px;
+    text-align: center;
+    margin-top: 10px;
+    color: #6A6056;">
+      ENVIAR
+    </button>
+  </div>
+  <div *ngIf="done">
+    <span style="font-family: Poppins;
+    font-size: 14.58px;
+    font-weight: 700;
+    line-height: 21.87px;
+    text-align: center;
+    color: #4D5C52;">
+      ¡Gracias por interesarte por mi trabajo!
+    </span>
+  </div>
+</mat-dialog-content>
