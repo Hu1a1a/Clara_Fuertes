@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2024-05-05 20:50:07
+-- 生成日期： 2024-05-05 22:27:40
 -- 服务器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.0.28
 
@@ -52,6 +52,28 @@ INSERT INTO `comentario` (`id`, `Name`, `Description`, `Start`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `curso`
+--
+
+CREATE TABLE `curso` (
+  `id` int(11) NOT NULL,
+  `cursoId` int(11) NOT NULL,
+  `inicio` date NOT NULL,
+  `expiro` date NOT NULL,
+  `progreso` longtext NOT NULL,
+  `userId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 转存表中的数据 `curso`
+--
+
+INSERT INTO `curso` (`id`, `cursoId`, `inicio`, `expiro`, `progreso`, `userId`) VALUES
+(1, 1, '2024-03-24', '2024-11-23', '[{\"id\":17},{\"id\":17},{\"id\":18},{\"id\":27}]', 2);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `level1`
 --
 
@@ -84,27 +106,28 @@ CREATE TABLE `level2` (
   `Description` longtext NOT NULL,
   `Img` longtext NOT NULL,
   `Duracion` int(11) NOT NULL,
-  `level1` int(11) NOT NULL
+  `level1` int(11) NOT NULL,
+  `depId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `level2`
 --
 
-INSERT INTO `level2` (`id`, `Name`, `Description`, `Img`, `Duracion`, `level1`) VALUES
-(5, 'Semana 0  ', 'Bienvenida', '', 7, 1),
-(6, 'Fase 1. Semana 1', 'Renovación', '', 7, 1),
-(7, 'Fase 1. Semana 2', 'Renovación', '', 7, 1),
-(12, 'Fase 1. Semana 3', 'Renovación', '', 7, 1),
-(13, 'Fase 1. Semana 4', 'Renovación', '', 7, 1),
-(14, 'Fase 1. Semana 5', 'Renovación', '', 7, 1),
-(15, 'Fase 1. Semana 6', 'Renovación', '', 7, 1),
-(16, 'Fase 1. Semana 7', 'Renovación', '', 7, 1),
-(17, 'Fase 1. Semana 8', 'Renovación', '', 7, 1),
-(18, 'Fase 1. Semana 9', 'Renovación', '', 7, 1),
-(19, 'Fase 1. Semana 10', 'Renovación', '', 7, 1),
-(20, 'Fase 1. Semana 11', 'Renovación', '', 7, 1),
-(21, 'Fase 1. Semana 12', 'Renovación', '', 7, 1);
+INSERT INTO `level2` (`id`, `Name`, `Description`, `Img`, `Duracion`, `level1`, `depId`) VALUES
+(5, 'Semana 0  ', 'Bienvenida', '', 0, 1, 0),
+(6, 'Fase 1. Semana 1', 'Renovación', '', 0, 1, 0),
+(7, 'Fase 1. Semana 2', 'Renovación', '', 7, 1, 6),
+(12, 'Fase 1. Semana 3', 'Renovación', '', 14, 1, 7),
+(13, 'Fase 1. Semana 4', 'Renovación', '', 21, 1, 12),
+(14, 'Fase 1. Semana 5', 'Renovación', '', 28, 1, 13),
+(15, 'Fase 1. Semana 6', 'Renovación', '', 35, 1, 14),
+(16, 'Fase 1. Semana 7', 'Renovación', '', 42, 1, 15),
+(17, 'Fase 1. Semana 8', 'Renovación', '', 49, 1, 16),
+(18, 'Fase 1. Semana 9', 'Renovación', '', 56, 1, 17),
+(19, 'Fase 1. Semana 10', 'Renovación', '', 63, 1, 18),
+(20, 'Fase 1. Semana 11', 'Renovación', '', 70, 1, 19),
+(21, 'Fase 1. Semana 12', 'Renovación', '', 77, 1, 20);
 
 -- --------------------------------------------------------
 
@@ -147,23 +170,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `User`, `Pass`, `Token`, `Email`, `Phone`, `Admin`) VALUES
-(1, 'ClaraFuertes', 'Nutricionista80', 'd44693f32b0c8b14f46f5fb8a6de26f5e19bfb9ff2af8a9210de7b3c291f47b1c98e25cc6ab6fd826956951c9f8b73fb4784204a7aa593611f4f629b876eabfa', 'clarafuertes.nutricion@gmail.com', '  b341', 1),
-(2, 'YYZ', '123', 'ef047a798db653fb7f03acab30533f16d895357056fbd90b8959a54f228ebb3eee5d51bfd6061e9b945936cb69f0d6a31633bba43f87200609c704bbaa01bd46', 'yang.ye.1@hotmail.com', '', 0);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `userpay`
---
-
-CREATE TABLE `userpay` (
-  `id` int(11) NOT NULL,
-  `UserId` int(11) NOT NULL,
-  `CourseId` int(11) NOT NULL,
-  `Price` float(10,2) NOT NULL,
-  `BuyTime` date NOT NULL,
-  `Expiration` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+(1, 'ClaraFuertes', 'Nutricionista80', '84bf584a38ebb28dd9adc1c3cf8c492f5f78dd41e6975f1b3194d77c73779364564703ec5edde298c92b0aee91e299135c69a1f9b4ea849eb40e6c57068eb8c6', 'clarafuertes.nutricion@gmail.com', '  b341', 1),
+(2, 'YYZ', '123', 'c9c0fc68cad441fdff4cd3de4766c472ef2d48c32bdc71ec241c17c0bee4a8a352444e0ccc49de44dee458748ae90fc6d3ac74bbd59211436683f15253eb4624', 'yang.ye.1@hotmail.com', '', 0);
 
 -- --------------------------------------------------------
 
@@ -192,13 +200,20 @@ INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `Canva`, `lev
 (20, 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable\r\n', 'https://www.loom.com/share/1c811df0cd154bb889907ef9aa11c2f5?sid=48385f51-57d4-4788-a57d-0aa5fc1ec745', 'Vídeo 3. Entendiendo la alimentación equilibrada. Macronutrientes y plato saludable', '', '', 5),
 (21, 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', 'https://www.loom.com/share/a7ff642150894acc8037f8673d6e00c9?sid=5544da95-6297-455e-8ebd-1f2537650810', 'Vídeo 4. Coaching: Establece tu objetivo y tus Paraqués', '', '', 5),
 (22, 'Descargables semana 0', '', 'Descargables semana 0', '', '', 5),
-(23, 'Descargable 1. La prueba del bicarbonato', '', 'La prueba del bicarbonato es una prueba casera muy sencilla que puede orientarnos sobre la acidez del estómago, aspecto fundamental a tener en cuenta para el buen manejo de las digestiones.  Realiza esta prueba tal como se indica en el documento y envíame los resultados cuando los tengas. Repítela 3-4 días para confirmar los resultados. ', ' Prueba del bicarbonoato.pdf', '', 5),
+(23, 'Descargable 1. La prueba del bicarbonato', '', 'La prueba del bicarbonato es una prueba casera muy sencilla que puede orientarnos sobre la acidez del estómago, aspecto fundamental a tener en cuenta para el buen manejo de las digestiones.  Realiza esta prueba tal como se indica en el documento y envíame los resultados cuando los tengas. Repítela 3-4 días para confirmar los resultados. ', 'Prueba del bicarbonoato.pdf', '', 5),
 (24, 'Descargable 2. Ejercicio de Coaching ', '', 'En este documento encontrarás las plantillas de todos los ejercicios de Coaching que te voy proponiendo en estas semanas.  Simplemente descárgala para tenerla a mano y que puedas visualizar mejor los ejercicios que se irán planteando. ', 'Ejercicios prácticos de Coaching (4).pdf', '', 5),
-(26, 'comidaaaaaaaaaaaaaa', '', '', '', '', 0);
+(27, 'prueba semana 0', '', '', '', '', 6),
+(28, 'prueba semana 1', '', '', '', '', 7);
 
 --
 -- 转储表的索引
 --
+
+--
+-- 表的索引 `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 表的索引 `level1`
@@ -219,12 +234,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `userpay`
---
-ALTER TABLE `userpay`
-  ADD PRIMARY KEY (`id`);
-
---
 -- 表的索引 `video`
 --
 ALTER TABLE `video`
@@ -234,6 +243,12 @@ ALTER TABLE `video`
 --
 -- 在导出的表使用AUTO_INCREMENT
 --
+
+--
+-- 使用表AUTO_INCREMENT `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用表AUTO_INCREMENT `level1`
@@ -254,16 +269,10 @@ ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- 使用表AUTO_INCREMENT `userpay`
---
-ALTER TABLE `userpay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- 使用表AUTO_INCREMENT `video`
 --
 ALTER TABLE `video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
