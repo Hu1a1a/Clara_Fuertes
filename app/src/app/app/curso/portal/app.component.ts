@@ -81,8 +81,16 @@ export class AppCursoPortalComponent implements OnInit {
       }
       for (const l2 of this.level2.data) {
         let act = true
-        for (const v of this.video.data) if (l2.id === v.level2) if (!v["active"]) act = false
-        if (!act) {
+        let vacio = true
+        for (const v of this.video.data) {
+          if (l2.id === v.level2) {
+            vacio = false
+            if (!v["active"]) {
+              act = false
+            }
+          }
+        }
+        if (!act || vacio) {
           const l2d = this.level2.data.filter((a: any) => a.depId === l2.id)
           for (const d of l2d) {
             d["active"] = false
