@@ -1,6 +1,6 @@
 "use strict";
 const { auth, authAdmin } = require("./auth");
-const { SELECT, ADD, UPDATE, DELETE } = require("./controller");
+const { SELECT, ADD, UPDATE, DELETE, SELECTBYID } = require("./controller");
 
 exports.level1 = async (req, res) => {
   try {
@@ -93,6 +93,45 @@ exports.delete_level2 = async (req, res) => {
 exports.delete_video = async (req, res) => {
   try {
     if (await authAdmin(req, res)) DELETE("video", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};
+
+exports.curso = async (req, res) => {
+  try {
+    if (await authAdmin(req, res)) SELECT("curso", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};
+exports.cursobyid = async (req, res) => {
+  try {
+    if (await auth(req, res)) SELECTBYID("curso", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};
+
+exports.add_curso = async (req, res) => {
+  try {
+    if (await authAdmin(req, res)) ADD("curso", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};
+
+exports.update_curso = async (req, res) => {
+  try {
+    if (await authAdmin(req, res)) UPDATE("curso", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};
+
+exports.delete_curso = async (req, res) => {
+  try {
+    if (await authAdmin(req, res)) DELETE("curso", req, res);
   } catch (e) {
     return res.json({ ok: false, msg: e.toString() });
   }

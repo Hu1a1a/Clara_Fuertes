@@ -22,6 +22,8 @@ export class AppCursoPortalComponent implements OnInit {
   slevel2!: any
   video!: any
   svideo!: any
+  curso!: any
+
   UrlApi: string = environment.URL_PUBLIC
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class AppCursoPortalComponent implements OnInit {
     this.api.Get("curso/level1").then((a) => this.level1 = a)
     this.api.Get("curso/level2").then((a) => this.level2 = a)
     this.api.Get("curso/video").then((a) => this.video = a)
+    this.api.Get("curso/curso").then((a) => this.curso = a)
   }
   photoURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed"));

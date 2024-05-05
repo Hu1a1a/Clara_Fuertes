@@ -19,6 +19,7 @@ export class AppAdminPortalComponent implements OnInit {
   video!: any
   user!: any
   comentario!: any
+  curso!: any
 
   ngOnInit() {
     this.Get()
@@ -39,6 +40,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.api.Get("curso/video").then((a) => this.video = a)
     this.api.Get("user").then((a) => this.user = a)
     this.api.Get("comentario").then((a) => this.comentario = a)
+    this.api.Get("curso/curso").then((a) => this.curso = a)
   }
 
   OpenModal(data: any, router: string, accion: "create" | "update" | "delete") {

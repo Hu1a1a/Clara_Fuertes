@@ -4,8 +4,9 @@ exports.SELECT = (Table, req, res) => {
   pool.getConnection((e, c) => {
     pool.query(`SELECT * FROM ${Table};`, async (e, r) => {
       c.release();
-      if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
-      else return res.json({ ok: true, data: r });
+      if (e) return res.json({ ok: false, msg: JSON.stringify(e) })
+        
+      else return res.json({ ok: true, data: r })
     });
   });
 };
@@ -46,6 +47,16 @@ exports.UPDATE = (Table, req, res) => {
 exports.DELETE = (Table, req, res) => {
   pool.getConnection((e, c) => {
     pool.query(`DELETE FROM ${Table} WHERE id = ${req.body.data.id};`, async (e, r) => {
+      c.release();
+      if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
+      else return res.json({ ok: true, data: r });
+    });
+  });
+};
+
+exports.SELECTBYID = (Table, req, res) => {
+  pool.getConnection((e, c) => {
+    pool.query(`SELECT * FROM ${Table} WHERE id = '${req.params.id}';`, async (e, r) => {
       c.release();
       if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
       else return res.json({ ok: true, data: r });

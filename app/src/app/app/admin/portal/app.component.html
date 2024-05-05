@@ -88,6 +88,35 @@
                 Añadir Usuario
             </button>
         </mat-tab>
+        <mat-tab label="Curso">
+            <table class="table table-striped" *ngIf="curso">
+                <thead>
+                    <tr>
+                        <td> id </td>
+                        <td> Curso </td>
+                        <td> Usuario </td>
+                        <td> Inicio </td>
+                        <td> Fin </td>
+                        <td> Progreso </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let u of curso.data;index as i">
+                        <tr (click)="OpenModal(u,'curso/curso','update')">
+                            <td> {{u.id}} </td>
+                            <td> {{u.cursoId}} </td>
+                            <td> {{u.userId}} </td>
+                            <td> {{u.inicio}} </td>
+                            <td> {{u.expiro}} </td>
+                            <td> {{u.progreso}} </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <button mat-raised-button color="primary" (click)="OpenModal(curso.data[0],'curso/curso','create')">
+                Añadir Curso
+            </button>
+        </mat-tab>
         <mat-tab label="Comentario">
             <table class="table table-striped" *ngIf="comentario">
                 <thead>
@@ -109,8 +138,10 @@
                     </ng-container>
                 </tbody>
             </table>
+            <button mat-raised-button color="primary" (click)="OpenModal(comentario.data[0],'comentario','create')">
+                Añadir Comentario
+            </button>
         </mat-tab>
-
     </mat-tab-group>
 </div>
 
@@ -130,7 +161,7 @@
                 </mat-form-field>
             </ng-container>
             <ng-template #elseTemplate>
-                <ng-container *ngIf="item === 'Description'; else elseTemplate">
+                <ng-container *ngIf="item === 'Description' || item === 'progreso'; else elseTemplate">
                     <mat-form-field style="width: 100%;">
                         <mat-label> {{item}} </mat-label>
                         <textarea matInput [(ngModel)]="sData[item]" rows="5"></textarea>

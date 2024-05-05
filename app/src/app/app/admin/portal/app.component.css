@@ -13,6 +13,11 @@ button {
 table {
   table-layout: fixed;
 }
+
 td {
   word-wrap: break-word;
+}
+
+.form-container {
+  overflow-y: auto;
 }

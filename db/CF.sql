@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- 主机： localhost:3306
--- 生成日期： 2024-05-04 20:47:21
--- 服务器版本： 10.6.16-MariaDB-0ubuntu0.22.04.1
--- PHP 版本： 8.2.17
+-- 主机： 127.0.0.1:3306
+-- 生成日期： 2024-05-05 20:50:07
+-- 服务器版本： 10.4.28-MariaDB
+-- PHP 版本： 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `CF`
+-- 数据库： `cf`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `comentario` (
   `Name` varchar(25) NOT NULL,
   `Description` longtext NOT NULL,
   `Start` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- 转存表中的数据 `comentario`
@@ -117,7 +117,7 @@ CREATE TABLE `regemail` (
   `Email` varchar(255) NOT NULL,
   `Date` datetime NOT NULL,
   `Tipo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- 转存表中的数据 `regemail`
@@ -140,7 +140,7 @@ CREATE TABLE `user` (
   `Email` varchar(255) NOT NULL,
   `Phone` varchar(255) NOT NULL,
   `Admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- 转存表中的数据 `user`
@@ -163,7 +163,7 @@ CREATE TABLE `userpay` (
   `Price` float(10,2) NOT NULL,
   `BuyTime` date NOT NULL,
   `Expiration` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,7 @@ CREATE TABLE `video` (
   `Adjunt` text NOT NULL,
   `Canva` longtext NOT NULL,
   `level2` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- 转存表中的数据 `video`
@@ -199,12 +199,6 @@ INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `Canva`, `lev
 --
 -- 转储表的索引
 --
-
---
--- 表的索引 `comentario`
---
-ALTER TABLE `comentario`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- 表的索引 `level1`
@@ -240,12 +234,6 @@ ALTER TABLE `video`
 --
 -- 在导出的表使用AUTO_INCREMENT
 --
-
---
--- 使用表AUTO_INCREMENT `comentario`
---
-ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用表AUTO_INCREMENT `level1`

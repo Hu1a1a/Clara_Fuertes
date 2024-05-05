@@ -3,6 +3,7 @@ import { AngularMaterialModule } from '../../module/app.angular.material.compone
 import { AngularModule } from '../../module/app.angular.component copy';
 import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
+import { response } from 'express';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class AppLoginComponent {
       if (this.Response.admin) this.router.navigate(["/admin/portal/"])
       else this.router.navigate(["/curso/portal/"])
       localStorage.setItem("jwt", this.Response.token)
+      localStorage.setItem("jwz", this.User)
       this.api.setHeader(this.Response.token)
     }
   }
