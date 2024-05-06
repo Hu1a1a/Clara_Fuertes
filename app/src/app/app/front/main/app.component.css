@@ -1,20 +1,22 @@
 .picture {
-  width: 50%;
-  max-width: 500px;
+  width: 45%;
+  max-width: 450px;
   z-index: -2;
 }
 
 .picturediv {
   animation: fadeIn 3s;
 }
+
 .textdiv1 {
   animation: fadeOut 3s;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 55%;
 }
+
 .textdiv2 {
   animation: fadeOut 3s;
   display: flex;
@@ -22,15 +24,28 @@
   flex-direction: column;
   justify-content: center;
   width: 50vw;
+
   @media only screen and (max-width: 670px) {
     width: 100%;
   }
 }
+
+.especializado {
+  padding: 0px 100px;
+
+  @media only screen and (max-width: 670px) {
+    padding: 0px;
+  }
+
+
+}
+
 .xhidden {
   @media only screen and (max-width: 670px) {
     display: none;
   }
 }
+
 .xhidden2 {
   @media only screen and (min-width: 670px) {
     display: none;
@@ -41,6 +56,7 @@
   0% {
     transform: translateX(-30rem);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -50,6 +66,7 @@
   0% {
     transform: translateX(30rem);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -72,9 +89,11 @@
   0% {
     width: 0%;
   }
+
   50% {
     width: 0%;
   }
+
   100% {
     width: 110%;
   }
@@ -97,9 +116,11 @@
   0% {
     width: 0%;
   }
+
   50% {
     width: 0%;
   }
+
   100% {
     width: 110%;
   }

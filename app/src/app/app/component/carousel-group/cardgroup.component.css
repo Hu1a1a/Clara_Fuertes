@@ -1,5 +1,9 @@
 .carousel-inner {
   width: 90%;
+
+  @media only screen and (max-width: 670px) {
+    width: 70%;
+  }
 }
 
 .carousel {
@@ -10,7 +14,24 @@
 
 button {
   width: 5%;
+
+
+  @media only screen and (max-width: 670px) {
+    width: 15%;
+  }
+
   img {
     width: 100%;
   }
+}
+
+.carousel-control-prev {
+  padding-left: 10px;
+
+
+}
+
+.carousel-control-next {
+  padding-right: 10px;
+
 }
