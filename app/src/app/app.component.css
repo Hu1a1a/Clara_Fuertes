@@ -14,3 +14,7 @@ tbody {
   height: 97px;
   width: 100%;
 }
+
+.body {
+  z-index: -1;
+}

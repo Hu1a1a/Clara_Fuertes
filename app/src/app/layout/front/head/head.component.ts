@@ -15,18 +15,23 @@ export class HeadComponent {
   constructor(public router: Router, public dialog: MatDialog) { }
 
   Menu: { Name: string, Router: string, Disabled?: boolean }[] = [
-    { Name: "Inicio", Router: "#/" },
-    { Name: "Recursos gratuitos", Router: "#/recursos" },
-    { Name: "Cursos para ti", Router: "#/compra", Disabled: true },
-    { Name: "Sana tus digestiones", Router: "#/digestion" },
-    { Name: "Pérdida de grasa", Router: "#/perdidagrasa" },
-    { Name: "Asesoramiento único", Router: "#/asesoramiento" },
-    { Name: "Portal Curso", Router: "#/login" },
+    { Name: "Inicio", Router: "" },
+    { Name: "Recursos gratuitos", Router: "recursos" },
+    { Name: "Cursos para ti", Router: "compra", Disabled: true },
+    { Name: "Sana tus digestiones", Router: "digestion" },
+    { Name: "Pérdida de grasa", Router: "perdidagrasa" },
+    { Name: "Asesoramiento único", Router: "asesoramiento" },
+    { Name: "Portal Curso", Router: "login" },
   ]
   openModal(item: { Name: string, Router: string, Disabled?: boolean }) {
     if (item.Disabled) {
       event?.preventDefault()
       this.dialog.open(DialogDisabled, {});
+    }
+  }
+  href(item: any) {
+    if (!item.Disabled) {
+      this.router.navigate([item.Router])
     }
   }
 }

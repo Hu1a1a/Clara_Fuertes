@@ -1,8 +1,9 @@
 .sandia {
   width: 60%;
   background-color: #ffffff99;
-  padding: 20px;
-
+  padding: 10px;
+  text-align: -webkit-center;
+  text-align-last: center;
   @media only screen and (max-width: 990px) {
     width: 100%;
   }

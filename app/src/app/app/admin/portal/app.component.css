@@ -21,3 +21,7 @@ td {
 .form-container {
   overflow-y: auto;
 }
+
+mat-tab-group {
+  z-index: -1 !important
+}

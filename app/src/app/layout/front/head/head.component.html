@@ -12,15 +12,15 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <ng-container *ngFor="let item of Menu">
-                    <li class="nav-item">
-                        <a class="nav-link menu" [href]="item.Disabled?'':item.Router"
-                            [ngClass]="router.url===item.Router.replace('#','')?'active':''" (click)="openModal(item)">
+                    <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown">
+                        <a class="nav-link menu" (click)="href(item)"
+                            [ngClass]="router.url==='/'+item.Router?'active':''" (click)="openModal(item)">
                             {{item.Name}}
                         </a>
                     </li>
                 </ng-container>
             </ul>
         </div>
-
     </div>
 </nav>
