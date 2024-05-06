@@ -1,6 +1,16 @@
 tbody {
-    tr {
-      cursor: pointer;
-    }
+  tr {
+    cursor: pointer;
   }
-  
+}
+
+.head {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.headpanel {
+  height: 97px;
+  width: 100%;
+}

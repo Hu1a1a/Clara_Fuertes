@@ -1,19 +1,15 @@
 <div class="head">
-    <app-head
-        *ngIf="!router.url.startsWith('/curso/') && !router.url.startsWith('/admin/')"></app-head>
-    <app-head-curso-panel
-        *ngIf="router.url.startsWith('/curso/')"></app-head-curso-panel>
-    <app-head-admin-panel
-        *ngIf="router.url.startsWith('/admin/')"></app-head-admin-panel>
+    <app-head *ngIf="!router.url.startsWith('/curso/') && !router.url.startsWith('/admin/')"></app-head>
+    <app-head-curso-panel *ngIf="router.url.startsWith('/curso/')"></app-head-curso-panel>
+    <app-head-admin-panel *ngIf="router.url.startsWith('/admin/')"></app-head-admin-panel>
 </div>
+<div class="headpanel"></div>
+
 <div class="body">
     <router-outlet> </router-outlet>
 </div>
 <div class="footer">
-    <app-footer
-        *ngIf="!router.url.startsWith('/curso/') && !router.url.startsWith('/admin/')"></app-footer>
-    <app-footer-curso-panel
-        *ngIf="router.url.startsWith('/curso/')"></app-footer-curso-panel>
-    <app-footer-admin-panel
-        *ngIf="router.url.startsWith('/admin/')"></app-footer-admin-panel>
+    <app-footer *ngIf="!router.url.startsWith('/curso/') && !router.url.startsWith('/admin/')"></app-footer>
+    <app-footer-curso-panel *ngIf="router.url.startsWith('/curso/')"></app-footer-curso-panel>
+    <app-footer-admin-panel *ngIf="router.url.startsWith('/admin/')"></app-footer-admin-panel>
 </div>

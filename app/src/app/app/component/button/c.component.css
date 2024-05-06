@@ -6,12 +6,14 @@ button {
   background-color: #c1e4d6;
   border-color: transparent;
   box-shadow: 7px 6px 16px 1px #c1e4d6;
-  padding: 5px 15px;
+  padding: 5px 5px;
 }
+
 .disabled {
   background-color: #c2cac7;
   box-shadow: 7px 6px 16px 1px #adb8b4;
 }
+
 .bottontext1 {
   font-family: Reem Kufi Ink;
   font-size: 16px;
@@ -20,6 +22,7 @@ button {
   text-align: center;
   color: #605e5e;
 }
+
 .bottontext2 {
   font-family: Reem Kufi Ink;
   font-size: 11px;
@@ -38,10 +41,12 @@ button:hover.disabled {
   background-color: #939795;
   animation: buttodd 500ms;
 }
+
 @keyframes buttonn {
   0% {
     background-color: #c1e4d6;
   }
+
   100% {
     background-color: #8cd2a3;
   }
@@ -51,6 +56,7 @@ button:hover.disabled {
   0% {
     background-color: #c2cac7;
   }
+
   100% {
     background-color: #939795;
   }

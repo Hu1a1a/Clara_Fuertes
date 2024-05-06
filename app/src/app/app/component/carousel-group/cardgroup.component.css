@@ -1,8 +1,16 @@
 .carousel-inner {
-  width: 95%;
+  width: 90%;
 }
+
 .carousel {
   text-align: -webkit-center;
   margin: 25px 0px;
   overflow: hidden;
+}
+
+button {
+  width: 5%;
+  img {
+    width: 100%;
+  }
 }

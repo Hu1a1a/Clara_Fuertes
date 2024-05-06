@@ -19,6 +19,5 @@ export class AppMainComponent implements OnInit {
   comentario!: any
   ngOnInit(): void {
     this.api.Get("comentario").then((a) => this.comentario = a)
-
   }
 }

@@ -4,8 +4,7 @@
             <div [class]="'carousel-item ' + (i===0?'active':'')">
                 <div class="row" style="justify-content: space-evenly;">
                     <ng-container *ngFor="let item of unit;index as j">
-                        <app-component-carousel
-                            [data]="data[i+j>data.length-1?i+j-data.length:i+j]"
+                        <app-component-carousel [data]="data[i+j>data.length-1?i+j-data.length:i+j]"
                             style="width: max-content;">
                         </app-component-carousel>
                     </ng-container>
@@ -13,12 +12,10 @@
             </div>
         </ng-container>
     </div>
-    <button class="carousel-control-prev" type="button" (click)="prev()"
-        style="left: -1%;">
+    <button class="carousel-control-prev" type="button" (click)="prev()">
         <img src="assets/prev.png" alt>
     </button>
-    <button class="carousel-control-next" type="button" (click)="next()"
-        style="right: -1%;">
+    <button class="carousel-control-next" type="button" (click)="next()">
         <img src="assets/next.png" alt>
     </button>
 </div>
