@@ -1,6 +1,72 @@
 "use strict";
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 const pool = require("../../db/db");
+const { nodemailer, config } = require("../../mail/mail");
+
+exports.asesoramiento = async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      line_items: [
+        {
+          price: req.body.StripeId,
+          quantity: 1,
+        },
+      ],
+      phone_number_collection: { enabled: true },
+      invoice_creation: { enabled: true },
+      mode: "payment",
+      success_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
+      cancel_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
+      expires_at: Math.floor(new Date().getTime() / 1000 + 32 * 60),
+    });
+    res.json({ ok: true, url: session.url });
+  } catch (e) {
+    res.send({ ok: false, msg: e.toString() });
+  }
+};
+
+exports.asesoramientoCheck = async (req, res) => {
+  if (req.body.url) {
+    const Url = req.body.url.toString().split("/pay/")[1].split("#")[0];
+    try {
+      const session = await stripe.checkout.sessions.retrieve(Url);
+      if (session.status === "complete") {
+        const transporter = nodemailer.createTransport(config);
+        const mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: process.env.EMAIL_CONTACTO,
+          subject: "Curso pagado",
+          html: `
+          <h1> Curso pagado !</h1>
+          id: <b> ${session.id} </b><br>
+          Nombre: ${session.customer_details.name} <br>
+          Email: ${session.customer_details.email} <br>
+          Telefono: ${session.customer_details.phone} <br>
+          Importe pagado: ${session.amount_total / 100} € <br>
+          Verifica en el Stripe que el pago se ha realizado correctamente`
+        };
+        transporter.sendMail(mailOptions, function (e, info) {
+          transporter.close()
+          if (e) {
+            res.json({
+              ok: true,
+              msg: "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " + process.env.EMAIL_CONTACTO
+            });
+          } else {
+            res.json({
+              ok: true,
+              msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con usted!",
+            });
+          }
+        })
+      } else res.json({ ok: false, msg: "Pago fallido!" });
+    } catch (e) { res.json({ ok: false, msg: e.toString() }); }
+  } else res.json({ ok: false, msg: "erronea!" });
+};
+
+
+
+
 
 exports.paySession = async (req, res) => {
   try {

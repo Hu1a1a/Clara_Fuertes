@@ -11,13 +11,11 @@
 .divider {
     width: 50%;
     min-width: 400px;
-    background-color: white;
 
     @media only screen and (max-width: 1000px) {
         width: 100%;
         background-color: #ffffff99;
         min-width: 0px;
-
     }
 
     img {
@@ -29,6 +27,14 @@
             max-height: 100%;
         }
     }
+}
+
+.dtext {
+    background-color: white;
+    text-align: justify;
+    border: 5px solid #CDDDD7;
+    border-radius: 5px;
+    padding: 3.5%;
 }
 
 .izquierda {

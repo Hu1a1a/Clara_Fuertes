@@ -35,12 +35,13 @@ export class AppAdminPortalComponent implements OnInit {
   }
 
   async Get() {
-    this.api.Get("curso/level1").then((a) => this.level1 = a)
-    this.api.Get("curso/level2").then((a) => this.level2 = a)
-    this.api.Get("curso/video").then((a) => this.video = a)
-    this.api.Get("user").then((a) => this.user = a)
-    this.api.Get("comentario").then((a) => this.comentario = a)
-    this.api.Get("curso/curso").then((a) => this.curso = a)
+    await this.api.Get("curso/level1").then((a) => this.level1 = a)
+    await this.api.Get("curso/level2").then((a) => this.level2 = a)
+    await this.api.Get("curso/video").then((a) => this.video = a)
+    this.video.data = this.video.data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
+    await this.api.Get("user").then((a) => this.user = a)
+    await this.api.Get("comentario").then((a) => this.comentario = a)
+    await this.api.Get("curso/curso").then((a) => this.curso = a)
   }
 
   OpenModal(data: any, router: string, accion: "create" | "update" | "delete") {

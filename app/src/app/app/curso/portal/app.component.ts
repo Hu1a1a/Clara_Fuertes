@@ -35,6 +35,7 @@ export class AppCursoPortalComponent implements OnInit {
       this.level1 = await this.api.Get("curso/level1")
       this.level2 = await this.api.Get("curso/level2")
       this.video = await this.api.Get("curso/video")
+      this.video.data = this.video.data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
       this.curso = await this.api.GetID("curso/curso", +id)
       this.checkprogress()
     }

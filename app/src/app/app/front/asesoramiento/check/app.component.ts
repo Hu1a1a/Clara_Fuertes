@@ -9,16 +9,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppCompraCheckComponent {
+export class AppCompraCursoCheckComponent {
   constructor(private api: ApiService) { }
   data!: any
   async ngOnInit() {
     const url = localStorage.getItem("stripe")
     if (url) {
-      //this.data = await this.api.checkSession(url)
-      if (this.data.ok) {
-        //  await this.api.PasswordReset(this.data.email)
-      }
+      this.data = await this.api.checkSession(url, "asesoramiento")
     }
   }
 }

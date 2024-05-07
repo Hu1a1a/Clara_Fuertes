@@ -15,6 +15,7 @@ import { AppPerdidaComponent } from './app/front/perdida/app.component';
 import { AppAsesoramientoComponent } from './app/front/asesoramiento/app.component';
 import { AppAsesorPatologiaComponent } from './app/front/asesoramiento/patologia/app.component';
 import { AppAsesorPerdidaComponent } from './app/front/asesoramiento/perdida/app.component';
+import { AppCompraCursoCheckComponent } from './app/front/asesoramiento/check/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {
         path: 'asesoramiento', children: [
             { path: "", component: AppAsesoramientoComponent },
+            { path: "pay", component: AppCompraCursoCheckComponent },
             { path: "patologia", component: AppAsesorPatologiaComponent },
             { path: "perdida", component: AppAsesorPerdidaComponent },
             { path: "**", redirectTo: "", pathMatch: "full" },

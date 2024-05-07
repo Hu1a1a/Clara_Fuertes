@@ -15,9 +15,16 @@ import { ApiService } from '../../../../service/api.service';
   styleUrls: ['./app.component.css', "../../style.component.css"]
 })
 export class AppAsesorPerdidaComponent {
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private api: ApiService) { }
   openModal() {
     this.dialog.open(DialogPerdida, {})
+  }
+  async ComprarCurso() {
+    const data = await this.api.paySession({ StripeId: "price_1PDP30AIJEmvKbBU31k3lWh5", CallBack: "asesoramiento" })
+    if (data.ok) {
+      localStorage.setItem("stripe", data.url)
+      window.location.href = data.url
+    }
   }
 }
 

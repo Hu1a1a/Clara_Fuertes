@@ -4,9 +4,10 @@
             <table class="table table-striped" *ngIf="level1&&level2&&video">
                 <thead>
                     <tr>
-                        <td> Grupo </td>
+                        <td> Curso </td>
                         <td> Fase </td>
-                        <td> Video </td>
+                        <td> item </td>
+                        <td> Orden </td>
                         <td> Nombre </td>
                         <td width="50%"> Descripción </td>
                     </tr>
@@ -15,6 +16,7 @@
                     <ng-container *ngFor="let i1 of level1.data;index as i">
                         <tr (click)="OpenModal(i1,'curso/level1','update')">
                             <td> {{i+1}} </td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td> {{i1.Name}} </td>
@@ -28,6 +30,7 @@
                                     <td></td>
                                     <td>{{j+1}}</td>
                                     <td></td>
+                                    <td></td>
                                     <td> {{i2.Name}} </td>
                                     <td width="50%">
                                         {{i2.Description}}
@@ -39,6 +42,7 @@
                                             <td></td>
                                             <td></td>
                                             <td>{{k+1}}</td>
+                                            <td> {{v.Orden}} </td>
                                             <td> {{v.Name}} </td>
                                             <td width="50%">
                                                 {{v.Description}}

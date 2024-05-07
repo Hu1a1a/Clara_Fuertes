@@ -15,9 +15,16 @@ import { ApiService } from '../../../../service/api.service';
   styleUrls: ['./app.component.css', "../../style.component.css"]
 })
 export class AppAsesorPatologiaComponent {
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private api: ApiService) { }
   openModal() {
     this.dialog.open(DialogPatologia, {})
+  }
+  async ComprarCurso() {
+    const data = await this.api.paySession({ StripeId: "price_1PDP2DAIJEmvKbBUdCGO307v", CallBack: "asesoramiento" })
+    if (data.ok) {
+      localStorage.setItem("stripe", data.url)
+      window.location.href = data.url
+    }
   }
 }
 
@@ -38,5 +45,6 @@ export class DialogPatologia {
     const data = await this.api.SendContacto(this.Email, this.Name, this.Msg, "CONSULTA PATOLOGÍA DIGESTIVA")
     this.done = data.ok
   }
+
 }
 

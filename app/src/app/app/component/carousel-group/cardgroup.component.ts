@@ -13,11 +13,11 @@ export class ComponentCardGroupComponent implements OnInit {
   @Input() data!: any[]
   @Input() id: string = "card"
   screen_width: number = innerWidth
-  unit: any = Array(Math.floor(this.screen_width * 0.95 / 320))
+  unit: any = Array(Math.floor(this.screen_width * 0.95 / 320) || 1)
   ngOnInit(): void {
     addEventListener("resize", () => {
       this.screen_width = innerWidth;
-      this.unit = Array(Math.floor(this.screen_width * 0.95 / 320))
+      this.unit = Array(Math.floor(this.screen_width * 0.95 / 320) || 1)
     })
   }
   prev() {

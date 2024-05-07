@@ -19,7 +19,7 @@ import { HeadAdminPanelComponent } from './layout/admin/head/head.component';
     FooterCursoPanelComponent,
     HeadAdminPanelComponent,
     HeadCursoPanelComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
