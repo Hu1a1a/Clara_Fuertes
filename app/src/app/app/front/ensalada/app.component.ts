@@ -18,9 +18,10 @@ export class AppEnsaladaComponent {
   Name: string = ""
   Email: string = ""
   Response!: any
-  async sendGuia() {
+  sendGuia() {
     if (this.Email && this.Name) {
-      this.Response = await this.api.SendEmail(this.Email, this.Name)
+      this.Response = { ok: true }
+      this.api.SendEmail(this.Email, this.Name)
     } else {
       this.Response = { msg: "Introduce tu nombre y tu correo!" }
     }

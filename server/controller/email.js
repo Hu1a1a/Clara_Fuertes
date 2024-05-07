@@ -67,9 +67,8 @@ exports.email_ensalada = async (req, res) => {
             path: __dirname + "../../../public/ENSALADAS.pdf",
           },
         ],
-        onError: (err) => {
-          console.log(err);
-          res.json({ ok: false, msg: "Comprueba el email introducido." });
+        onError: (e) => {
+          res.json({ ok: false, msg: e.toString() });
         },
         onSuccess: () => {
           try {

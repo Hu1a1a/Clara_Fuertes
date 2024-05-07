@@ -3,24 +3,70 @@
 
     @media only screen and (max-width: 1000px) {
         position: relative;
+        width: 100%;
+
     }
 }
 
 .divider {
     width: 50%;
     min-width: 400px;
+    background-color: white;
 
     @media only screen and (max-width: 1000px) {
         width: 100%;
         background-color: #ffffff99;
+        min-width: 0px;
+
     }
 
     img {
         width: 100%;
         height: auto;
         max-height: 90%;
+
+        @media only screen and (max-width: 1000px) {
+            max-height: 100%;
+        }
     }
 }
+
+.izquierda {
+    @media only screen and (min-width: 1000px) {
+        animation: fadeIn 3s;
+        z-index: -1;
+    }
+
+}
+
+.derecha {
+    @media only screen and (min-width: 1000px) {
+        animation: fadeOut 3s;
+        z-index: -1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateX(-30rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateX(30rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 
 .divider.img {
     align-content: space-around;
