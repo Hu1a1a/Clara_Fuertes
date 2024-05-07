@@ -38,18 +38,13 @@
 }
 
 .izquierda {
-    @media only screen and (min-width: 1000px) {
-        animation: fadeIn 3s;
-        z-index: -1;
-    }
-
+    animation: fadeIn 3s;
+    z-index: -1;
 }
 
 .derecha {
-    @media only screen and (min-width: 1000px) {
-        animation: fadeOut 3s;
-        z-index: -1;
-    }
+    animation: fadeOut 3s;
+    z-index: -1;
 }
 
 @keyframes fadeIn {
