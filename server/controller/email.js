@@ -64,7 +64,7 @@ exports.email_ensalada = async (req, res) => {
         attachments: [
           {
             filename: "/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf",
-            path: __dirname + "../../../public/ENSALADAS.pdf",
+            path: __dirname + "/../../public/ENSALADAS.pdf",
           },
         ],
         onError: (e) => {
