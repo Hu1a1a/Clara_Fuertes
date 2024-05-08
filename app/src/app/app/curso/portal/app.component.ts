@@ -29,6 +29,7 @@ export class AppCursoPortalComponent implements OnInit {
   ngOnInit(): void {
     this.Get()
   }
+
   async Get() {
     const id = localStorage.getItem("jwz")
     if (id) {

@@ -75,11 +75,6 @@ p {
   padding-left: 10px;
 }
 
-.container {
-  width: 85vw;
-}
-
-
 button.session {
   width: 200px;
   height: 35px;
@@ -115,4 +110,35 @@ button.session:hover {
 
 .active {
   background-color: #9ce9ca;
+}
+
+
+.contain {
+  width: calc(100vw - 420px);
+  padding: 0;
+
+  .container {
+    padding: 0
+  }
+}
+
+.labex {
+  width: 400px;
+  border: 1px solid #9ce9ca;
+  min-height: 70vh;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .labex {
+    display: none;
+  }
+
+  .contain {
+    width: 100%;
+  }
+
+  .rowx {
+    flex-wrap: nowrap;
+  }
 }
