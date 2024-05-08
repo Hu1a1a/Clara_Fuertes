@@ -23,18 +23,20 @@
                             <td width="50%">
                                 {{i1.Description}}
                             </td>
+
                         </tr>
                         <ng-container *ngFor="let i2 of level2.data;index as j">
                             <ng-container *ngIf="i1.id===i2.level1">
                                 <tr (click)="OpenModal(i2,'curso/level2','update')">
                                     <td></td>
                                     <td>{{j+1}}</td>
-                                    <td></td>
+                                    <td>{{i2.depId}}</td>
                                     <td></td>
                                     <td> {{i2.Name}} </td>
                                     <td width="50%">
                                         {{i2.Description}}
                                     </td>
+
                                 </tr>
                                 <ng-container *ngFor="let v of video.data;index as k">
                                     <ng-container *ngIf="i2.id===v.level2">

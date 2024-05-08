@@ -37,6 +37,7 @@ export class AppAdminPortalComponent implements OnInit {
   async Get() {
     await this.api.Get("curso/level1").then((a) => this.level1 = a)
     await this.api.Get("curso/level2").then((a) => this.level2 = a)
+    this.level2.data = this.level2.data.sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
     await this.api.Get("curso/video").then((a) => this.video = a)
     this.video.data = this.video.data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
     await this.api.Get("user").then((a) => this.user = a)

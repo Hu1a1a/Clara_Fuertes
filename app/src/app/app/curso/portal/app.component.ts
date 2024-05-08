@@ -34,11 +34,12 @@ export class AppCursoPortalComponent implements OnInit {
     if (id) {
       this.level1 = await this.api.Get("curso/level1")
       this.level2 = await this.api.Get("curso/level2")
+      this.level2.data = this.level2.data.sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
       this.video = await this.api.Get("curso/video")
       this.video.data = this.video.data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
       this.curso = await this.api.GetID("curso/curso", +id)
       this.checkprogress()
-    }
+    } else this.router.navigate(["login"])
   }
   photoURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed"));
@@ -76,7 +77,7 @@ export class AppCursoPortalComponent implements OnInit {
       const now = new Date()
       const inicio = new Date(c.inicio)
       for (const l2 of this.level2.data) {
-        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion))) {
+        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion)) || l2.depId === 0) {
           l2["active"] = true
         }
       }
