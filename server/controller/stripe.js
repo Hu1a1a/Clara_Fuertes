@@ -72,26 +72,21 @@ exports.asesoramientoCheck = async (req, res) => {
               } else {
                 pool.getConnection((e, c) => {
                   pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [session.customer_details.name, session.customer_details.email, new Date(), "Curso pagado"], () => {
-                    res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+                    res.json({
+                      ok: true,
+                      msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con contigo!",
+                    });
                     c.release();
                   });
                 });
-                res.json({
-                  ok: true,
-                  msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con contigo!",
-                });
               }
             })
-
           }
         })
       } else res.json({ ok: false, msg: "Pago fallido!" });
     } catch (e) { res.json({ ok: false, msg: e.toString() }); }
   } else res.json({ ok: false, msg: "erronea!" });
 };
-
-
-
 
 /*
 exports.paySession = async (req, res) => {

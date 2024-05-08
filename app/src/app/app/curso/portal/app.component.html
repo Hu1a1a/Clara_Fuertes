@@ -8,7 +8,7 @@
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+        <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header" style="padding: 30px 20px 0px 20px;">
                 <h5 class="offcanvas-title titulo" id="offcanvasNavbarLabel"> Portal Curso</h5>
@@ -18,7 +18,6 @@
                 <div class="list-group list-group-flush border-bottom scrollarea">
                     <ng-container *ngFor="let i1 of level1.data;index as i">
                         <ng-container *ngIf="i1.active">
-
                             <a class="list-group-item list-group-item-action py-3 lh-sm level1" aria-current="true"
                                 (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
                                 <div class="d-flex w-100 align-items-center subtitulo">
