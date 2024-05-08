@@ -5,7 +5,7 @@ border-color: #4D5C52;
 overflow: hidden;
 text-align: -webkit-center;
 padding: 25px 20px;
-border: 5px solid black;
+border: 2px solid black;
 border-radius: 20px;
 background-color: white;
   ">
@@ -24,15 +24,17 @@ background-color: white;
     line-height: 19.94px;
     text-align: center;
     color: #4D5C52;">
-      ¿Tienes alguna duda que quieras resolver antes? <br>
-      Déjame tu mensaje y me pondré en contacto contigo
+      ¡Cuéntame!
+      ¿En qué puedo ayudarte?
+      Déjame tus datos y contactaré contigo para que hablemos y puedas decidir si es
+      lo que buscas
     </span>
     <br>
     <input type="text" [(ngModel)]="Name" style="height: 35px;" placeholder="Tu nombre">
     <br>
     <input type="text" style="height: 35px;" placeholder="Tu e-mail" [(ngModel)]="Email">
     <br>
-    <textarea rows="5" placeholder="Algo que me quieras comentar" [(ngModel)]="Msg"></textarea>
+    <textarea rows="5" placeholder="En que puedo ayudarte" [(ngModel)]="Msg"></textarea>
     <br>
     <button (click)="Send()" style="background-color: #CDDDD7;font-family: Reem Kufi Ink;
     font-size: 11px;

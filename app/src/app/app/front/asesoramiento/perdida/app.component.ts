@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../../service/api.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-asesoramiento-perdida',
@@ -20,7 +21,7 @@ export class AppAsesorPerdidaComponent {
     this.dialog.open(DialogPerdida, {})
   }
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: "price_1PDP30AIJEmvKbBU31k3lWh5", CallBack: "asesoramiento" })
+    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_PATOLOGIA, CallBack: "asesoramiento" })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url

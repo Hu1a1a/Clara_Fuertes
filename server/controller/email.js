@@ -1,5 +1,6 @@
 const { nodemailer, config } = require("../../mail/mail");
 const pool = require("../../db/db");
+const { SELECT } = require("./controller");
 
 exports.email_ensalada = async (req, res) => {
   try {
@@ -10,7 +11,7 @@ exports.email_ensalada = async (req, res) => {
         to: req.body.Email,
         subject: "ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS",
         html: `
-        <h3>Hi ${req.body.Name}, </h3>
+        <h3>Hola ${req.body.Name}, </h3>
         <div class="e0">
           Te regalo la Guía GRATUITA que necesitas para hacer tus ensaladas
           equilibradas, completas y suficientes
@@ -103,20 +104,20 @@ exports.email_resetPass = async (req, res) => {
               const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: req.body.Email,
-                subject: "Clara Fuertes Reset de contraseña",
+                subject: "Restaurar tu contraseña",
                 html: `
-                <h3>Hi, </h3>
+                <h3>Buenas, </h3>
                 <div>
-                You are receiving this email because we received a password reset request for your account.
+                Si has recibido este correo es porque hemos recibido una peticion de reset de contraseña a tu cuenta
                 <br>
-                Your user: ${r[0].User}
+                Tu usuario es ${r[0].User}
                 <br>
                 <a href="${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}">
                 ${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}
                 </a>
                 <br>
-                If you did not request a password reset, no further action is required.
-                Regards,
+                Si tu no has solicitado el reset de contraseña, no tienes que hacer nada.
+                Saludo Clara
                 </div>`
               };
               transporter.sendMail(mailOptions, function (e, info) {
@@ -124,6 +125,12 @@ exports.email_resetPass = async (req, res) => {
                 if (e) {
                   res.json({ ok: true, msg: "Compruebe en su buzon." });
                 } else {
+                  pool.getConnection((e, c) => {
+                    pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, ["", req.body.Email, new Date(), "Reset contraseña"], () => {
+                      res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+                      c.release();
+                    });
+                  });
                   res.json({ ok: true, msg: "Compruebe en su buzon." });
                 }
               })
@@ -162,9 +169,24 @@ exports.email_contacto = async (req, res) => {
         if (e) {
           res.json({ ok: true });
         } else {
+          pool.getConnection((e, c) => {
+            pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Contacto"], () => {
+              res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+              c.release();
+            });
+          });
           res.json({ ok: true });
         }
       })
     };
   } catch (e) { res.json({ ok: false, msg: e.toString() }); }
-}; 
+};
+
+
+exports.get = async (req, res) => {
+  try {
+    SELECT("regemail", req, res);
+  } catch (e) {
+    return res.json({ ok: false, msg: e.toString() });
+  }
+};

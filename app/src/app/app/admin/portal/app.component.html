@@ -148,6 +148,28 @@
                 Añadir Comentario
             </button>
         </mat-tab>
+        <mat-tab label="Envio de correo">
+            <table class="table table-striped" *ngIf="correo">
+                <thead>
+                    <tr>
+                        <td> Nombre </td>
+                        <td> Correo </td>
+                        <td> Fecha </td>
+                        <td> Tipo </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let u of correo.data;index as i">
+                        <tr>
+                            <td> {{u.Name}} </td>
+                            <td> {{u.Email}} </td>
+                            <td> {{u.Date}} </td>
+                            <td> {{u.Tipo}} </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </mat-tab>
     </mat-tab-group>
 </div>
 

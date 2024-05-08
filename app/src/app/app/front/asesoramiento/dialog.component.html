@@ -3,7 +3,7 @@ height: 420px; max-width: 80vw; max-height: 80vh;
 align-content: space-evenly;
 border-color: #4D5C52;
 overflow: hidden;
-border: 5px solid black;
+border: 2 black;
 border-radius: 20px;
 background-color: white;text-align: -webkit-center;
 padding: 5px 20px;
@@ -19,22 +19,23 @@ padding: 5px 20px;
     color: #4D5C52;">
       ¡Me encantaría ayudarte!
     </span> <br>
-    <input type="text" [(ngModel)]="Name" style="height: 35px;" placeholder="Tu nombre">
-    <br>
-    <input type="text" style="height: 35px;" placeholder="Tu e-mail" [(ngModel)]="Email">
-    <br>
-    <textarea rows="3" placeholder="Algo que me quieras comentar" [(ngModel)]="Msg"></textarea>
-    <br>
     <span style="font-family: Rajdhani;
     font-size: 15px;
     font-weight: 500;
     line-height: 18px;
     text-align: center;
     color: #4D5C52;">
-      En las próximas 24h nos pondremos en contacto por email para facilitarle los documentos a rellenar y así elaborar
-      su
-      plan.
+      ¡Me encantará ayudarte!
+      Déjame tus datos a continuación, y las dudas que tengas, y en la mayor brevedad posible contactaré contigo para
+      que podamos resolverlas.
     </span> <br>
+    <input type="text" [(ngModel)]="Name" style="height: 35px;" placeholder="Tu nombre">
+    <br>
+    <input type="text" style="height: 35px;" placeholder="Tu e-mail" [(ngModel)]="Email">
+    <br>
+    <textarea rows="3" placeholder="Algo que me quieras comentar" [(ngModel)]="Msg"></textarea>
+    <br>
+
     <button (click)="Send()" style="background-color: #CDDDD7;font-family: Reem Kufi Ink;
     font-size: 11px;
     font-weight: 700;

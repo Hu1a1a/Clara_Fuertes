@@ -53,10 +53,36 @@ exports.asesoramientoCheck = async (req, res) => {
               msg: "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " + process.env.EMAIL_CONTACTO
             });
           } else {
-            res.json({
-              ok: true,
-              msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con usted!",
-            });
+            const transporter1 = nodemailer.createTransport(config);
+            const mailOptions = {
+              from: process.env.EMAIL_USER,
+              to: session.customer_details.email,
+              subject: "Curso pagado",
+              html: `
+            Gracias por su compra en el curso!
+            En breve contactaremos contigo para el asesoramiento!`
+            };
+            transporter1.sendMail(mailOptions, function (e, info) {
+              transporter1.close()
+              if (e) {
+                res.json({
+                  ok: true,
+                  msg: "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " + process.env.EMAIL_CONTACTO
+                });
+              } else {
+                pool.getConnection((e, c) => {
+                  pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [session.customer_details.name, session.customer_details.email, new Date(), "Curso pagado"], () => {
+                    res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+                    c.release();
+                  });
+                });
+                res.json({
+                  ok: true,
+                  msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con contigo!",
+                });
+              }
+            })
+
           }
         })
       } else res.json({ ok: false, msg: "Pago fallido!" });
@@ -67,7 +93,7 @@ exports.asesoramientoCheck = async (req, res) => {
 
 
 
-
+/*
 exports.paySession = async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -120,3 +146,4 @@ exports.checkSession = async (req, res) => {
     }
   } else res.json({ ok: false, msg: "erronea!" });
 };
+*/

@@ -9,6 +9,7 @@ const stripe = require("../controller/stripe");
 
 router.post("/email/ensalada/", email.email_ensalada);
 router.post("/email/contacto/", email.email_contacto);
+router.get("/email/", email.get);
 router.post("/resetPass/", email.email_resetPass);
 
 router.get("/curso/level1/", curso.level1);
@@ -16,6 +17,7 @@ router.get("/curso/level2/", curso.level2);
 router.get("/curso/video/", curso.video);
 router.get("/curso/curso/", curso.curso);
 router.get("/curso/curso/id/:id", curso.cursobyid);
+
 
 router.post("/curso/level1/create/", curso.add_level1);
 router.post("/curso/level2/create/", curso.add_level2);
@@ -42,8 +44,8 @@ router.post("/comentario/create/", comentario.add);
 router.post("/comentario/update/", comentario.update);
 router.post("/comentario/delete/", comentario.delete);
 
-router.post("/stripe/pay/", stripe.paySession);
-router.post("/stripe/check/", stripe.checkSession);
+//router.post("/stripe/pay/", stripe.paySession);
+//router.post("/stripe/check/", stripe.checkSession);
 router.post("/stripe/asesoramiento/pay/", stripe.asesoramiento);
 router.post("/stripe/asesoramiento/check/", stripe.asesoramientoCheck);
 
