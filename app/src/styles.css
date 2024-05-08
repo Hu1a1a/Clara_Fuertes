@@ -10,6 +10,7 @@
 .row {
   --bs-gutter-x: 0;
 }
+
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Roboto:wght@300;400;500;700;900&display=swap");
 
@@ -111,6 +112,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -120,7 +122,11 @@ body {
   z-index: 0;
 }
 
-mat-mdc-dialog-container {
-  box-shadow: none !important;
-  background-color: transparent !important;
+
+html {
+  --mdc-dialog-container-color: transparent;
+}
+
+mat-dialog-content {
+  background-color: white;
 }

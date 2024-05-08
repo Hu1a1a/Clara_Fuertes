@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ComponentButtonComponent {
   constructor(private router: Router) { }
   @Input() text1: string = ""
+  @Input() text1n: string = ""
   @Input() text2: string = ""
   @Input() ref: string = ""
   @Input() disabled: boolean = false

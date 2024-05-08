@@ -2,6 +2,10 @@
   width: 45%;
   max-width: 450px;
   z-index: -2;
+
+  @media only screen and (max-width: 670px) {
+    width: 90%;
+  }
 }
 
 .picturediv {
@@ -125,3 +129,4 @@
     width: 110%;
   }
 }
+

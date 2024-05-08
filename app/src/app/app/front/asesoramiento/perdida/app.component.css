@@ -12,7 +12,6 @@
     width: 50%;
     min-width: 400px;
 
-
     @media only screen and (max-width: 1000px) {
         width: 100%;
         background-color: #ffffff99;
@@ -26,6 +25,8 @@
 
         @media only screen and (max-width: 1000px) {
             max-height: 100%;
+            border: 5px solid #CDDDD7;
+            border-radius: 5px;
         }
     }
 }
@@ -36,16 +37,25 @@
     border: 5px solid #CDDDD7;
     border-radius: 5px;
     padding: 3.5%;
+
+    @media only screen and (max-width: 1000px) {
+        background-color: #ffffff99;
+    }
 }
 
 .izquierda {
-        animation: fadeIn 3s;
-        z-index: -1;
-    }
+    animation: fadeIn 3s;
+    z-index: -1;
+}
 
 .derecha {
-        animation: fadeOut 3s;
-        z-index: -1;
+    animation: fadeOut 3s;
+    z-index: -1;
+
+    @media only screen and (max-width: 1000px) {
+        animation: fadeIn 3s;
+    }
+
 }
 
 @keyframes fadeIn {
