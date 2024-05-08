@@ -3,7 +3,7 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 .body {
-  min-height: 73vh;
+  min-height: 75vh;
   width: 100%;
 }
 

@@ -114,7 +114,7 @@ button.session:hover {
 
 
 .contain {
-  width: calc(100vw - 420px);
+  width: calc(100% - 400px);
   padding: 0;
 
   .container {
