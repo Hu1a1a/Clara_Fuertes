@@ -13,10 +13,18 @@ exports.asesoramiento = async (req, res) => {
         },
       ],
       phone_number_collection: { enabled: true },
-      invoice_creation: { enabled: true },
+      //invoice_creation: { enabled: true },
       mode: "payment",
       success_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
       cancel_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
+      consent_collection: { terms_of_service: "required" },
+      custom_text: {
+        after_submit: { message: "Tras realizar el pago, Clara se pondra en contacto contigo para el asesoramiento personalizado!" },
+        submit: { message: "Estas a un paso de tener tu asesoramiento personalizado!" },
+        terms_of_service_acceptance: {
+          message: `Acepto los términos y condiciones.`,
+        },
+      },
       expires_at: Math.floor(new Date().getTime() / 1000 + 32 * 60),
     });
     res.json({ ok: true, url: session.url });
@@ -33,58 +41,68 @@ exports.asesoramientoCheck = async (req, res) => {
       if (session.status === "complete") {
         const transporter = nodemailer.createTransport(config);
         const mailOptions = {
-          from: process.env.EMAIL_USER,
+          from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
           to: process.env.EMAIL_CONTACTO,
-          subject: "Curso pagado",
+          subject: "Asesoramiento pagado",
           html: `
-          <h1> Curso pagado !</h1>
+          <h1> Asesoramiento pagado !</h1>
           id: <b> ${session.id} </b><br>
           Nombre: ${session.customer_details.name} <br>
           Email: ${session.customer_details.email} <br>
           Telefono: ${session.customer_details.phone} <br>
           Importe pagado: ${session.amount_total / 100} € <br>
-          Verifica en el Stripe que el pago se ha realizado correctamente`
+          Verifica en el Stripe que el pago se ha realizado correctamente`,
         };
         transporter.sendMail(mailOptions, function (e, info) {
-          transporter.close()
+          transporter.close();
           if (e) {
             res.json({
               ok: true,
-              msg: "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " + process.env.EMAIL_CONTACTO
+              msg:
+                "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " +
+                process.env.EMAIL_CONTACTO,
             });
           } else {
             const transporter1 = nodemailer.createTransport(config);
             const mailOptions = {
-              from: process.env.EMAIL_USER,
+              from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
               to: session.customer_details.email,
-              subject: "Curso pagado",
+              subject: "[Clara Fuertes] Asesoramiento personalizado pagado",
               html: `
-            Gracias por su compra en el curso!
-            En breve contactaremos contigo para el asesoramiento!`
+            Gracias por su compra en el asesoramiento personalizado por Clara Fuertes!
+            En breve contactaremos contigo para el asesoramiento!`,
             };
             transporter1.sendMail(mailOptions, function (e, info) {
-              transporter1.close()
+              transporter1.close();
               if (e) {
                 res.json({
                   ok: true,
-                  msg: "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " + process.env.EMAIL_CONTACTO
+                  msg:
+                    "Se ha realizado el pago correctamente, contacte con nosotros por el correo y facilitanos sus datos, debido a un problema técnico, Email: " +
+                    process.env.EMAIL_CONTACTO,
                 });
               } else {
                 pool.getConnection((e, c) => {
-                  pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [session.customer_details.name, session.customer_details.email, new Date(), "Curso pagado"], () => {
-                    res.json({
-                      ok: true,
-                      msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con contigo!",
-                    });
-                    c.release();
-                  });
+                  pool.query(
+                    `INSERT INTO regemail VALUES (?,?,?,?);`,
+                    [session.customer_details.name, session.customer_details.email, new Date(), "Asesoramiento pagado"],
+                    () => {
+                      res.json({
+                        ok: true,
+                        msg: "Se ha realizado el pago correctamente, en breve nos pondremos en contacto con contigo!",
+                      });
+                      c.release();
+                    }
+                  );
                 });
               }
-            })
+            });
           }
-        })
+        });
       } else res.json({ ok: false, msg: "Pago fallido!" });
-    } catch (e) { res.json({ ok: false, msg: e.toString() }); }
+    } catch (e) {
+      res.json({ ok: false, msg: e.toString() });
+    }
   } else res.json({ ok: false, msg: "erronea!" });
 };
 

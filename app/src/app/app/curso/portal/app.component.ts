@@ -73,7 +73,7 @@ export class AppCursoPortalComponent implements OnInit {
       const progress = JSON.parse(c.progreso || "[]")
       for (const p of progress) {
         const v = this.video.data.find((a: any) => a.id === p.id)
-        v["active"] = true
+        if (v) v["active"] = true
       }
       const now = new Date()
       const inicio = new Date(c.inicio)

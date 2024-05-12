@@ -1,61 +1,91 @@
-<nav class="navbar bg-body-tertiary" style="background-color: #bfd1c9 !important;">
+<nav class="navbar bg-body-tertiary"
+    style="background-color: #bfd1c9 !important;">
     <div class="container-fluid">
-        <a class="navbar-brand titulo" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        <a class="navbar-brand titulo" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             Clara Fuertes
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+        <div class="offcanvas offcanvas-start" tabindex="-1"
+            id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header" style="padding: 30px 20px 0px 20px;">
-                <h5 class="offcanvas-title titulo" id="offcanvasNavbarLabel"> Portal Curso</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <h5 class="offcanvas-title titulo" id="offcanvasNavbarLabel">
+                    Portal Curso</h5>
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body" style="padding: 10px 5px 30px 5px;min-height: 70vh;" *ngIf="level1">
-                <div class="list-group list-group-flush border-bottom scrollarea">
+            <div class="offcanvas-body"
+                style="padding: 10px 5px 30px 5px;min-height: 70vh;"
+                *ngIf="level1">
+                <div
+                    class="list-group list-group-flush border-bottom scrollarea">
                     <ng-container *ngFor="let i1 of level1.data;index as i">
                         <ng-container *ngIf="i1.active">
-                            <a class="list-group-item list-group-item-action py-3 lh-sm level1" aria-current="true"
+                            <a
+                                class="list-group-item list-group-item-action py-3 lh-sm level1"
+                                aria-current="true"
                                 (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
-                                <div class="d-flex w-100 align-items-center subtitulo">
+                                <div
+                                    class="d-flex w-100 align-items-center subtitulo">
                                     <i class="bi bi-brilliance"></i>
                                     <p>
                                         {{i1.Name}}
                                     </p>
                                 </div>
-                                <div class="col-12 cuerpo" [innerHTML]="i1.Description"></div>
+                                <div class="col-12 cuerpo"
+                                    [innerHTML]="i1.Description"></div>
                             </a>
                             <ng-container *ngIf="slevel1===i1">
-                                <ng-container *ngFor="let i2 of level2.data;index as j">
-                                    <ng-container *ngIf="slevel1.id===i2.level1">
-                                        <a class="list-group-item list-group-item-action py-3 lh-sm level2"
+                                <ng-container
+                                    *ngFor="let i2 of level2.data;index as j">
+                                    <ng-container
+                                        *ngIf="slevel1.id===i2.level1">
+                                        <a
+                                            class="list-group-item list-group-item-action py-3 lh-sm level2"
                                             aria-current="true"
                                             (click)="i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null">
-                                            <div class="d-flex w-100 align-items-center subtitulo">
-                                                <i class="bi bi-lock-fill" *ngIf="!i2.active"></i>
-                                                <i class="bi bi-folder-fill" *ngIf="i2.active"></i>
+                                            <div
+                                                class="d-flex w-100 align-items-center subtitulo">
+                                                <i class="bi bi-lock-fill"
+                                                    *ngIf="!i2.active"></i>
+                                                <i class="bi bi-folder-fill"
+                                                    *ngIf="i2.active"></i>
                                                 <p>
                                                     {{i2.Name}}
                                                 </p>
                                             </div>
-                                            <div class="col-12 cuerpo" [innerHTML]="i2.Description"> </div>
+                                            <div class="col-12 cuerpo"
+                                                [innerHTML]="i2.Description">
+                                            </div>
                                         </a>
                                         <ng-container *ngIf="slevel2===i2">
-                                            <ng-container *ngFor="let v of video.data;index as j">
-                                                <ng-container *ngIf="slevel2.id===v.level2">
-                                                    <a class="list-group-item list-group-item-action video"
+                                            <ng-container
+                                                *ngFor="let v of video.data;index as j">
+                                                <ng-container
+                                                    *ngIf="slevel2.id===v.level2">
+                                                    <a
+                                                        class="list-group-item list-group-item-action video"
                                                         aria-current="true"
                                                         (click)="v.active?svideo=svideo===v?null:v:null"
-                                                        data-bs-dismiss="offcanvas" [ngClass]="svideo===v?'active':''"
+                                                        data-bs-dismiss="offcanvas"
+                                                        [ngClass]="svideo===v?'active':''"
                                                         (click)="seeVideo(v)">
-                                                        <div class="d-flex w-100 align-items-center subtitulo">
-                                                            <i class="bi bi-check-square-fill" *ngIf="v.active"
+                                                        <div
+                                                            class="d-flex w-100 align-items-center subtitulo">
+                                                            <i
+                                                                class="bi bi-check-square-fill"
+                                                                *ngIf="v.active"
                                                                 style="color: greenyellow;"></i>
 
-                                                            <i class="bi bi-person-video2" *ngIf="!v.active"></i>
+                                                            <i
+                                                                class="bi bi-person-video2"
+                                                                *ngIf="!v.active"></i>
                                                             <p>
                                                                 {{v.Name}}
                                                             </p>
@@ -79,51 +109,70 @@
     </div>
 </nav>
 
-
-
 <div class="row rowx">
     <div class="labex">
-        <div class="offcanvas-body" style="padding: 0;min-height: 70vh;" *ngIf="level1">
+        <div class="offcanvas-body" style="padding: 0;min-height: 70vh;"
+            *ngIf="level1">
             <div class="list-group list-group-flush border-bottom scrollarea">
                 <ng-container *ngFor="let i1 of level1.data;index as i">
                     <ng-container *ngIf="i1.active">
-                        <a class="list-group-item list-group-item-action py-3 lh-sm level1" aria-current="true"
+                        <a
+                            class="list-group-item list-group-item-action py-3 lh-sm level1"
+                            aria-current="true"
                             (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null">
-                            <div class="d-flex w-100 align-items-center subtitulo">
+                            <div
+                                class="d-flex w-100 align-items-center subtitulo">
                                 <i class="bi bi-brilliance"></i>
                                 <p>
                                     {{i1.Name}}
                                 </p>
                             </div>
-                            <div class="col-12 cuerpo" [innerHTML]="i1.Description"></div>
+                            <div class="col-12 cuerpo"
+                                [innerHTML]="i1.Description"></div>
                         </a>
                         <ng-container *ngIf="slevel1===i1">
-                            <ng-container *ngFor="let i2 of level2.data;index as j">
+                            <ng-container
+                                *ngFor="let i2 of level2.data;index as j">
                                 <ng-container *ngIf="slevel1.id===i2.level1">
-                                    <a class="list-group-item list-group-item-action py-3 lh-sm level2"
+                                    <a
+                                        class="list-group-item list-group-item-action py-3 lh-sm level2"
                                         aria-current="true"
                                         (click)="i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null">
-                                        <div class="d-flex w-100 align-items-center subtitulo">
-                                            <i class="bi bi-lock-fill" *ngIf="!i2.active"></i>
-                                            <i class="bi bi-folder-fill" *ngIf="i2.active"></i>
+                                        <div
+                                            class="d-flex w-100 align-items-center subtitulo">
+                                            <i class="bi bi-lock-fill"
+                                                *ngIf="!i2.active"></i>
+                                            <i class="bi bi-folder-fill"
+                                                *ngIf="i2.active"></i>
                                             <p>
                                                 {{i2.Name}}
                                             </p>
                                         </div>
-                                        <div class="col-12 cuerpo" [innerHTML]="i2.Description"> </div>
+                                        <div class="col-12 cuerpo"
+                                            [innerHTML]="i2.Description"> </div>
                                     </a>
                                     <ng-container *ngIf="slevel2===i2">
-                                        <ng-container *ngFor="let v of video.data;index as j">
-                                            <ng-container *ngIf="slevel2.id===v.level2">
-                                                <a class="list-group-item list-group-item-action video"
-                                                    aria-current="true" (click)="v.active?svideo=svideo===v?null:v:null"
-                                                    data-bs-dismiss="offcanvas" [ngClass]="svideo===v?'active':''"
+                                        <ng-container
+                                            *ngFor="let v of video.data;index as j">
+                                            <ng-container
+                                                *ngIf="slevel2.id===v.level2">
+                                                <a
+                                                    class="list-group-item list-group-item-action video"
+                                                    aria-current="true"
+                                                    (click)="v.active?svideo=svideo===v?null:v:null"
+                                                    data-bs-dismiss="offcanvas"
+                                                    [ngClass]="svideo===v?'active':''"
                                                     (click)="seeVideo(v)">
-                                                    <div class="d-flex w-100 align-items-center subtitulo">
-                                                        <i class="bi bi-check-square-fill" *ngIf="v.active"
+                                                    <div
+                                                        class="d-flex w-100 align-items-center subtitulo">
+                                                        <i
+                                                            class="bi bi-check-square-fill"
+                                                            *ngIf="v.active"
                                                             style="color: greenyellow;"></i>
 
-                                                        <i class="bi bi-person-video2" *ngIf="!v.active"></i>
+                                                        <i
+                                                            class="bi bi-person-video2"
+                                                            *ngIf="!v.active"></i>
                                                         <p>
                                                             {{v.Name}}
                                                         </p>
@@ -145,19 +194,26 @@
         </div>
     </div>
     <div class="contain">
-        <div class="container" *ngIf="svideo" style="text-align: -webkit-center;">
+        <div class="container" *ngIf="svideo"
+            style="text-align: -webkit-center;">
             <div class="titulo">{{svideo.Name}}</div>
-            <div style="max-height: 70vh; width: 85%;height: 600px;" *ngIf="svideo.Src">
-                <iframe [src]="photoURL(svideo.Src)" frameborder="0" webkitallowfullscreen mozallowfullscreen
-                    allowfullscreen style="height: 100%; width: 100%; max-height: 70vh;">
+            <div style="max-height: 70vh; width: 85%;height: 600px;"
+                *ngIf="svideo.Src">
+                <iframe [src]="photoURL(svideo.Src)" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen
+                    allowfullscreen
+                    style="height: 100%; width: 100%; max-height: 70vh;">
                 </iframe>
                 <br>
             </div>
             <div class="cuerpo" [innerHTML]="svideo.Description"> </div>
             <br>
-            <div *ngIf="svideo.Canva" style="max-height: 70vh;height: 600px;width: 85%;">
-                <iframe loading="lazy" style="height: 100%; width: 100%; max-height: 70vh;"
-                    [src]="canvaURL(svideo.Canva)" allowfullscreen="allowfullscreen" allow="fullscreen">
+            <div *ngIf="svideo.Canva"
+                style="max-height: 70vh;height: 600px;width: 85%;">
+                <iframe loading="lazy"
+                    style="height: 100%; width: 100%; max-height: 70vh;"
+                    [src]="canvaURL(svideo.Canva)"
+                    allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
                 <br>
             </div>
@@ -167,8 +223,10 @@
                 <br>
                 <ng-container *ngFor="let link of svideo.Adjunt.split(';')">
                     <div class="col">
-                        <a [href]="UrlApi + link" class="btn" target="_blank" [download]="link" style="padding: 0;">
-                            <mat-card style="width: 175px; min-height: 120px; align-items: center;">
+                        <a [href]="UrlApi + link" class="btn" target="_blank"
+                            [download]="link" style="padding: 0;">
+                            <mat-card
+                                style="width: 175px; min-height: 120px; align-items: center;">
                                 <mat-card-content style="width: 100%;">
                                     <mat-card-title style="width: 100%;">
                                         <p style="font-weight: 700;
@@ -176,9 +234,11 @@
                                             {{link}}
                                         </p>
                                     </mat-card-title>
-                                    <mat-card-subtitle style="width: 100%; color: rgb(231, 76, 60);">
+                                    <mat-card-subtitle
+                                        style="width: 100%; color: rgb(231, 76, 60);">
                                         <p>
-                                            <i class="bi bi-file-earmark-pdf"></i>
+                                            <i
+                                                class="bi bi-file-earmark-pdf"></i>
                                             {{link.split(".")[link.split(".").length-1]}}
                                         </p>
                                     </mat-card-subtitle>
@@ -195,7 +255,8 @@
                 Bienvenido a tu curso personalizado!
             </div>
             <div style="text-align-last: center;">
-                <img src="assets/LogoClaraM.jpg" style="width: 100%;max-width: 300px;">
+                <img src="assets/LogoClaraM.jpg"
+                    style="width: 100%;max-width: 300px;">
             </div>
         </div>
     </div>

@@ -17,13 +17,18 @@ export class AppEnsaladaComponent {
   constructor(private api: ApiService, public dialog: MatDialog) { }
   Name: string = ""
   Email: string = ""
+  Condicion: boolean = false
   Response!: any
   sendGuia() {
-    if (this.Email && this.Name) {
-      this.Response = { ok: true }
-      this.api.SendEmail(this.Email, this.Name)
+    if (this.Condicion) {
+      if (this.Email && this.Name) {
+        this.Response = { ok: true }
+        this.api.SendEmail(this.Email, this.Name)
+      } else {
+        this.Response = { msg: "Introduce tu nombre y tu correo!" }
+      }
     } else {
-      this.Response = { msg: "Introduce tu nombre y tu correo!" }
+      this.Response = { msg: "Acepte los términos y condiciones!" }
     }
     this.dialog.open(DialogEnsalada, {
       data: { msg: this.Response.msg, ok: this.Response.ok }

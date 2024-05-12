@@ -1,4 +1,5 @@
-<div class="row" style="padding: 25px; overflow-x:hidden;align-items: center;justify-content: space-around;">
+<div class="row"
+    style="padding: 25px; overflow-x:hidden;align-items: center;justify-content: space-around;">
     <img src="assets/main/foto.png" class="picture picturediv">
     <div class="textdiv1 xhidden">
         <div style="font-family: Allura;
@@ -126,7 +127,8 @@
             color: #4D5C52;
             margin-bottom: 10px;
             ">
-                Estoy aquí para ayudarte a reconciliarte con tus digestiones y tu
+                Estoy aquí para ayudarte a reconciliarte con tus digestiones y
+                tu
                 cuerpo, y que recuperes tu bienestar mediante una alimentación
                 antiinflamatoria personalizada.
             </div>
@@ -153,9 +155,11 @@
     </app-component-button> <br>
     <app-component-button text1="CURSOS PARA TI" (click)="openModal()">
     </app-component-button> <br>
-    <app-component-button text1="SANA TUS DIGESTIONES" text2="Acompañamiento 1:1" ref="digestion">
+    <app-component-button text1="SANA TUS DIGESTIONES"
+        text2="Acompañamiento 1:1" ref="digestion">
     </app-component-button> <br>
-    <app-component-button text1="PÉRDIDA DE GRASA" text2="Acompañamiento 1:1" ref="perdidagrasa">
+    <app-component-button text1="PÉRDIDA DE GRASA" text2="Acompañamiento 1:1"
+        ref="perdidagrasa">
     </app-component-button> <br>
     <app-component-button text1="ÚNICO ASESORAMIENTO" ref="asesoramiento">
     </app-component-button>
@@ -189,7 +193,8 @@
     </div>
 </div>
 <div class="row" style="position: relative;height: 100%;" *ngIf="comentario">
-    <app-component-carouselgroup [data]="comentario.data"></app-component-carouselgroup>
+    <app-component-carouselgroup
+        [data]="comentario.data"></app-component-carouselgroup>
     <img src="assets/main/band.jpg" alt
         style="position: absolute; top: -50px;z-index: -1;height: 150%;object-fit: cover;">
 </div>

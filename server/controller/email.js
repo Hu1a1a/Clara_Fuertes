@@ -7,7 +7,7 @@ exports.email_ensalada = async (req, res) => {
     if (req.body.Name && req.body.Email) {
       const transporter = nodemailer.createTransport(config);
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
         to: req.body.Email,
         subject: "ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS",
         html: `
@@ -58,7 +58,8 @@ exports.email_ensalada = async (req, res) => {
               disfrútalas sabiendo que te lo estás haciendo bien!
           </li>
       </div>
-        ` , attachments: [
+        `,
+        attachments: [
           {
             filename: "/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf",
             path: __dirname + "/../../public/ENSALADAS.pdf",
@@ -66,7 +67,7 @@ exports.email_ensalada = async (req, res) => {
         ],
       };
       transporter.sendMail(mailOptions, function (e, info) {
-        transporter.close()
+        transporter.close();
         if (e) {
           res.json({ ok: false, msg: e.toString() });
         } else {
@@ -81,7 +82,7 @@ exports.email_ensalada = async (req, res) => {
             return res.json({ ok: false, msg: e.toString() });
           }
         }
-      })
+      });
     } else {
       res.json({ ok: false, msg: "Introducir usuario y correo!" });
     }
@@ -102,7 +103,7 @@ exports.email_resetPass = async (req, res) => {
               c.release();
               const transporter = nodemailer.createTransport(config);
               const mailOptions = {
-                from: process.env.EMAIL_USER,
+                from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
                 to: req.body.Email,
                 subject: "Restaurar tu contraseña",
                 html: `
@@ -118,10 +119,10 @@ exports.email_resetPass = async (req, res) => {
                 <br>
                 Si tu no has solicitado el reset de contraseña, no tienes que hacer nada.
                 Saludo Clara
-                </div>`
+                </div>`,
               };
               transporter.sendMail(mailOptions, function (e, info) {
-                transporter.close()
+                transporter.close();
                 if (e) {
                   res.json({ ok: true, msg: "Compruebe en su buzon." });
                 } else {
@@ -133,7 +134,7 @@ exports.email_resetPass = async (req, res) => {
                   });
                   res.json({ ok: true, msg: "Compruebe en su buzon." });
                 }
-              })
+              });
             });
           } else {
             c.release();
@@ -149,23 +150,22 @@ exports.email_resetPass = async (req, res) => {
   }
 };
 
-
 exports.email_contacto = async (req, res) => {
   try {
     if (req.body.Name && req.body.Email) {
       const transporter = nodemailer.createTransport(config);
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_CONTACTO,
         subject: req.body.Title,
         html: `
         <h1> ${req.body.Title}: </h1> <br>
            Nombre: ${req.body.Name} <br>
            Email: ${req.body.Email} <br>
-           Mensaje: ${req.body.Msg}`
+           Mensaje: ${req.body.Msg}`,
       };
       transporter.sendMail(mailOptions, function (e, info) {
-        transporter.close()
+        transporter.close();
         if (e) {
           res.json({ ok: true });
         } else {
@@ -177,11 +177,12 @@ exports.email_contacto = async (req, res) => {
           });
           res.json({ ok: true });
         }
-      })
-    };
-  } catch (e) { res.json({ ok: false, msg: e.toString() }); }
+      });
+    }
+  } catch (e) {
+    res.json({ ok: false, msg: e.toString() });
+  }
 };
-
 
 exports.get = async (req, res) => {
   try {

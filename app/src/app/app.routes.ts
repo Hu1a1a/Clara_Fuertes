@@ -16,6 +16,9 @@ import { AppAsesoramientoComponent } from './app/front/asesoramiento/app.compone
 import { AppAsesorPatologiaComponent } from './app/front/asesoramiento/patologia/app.component';
 import { AppAsesorPerdidaComponent } from './app/front/asesoramiento/perdida/app.component';
 import { AppCompraCursoCheckComponent } from './app/front/asesoramiento/check/app.component';
+import { AppLegalPrivacidadComponent } from './app/legal/privacidad/app.component';
+import { AppLegalCookieComponent } from './app/legal/cookie/app.component';
+import { AppLegalPoliticaComponent } from './app/legal/legal/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -48,5 +51,10 @@ export const routes: Routes = [
             { path: "**", redirectTo: "portal", pathMatch: "full" },
         ]
     },
+
+    { path: 'privacidad', component: AppLegalPrivacidadComponent },
+    { path: 'legal', component: AppLegalPoliticaComponent },
+    { path: 'cookie', component: AppLegalCookieComponent },
+
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
