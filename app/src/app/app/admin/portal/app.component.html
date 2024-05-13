@@ -1,213 +1,243 @@
+<ng-container *ngIf="loading">
+	<div style="position: fixed;z-index: 100;height: 100vh;width: 100vw;background-color: black;opacity: 0.3;">
+		<div class="spinner-border text-success"
+			role="status"
+			style="width: 100px;height: 100px;">
+		</div>
+	</div>
+</ng-container>
 <div class="container">
-    <mat-tab-group>
-        <mat-tab label="Curso">
-            <table class="table table-striped" *ngIf="level1&&level2&&video">
-                <thead>
-                    <tr>
-                        <td> Curso </td>
-                        <td> Fase </td>
-                        <td> item </td>
-                        <td> Orden </td>
-                        <td> Nombre </td>
-                        <td width="50%"> Descripción </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ng-container *ngFor="let i1 of level1.data;index as i">
-                        <tr (click)="OpenModal(i1,'curso/level1','update')">
-                            <td> {{i+1}} </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td> {{i1.Name}} </td>
-                            <td width="50%">
-                                {{i1.Description}}
-                            </td>
-
-                        </tr>
-                        <ng-container *ngFor="let i2 of level2.data;index as j">
-                            <ng-container *ngIf="i1.id===i2.level1">
-                                <tr (click)="OpenModal(i2,'curso/level2','update')">
-                                    <td></td>
-                                    <td>{{j+1}}</td>
-                                    <td>{{i2.depId}}</td>
-                                    <td></td>
-                                    <td> {{i2.Name}} </td>
-                                    <td width="50%">
-                                        {{i2.Description}}
-                                    </td>
-
-                                </tr>
-                                <ng-container *ngFor="let v of video.data;index as k">
-                                    <ng-container *ngIf="i2.id===v.level2">
-                                        <tr (click)="OpenModal(v,'curso/video','update')">
-                                            <td></td>
-                                            <td></td>
-                                            <td>{{k+1}}</td>
-                                            <td> {{v.Orden}} </td>
-                                            <td> {{v.Name}} </td>
-                                            <td width="50%">
-                                                {{v.Description}}
-                                            </td>
-                                        </tr>
-                                    </ng-container>
-                                </ng-container>
-                            </ng-container>
-                        </ng-container>
-                    </ng-container>
-                </tbody>
-            </table>
-            <button mat-raised-button color="primary" (click)="OpenModal(level1.data[0],'curso/level1','create')">
-                Añadir Grupo
-            </button>
-            <button mat-raised-button color="primary" (click)="OpenModal(level2.data[0], 'curso/level2','create')">
-                Añadir Fase
-            </button>
-            <button mat-raised-button color="primary" (click)="OpenModal(video.data[0], 'curso/video','create')">
-                Añadir Video
-            </button>
-        </mat-tab>
-        <mat-tab label="Usuario">
-            <table class="table table-striped" *ngIf="user">
-                <thead>
-                    <tr>
-                        <td> id </td>
-                        <td> User </td>
-                        <td> Email </td>
-                        <td> Telefono </td>
-                        <td> Expiración </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ng-container *ngFor="let u of user.data;index as i">
-                        <tr (click)="OpenModal(u,'user','update')">
-                            <td> {{u.id}} </td>
-                            <td> {{u.User}} </td>
-                            <td> {{u.Email}} </td>
-                            <td> {{u.Phone}} </td>
-                            <td> {{u.Expiration}} </td>
-                        </tr>
-                    </ng-container>
-                </tbody>
-            </table>
-            <button mat-raised-button color="primary" (click)="OpenModal(user.data[0],'user','create')">
-                Añadir Usuario
-            </button>
-        </mat-tab>
-        <mat-tab label="Curso">
-            <table class="table table-striped" *ngIf="curso">
-                <thead>
-                    <tr>
-                        <td> id </td>
-                        <td> Curso </td>
-                        <td> Usuario </td>
-                        <td> Inicio </td>
-                        <td> Fin </td>
-                        <td> Progreso </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ng-container *ngFor="let u of curso.data;index as i">
-                        <tr (click)="OpenModal(u,'curso/curso','update')">
-                            <td> {{u.id}} </td>
-                            <td> {{u.cursoId}} </td>
-                            <td> {{u.userId}} </td>
-                            <td> {{u.inicio}} </td>
-                            <td> {{u.expiro}} </td>
-                            <td> {{u.progreso}} </td>
-                        </tr>
-                    </ng-container>
-                </tbody>
-            </table>
-            <button mat-raised-button color="primary" (click)="OpenModal(curso.data[0],'curso/curso','create')">
-                Añadir Curso
-            </button>
-        </mat-tab>
-        <mat-tab label="Comentario">
-            <table class="table table-striped" *ngIf="comentario">
-                <thead>
-                    <tr>
-                        <td> id </td>
-                        <td> Nombre </td>
-                        <td> Descripción </td>
-                        <td> Estrella </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ng-container *ngFor="let u of comentario.data;index as i">
-                        <tr (click)="OpenModal(u,'comentario','update')">
-                            <td> {{u.id}} </td>
-                            <td> {{u.Name}} </td>
-                            <td> {{u.Description}} </td>
-                            <td> {{u.Star}} </td>
-                        </tr>
-                    </ng-container>
-                </tbody>
-            </table>
-            <button mat-raised-button color="primary" (click)="OpenModal(comentario.data[0],'comentario','create')">
-                Añadir Comentario
-            </button>
-        </mat-tab>
-        <mat-tab label="Envio de correo">
-            <table class="table table-striped" *ngIf="correo">
-                <thead>
-                    <tr>
-                        <td> Nombre </td>
-                        <td> Correo </td>
-                        <td> Fecha </td>
-                        <td> Tipo </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ng-container *ngFor="let u of correo.data;index as i">
-                        <tr>
-                            <td> {{u.Name}} </td>
-                            <td> {{u.Email}} </td>
-                            <td> {{u.Date}} </td>
-                            <td> {{u.Tipo}} </td>
-                        </tr>
-                    </ng-container>
-                </tbody>
-            </table>
-        </mat-tab>
-    </mat-tab-group>
+	<mat-tab-group *ngIf="!loading">
+		<mat-tab label="Curso">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Curso</td>
+						<td>Fase</td>
+						<td>item</td>
+						<td>Orden</td>
+						<td width="35%">Nombre</td>
+						<td width="35%">Descripción</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let i1 of data['curso/level1'].data;index as i">
+						<tr (click)="OpenModal(i1,'curso/level1','update')">
+							<td>{{i+1}}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>{{i1.Name}}</td>
+							<td>{{i1.Description}}</td>
+						</tr>
+						<ng-container *ngFor="let i2 of data['curso/level2'].data;index as j">
+							<ng-container *ngIf="i1.id===i2.level1">
+								<tr (click)="OpenModal(i2,'curso/level2','update')">
+									<td></td>
+									<td>{{j+1}}</td>
+									<td>{{i2.depId}}</td>
+									<td></td>
+									<td>{{i2.Name}}</td>
+									<td>{{i2.Description}}</td>
+								</tr>
+								<ng-container *ngFor="let v of data['curso/video'].data;index as k">
+									<ng-container *ngIf="i2.id===v.level2">
+										<tr (click)="OpenModal(v,'curso/video','update')">
+											<td></td>
+											<td></td>
+											<td>{{k+1}}</td>
+											<td>{{v.Orden}}</td>
+											<td>{{v.Name}}</td>
+											<td>
+												{{v.Description.slice(0,100)}}{{v.Description.length>100?'...':''}}
+											</td>
+										</tr>
+									</ng-container>
+								</ng-container>
+							</ng-container>
+						</ng-container>
+					</ng-container>
+				</tbody>
+			</table>
+			<button (click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Grupo
+			</button>
+			<button (click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Fase
+			</button>
+			<button (click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Video
+			</button>
+		</mat-tab>
+		<mat-tab label="Usuario">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>id</td>
+						<td>User</td>
+						<td>Email</td>
+						<td>Telefono</td>
+						<td>Expiración</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['user'].data;index as i">
+						<tr (click)="OpenModal(u,'user','update')">
+							<td>{{u.id}}</td>
+							<td>{{u.User}}</td>
+							<td>{{u.Email}}</td>
+							<td>{{u.Phone}}</td>
+							<td>{{u.Expiration}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+			<button (click)="OpenModal(data['user'].data[0],'user','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Usuario
+			</button>
+		</mat-tab>
+		<mat-tab label="Curso">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>id</td>
+						<td>Curso</td>
+						<td>Usuario</td>
+						<td>Inicio</td>
+						<td>Fin</td>
+						<td>Progreso</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['curso/curso'].data;index as i">
+						<tr (click)="OpenModal(u,'curso/curso','update')">
+							<td>{{u.id}}</td>
+							<td>{{u.cursoId}}</td>
+							<td>{{u.userId}}</td>
+							<td>{{u.inicio}}</td>
+							<td>{{u.expiro}}</td>
+							<td>{{u.progreso}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+			<button (click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Curso
+			</button>
+		</mat-tab>
+		<mat-tab label="Comentario">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>id</td>
+						<td>Nombre</td>
+						<td>Descripción</td>
+						<td>Estrella</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['comentario'].data;index as i">
+						<tr (click)="OpenModal(u,'comentario','update')">
+							<td>{{u.id}}</td>
+							<td>{{u.Name}}</td>
+							<td>{{u.Description}}</td>
+							<td>{{u.Star}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+			<button (click)="OpenModal(data['comentario'].data[0],'comentario','create')"
+				mat-raised-button
+				color="primary">
+				Añadir Comentario
+			</button>
+		</mat-tab>
+		<mat-tab label="Envio de correo">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Nombre</td>
+						<td>Correo</td>
+						<td>Fecha</td>
+						<td>Tipo</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['email'].data;index as i">
+						<tr>
+							<td>{{u.Name}}</td>
+							<td>{{u.Email}}</td>
+							<td>{{u.Date}}</td>
+							<td>{{u.Tipo}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</mat-tab>
+	</mat-tab-group>
 </div>
-
-<section class="modal-form" *ngIf="modal">
-    <div class="form-container">
-        <div (click)="modal=false" class="close-modal" style="justify-content: center;"> x </div>
-        <h2 style="margin: 0;"> {{ sAccion }} {{ sRouter }} </h2>
-        <ng-container *ngFor="let item of Key(sData)">
-            <ng-container *ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
-                <mat-form-field style="width: 100%;">
-                    <mat-label> {{item}} </mat-label>
-                    <mat-select [(ngModel)]="sData[item]">
-                        <mat-option *ngFor="let i of this[item].data" [value]="i.id">
-                            {{i.id}} - {{i.Name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </ng-container>
-            <ng-template #elseTemplate>
-                <ng-container *ngIf="item === 'Description' || item === 'progreso'; else elseTemplate">
-                    <mat-form-field style="width: 100%;">
-                        <mat-label> {{item}} </mat-label>
-                        <textarea matInput [(ngModel)]="sData[item]" rows="5"></textarea>
-                    </mat-form-field>
-                </ng-container>
-                <ng-template #elseTemplate>
-                    <mat-form-field style="width: 100%;">
-                        <mat-label> {{item}} </mat-label>
-                        <input matInput [(ngModel)]="sData[item]" [disabled]="item==='id'">
-                    </mat-form-field>
-                </ng-template>
-            </ng-template>
-        </ng-container>
-        <button mat-raised-button color="primary" (click)="Accion(sData,sRouter,sAccion)">
-            {{ sAccion }} {{ sRouter }}
-        </button>
-        <button mat-raised-button color="primary" *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')">
-            delete {{ sRouter }}
-        </button>
-    </div>
+<section *ngIf="modal"
+	class="modal-form">
+	<div class="form-container">
+		<div (click)="modal=false"
+			class="close-modal"
+			style="justify-content: center;">
+			x
+		</div>
+		<h2 style="margin: 0;">
+			{{ sAccion }} {{ sRouter }}
+		</h2>
+		<ng-container *ngFor="let item of Key(sData)">
+			<ng-container *ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
+				<mat-form-field style="width: 100%;">
+					<mat-label>{{item}}</mat-label>
+					<mat-select [(ngModel)]="sData[item]">
+						<mat-option *ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data"
+							[value]="i.id">
+							{{i.Name}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</ng-container>
+			<ng-template #elseTemplate>
+				<ng-container *ngIf="item === 'Description' || item === 'progreso'; else elseTemplate">
+					<mat-form-field style="width: 100%;">
+						<mat-label>{{item}}</mat-label>
+						<textarea [(ngModel)]="sData[item]"
+							matInput
+							rows="5"></textarea>
+					</mat-form-field>
+				</ng-container>
+				<ng-template #elseTemplate>
+					<mat-form-field style="width: 100%;">
+						<mat-label>{{item}}</mat-label>
+						<input [(ngModel)]="sData[item]"
+							[disabled]="item==='id'"
+							matInput>
+					</mat-form-field>
+				</ng-template>
+			</ng-template>
+		</ng-container>
+		<button (click)="Accion(sData,sRouter,sAccion)"
+			mat-raised-button
+			color="primary">
+			{{ sAccion }} {{ sRouter }}
+		</button>
+		<button *ngIf="sAccion==='update'"
+			(click)="Accion(sData,sRouter,'delete')"
+			mat-raised-button
+			color="primary">
+			delete {{ sRouter }}
+		</button>
+	</div>
 </section>

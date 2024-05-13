@@ -23,5 +23,5 @@ td {
 }
 
 mat-tab-group {
-  z-index: -1 !important
+  z-index: -50 !important
 }
