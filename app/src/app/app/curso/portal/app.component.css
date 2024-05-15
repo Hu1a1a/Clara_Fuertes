@@ -1,17 +1,11 @@
-.offcanvas {
-  background-color: white;
+a {
+  padding: 25px 5px 25px 15px;
   cursor: pointer;
-
-  a {
-    padding: 25px 5px 25px 15px;
-    cursor: pointer;
-  }
-
-  a:hover {
-    background-color: #9ce9ca;
-  }
 }
 
+a:hover {
+  background-color: #9ce9ca;
+}
 
 
 .level1 {

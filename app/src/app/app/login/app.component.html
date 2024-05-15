@@ -1,55 +1,74 @@
 <div class="login">
-    <div style="text-align-last: center;">
-        <img src="assets/LogoClaraM.jpg" style="width: 100%;max-width: 300px;">
-    </div>
-    <span style="font-family: Rajdhani;
+	<div style="text-align-last: center;">
+		<img src="assets/LogoClaraM.jpg"
+			style="width: 100%;max-width: 300px;">
+	</div>
+	<span style="font-family: Rajdhani;
     font-size: 20px;
     font-weight: 700;
     line-height: 23.26px;
     text-align: center;
     color: #4D5C52;">
-        ¡Nos alegra volver a verte!
-    </span>
-    <br><br>
-
-    <ng-container *ngIf="Login">
-        <input type="text" name="User" class="form-control" placeholder="Usuario" [(ngModel)]="User">
-        <input type="password" name="Password" class="form-control" placeholder="Contraseña" [(ngModel)]="Pass">
-    </ng-container>
-    <ng-container *ngIf="!Login">
-        <input type="email" name="Email" class="form-control" placeholder="Correo electrónico" [(ngModel)]="Email">
-    </ng-container>
-    <ng-container *ngIf="Login">
-        <button type="button" (click)="login()">
-            <span>
-                INICIAR SESIÓN
-            </span>
-        </button>
-        <br><br>
-        <button type="button" (click)="Login=!Login">
-            <span>
-                RECUPERAR CONTRASEÑA
-            </span>
-        </button>
-        <br><br>
-    </ng-container>
-    <ng-container *ngIf="!Login">
-        <button type="button" (click)="passwordReset()">
-            <span>
-                RESETEAR TU CONTRASEÑA
-            </span>
-        </button>
-        <br><br>
-        <button type="button" (click)="Login=!Login">
-            <span>
-                INICIAR SESIÓN
-            </span>
-        </button>
-    </ng-container>
-    <div class="row" *ngIf="Response?.msg">
-        <br><br>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{Response.msg}}
-        </div>
-    </div>
+		¡Nos alegra volver a verte!
+	</span>
+	<br>
+	<br>
+	<ng-container *ngIf="Login">
+		<input [(ngModel)]="User"
+			type="text"
+			name="User"
+			class="form-control"
+			placeholder="Usuario">
+		<input [(ngModel)]="Pass"
+			type="password"
+			name="Password"
+			class="form-control"
+			placeholder="Contraseña">
+	</ng-container>
+	<ng-container *ngIf="!Login">
+		<input [(ngModel)]="Email"
+			type="email"
+			name="Email"
+			class="form-control"
+			placeholder="Correo electrónico">
+	</ng-container>
+	<ng-container *ngIf="Login">
+		<button (click)="login()"
+			type="button">
+			<span>INICIAR SESIÓN</span>
+		</button>
+		<br>
+		<br>
+		<button (click)="Login=!Login"
+			type="button">
+			<span>
+				RECUPERAR CONTRASEÑA
+			</span>
+		</button>
+		<br>
+		<br>
+	</ng-container>
+	<ng-container *ngIf="!Login">
+		<button (click)="passwordReset()"
+			type="button">
+			<span>
+				RESETEAR TU CONTRASEÑA
+			</span>
+		</button>
+		<br>
+		<br>
+		<button (click)="Login=!Login"
+			type="button">
+			<span>INICIAR SESIÓN</span>
+		</button>
+	</ng-container>
+	<div *ngIf="Response?.msg"
+		class="row">
+		<br>
+		<br>
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert">
+			{{Response.msg}}
+		</div>
+	</div>
 </div>

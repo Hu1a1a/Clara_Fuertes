@@ -64,6 +64,11 @@ export class AppCursoPortalComponent implements OnInit {
       }
       this.checkprogress()
     }
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   checkprogress() {

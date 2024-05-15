@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 export class ApiService {
     constructor(private http: HttpClient) { }
     private options = ({ headers: new HttpHeaders({ 'Content-Type': 'application/json' }), });
-    setHeader(token: string) { this.options = ({ headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }) }) }
+    setHeader(token: string) { this.options = ({ headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: token }) }) }
     UrlApi: string = environment.URL_API
 
     async Login(User: string, Password: string): Promise<any> {

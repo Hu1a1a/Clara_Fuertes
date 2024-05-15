@@ -1,8 +1,9 @@
 const { nodemailer, config } = require("../../mail/mail");
 const pool = require("../../db/db");
 const { SELECT } = require("./controller");
+const crypto = require("crypto");
 
-exports.email_ensalada = async (req, res) => {
+exports.email_ensalada = (req, res) => {
   try {
     if (req.body.Name && req.body.Email) {
       const transporter = nodemailer.createTransport(config);
@@ -66,11 +67,10 @@ exports.email_ensalada = async (req, res) => {
           },
         ],
       };
-      transporter.sendMail(mailOptions, function (e, info) {
+      transporter.sendMail(mailOptions, (e) => {
         transporter.close();
-        if (e) {
-          res.json({ ok: false, msg: e.toString() });
-        } else {
+        if (e) res.json({ ok: false, msg: e.toString() });
+        else {
           try {
             pool.getConnection((e, c) => {
               pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Guia Ensalada"], () => {
@@ -78,28 +78,21 @@ exports.email_ensalada = async (req, res) => {
                 c.release();
               });
             });
-          } catch (e) {
-            return res.json({ ok: false, msg: e.toString() });
-          }
+          } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
         }
       });
-    } else {
-      res.json({ ok: false, msg: "Introducir usuario y correo!" });
-    }
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+    } else res.json({ ok: false, msg: "Introducir usuario y correo!" });
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
 
-const crypto = require("crypto");
-exports.email_resetPass = async (req, res) => {
+exports.email_resetPass = (req, res) => {
   try {
     if (req.body.Email) {
       const token = crypto.randomBytes(64).toString("hex");
       pool.getConnection((e, c) => {
-        pool.query(`SELECT User FROM user WHERE Email = '${req.body.Email}';`, async (e, r) => {
+        pool.query(`SELECT User FROM user WHERE Email = '${req.body.Email}';`, (e, r) => {
           if (r) {
-            pool.query(`UPDATE user SET Token = '${token}' WHERE Email = '${req.body.Email}';`, async (e, rx) => {
+            pool.query(`UPDATE user SET Token = '${token}' WHERE Email = '${req.body.Email}';`, (e, rx) => {
               c.release();
               const transporter = nodemailer.createTransport(config);
               const mailOptions = {
@@ -121,11 +114,10 @@ exports.email_resetPass = async (req, res) => {
                 Saludo Clara
                 </div>`,
               };
-              transporter.sendMail(mailOptions, function (e, info) {
+              transporter.sendMail(mailOptions, (e) => {
                 transporter.close();
-                if (e) {
-                  res.json({ ok: true, msg: "Compruebe en su buzon." });
-                } else {
+                if (e) res.json({ ok: true, msg: "Compruebe en su buzon." });
+                else {
                   pool.getConnection((e, c) => {
                     pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, ["", req.body.Email, new Date(), "Reset contraseña"], () => {
                       res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
@@ -142,15 +134,11 @@ exports.email_resetPass = async (req, res) => {
           }
         });
       });
-    } else {
-      res.json({ ok: false, msg: "Introducir el correo!" });
-    }
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+    } else res.json({ ok: false, msg: "Introducir el correo!" });
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
 
-exports.email_contacto = async (req, res) => {
+exports.email_contacto = (req, res) => {
   try {
     if (req.body.Name && req.body.Email) {
       const transporter = nodemailer.createTransport(config);
@@ -164,11 +152,10 @@ exports.email_contacto = async (req, res) => {
            Email: ${req.body.Email} <br>
            Mensaje: ${req.body.Msg}`,
       };
-      transporter.sendMail(mailOptions, function (e, info) {
+      transporter.sendMail(mailOptions, (e) => {
         transporter.close();
-        if (e) {
-          res.json({ ok: true });
-        } else {
+        if (e) res.json({ ok: true });
+        else {
           pool.getConnection((e, c) => {
             pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Contacto"], () => {
               res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
@@ -179,15 +166,11 @@ exports.email_contacto = async (req, res) => {
         }
       });
     }
-  } catch (e) {
-    res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { res.json({ ok: false, msg: e.toString() }); }
 };
 
-exports.get = async (req, res) => {
+exports.get = (req, res) => {
   try {
     SELECT("regemail", req, res);
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };

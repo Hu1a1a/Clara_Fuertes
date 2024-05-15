@@ -23,9 +23,14 @@ export class AppLoginComponent {
   async login() {
     this.Response = await this.api.Login(this.User, this.Pass)
     if (this.Response.ok) {
-      if (this.Response.admin) this.router.navigate(["/admin/portal/"])
-      else this.router.navigate(["/curso/portal/"])
-      localStorage.setItem("jwt", this.Response.token)
+      if (this.Response.admin) {
+        this.router.navigate(["/admin/portal/"])
+        localStorage.setItem("jwt", this.Response.token + "_____" + this.User + "_____Admin")
+      }
+      else {
+        this.router.navigate(["/curso/portal/"])
+        localStorage.setItem("jwt", this.Response.token + "_____" + this.User)
+      }
       localStorage.setItem("jwz", this.Response.id)
       this.api.setHeader(this.Response.token)
     }

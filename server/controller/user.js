@@ -2,42 +2,30 @@
 const { auth, authAdmin } = require("./auth");
 const { SELECT, ADD, UPDATE, DELETE } = require("./controller");
 
-exports.get = async (req, res) => {
+exports.get = (req, res) => {
   try {
-    if (await auth(req, res)) SELECT("user", req, res);
+    if (auth(req)) SELECT("user", req, res);
     else res.json({ ok: false, msg: "Token no válido!" });
-
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
 
-exports.add = async (req, res) => {
+exports.add = (req, res) => {
   try {
-    if (await authAdmin(req, res)) ADD("user", req, res);
+    if (authAdmin(req)) ADD("user", req, res);
     else res.json({ ok: false, msg: "Token no válido!" });
-
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
 
-exports.update = async (req, res) => {
+exports.update = (req, res) => {
   try {
-    if (await authAdmin(req, res)) UPDATE("user", req, res);
+    if (authAdmin(req)) UPDATE("user", req, res);
     else res.json({ ok: false, msg: "Token no válido!" });
-
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
 
-exports.delete = async (req, res) => {
+exports.delete = (req, res) => {
   try {
-    if (await authAdmin(req, res)) DELETE("user", req, res);
+    if (authAdmin(req)) DELETE("user", req, res);
     else res.json({ ok: false, msg: "Token no válido!" });
-
-  } catch (e) {
-    return res.json({ ok: false, msg: e.toString() });
-  }
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
