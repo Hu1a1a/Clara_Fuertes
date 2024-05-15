@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost:3306
--- 生成日期： 2024-05-12 20:36:26
+-- 生成日期： 2024-05-15 20:03:51
 -- 服务器版本： 10.3.39-MariaDB-0ubuntu0.20.04.2
 -- PHP 版本： 8.2.17
 
@@ -69,14 +69,17 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`id`, `cursoId`, `inicio`, `expiro`, `progreso`, `userId`) VALUES
-(1, 1, '2024-03-23', '2024-11-23', '[{\"id\":27},{\"id\":29},{\"id\":24},{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":21},{\"id\":23},{\"id\":30},{\"id\":35},{\"id\":38}]', 2),
-(2, 2, '2024-03-24', '2024-12-24', '[{\"id\":30},{\"id\":35},{\"id\":38}]', 2),
+(1, 1, '2024-03-23', '2024-11-23', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":40},{\"id\":52},{\"id\":51},{\"id\":50},{\"id\":49},{\"id\":48},{\"id\":53},{\"id\":41},{\"id\":54},{\"id\":55},{\"id\":57},{\"id\":56},{\"id\":43},{\"id\":42},{\"id\":44},{\"id\":46},{\"id\":58},{\"id\":59},{\"id\":60},{\"id\":61},{\"id\":62},{\"id\":64},{\"id\":63},{\"id\":65},{\"id\":66},{\"id\":67},{\"id\":68},{\"id\":69},{\"id\":70},{\"id\":71},{\"id\":72},{\"id\":73},{\"id\":74},{\"id\":75},{\"id\":76},{\"id\":77},{\"id\":78},{\"id\":79},{\"id\":80},{\"id\":81},{\"id\":82}]', 2),
+(2, 2, '2024-03-24', '2024-12-24', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":40},{\"id\":52},{\"id\":51},{\"id\":50},{\"id\":49},{\"id\":48},{\"id\":53},{\"id\":41},{\"id\":54},{\"id\":55},{\"id\":57},{\"id\":56},{\"id\":43},{\"id\":42},{\"id\":44},{\"id\":46},{\"id\":58},{\"id\":59},{\"id\":60},{\"id\":61},{\"id\":62},{\"id\":64},{\"id\":63},{\"id\":65},{\"id\":66},{\"id\":67},{\"id\":68},{\"id\":69},{\"id\":70},{\"id\":71},{\"id\":72},{\"id\":73},{\"id\":74},{\"id\":75},{\"id\":76},{\"id\":77},{\"id\":78},{\"id\":79},{\"id\":80},{\"id\":81},{\"id\":82}]', 2),
 (3, 1, '2023-05-08', '2023-09-08', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":40},{\"id\":48},{\"id\":49},{\"id\":50},{\"id\":51},{\"id\":52},{\"id\":53},{\"id\":41},{\"id\":54},{\"id\":55},{\"id\":42},{\"id\":43},{\"id\":56},{\"id\":57},{\"id\":44},{\"id\":46},{\"id\":58}]', 39),
-(4, 1, '2023-04-07', '2024-09-09', '[{\"id\":18},{\"id\":40},{\"id\":19},{\"id\":48}]', 40),
-(5, 1, '2023-05-06', '2024-09-06', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24}]', 41),
-(6, 1, '2024-05-09', '2024-09-07', '[{\"id\":18},{\"id\":19}]', 42),
-(7, 1, '2023-05-10', '2023-09-10', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30}]', 43),
-(8, 1, '2023-05-10', '2024-09-10', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24}]', 44);
+(4, 1, '2023-04-07', '2024-09-09', '[{\"id\":18},{\"id\":40},{\"id\":19},{\"id\":48},{\"id\":49},{\"id\":50},{\"id\":51},{\"id\":52},{\"id\":53},{\"id\":54},{\"id\":41},{\"id\":24},{\"id\":55}]', 40),
+(5, 1, '2023-05-06', '2024-09-06', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":40},{\"id\":48},{\"id\":49},{\"id\":50},{\"id\":51},{\"id\":52},{\"id\":53},{\"id\":55},{\"id\":41},{\"id\":54}]', 41),
+(6, 1, '2024-05-09', '2024-09-07', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":23},{\"id\":21},{\"id\":24},{\"id\":53},{\"id\":52},{\"id\":48},{\"id\":51},{\"id\":49},{\"id\":50},{\"id\":40}]', 42),
+(7, 1, '2023-05-10', '2023-09-10', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":40},{\"id\":48},{\"id\":49},{\"id\":53},{\"id\":52},{\"id\":51},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":50}]', 43),
+(8, 1, '2023-05-10', '2024-09-10', '[{\"id\":18},{\"id\":19},{\"id\":20},{\"id\":30},{\"id\":21},{\"id\":23},{\"id\":24},{\"id\":48},{\"id\":50},{\"id\":51},{\"id\":52},{\"id\":53}]', 44),
+(9, 1, '2023-04-07', '2024-09-07', '[{\"id\":18},{\"id\":19}]', 45),
+(10, 1, '2023-04-07', '2024-09-07', '[{\"id\":18},{\"id\":19}]', 46),
+(11, 1, '2023-04-07', '2024-09-07', '', 47);
 
 -- --------------------------------------------------------
 
@@ -127,18 +130,15 @@ INSERT INTO `level2` (`id`, `Name`, `Description`, `Img`, `Duracion`, `level1`, 
 (7, 'Fase 1. Semana 2', 'Renovación', '', 7, 1, 6),
 (12, 'Fase 1. Semana 3', 'Renovación', '', 14, 1, 7),
 (13, 'Fase 1. Semana 4', 'Renovación', '', 21, 1, 12),
-(14, 'Fase 2. Semana 5', 'Reparación', '', 28, 1, 13),
-(15, 'Fase 2. Semana 6', 'Reparación', '', 35, 1, 14),
-(16, 'Fase 2. Semana 7', 'Reparación', '', 42, 1, 15),
-(17, 'Fase 2. Semana 8', 'Reparación', '', 49, 1, 16),
-(18, 'Fase 2. Semana 9', 'Reparación', '', 56, 1, 17),
-(19, 'Fase 2. Semana 10', 'Reparación', '', 63, 1, 18),
-(20, 'Fase 3. Semana 11', 'Mantenimiento', '', 70, 1, 19),
-(21, 'Fase 3. Semana 12', 'Mantenimiento', '', 77, 1, 20),
-(24, 'Semana 0', 'Bienvenida ', '', 7, 2, 0),
-(25, '', '', '', 0, 0, 0),
-(26, 'eeeeeeeeeeeeeeeeeeeeeee', '', '', 0, 0, 0),
-(27, 'cccccccccccccccccccccc', '', '', 0, 0, 0);
+(14, 'Fase 2. Semana 5', 'Reparación', '', 0, 1, 13),
+(15, 'Fase 2. Semana 6', 'Reparación', '', 0, 1, 14),
+(16, 'Fase 2. Semana 7', 'Reparación', '', 0, 1, 15),
+(17, 'Fase 2. Semana 8', 'Reparación', '', 0, 1, 16),
+(18, 'Fase 2. Semana 9', 'Reparación', '', 0, 1, 17),
+(19, 'Fase 2. Semana 10', 'Reparación', '', 0, 1, 18),
+(20, 'Fase 3. Semana 11', 'Mantenimiento', '', 0, 1, 19),
+(21, 'Fase 3. Semana 12', 'Mantenimiento', '', 0, 1, 20),
+(24, 'Semana 0', 'Bienvenida ', '', 7, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +177,8 @@ INSERT INTO `regemail` (`Name`, `Email`, `Date`, `Tipo`) VALUES
 ('Bego Giner', 'bginer@hotmail.com', '2024-05-10 09:39:19', 'Contacto'),
 ('Clemen ', 'clemenmontesguillen@live.com', '2024-05-11 14:56:09', 'Guia Ensalada'),
 ('Paola Bustos ', 'Buscosmexico@gmail.com', '2024-05-12 05:37:01', 'Contacto'),
-('Vanesa', 'Vanekec@gmail.com ', '2024-05-12 19:33:34', 'Guia Ensalada');
+('Vanesa', 'Vanekec@gmail.com ', '2024-05-12 19:33:34', 'Guia Ensalada'),
+('Mónica Navarrete', 'monica.navarrete@live.com', '2024-05-14 11:46:41', 'Guia Ensalada');
 
 -- --------------------------------------------------------
 
@@ -189,7 +190,6 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `User` varchar(255) NOT NULL,
   `Pass` varchar(255) NOT NULL,
-  `Token` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Phone` varchar(255) NOT NULL,
   `Admin` tinyint(1) NOT NULL
@@ -199,15 +199,18 @@ CREATE TABLE `user` (
 -- 转存表中的数据 `user`
 --
 
-INSERT INTO `user` (`id`, `User`, `Pass`, `Token`, `Email`, `Phone`, `Admin`) VALUES
-(1, 'ClaraFuertes', 'Nutricionista80', '84bf584a38ebb28dd9adc1c3cf8c492f5f78dd41e6975f1b3194d77c73779364564703ec5edde298c92b0aee91e299135c69a1f9b4ea849eb40e6c57068eb8c6', 'clarafuertes.nutricion@gmail.com', '  b341', 1),
-(2, 'YYZ', '123', 'c9c0fc68cad441fdff4cd3de4766c472ef2d48c32bdc71ec241c17c0bee4a8a352444e0ccc49de44dee458748ae90fc6d3ac74bbd59211436683f15253eb4624', 'yang.ye.1@hotmail.com', '', 0),
-(39, 'AEY', 'hola ', '', 'adrianespallargas.yu@gmail.com', '627738237', 0),
-(40, 'LPG', 'nutricion0', '', 'lauriluux@gmail.com', '629029650', 0),
-(41, 'JL', 'sana0', '', 'julielibbrecht90@gmail.com', '671652697', 0),
-(42, 'VGV', 'sana1', '', 'vginov23@gmail.com', '626709282', 0),
-(43, 'LMC', 'sana0', '', 'lomoca84@gmail.com', '646536817', 0),
-(44, 'MGG', 'sana0', '', 'mg03515361@gmail.com', '633275738', 0);
+INSERT INTO `user` (`id`, `User`, `Pass`, `Email`, `Phone`, `Admin`) VALUES
+(1, 'ClaraFuertes', 'Nutricionista80', 'clarafuertes.nutricion@gmail.com', '  b341', 1),
+(2, 'YYZ', '123', 'yang.ye.1@hotmail.com', '', 0),
+(39, 'AEY', 'hola ', 'adrianespallargas.yu@gmail.com', '627738237', 0),
+(40, 'LPG', 'nutricion0', 'lauriluux@gmail.com', '629029650', 0),
+(41, 'JL', 'sana0', 'julielibbrecht90@gmail.com', '671652697', 0),
+(42, 'VGV', 'sana1', 'vginov23@gmail.com', '626709282', 0),
+(43, 'LMC', 'sana0', 'lomoca84@gmail.com', '646536817', 0),
+(44, 'MGG', 'sana0', 'mg03515361@gmail.com', '633275738', 0),
+(45, 'AER', 'sana0', 'escandellribasadriangmail.com', '611464640', 0),
+(46, 'AAF', 'sana0', 'andrea.abafonta@gmail.com', '649542753', 0),
+(47, 'CLP', 'sana0', 'carla.llamasp@gmail.com', '677306024', 0);
 
 -- --------------------------------------------------------
 
@@ -245,7 +248,6 @@ INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `Canva`, `Ord
 (36, 'Video 2. Explicación ficha de seguimiento ', 'https://www.loom.com/share/ffafbe1c128b4bbfa7250ce9fee8cafa', '', '', '', 2, 24),
 (37, 'Video 3. Macronutrientes - Entendiendo la alimentación equilibrada ', 'https://www.loom.com/share/1c811df0cd154bb889907ef9aa11c2f5', '', '', '', 3, 24),
 (38, 'Descargable 1. Alternativas de salsas ', '', '', ' Alternativas de ALIÑOS para ensaladas.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGD4H2C4EI&#x2F;yRRqOiYI2gYEv0OUNsuawA&#x2F;view?embed', 4, 24),
-(39, 'aaaaaaaaaaaaaaaaaaaa', '', '', '', '', 8, 0),
 (40, 'Video 1. Cómo va a ser el proceso de esta fase', 'https://www.loom.com/share/3a1126afe16f4501b3a2ee8a2cfac7b9?sid=536c34ba-9e0a-4124-9736-0a0691fcec59', '', '', '', 1, 6),
 (41, 'Video 1. Principios para una buena salud digestiva ', 'https://www.loom.com/share/bf90a469594c45e097e2b4ec99d45128?sid=f7f3e8f1-8da5-40c6-9ec5-66516dabedcf', '', '', '', 1, 7),
 (42, 'Video 1. Limpiar la despensa ', 'https://www.loom.com/share/19c385fbf1864ccdad38bdfeca816705?sid=0b72be5b-3977-487a-bf6c-04981f46927e', '', '', '', 1, 12),
@@ -263,7 +265,31 @@ INSERT INTO `video` (`id`, `Name`, `Src`, `Description`, `Adjunt`, `Canva`, `Ord
 (55, 'Video Bonus Coaching. No esperes mas para actuar ', 'https://www.loom.com/share/6f1db4bac52c4d5789584e2075d473e8?sid=adbcd5e2-85e3-4e3e-b464-018e1eda0a97', '', '', '', 3, 7),
 (56, 'Descargable 1. Limpiando la despensa ', '', 'Te dejo este documento que acompaña al vídeo que se titula igual, para que lo tengas y lo recuerdes. \nEs lógico, pero hay que recordarlo cada vez que vamos a hacer la compra: Si no quiero comer ciertos alimentos, es mejor que no los tenga en casa y que por tanto no los incluya en mi compra. \nSiempre que nos sienten bien podemos comerlos fuera de casa si nos gustan, que será de forma más ocasional que si los tenemos en la despensa. ', 'Limpiando la despensa.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGChN6WeRc&#x2F;JTvrO0kb3YAW1LgvNUG2ng&#x2F;view?embed', 3, 12),
 (57, 'Descargable 2. Lectura de etiquetas', '', 'Te dejo este documento que acompaña al vídeo que se titula igual, para que lo tengas y lo recuerdes. \nCuando vayas a comprar piensa en la de recursos que gastan las empresas en hacer productos y cajas que modifican nuestro comportamiento. ¡Con nosotras no podrán! ', 'Lectura de etiquetas.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGChDwbKTo&#x2F;QGoTCTRbeWJs5L97wFmrvg&#x2F;view?embed', 4, 12),
-(58, 'Descargable. Check list fase 1', '', '¿Quieres evaluar como llevas lo aprendido en estas semanas? \nTe dejo un resumen de las cosas más importantes que hemos ido incorporando. Es bueno que seas consciente de los avances que hay en ti, del cambio de hábitos que estás haciendo.', 'Descargable - Check List fase 1.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDUz5xb6c&#x2F;GfRcZC6CartbFMEY1MXYXQ&#x2F;view?embed', 3, 13);
+(58, 'Descargable. Check list fase 1', '', '¿Quieres evaluar como llevas lo aprendido en estas semanas? \nTe dejo un resumen de las cosas más importantes que hemos ido incorporando. Es bueno que seas consciente de los avances que hay en ti, del cambio de hábitos que estás haciendo.', 'Descargable - Check List fase 1.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDUz5xb6c&#x2F;GfRcZC6CartbFMEY1MXYXQ&#x2F;view?embed', 3, 13),
+(59, 'Video 1. Cómo va a ser el proceso de esta fase 2', 'https://www.loom.com/share/b619396f7a7f41b3bb7747dd56ef5896?sid=f0258853-5b87-4f3c-b381-50bee15d4ad0', '', '', '', 1, 14),
+(60, 'Descargable 1. Manual Fase 2 - Reintroducción', '', 'En esta fase vamos a repoblar nuestro intestino.\nAquí te dejo una guía de lo que vamos a ir haciendo estas semanas. Recuerda que esta guía es general y hay cosas que pueden cambiar si tu evolución lo requiere.', 'Manual Fase 2.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGC_HcgIak&#x2F;BgS7LtxcfUsVl8n_nEQ5qg&#x2F;view?embed', 2, 14),
+(61, 'Descargable 2. Diario de síntomas', '', 'Para poder valorar tu evolución, te dejo un registro de alimentos y síntomas para que puedas valorar como vas tolerando los alimentos que vamos reincorporando en esta fase. \nEn las revisiones tendrás una pestaña de tu hoja compartida en Google Drive con estos mismos ítems para que te sea más sencillo compartírmelo, pero puedes anotarlo aquí para luego traspasarlo a la hoja y que yo pueda verlo.', 'Diario de sintomas.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDE-pNeVI&#x2F;27Qm812YyOX3r_1IYbcUQA&#x2F;view?embed', 3, 14),
+(62, 'Video 1. Contexto. ¿De dónde venimos?', 'https://www.loom.com/share/207fad62d0f64c2898faaea1da70950a?sid=deda03ac-ede5-428b-8e9e-3f2af0cdff16', '', '', '', 1, 15),
+(63, 'Descargable 1. La importancia de una buena respiración', '', 'Una buena respiración es clave y he hecho este documento para que le demos el valor y la importancia que esta tiene. Espero que aprendas acerca de este mecanismo involuntario, pero que tenemos la capacidad de modificar. ', 'Una buena respiración.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDEuacjJI&#x2F;w25DyEfYztpSM0Qmh7bY-w&#x2F;view?embed', 3, 15),
+(64, 'Vídeo Bonus Coaching: ¿Hambre real o hambre emocional?', 'https://www.loom.com/share/a7bfbf43aee54611adc477f148008a14?sid=d04a7cf8-5db6-4da3-9fb5-981709d3ceb6', '', '', '', 2, 15),
+(65, 'Video 1. ¿Qué es la inflamación?', 'https://www.loom.com/share/74d0c592d1744a6fb786b00e9ebfc56e?sid=c0394557-89e2-4479-a506-5aede84c0530', '', '', '', 1, 16),
+(66, 'Vídeo Bonus Coaching: ¿Qué afecta mi conducta? ', 'https://www.loom.com/share/1d7bfdecdfc5432fb82a567dd3d5bd14?sid=85fea367-84bb-4e60-a12a-47b864591eab', '', '', '', 2, 16),
+(67, 'Video 1. Alimentos proinflamatorios ', 'https://www.loom.com/share/e8cf4ca1a98e4dfd9bdbfddec172af07?sid=ee5cc44c-63a6-4615-bf10-2b7596ec7c52', '', '', '', 1, 17),
+(68, 'Video Bonus Coaching: ¿Qué hago cuando estoy fuera de casa? ', 'https://www.loom.com/share/728bb6d7e62848d2a0d15be555f06b5e?sid=a044a775-f6cc-4c75-ae9c-ce33b932c61f', '', '', '', 2, 17),
+(69, 'Video 1. Alimentación antiinflamatoria ', 'https://www.loom.com/share/2b2b20088a9d4dc49b041d4436f6f6ff?sid=d844fc24-2591-40e3-8b0e-0dedabe7c7f4', '', '', '', 1, 18),
+(70, 'Descargable 1. La lista de la compra antiinflamatoria ', '', 'Te dejo este resumen que acompaña al vídeo de alimentación antiinflamatoria que tienes en esta fase. \nEspero que tus compras de ahora en adelante estén llenas de estos productos :)  ', 'La lista de la compra antiinflamatoria.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDOjnd0ao&#x2F;5eVljHIPGFKje6Dur_mvMw&#x2F;view?embed', 2, 18),
+(71, 'Video 1. Estrés y digestión ', 'https://www.loom.com/share/9c5c090eb5904302b5a05c31566feb1e?sid=d5520caf-e19c-49d8-9122-a899b626d267', '', '', '', 1, 19),
+(72, 'Video Bonus Coaching: Conoce tus valores ', 'https://www.loom.com/share/88dff1a5f39146f4b92996bcea1ebe0e?sid=04a743e8-d8ab-4257-aecf-d5e8de7d8732', '', '', '', 2, 19),
+(73, 'Descargable 1. Importancia de la gestión del estrés para el sistema digestivo  ', '', 'El estrés juega un papel crucial en nuestras digestiones. Tanto que a menudo no es posible mejorar, por mucho foco que se le ponga a la alimentación, o a la suplementación si esta pata queda sin resolver. \nDale la importancia que merece, que es muchísima. \nEn este documento te hablo sobre ello. ', ' La importancia de la gestión del estrés.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGEXngPrBE&#x2F;u3M9pJ_KKkmmORdkG2EyOQ&#x2F;view?embed', 3, 19),
+(74, 'Descargable 2. Checklist ', '', '¿Quieres evaluar como llevas lo aprendido en estas semanas? \nTe dejo un resumen de las cosas más importantes que hemos ido incorporando. Es bueno que seas consciente de los avances que hay en ti, del cambio de hábitos que estás haciendo.', 'Descargable FASE 2.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDOrXPxSo&#x2F;u__YlswbH9im4kZrkrA5dQ&#x2F;view?embed', 4, 19),
+(75, 'Video 1. Otras ideas clave', 'https://www.loom.com/share/51339133472e4c80b4228d7dd4e93987?sid=811b32ca-69e7-438e-b45d-cfdf9fc79bf9', '', '', '', 1, 20),
+(76, 'Video Bonus coaching: Los hábitos', 'https://www.loom.com/share/3344e3592a7c47b0af3b530e47acd372?sid=1a4de17f-d6c0-4cf1-9d73-f35120466535', '', '', '', 2, 20),
+(77, 'Descargable 1. Especies ', '', 'En este documento te resumo las especies y hierbas aromáticas para que te familiarices con ellas y las vayas incorporando en tu alimentación. ¡Atrévete a incluirlas y probar nuevos sabores y combinaciones! ', 'ESPECIES.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDOmQ6QeY&#x2F;htuYHzgbEjk28q1axEQRaA&#x2F;view?embed', 2, 20),
+(78, 'Descargable 2. Opciones de desayunos saludables', '', 'Puedes usar las combinaciones que quieras de alimentos saludables que ya toleras\nYo te dejo algunos ejemplos que te pueden servir de idea para que no te aburras', 'Opciones desayunos saludables.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGBhuTz--0&#x2F;ZNZuu2EYxeFhRGunyy7H-Q&#x2F;view?embed', 3, 20),
+(79, 'Video 1. Un día ideal antiinflamatorio. ¿Cómo sería? ', 'https://www.loom.com/share/9d4c50f5c445439fad234321914575b8?sid=6c8eca7b-12af-478e-8cfb-09b50271a425', '', '', '', 1, 21),
+(80, 'Video Bonus Coaching: Las claves del éxito ', 'https://www.loom.com/share/4f8648ec1214476193b4e2f95127d102?sid=c89e05c9-0f69-48d2-b1e3-5285f6a0ff14', '', '', '', 2, 21),
+(81, 'Descargable 1. Un día antiinflamatorio ', '', '¿Te imaginas cómo sería un día antiinflamatorio con todo lo que hemos visto? Vamos a crear nuestro día ideal ;) \nSé que llevar a cabo todo esto no es sencillo, pero vamos a pensar en el ideal para ser conscientes de lo cerca o lejos que estamos de esto, y valorar qué podríamos mejorar para acercarnos un poco más a esta situación.', 'Un día ideal antiinflamatorio.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGEfBxRJ3s&#x2F;vCJroMSXTZ7RjppyGaG9fg&#x2F;view?embed', 3, 21),
+(82, 'Descargable 2. Checklist Fase 3', '', '¿Quieres evaluar qué has incorporado en esta fase?\nEspero que seas consciente de todo los nuevos hábitos y conocimientos nuevos que ahora tienes. Y espero que tu salud haya mejorado sustancialmente. \nEnhorabuena por haber llegado hasta aquí y haberte regalado esta experiencia llena de salud. ', 'Lista de verificación FASE 3.pdf', 'https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGDU6QQfmw&#x2F;PFljL91C9-zw7UZ9kEEAXA&#x2F;view?embed', 4, 21);
 
 --
 -- 转储表的索引
@@ -308,7 +334,7 @@ ALTER TABLE `video`
 -- 使用表AUTO_INCREMENT `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用表AUTO_INCREMENT `level1`
@@ -326,13 +352,13 @@ ALTER TABLE `level2`
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- 使用表AUTO_INCREMENT `video`
 --
 ALTER TABLE `video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

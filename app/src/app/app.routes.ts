@@ -19,6 +19,7 @@ import { AppCompraCursoCheckComponent } from './app/front/asesoramiento/check/ap
 import { AppLegalPrivacidadComponent } from './app/legal/privacidad/app.component';
 import { AppLegalCookieComponent } from './app/legal/cookie/app.component';
 import { AppLegalPoliticaComponent } from './app/legal/legal/app.component';
+import { AppCondicionComponent } from './app/legal/condicion/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -55,6 +56,7 @@ export const routes: Routes = [
     { path: 'privacidad', component: AppLegalPrivacidadComponent },
     { path: 'legal', component: AppLegalPoliticaComponent },
     { path: 'cookie', component: AppLegalCookieComponent },
+    { path: 'condicion', component: AppCondicionComponent },
 
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
