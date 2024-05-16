@@ -19,7 +19,7 @@ exports.email_ensalada = (req, res) => {
           <br>
           ¡Se acabaron las dudas!
       </div>
-      <div class="e1">
+      <div>
           <li>
               Llega el buen tiempo y sabes que vas a recurrir más de una vez a las
               ensaladas
@@ -59,12 +59,32 @@ exports.email_ensalada = (req, res) => {
               disfrútalas sabiendo que te lo estás haciendo bien!
           </li>
       </div>
+      <h4>
+      <br>
+      ¡Un super abrazo!
+      <br>
+      Clara
+      <br>
+      </h4>
+      <img src="cid:logo" style='height:100px'>
+      <br>
+      <span style='font-size:5pt;color:rgb(127,127,127)'>
+      Este mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de Clara Fuertes Camprubi. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía.
+      En cumplimiento de lo establecido en el Reglamento General de Protección de Datos (RGPD) (UE) 2016/679 y a la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos de Carácter Personal y Garantía de los Derechos Digitales (LOPD-GDD), le informamos que tratamos sus datos personales con la finalidad de responder a su solicitud de información, realizar la gestión administrativa derivada de la prestación del servicio, así como enviarle comunicaciones comerciales sobre nuestros servicios.
+      La legitimación será en base a un interés legítimo, por ejecución de un contrato y/o por consentimiento, en algunos casos. Los datos proporcionados se conservarán mientras se mantenga la relación contractual o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal o sea necesario para la prestación del servicio. No se tomarán decisiones automatizadas que puedan causar un efecto jurídico significativo, salvo que se haya recabado previamente el consentimiento.
+      Asimismo, le informamos de la posibilidad de ejercer los siguientes derechos sobre sus datos personales: derecho de acceso, rectificación, supresión u olvido, limitación, oposición, portabilidad y a retirar el consentimiento prestado. Para ello podrá enviar un email a: info@claranutricion.com, adjuntando copia de su DNI.
+      Además, el interesado puede dirigirse a la Autoridad de Control en materia de Protección de Datos competente (AEPD, en España) para obtener información adicional o presentar una reclamación.
+      </span>
         `,
         attachments: [
           {
             filename: "/ENSALADAS. LA GUIA INFALIBLE QUE RESUELVE TODAS TUS DUDAS.pdf",
             path: __dirname + "/../../public/ENSALADAS.pdf",
-          },
+          }, {
+            filename: 'LogoClaraX.jpg',
+            path: __dirname + '/../../public/LogoClaraX.jpg',
+            cid: 'logo'
+          }
         ],
       };
       transporter.sendMail(mailOptions, (e) => {
@@ -111,8 +131,31 @@ exports.email_resetPass = (req, res) => {
                 </a>
                 <br>
                 Si tu no has solicitado el reset de contraseña, no tienes que hacer nada.
-                Saludo Clara
-                </div>`,
+                </div>
+                <h4>
+                <br>
+                ¡Un super abrazo!
+                <br>
+                Clara
+                <br>
+                </h4>
+                <img src="cid:logo" style='height:100px'>
+                <br>
+                <span style='font-size:5pt;color:rgb(127,127,127)'>
+                Este mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de Clara Fuertes Camprubi. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía.
+                En cumplimiento de lo establecido en el Reglamento General de Protección de Datos (RGPD) (UE) 2016/679 y a la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos de Carácter Personal y Garantía de los Derechos Digitales (LOPD-GDD), le informamos que tratamos sus datos personales con la finalidad de responder a su solicitud de información, realizar la gestión administrativa derivada de la prestación del servicio, así como enviarle comunicaciones comerciales sobre nuestros servicios.
+                La legitimación será en base a un interés legítimo, por ejecución de un contrato y/o por consentimiento, en algunos casos. Los datos proporcionados se conservarán mientras se mantenga la relación contractual o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal o sea necesario para la prestación del servicio. No se tomarán decisiones automatizadas que puedan causar un efecto jurídico significativo, salvo que se haya recabado previamente el consentimiento.
+                Asimismo, le informamos de la posibilidad de ejercer los siguientes derechos sobre sus datos personales: derecho de acceso, rectificación, supresión u olvido, limitación, oposición, portabilidad y a retirar el consentimiento prestado. Para ello podrá enviar un email a: info@claranutricion.com, adjuntando copia de su DNI.
+                Además, el interesado puede dirigirse a la Autoridad de Control en materia de Protección de Datos competente (AEPD, en España) para obtener información adicional o presentar una reclamación.
+                </span>
+                `,
+                attachments: [
+                  {
+                    filename: 'LogoClaraX.jpg',
+                    path: __dirname + '/../../public/LogoClaraX.jpg',
+                    cid: 'logo'
+                  }
+                ],
               };
               transporter.sendMail(mailOptions, (e) => {
                 transporter.close();
