@@ -24,12 +24,8 @@ export class AppEnsaladaComponent {
       if (this.Email && this.Name) {
         this.Response = { ok: true }
         this.api.SendEmail(this.Email, this.Name)
-      } else {
-        this.Response = { msg: "Introduce tu nombre y tu correo!" }
-      }
-    } else {
-      this.Response = { msg: "Acepte los términos y condiciones!" }
-    }
+      } else this.Response = { msg: "Introduce tu nombre y tu correo!" }
+    } else this.Response = { msg: "Acepte los términos y condiciones!" }
     this.dialog.open(DialogEnsalada, {
       data: { msg: this.Response.msg, ok: this.Response.ok }
     });
