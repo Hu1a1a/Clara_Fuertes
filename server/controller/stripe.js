@@ -15,8 +15,8 @@ exports.asesoramiento = async (req, res) => {
       phone_number_collection: { enabled: true },
       //invoice_creation: { enabled: true },
       mode: "payment",
-      success_url: `${process.env.FRONT_DOMAIN}/${req.body.CallBack}/pay`,
-      cancel_url: `${process.env.FRONT_DOMAIN}/${req.body.CallBack}/pay`,
+      success_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
+      cancel_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
       consent_collection: { terms_of_service: "required" },
       custom_text: {
         after_submit: { message: "Tras realizar el pago, Clara se pondra en contacto contigo para el asesoramiento personalizado!" },
@@ -143,8 +143,8 @@ exports.paySession = async (req, res) => {
       phone_number_collection: { enabled: true },
       invoice_creation: { enabled: true },
       mode: "payment",
-      success_url: `${process.env.FRONT_DOMAIN}/compra/pay`,
-      cancel_url: `${process.env.FRONT_DOMAIN}/compra/pay`,
+      success_url: `${process.env.FRONT_DOMAIN}#/compra/pay`,
+      cancel_url: `${process.env.FRONT_DOMAIN}#/compra/pay`,
       expires_at: Math.floor(new Date().getTime() / 1000 + 32 * 60),
     });
     res.json({ ok: true, url: session.url });
