@@ -1,5 +1,6 @@
 <ng-container *ngIf="loading">
-	<div style="position: fixed;z-index: 100;height: 100vh;width: 100vw;background-color: black;opacity: 0.3;">
+	<div
+		style="position: fixed;z-index: 100;height: 100vh;width: 100vw;background-color: black;opacity: 0.3;">
 		<div class="spinner-border text-success"
 			role="status"
 			style="width: 100px;height: 100px;">
@@ -23,29 +24,26 @@
 				<tbody>
 					<ng-container *ngFor="let i1 of data['curso/level1'].data;index as i">
 						<tr (click)="OpenModal(i1,'curso/level1','update')">
-							<td>{{i+1}}</td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td style="background-color: green;" colspan="3"> {{i+1}}</td>
+							<td>-</td>
 							<td>{{i1.Name}}</td>
 							<td>{{i1.Description}}</td>
 						</tr>
 						<ng-container *ngFor="let i2 of data['curso/level2'].data;index as j">
 							<ng-container *ngIf="i1.id===i2.level1">
 								<tr (click)="OpenModal(i2,'curso/level2','update')">
-									<td></td>
-									<td>{{j+1}}</td>
-									<td>{{i2.depId}}</td>
-									<td></td>
+									<td>-</td>
+									<td style="background-color: orange" colspan="2">{{j+1}}</td>
+									<td>+{{i2.depId}} día</td>
 									<td>{{i2.Name}}</td>
 									<td>{{i2.Description}}</td>
 								</tr>
 								<ng-container *ngFor="let v of data['curso/video'].data;index as k">
 									<ng-container *ngIf="i2.id===v.level2">
 										<tr (click)="OpenModal(v,'curso/video','update')">
-											<td></td>
-											<td></td>
-											<td>{{k+1}}</td>
+											<td>-</td>
+											<td>-</td>
+											<td style="background-color: orangered;">{{k+1}}</td>
 											<td>{{v.Orden}}</td>
 											<td>{{v.Name}}</td>
 											<td>
@@ -59,17 +57,20 @@
 					</ng-container>
 				</tbody>
 			</table>
-			<button (click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')"
+			<button
+				(click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')"
 				mat-raised-button
 				color="primary">
 				Añadir Grupo
 			</button>
-			<button (click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')"
+			<button
+				(click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')"
 				mat-raised-button
 				color="primary">
 				Añadir Fase
 			</button>
-			<button (click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')"
+			<button
+				(click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')"
 				mat-raised-button
 				color="primary">
 				Añadir Video
@@ -80,6 +81,7 @@
 				<thead>
 					<tr>
 						<td>id</td>
+						<td>Admin</td>
 						<td>User</td>
 						<td>Email</td>
 						<td>Telefono</td>
@@ -90,6 +92,7 @@
 					<ng-container *ngFor="let u of data['user'].data;index as i">
 						<tr (click)="OpenModal(u,'user','update')">
 							<td>{{u.id}}</td>
+							<td [style.backgroundColor]="u.Admin===1?'orange':''">{{u.Admin}}</td>
 							<td>{{u.User}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Phone}}</td>
@@ -113,23 +116,22 @@
 						<td>Usuario</td>
 						<td>Inicio</td>
 						<td>Fin</td>
-						<td>Progreso</td>
 					</tr>
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let u of data['curso/curso'].data;index as i">
 						<tr (click)="OpenModal(u,'curso/curso','update')">
 							<td>{{u.id}}</td>
-							<td>{{u.cursoId}}</td>
-							<td>{{u.userId}}</td>
+							<td>{{u.cursoId}} - {{getCurso(u.cursoId)}}</td>
+							<td>{{u.userId}} - {{getUser(u.userId)}}</td>
 							<td>{{u.inicio}}</td>
 							<td>{{u.expiro}}</td>
-							<td>{{u.progreso}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
 			</table>
-			<button (click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')"
+			<button
+				(click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')"
 				mat-raised-button
 				color="primary">
 				Añadir Curso
@@ -143,6 +145,7 @@
 						<td>Nombre</td>
 						<td>Descripción</td>
 						<td>Estrella</td>
+						<td>Tipo</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -150,8 +153,9 @@
 						<tr (click)="OpenModal(u,'comentario','update')">
 							<td>{{u.id}}</td>
 							<td>{{u.Name}}</td>
-							<td>{{u.Description}}</td>
+							<td>{{u.Description.slice(0,80)}}{{u.Description.length>80?'...”':''}}</td>
 							<td>{{u.Star}}</td>
+							<td>{{u.Type}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
@@ -178,7 +182,8 @@
 							<td>{{u.Name}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Date}}</td>
-							<td>{{u.Tipo}}</td>
+							<td
+								[style.backgroundColor]="getColor(u.Tipo)">{{u.Tipo}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
@@ -198,11 +203,13 @@
 			{{ sAccion }} {{ sRouter }}
 		</h2>
 		<ng-container *ngFor="let item of Key(sData)">
-			<ng-container *ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
+			<ng-container
+				*ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
 				<mat-form-field style="width: 100%;">
 					<mat-label>{{item}}</mat-label>
 					<mat-select [(ngModel)]="sData[item]">
-						<mat-option *ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data"
+						<mat-option
+							*ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data"
 							[value]="i.id">
 							{{i.Name}}
 						</mat-option>
@@ -210,7 +217,8 @@
 				</mat-form-field>
 			</ng-container>
 			<ng-template #elseTemplate>
-				<ng-container *ngIf="item === 'Description' || item === 'progreso'; else elseTemplate">
+				<ng-container
+					*ngIf="item === 'Description' || item === 'progreso'; else elseTemplate">
 					<mat-form-field style="width: 100%;">
 						<mat-label>{{item}}</mat-label>
 						<textarea [(ngModel)]="sData[item]"

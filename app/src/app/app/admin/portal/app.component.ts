@@ -39,6 +39,7 @@ export class AppAdminPortalComponent implements OnInit {
   sRouter!: "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email"
   sAccion!: "create" | "update" | "delete"
   loading: boolean = true
+  emailColor: { Name: string, Color: string }[] = []
   Key(data: any) {
     return Object.keys(data)
   }
@@ -53,8 +54,18 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["comentario"] = await this.api.Get("comentario")
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.data["email"] = await this.api.Get("email")
+    const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
+      return this.data["email"].data.map((a: any) => a.Tipo).indexOf(item) === index;
+    })
+    for (const tip of tipo) this.emailColor.push({
+      Name: tip, Color: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
+    })
+
     this.loading = false
   }
+  getColor = (tipo: string): any => this.emailColor.find((a: any) => a.Name === tipo)?.Color
+  getUser = (userId: string): any => this.data["user"].data.find((a: any) => a.id === userId)?.User
+  getCurso = (cursoId: string): any => this.data["curso/level1"].data.find((a: any) => a.id === cursoId)?.Name
 
   OpenModal(data: any, router: "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email", accion: "create" | "update" | "delete") {
     this.sRouter = router
@@ -74,6 +85,5 @@ export class AppAdminPortalComponent implements OnInit {
       this.modal = false
       this.loading = false
     }, 0);
-
   }
 }

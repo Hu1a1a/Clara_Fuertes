@@ -16,6 +16,7 @@ table {
 
 td {
   word-wrap: break-word;
+  vertical-align: middle;
 }
 
 .form-container {
