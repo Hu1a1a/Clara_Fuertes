@@ -3,17 +3,19 @@ a {
   cursor: pointer;
 }
 
+
 a:hover {
   background-color: #9ce9ca;
 }
-
 
 .level1 {
   background-color: #dae4e0;
   color: black;
   border-color: gray;
   align-self: self-end;
-
+  animation: list .5s;
+  z-index: 10;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .level2 {
@@ -22,6 +24,19 @@ a:hover {
   border-color: gray;
   width: 95%;
   align-self: self-end;
+  animation: list .5s;
+  z-index: 9;
+  border-radius: 10px 0px 0px 10px;
+}
+
+@keyframes list {
+  0% {
+    transform: translateY(-50rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .video {
@@ -30,6 +45,9 @@ a:hover {
   border-color: gray;
   width: 90%;
   align-self: self-end;
+  animation: list .5s;
+  z-index: 8;
+  border-radius: 10px 0px 0px 10px;
 }
 
 strong {

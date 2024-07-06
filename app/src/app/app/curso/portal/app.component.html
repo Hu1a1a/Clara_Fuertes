@@ -1,13 +1,14 @@
 <nav class="navbar bg-body-tertiary"
-	style="background-color: #bfd1c9 !important;">
+	style="background-color: #bfd1c9 !important;overflow: none;">
 	<div class="container-fluid">
-		<a class="navbar-brand titulo"
+		<div class="navbar-brand titulo"
 			data-bs-toggle="offcanvas"
 			data-bs-target="#offcanvasNavbar"
 			aria-controls="offcanvasNavbar"
-			aria-label="Toggle navigation">
+			aria-label="Toggle navigation"
+			style="cursor: pointer; z-index: 11;">
 			Clara Fuertes
-		</a>
+		</div>
 		<button class="navbar-toggler"
 			type="button"
 			data-bs-toggle="offcanvas"
@@ -33,7 +34,7 @@
 			</div>
 			<div *ngIf="level1"
 				class="offcanvas-body"
-				style="padding: 10px 5px 30px 5px;min-height: 70vh;">
+				style="padding: 0 5px 30px 5px;min-height: 70vh;">
 				<div class="list-group list-group-flush border-bottom scrollarea">
 					<ng-container *ngFor="let i1 of level1.data;index as i">
 						<ng-container *ngIf="i1.active">
