@@ -3,6 +3,7 @@
   flex-direction: row;
   align-content: space-between;
   flex-wrap: wrap;
+  opacity: 0.9;
 }
 
 p {
@@ -11,4 +12,7 @@ p {
 
 .card-body {
   padding: 1rem 1rem;
+}
+.star{
+  height: 16px;
 }

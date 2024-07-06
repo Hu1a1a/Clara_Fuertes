@@ -7,7 +7,7 @@
     font-weight: 200;
     line-height: 20px;
     text-align: center;color: #1D3F28;
-    "> {{data.Description}}
+    "> {{substring(data.Description,200)}}
     </p>
     <br>
     <h5 class="card-title" style="font-family: Sedan SC;
@@ -19,10 +19,10 @@
     </h5>
     <ng-container *ngFor="let item of [1,2,3,4,5]">
       <ng-container *ngIf="item<=data.Star">
-        <img src="assets/starx.png" alt>
+        <img src="assets/starx.png" alt class="star">
       </ng-container>
       <ng-container *ngIf="item>data.Star">
-        <img src="assets/star.png" alt>
+        <img src="assets/star.png" alt class="star">
       </ng-container>
     </ng-container>
   </div>

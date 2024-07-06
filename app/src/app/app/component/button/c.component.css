@@ -17,16 +17,16 @@ button {
 
 .bottontext1 {
   font-family: Reem Kufi Ink;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 31.5px;
   text-align: center;
   color: #605e5e;
 }
 
 .bottontext2 {
   font-family: Reem Kufi Ink;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 18px;
   text-align: center;
@@ -34,31 +34,36 @@ button {
 }
 
 button:hover {
-  background-color: #8cd2a3;
-  animation: buttonn 500ms;
+  background: linear-gradient(130deg, #c1e4d6, #ffffff, #40e0a0, #ffffff, #c1e4d6);
+  background-size: 500% 500%;
+  animation: buttonn 2000ms infinite;
 }
 
 button:hover.disabled {
   background-color: #939795;
-  animation: buttodd 500ms;
+  animation: buttodd 2000ms infinite;
 }
 
 @keyframes buttonn {
+
   0% {
-    background-color: #c1e4d6;
+    background-position: 0% 10%
   }
 
+
   100% {
-    background-color: #8cd2a3;
+    background-position: 100% 10%
   }
 }
 
 @keyframes buttodd {
+
   0% {
-    background-color: #c2cac7;
+    background-position: 0% 10%
   }
 
+
   100% {
-    background-color: #939795;
+    background-position: 100% 10%
   }
 }
