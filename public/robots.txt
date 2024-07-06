@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://www.claranutricion.com/public/sitemap.xml
+Sitemap: https://www.claranutricion.com/sitemap.xml
