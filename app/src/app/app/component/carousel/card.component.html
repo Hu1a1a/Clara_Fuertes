@@ -1,13 +1,21 @@
-<div class="card" style="max-width: 18rem;width:100%;height: 300px;">
+<div class="card" style="max-width: 18rem;width:100%;height: 260px;">
   <img [src]="data.img" class="card-img-top" alt>
   <div class="card-body">
-    <p class="card-text" style="font-family: Public Sans;
+    <p class="card-text"
+      style="
+    font-family: Public Sans;
     font-size: 15px;
     font-style: italic;
     font-weight: 200;
     line-height: 20px;
-    text-align: center;color: #1D3F28;
-    "> {{substring(data.Description,200)}}
+    text-align: center;
+    color: #1D3F28;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    line-clamp: 7; 
+    -webkit-box-orient: vertical;
+    "> {{data.Description}}
     </p>
     <br>
     <h5 class="card-title" style="font-family: Sedan SC;
