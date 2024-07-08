@@ -167,6 +167,14 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Envio de correo">
+			<mat-button-toggle-group [(ngModel)]="emailFilter">
+				<mat-button-toggle> All </mat-button-toggle>
+				<mat-button-toggle
+					*ngFor="let type of emailColor" [value]="type.Name"
+					[style.backgroundColor]="type.Color">
+					{{type.Name}}
+				</mat-button-toggle>
+			</mat-button-toggle-group>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -178,7 +186,7 @@
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let u of data['email'].data;index as i">
-						<tr>
+						<tr *ngIf="!emailFilter || emailFilter===u.Tipo">
 							<td>{{u.Name}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Date}}</td>

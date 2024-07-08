@@ -1,0 +1,34 @@
+button {
+    height: 40px;
+    max-width: 80%;
+    width: 500px;
+    border-radius: 10px;
+    background-color: #b4c7c0;
+    border-color: transparent;
+    box-shadow: 7px 6px 16px 1px #c1e4d6;
+    padding: 5px 15px;
+    font-family: Reem Kufi Ink;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    color: #6a6056;
+    margin-top: 15px;
+}
+
+input,
+textarea {
+    background-color: #ffffff;
+    width: 100%;
+    margin: 5px 0px;
+    border-radius: 15px;
+    font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.94px;
+    text-align: left;
+    color: #4d5c52;
+    padding: 5px 15px;
+    border-color: #4D5C52;
+}
+

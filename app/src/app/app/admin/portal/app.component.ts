@@ -40,6 +40,7 @@ export class AppAdminPortalComponent implements OnInit {
   sAccion!: "create" | "update" | "delete"
   loading: boolean = true
   emailColor: { Name: string, Color: string }[] = []
+  emailFilter: string = ""
   Key(data: any) {
     return Object.keys(data)
   }
@@ -60,7 +61,6 @@ export class AppAdminPortalComponent implements OnInit {
     for (const tip of tipo) this.emailColor.push({
       Name: tip, Color: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
     })
-
     this.loading = false
   }
   getColor = (tipo: string): any => this.emailColor.find((a: any) => a.Name === tipo)?.Color

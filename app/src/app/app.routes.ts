@@ -20,6 +20,7 @@ import { AppLegalPrivacidadComponent } from './app/legal/privacidad/app.componen
 import { AppLegalCookieComponent } from './app/legal/cookie/app.component';
 import { AppLegalPoliticaComponent } from './app/legal/legal/app.component';
 import { AppCondicionComponent } from './app/legal/condicion/app.component';
+import { AppListadoEsperaComponente } from './app/front/listado_espera/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
     { path: 'compra/pay', component: AppCompraCheckComponent },
     { path: 'digestion', component: AppDigestionComponent },
     { path: 'perdidagrasa', component: AppPerdidaComponent },
+    { path: 'listadoEspera', component: AppListadoEsperaComponente },
     {
         path: 'asesoramiento', children: [
             { path: "", component: AppAsesoramientoComponent },

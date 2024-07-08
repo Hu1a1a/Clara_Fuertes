@@ -5,6 +5,7 @@ import { ComponentCardGroupComponent } from '../../component/carousel-group/card
 import { ComponentButtonComponent } from '../../component/button/c.component';
 import { ApiService } from '../../../service/api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class AppMainComponent implements OnInit {
-  constructor(private api: ApiService, public dialog: MatDialog) { }
+  constructor(private api: ApiService, public dialog: MatDialog, public router: Router) { }
   comentario!: any
   ngOnInit(): void {
     this.api.Get("comentario").then((a) => this.comentario = a)

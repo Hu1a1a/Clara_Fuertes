@@ -2,10 +2,12 @@
   width: 50%;
   padding: 25px;
   text-align-last: center;
+
   @media only screen and (max-width: 990px) {
     width: 100%;
   }
 }
+
 .div2 {
   width: 50%;
   padding: 25px;
@@ -31,6 +33,7 @@ button {
   color: #6a6056;
   margin-top: 15px;
 }
+
 input {
   background-color: #ffffff;
   width: 100%;
@@ -55,6 +58,7 @@ button:hover {
   0% {
     background-color: #b4c7c0;
   }
+
   100% {
     background-color: #8cd2a3;
   }

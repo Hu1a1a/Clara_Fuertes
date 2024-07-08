@@ -205,7 +205,6 @@ exports.email_contacto = (req, res) => {
               c.release();
             });
           });
-          res.json({ ok: true });
         }
       });
     }
