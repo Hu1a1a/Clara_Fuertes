@@ -108,8 +108,16 @@ exports.asesoramientoCheck = async (req, res) => {
               } else {
                 pool.getConnection((e, c) => {
                   pool.query(
-                    `INSERT INTO regemail VALUES (?,?,?,?);`,
-                    [session.customer_details.name, session.customer_details.email, new Date(), "Asesoramiento pagado"],
+                    `INSERT INTO regemail VALUES (?,?,?,?,?,?);`,
+                    [, session.customer_details.name, session.customer_details.email, new Date(), "Asesoramiento pagado",
+                      `
+          <h1> Asesoramiento pagado !</h1>
+          id: <b> ${session.id} </b><br>
+          Nombre: ${session.customer_details.name} <br>
+          Email: ${session.customer_details.email} <br>
+          Telefono: ${session.customer_details.phone} <br>
+          Importe pagado: ${session.amount_total / 100} € <br>
+          Verifica en el Stripe que el pago se ha realizado correctamente`],
                     () => {
                       res.json({
                         ok: true,

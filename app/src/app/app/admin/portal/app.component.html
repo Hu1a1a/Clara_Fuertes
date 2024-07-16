@@ -30,7 +30,7 @@
 							<td>{{i1.Description}}</td>
 						</tr>
 						<ng-container *ngFor="let i2 of data['curso/level2'].data;index as j">
-							<ng-container *ngIf="i1.id===i2.level1">
+							<ng-container *ngIf="i1.id===i2.level1">w
 								<tr (click)="OpenModal(i2,'curso/level2','update')">
 									<td>-</td>
 									<td style="background-color: orange" colspan="2">{{j+1}}</td>
@@ -153,7 +153,7 @@
 						<tr (click)="OpenModal(u,'comentario','update')">
 							<td>{{u.id}}</td>
 							<td>{{u.Name}}</td>
-							<td>{{u.Description.slice(0,80)}}{{u.Description.length>80?'...”':''}}</td>
+							<td>{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
 							<td>{{u.Star}}</td>
 							<td>{{u.Type}}</td>
 						</tr>
@@ -182,6 +182,7 @@
 						<td>Correo</td>
 						<td>Fecha</td>
 						<td>Tipo</td>
+						<td>Msg</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -192,6 +193,7 @@
 							<td>{{u.Date}}</td>
 							<td
 								[style.backgroundColor]="getColor(u.Tipo)">{{u.Tipo}}</td>
+							<td>{{u.msg.slice(0,100)}}{{u.msg.length>100?'...”':''}}</td>
 						</tr>
 					</ng-container>
 				</tbody>

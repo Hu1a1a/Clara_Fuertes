@@ -93,7 +93,7 @@ exports.email_ensalada = (req, res) => {
         else {
           try {
             pool.getConnection((e, c) => {
-              pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Guia Ensalada"], () => {
+              pool.query(`INSERT INTO regemail VALUES (?,?,?,?,?,?);`, [, req.body.Name, req.body.Email, new Date(), "Guia Ensalada", ""], () => {
                 res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
                 c.release();
               });
@@ -162,7 +162,7 @@ exports.email_resetPass = (req, res) => {
                 if (e) res.json({ ok: true, msg: "Compruebe en su buzon." });
                 else {
                   pool.getConnection((e, c) => {
-                    pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, ["", req.body.Email, new Date(), "Reset contraseña"], () => {
+                    pool.query(`INSERT INTO regemail VALUES (?,?,?,?,?,?);`, [, "", req.body.Email, new Date(), "Reset contraseña", ""], () => {
                       res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
                       c.release();
                     });
@@ -200,7 +200,7 @@ exports.email_contacto = (req, res) => {
         if (e) res.json({ ok: true });
         else {
           pool.getConnection((e, c) => {
-            pool.query(`INSERT INTO regemail VALUES (?,?,?,?);`, [req.body.Name, req.body.Email, new Date(), "Contacto"], () => {
+            pool.query(`INSERT INTO regemail VALUES (?,?,?,?,?,?);`, [, req.body.Name, req.body.Email, new Date(), req.body.Title, req.body.Msg], () => {
               res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
               c.release();
             });
