@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ComponentButtonComponent } from '../../component/button/c.component';
@@ -7,18 +7,27 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
 
 @Component({
   selector: 'app-perdida',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, CommonModule],
+  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, CommonModule, ComponentCardGroupComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
-export class AppPerdidaComponent {
-  constructor(private dialog: MatDialog, public router: Router) { }
+export class AppPerdidaComponent implements OnInit {
+  constructor(private dialog: MatDialog, public router: Router, private api: ApiService) { }
+  comentario!: any
+
   openModal() {
     this.dialog.open(DialogPerdida, {})
+  }
+  ngOnInit(): void {
+    this.api.Get("comentario").then((a: any) => {
+      this.comentario = a
+      this.comentario.data = this.comentario.data.filter((a: any) => a.Type === "Perdida")
+    })
   }
 }
 @Component({
