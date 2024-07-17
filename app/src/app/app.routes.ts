@@ -7,7 +7,6 @@ import { AppAdminPortalComponent } from './app/admin/portal/app.component';
 import { AppCursoComponent } from './app/curso/app.component';
 import { AppAdminComponent } from './app/admin/app.component';
 import { AppLoginComponent } from './app/login/app.component';
-import { AppCompraCheckComponent, } from './app/front/compra/check/app.component';
 import { AppResetPasswordComponent } from './app/login/resetpassword/app.component';
 import { AppRecursoComponent } from './app/front/recursos/app.component';
 import { AppDigestionComponent } from './app/front/digestion/app.component';
@@ -15,26 +14,33 @@ import { AppPerdidaComponent } from './app/front/perdida/app.component';
 import { AppAsesoramientoComponent } from './app/front/asesoramiento/app.component';
 import { AppAsesorPatologiaComponent } from './app/front/asesoramiento/patologia/app.component';
 import { AppAsesorPerdidaComponent } from './app/front/asesoramiento/perdida/app.component';
-import { AppCompraCursoCheckComponent } from './app/front/asesoramiento/check/app.component';
+import { AppCompraSuccessComponent } from './app/front/pay/success/app.component';
 import { AppLegalPrivacidadComponent } from './app/legal/privacidad/app.component';
 import { AppLegalCookieComponent } from './app/legal/cookie/app.component';
 import { AppLegalPoliticaComponent } from './app/legal/legal/app.component';
 import { AppCondicionComponent } from './app/legal/condicion/app.component';
 import { AppListadoEsperaComponente } from './app/front/listado_espera/app.component';
+import { AppCompraFailComponent } from './app/front/pay/fail/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
     { path: 'recursos', component: AppRecursoComponent },
     { path: 'ensalada', component: AppEnsaladaComponent },
     { path: 'compra', component: AppCompraComponent },
-    { path: 'compra/pay', component: AppCompraCheckComponent },
     { path: 'digestion', component: AppDigestionComponent },
     { path: 'perdidagrasa', component: AppPerdidaComponent },
     { path: 'listadoEspera', component: AppListadoEsperaComponente },
     {
+        path: 'pay', children: [
+            { path: "", component: AppMainComponent },
+            { path: "success", component: AppCompraSuccessComponent },
+            { path: "fail", component: AppCompraFailComponent },
+            { path: "**", redirectTo: "", pathMatch: "full" },
+        ]
+    },
+    {
         path: 'asesoramiento', children: [
             { path: "", component: AppAsesoramientoComponent },
-            { path: "pay", component: AppCompraCursoCheckComponent },
             { path: "patologia", component: AppAsesorPatologiaComponent },
             { path: "perdida", component: AppAsesorPerdidaComponent },
             { path: "**", redirectTo: "", pathMatch: "full" },
