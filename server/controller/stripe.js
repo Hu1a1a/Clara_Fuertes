@@ -4,7 +4,7 @@ const pool = require("../../db/db");
 const { nodemailer, config } = require("../../mail/mail");
 
 exports.webhook = async (req, res) => {
-  const checkoutId = req.body.object.id
+  const checkoutId = req.body.data.object.id
   try {
     const session = await stripe.checkout.sessions.retrieve(checkoutId);
     if (session.status === "complete") {
@@ -102,7 +102,7 @@ exports.webhook = async (req, res) => {
       });
     } else res.json({ ok: false, msg: "Pago fallido!" });
   } catch (e) {
-    res.json({ ok: false, msg: e.toString() });
+    res.json({ ok: false, msg: e.toString(), data: req.body });
   }
 };
 
