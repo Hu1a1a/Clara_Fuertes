@@ -4,7 +4,7 @@ const pool = require("../../db/db");
 const { nodemailer, config } = require("../../mail/mail");
 
 exports.webhook = async (req, res) => {
-  const checkoutId = req.body.data.object.id
+  const checkoutId = req.body.data.data.object.id
   try {
     const session = await stripe.checkout.sessions.retrieve(checkoutId);
     if (session.status === "complete") {
