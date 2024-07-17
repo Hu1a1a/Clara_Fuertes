@@ -53,3 +53,11 @@ textarea {
         background-color: #ffffff99;
     }
 }
+
+.parati {
+    width: 50%;
+padding: 25px;
+    @media only screen and (max-width: 990px) {
+        width: 100%;
+    }
+}
