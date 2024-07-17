@@ -4,13 +4,13 @@ const pool = require("../../db/db");
 const { nodemailer, config } = require("../../mail/mail");
 
 exports.webhook = async (req, res) => {
-  const Url = req.body.data.object.id
+  const checkoutId = req.body.object.id
   try {
-    const session = await stripe.checkout.sessions.retrieve(Url);
+    const session = await stripe.checkout.sessions.retrieve(checkoutId);
     if (session.status === "complete") {
       const transporter = nodemailer.createTransport(config);
       const mailOptions = {
-        from: `Clara Fuertes Nutriciónxxxxxxx <${process.env.EMAIL_USER}>`,
+        from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_CONTACTO,
         subject: "Asesoramiento pagado",
         html: `
