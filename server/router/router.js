@@ -48,6 +48,7 @@ router.post("/comentario/delete/", comentario.delete);
 //router.post("/stripe/check/", stripe.checkSession);
 router.post("/stripe/asesoramiento/pay/", stripe.asesoramiento);
 router.post("/stripe/asesoramiento/check/", stripe.asesoramientoCheck);
+router.post("/stripe/webhook", stripe.webhook);
 
 router.get("/token/", auth.checkToken);
 router.post("/login/", auth.login);
