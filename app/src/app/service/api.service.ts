@@ -37,8 +37,8 @@ export class ApiService {
     async Accion(data: any, router: string, accion: "create" | "update" | "delete"): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}${router}/${accion}/`, { data }, this.options));
     }
-    async paySession(item: { StripeId: string, CallBack: string }): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/${item.CallBack}/pay/`, item, this.options));
+    async paySession(item: { StripeId: string }): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/pay/`, item, this.options));
     }
     async checkSession(url: string, CallBack: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/${CallBack}/check/`, { url, CallBack }, this.options));

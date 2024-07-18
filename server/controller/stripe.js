@@ -7,14 +7,15 @@ exports.webhook = async (req, res) => {
   const checkoutId = req.body.data.object.id
   try {
     const session = await stripe.checkout.sessions.retrieve(checkoutId);
+    const lineItems = await stripe.checkout.sessions.listLineItems(checkoutId);
     if (session.status === "complete") {
       const transporter = nodemailer.createTransport(config);
       const mailOptions = {
         from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_CONTACTO,
-        subject: "Asesoramiento pagado",
+        subject: lineItems.data[0].description,
         html: `
-          <h1> Asesoramiento pagado !</h1>
+          <h1> ${lineItems.data[0].description}</h1>
           id: <b> ${session.id} </b><br>
           Nombre: ${session.customer_details.name} <br>
           Email: ${session.customer_details.email} <br>
@@ -36,9 +37,9 @@ exports.webhook = async (req, res) => {
           const mailOptions = {
             from: `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`,
             to: session.customer_details.email,
-            subject: "[Clara Fuertes] Asesoramiento personalizado pagado",
+            subject: `[Clara Fuertes] ${lineItems.data[0].description} pagado`,
             html: `
-            Gracias por su compra en el asesoramiento personalizado por Clara Fuertes!
+            Gracias por su compra en ${lineItems.data[0].description} personalizado por Clara Fuertes!
             En breve contactaremos contigo para el asesoramiento!
             <h4>
             <br>
@@ -78,9 +79,9 @@ exports.webhook = async (req, res) => {
               pool.getConnection((e, c) => {
                 pool.query(
                   `INSERT INTO regemail VALUES (?,?,?,?,?,?);`,
-                  [, session.customer_details.name, session.customer_details.email, new Date(), "Asesoramiento pagado",
+                  [, session.customer_details.name, session.customer_details.email, new Date(), lineItems.data[0].description,
                     `
-          <h1> Asesoramiento pagado !</h1>
+          <h1> ${lineItems.data[0].description} </h1>
           id: <b> ${session.id} </b><br>
           Nombre: ${session.customer_details.name} <br>
           Email: ${session.customer_details.email} <br>
@@ -106,7 +107,7 @@ exports.webhook = async (req, res) => {
   }
 };
 
-exports.asesoramiento = async (req, res) => {
+exports.pay = async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [
@@ -118,13 +119,17 @@ exports.asesoramiento = async (req, res) => {
       phone_number_collection: { enabled: true },
       //invoice_creation: { enabled: true },
       mode: "payment",
-      success_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
-      cancel_url: `${process.env.FRONT_DOMAIN}#/${req.body.CallBack}/pay`,
+      success_url: `${process.env.FRONT_DOMAIN}#/pay/success`,
+      cancel_url: `${process.env.FRONT_DOMAIN}#/pay/fail`,
       consent_collection: { terms_of_service: "required" },
       allow_promotion_codes: true,
       custom_text: {
-        after_submit: { message: "Tras realizar el pago, Clara se pondra en contacto contigo para el asesoramiento personalizado!" },
-        submit: { message: "Estas a un paso de tener tu asesoramiento personalizado!" },
+        after_submit: {
+          message: "Tras realizar el pago, Clara se pondra en contacto contigo para el asesoramiento personalizado!"
+        },
+        submit: {
+          message: "Estas a un paso de tener tu asesoramiento personalizado!"
+        },
         terms_of_service_acceptance: {
           message: `Acepto los términos y condiciones.`,
         },
