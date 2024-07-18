@@ -20,7 +20,11 @@ export class AppMainComponent implements OnInit {
   constructor(private api: ApiService, public dialog: MatDialog, public router: Router) { }
   comentario!: any
   ngOnInit(): void {
-    this.api.Get("comentario").then((a) => this.comentario = a)
+    this.api.Get("comentario").then((a) => {
+      this.comentario = a
+      this.comentario.data = this.comentario.data.filter((a: any) => a.Type === "Home")
+
+    })
   }
 
   openModal() {

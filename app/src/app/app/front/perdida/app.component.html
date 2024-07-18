@@ -2,7 +2,7 @@
     <div class="row" style="position: relative;">
         <img src="assets/perdida/sandiamain.png" alt style="    height: 50vh;
         object-fit: cover;
-        object-position: center;
+        object-position: top;
         margin-top: 90px;">
         <p style="
         font-family: Handlee;
@@ -19,9 +19,9 @@
 </div>
 <div style="height: 45vh;"></div>
 <div
-    style="padding-top: 50px;padding-bottom: 50px;position: relative;background-color: white;border-radius: 15px 15px 0px 0px;text-align: -webkit-center;">
+    style="padding: 50px 0;position: relative;background-color: white;border-radius: 15px 15px 0px 0px;text-align: -webkit-center;">
     <div
-        style="position: absolute; width: 100%;height: 50px;top: 0%;left: 0%;border-radius: 15px 15px 0px 0px;">
+        style="position: absolute; width: 100%;height: 50px;top: 0%;left: 0%;border-radius: 15px 15px 0px 0px;padding: 0px 5vw;">
     </div>
     <div style="
     font-family: Handlee;
@@ -29,7 +29,8 @@
     font-weight: 400;
     line-height: 40.05px;
     text-align: center;
-    color: #4D5C52;">
+    color: #4D5C52;
+    padding: 0px 5vw;">
         <p>
             <span>
                 Vuelve a estar
@@ -43,7 +44,7 @@
             </span>
         </p>
     </div>
-    <div style="max-width: 650px;">
+    <div style="padding: 0px 5vw;">
         <p style="
         font-family: Poppins;
         font-size: 14.58px;
@@ -70,7 +71,7 @@
             qué es lo que necesitas.
         </p>
     </div>
-    <div style="margin-top: 35px;max-width: 650px;">
+    <div style="margin-top: 35px;padding: 0px 5vw;">
         <p style=" font-family: Rajdhani;
 font-size: 25px;
 font-weight: 500;
@@ -113,8 +114,8 @@ text-align: center;">
         </p>
     </div>
     <div
-        style="background-image: url(../../../../assets/perdida/fondo.png); min-height: 400px;background-size: cover;background-position: center; padding: 75px 0px 150px 0px">
-        <div style="max-width: 650px;">
+        style="background-image: url(../../../../assets/perdida/fondo.png); min-height: 400px;background-size: cover;background-position: center; padding: 75px 5vw;">
+        <div>
 
             <p>
                 <span style="
@@ -172,7 +173,7 @@ color: #E0B167;">
         </div>
     </div>
     <div
-        style="max-width: 650px;border-top: black solid 1px; padding: 25px;">
+        style="border-top: black solid 1px; padding: 25px 5vw;">
         <p>
             <span
                 style="
@@ -276,7 +277,7 @@ padding: 0 10px;">
         </div>
     </div>
     <div
-        style="border-radius: 60px 60px 0 0;border: #ADD0C2 solid 5px; padding: 15px 30px 25px 30px;">
+        style="border-radius: 60px 60px 0 0;border: #ADD0C2 solid 5px; padding: 15px 5vw 25px 5vw">
         <p style="font-family: Sedan SC;
         font-size: 20px;
         font-weight: 400;
@@ -298,8 +299,8 @@ padding: 0 10px;">
             objetivo.
         </p>
         <div style="position: absolute;left: calc(50% - 150px);">
-            <button (click)="openModal()"
-                style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+            <button (click)="ComprarCurso()"
+                style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
                 <span style="font-family: Reem Kufi Ink;
                     font-size: 11px;
                     font-weight: 700;
@@ -350,21 +351,20 @@ padding: 0 10px;">
     <div class="row"
         style="padding: 3%;background:url(../../../../assets/perdida/grisfondo.png);background-size: cover;background-position: bottom;margin-bottom: 5%;">
         <div class="parati">
-            <span style="font-family: Sedan SC;
-            font-size: 35px;
+            <p style="font-family: Sedan SC;
+            font-size: 32px;
             font-weight: 400;
             line-height: 48.48px;
             text-align: center;
             color: #4D5C52;
             background-color: white;
             border: #E0B167 solid 1px;
-            border-radius: 20px;
-            padding: 5px 50px;">
+            border-radius: 20px;">
                 <span style="color: #E0B167;">
                     ES
                 </span>
                 PARA TI SI
-            </span>
+            </p>
             <br><br>
             <p style="font-family: Poppins;
             font-size: 14.58px;
@@ -393,21 +393,20 @@ padding: 0 10px;">
             </p>
         </div>
         <div class="parati">
-            <span style="font-family: Sedan SC;
-            font-size: 35px;
+            <p style="font-family: Sedan SC;
+            font-size: 32px;
             font-weight: 400;
             line-height: 48.48px;
             text-align: center;
             color: #4D5C52;
             background-color: white;
             border: #E0B167 solid 1px;
-            border-radius: 20px;
-            padding: 5px 50px;">
+            border-radius: 20px;">
                 <span style="color: #E0B167;">
                     NO ES
                 </span>
                 PARA TI SI
-            </span>
+            </p>
             <br><br>
             <p style="font-family: Poppins;
             font-size: 14.58px;
@@ -423,8 +422,8 @@ padding: 0 10px;">
             </p>
         </div>
         <div>
-            <button (click)="openModal()"
-                style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+            <button (click)="ComprarCurso()"
+                style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
                 <span style="font-family: Reem Kufi Ink;
                     font-size: 11px;
                     font-weight: 700;
@@ -440,7 +439,7 @@ padding: 0 10px;">
         <div
             style="position: absolute;width: 80%; left: 10%; background-color: #EEEEEE; border: #C1E4D6 3px solid;height: 40px;border-radius: 10px;margin-top: -20px;align-content: space-evenly;">
             <span style="font-family: Poppins;
-            font-size: 14.58px;
+            font-size: 13.5px;
             font-weight: 700;
             line-height: 21.87px;
             text-align: center;
@@ -455,8 +454,8 @@ padding: 0 10px;">
     </div>
 
     <div>
-        <button (click)="openModal()"
-            style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+        <button (click)="ComprarCurso()"
+            style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
             <span style="font-family: Reem Kufi Ink;
             font-size: 15px;
             font-weight: 700;
@@ -468,7 +467,7 @@ padding: 0 10px;">
         </button>
     </div>
     <div
-        style="max-width: 650px;border-radius: 5px;border: #444444 1px solid;margin: 50px 0px;padding: 2%;">
+        style="border-radius: 10px;border: #444444 2px solid;margin: 50px 0px;padding: 2% 5vw;margin: 2.5%;">
         <span style="font-family: Poppins;
             font-size: 14.77px;
             font-weight: 600;
@@ -520,7 +519,7 @@ padding: 0 10px;">
                     fill="#E0B167" />
             </svg>
             <b> Resolución de dudas por Whatsapp o e-mail 3 meses y medio:</b>
-            200€
+            100€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -534,7 +533,7 @@ padding: 0 10px;">
                     fill="#E0B167" />
             </svg>
             <b> Formación en cursos:</b> Casi 5horas (267min) de vídeos sobre
-            Nutrición: 300€
+            Nutrición: 200€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -557,7 +556,7 @@ padding: 0 10px;">
         text-align: left;
         color: #D88708;
         text-decoration: line-through;">
-            Total: 957€
+            Total: 757€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -566,7 +565,7 @@ padding: 0 10px;">
         text-align: left;
         color: #D88708;
         text-decoration: line-through;">
-            -40% = 574€
+            -40% = 454€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -589,7 +588,7 @@ padding: 0 10px;">
             Opción de 3 pagos SIN INTERÉS de 129 €/ mes
         </p>
         <button (click)="ComprarCurso()"
-            style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+            style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
             <span style="font-family: Reem Kufi Ink;
                 font-size: 15px;
                 font-weight: 700;
@@ -599,7 +598,7 @@ padding: 0 10px;">
                 QUIERO ESTAR DENTRO
             </span>
         </button><br><br>
-        <div style="max-width: 90%;">
+        <div>
             <p style="font-family: Poppins;
             font-size: 13px;
             font-weight: 400;
@@ -625,8 +624,8 @@ padding: 0 10px;">
             line-height: 24px;
             text-align: left;
             color: #444444;">
-                <b>387€</b> los 3 meses y medio. O lo que es lo mismo,
-                <b>27,6€/semana</b>
+                <b>317€</b> los 3 meses y medio. O lo que es lo mismo,
+                <b>22,65€/semana.</b>
             </p>
         </div>
     </div>
@@ -735,7 +734,7 @@ text-align: center;
             </p>
         </div>
     </div>
-    <div>
+    <div style="padding: 0px 5vw;">
         <p style="font-family: Handlee;
         font-size: 18.23px;
         font-weight: 400;
@@ -746,8 +745,8 @@ text-align: center;
         </p>
     </div>
     <div>
-        <button (click)="openModal()"
-            style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+        <button (click)="ComprarCurso()"
+            style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
             <span style="font-family: Reem Kufi Ink;
             font-size: 15px;
             font-weight: 700;
@@ -758,41 +757,51 @@ text-align: center;
             </span>
         </button>
     </div>
-    <div style="max-width: 650px; margin-top: 50px;">
-        <p style="
+    <div style="margin: 50px 0px;padding: 20px 5vw;"
+        class="row">
+        <div class="col">
+            <img src="assets/perdida/foto hierba.png" alt
+                style="max-width: 90%;width: 200px;">
+
+        </div>
+        <div class="col" style="align-content: space-evenly;">
+            <p style="
             font-family: Poppins;
 font-size: 16px;
 font-weight: 700;
 line-height: 24px;
 text-align: justify;
 color: #4D5C52;">
-            Soy Clara, Dietista-Nutricionista Colegiada y cuento con más de 14
-            años de experiencia
-            Estoy especializada en inflamación, patología digestiva y pérdida de
-            grasa
-        </p>
-        <p>
-            <span style="font-family: Reem Kufi Ink;
+                Soy Clara, Dietista-Nutricionista Colegiada y cuento con más de
+                14
+                años de experiencia
+                Estoy especializada en inflamación, patología digestiva y
+                pérdida de
+                grasa
+            </p>
+            <p>
+                <span style="font-family: Reem Kufi Ink;
             font-size: 20px;
             font-weight: 400;
             line-height: 30px;
             text-align: center;
             color: #4D5C52;">
-                Y mi propósito es muy claro:
-            </span>
-            <br>
-            <span style="font-family: Handlee;
+                    Y mi propósito es muy claro:
+                </span>
+                <br>
+                <span style="font-family: Handlee;
            font-size: 20px;
            font-weight: 400;
            line-height: 26.7px;
            text-align: center;
            color: #7DAD9B;">
-                Mejorar tu vida y que te sientas a gusto con tu cuerpo y tus
-                digestiones.
-            </span>
-        </p>
+                    Mejorar tu vida y que te sientas a gusto con tu cuerpo y tus
+                    digestiones.
+                </span>
+            </p>
+        </div>
     </div>
-    <div style="max-width: 650px;">
+    <div style="padding: 0px 5vw;">
         <p style="font-family: Poppins;
         font-size: 16px;
         font-weight: 600;
@@ -835,7 +844,7 @@ color: #4D5C52;">
             esta parte tan importante de tu vida mejore.
         </p>
     </div>
-    <div style="max-width: 650px;margin: 50px 0px 0px 0px;">
+    <div style="margin: 50px 0px 0px 0px;padding: 0px 5vw;">
         <p style="font-family: Handlee;
         font-size: 20px;
         font-weight: 400;
@@ -866,7 +875,7 @@ color: #4D5C52;">
         </p>
         <div>
             <button (click)="router.navigate(['/asesoramiento/perdida/'])"
-                style="height: 50px;width: 300px; background-color: #B4C7C0; border-radius: 15px;">
+                style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
                 <span style="font-family: Reem Kufi Ink;
                 font-size: 15px;
                 font-weight: 700;
@@ -882,7 +891,6 @@ color: #4D5C52;">
 bottom: 0;
 height: 30vh;
 background-color: white;
-width: 100%;
 transform: translateY(50%);
 z-index: -1;">
     </div>

@@ -33,3 +33,46 @@ button {
 .carousel-control-next {
   padding-right: 10px;
 }
+
+.carousel:nth-child(1) {
+  animation: aperea 0.5s 0s;
+}
+
+.carousel:nth-child(2) {
+  animation: disabnnn 0.25s, aperea 0.5s 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel:nth-child(3) {
+  animation: disabnnn 0.5s, aperea 0.5s 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel:nth-child(4) {
+  animation: disabnnn 0.75s, aperea 0.5s 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel:nth-child(5) {
+  animation: disabnnn 1s, aperea 0.5s 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel:nth-child(6) {
+  animation: disabnnn 1.25s, aperea 0.5s 1.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes aperea {
+  0% {
+    transform: translateY(30rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes disabnnn {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+}

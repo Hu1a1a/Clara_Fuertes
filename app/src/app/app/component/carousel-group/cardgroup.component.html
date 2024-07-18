@@ -5,6 +5,7 @@
                 <div class="row" style="justify-content: space-evenly;">
                     <ng-container *ngFor="let item of unit;index as j">
                         <app-component-carousel
+                            class="carousel"
                             [data]="data[i+j>data.length-1?i+j-data.length:i+j]"
                             style="width: max-content;">
                         </app-component-carousel>

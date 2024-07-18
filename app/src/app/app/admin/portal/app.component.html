@@ -193,7 +193,7 @@
 							<td>{{u.Date}}</td>
 							<td
 								[style.backgroundColor]="getColor(u.Tipo)">{{u.Tipo}}</td>
-							<td>{{u.msg.slice(0,100)}}{{u.msg.length>100?'...”':''}}</td>
+							<td>{{u.msg?.slice(0,100)}}{{u.msg?.length>100?'...”':''}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
