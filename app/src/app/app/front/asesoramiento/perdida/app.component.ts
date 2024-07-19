@@ -21,7 +21,7 @@ export class AppAsesorPerdidaComponent {
     this.dialog.open(DialogPerdida, {})
   }
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_PATOLOGIA })
+    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_PERDIDA })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url
