@@ -19,19 +19,19 @@ import { Router } from '@angular/router';
 export class AppMainComponent implements OnInit {
   constructor(private api: ApiService, public dialog: MatDialog, public router: Router) { }
   comentario!: any
+  plaza: string = "PLAZAS AGOTADAS"
   ngOnInit(): void {
     this.api.Get("comentario").then((a) => {
       this.comentario = a
       this.comentario.data = this.comentario.data.filter((a: any) => a.Type === "Home")
-
     })
+    this.api.Get("master").then((a) => this.plaza = a.data.find((a: any) => a.master === "Lista de espera").data)
   }
 
   openModal() {
     this.dialog.open(DialogDisable, {});
   }
 }
-
 
 @Component({
   selector: 'dialog-component-disable',

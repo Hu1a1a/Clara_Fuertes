@@ -131,8 +131,7 @@
 }
 
 .aconpanamiento {
-  background-image: url("../../../../assets/main/aconpanamiento0.png");
-  background-size: cover;
+  background-color: #FF947D;
   height: 115px;
   width: 240px;
   margin-bottom: 10px;
@@ -140,32 +139,44 @@
   right: 5vw;
   cursor: pointer;
   animation: changeIMGaconp 1s infinite;
+  align-content: space-evenly;
+  padding: 10px;
 
   @media only screen and (max-width: 800px) {
     position: relative;
     right: 0;
     margin-bottom: 15px;
   }
+
+  p {
+    font-family: Reem Kufi Ink;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .undercasse {
+    text-decoration: underline;
+  }
 }
 
 .aconpanamiento:hover {
-  background-image: url("../../../../assets/main/aconpanamiento2.png");
-  animation: none;
+  background-color: #7DAD9B;
+  animation: changeIMGaconp 1s infinite;
 }
 
 @keyframes changeIMGaconp {
   0% {
     transform: scale(100%);
-    background-image: url("../../../../assets/main/aconpanamiento0.png");
   }
 
   50% {
     transform: scale(110%);
-    background-image: url("../../../../assets/main/aconpanamiento1.png");
   }
 
   100% {
     transform: scale(100%);
-    background-image: url("../../../../assets/main/aconpanamiento0.png");
   }
 }

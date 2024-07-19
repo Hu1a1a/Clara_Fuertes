@@ -20,6 +20,7 @@ export class AppAdminPortalComponent implements OnInit {
     "user": any,
     "comentario": any,
     "email": any,
+    "master": any
   } = {
       "curso/level1": {},
       "curso/level2": {},
@@ -28,22 +29,20 @@ export class AppAdminPortalComponent implements OnInit {
       "user": {},
       "comentario": {},
       "email": {},
+      "master": {},
     }
 
-  ngOnInit() {
-    this.Get()
-  }
+  ngOnInit() { this.Get() }
 
   modal: boolean = false
   sData!: any
-  sRouter!: "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email"
-  sAccion!: "create" | "update" | "delete"
+  sRouter!: SQLClass
+  sAccion!: SQLAccion
   loading: boolean = true
   emailColor: { Name: string, Color: string }[] = []
   emailFilter: string = ""
-  Key(data: any) {
-    return Object.keys(data)
-  }
+
+  Key(data: any) { return Object.keys(data) }
 
   async Get() {
     this.data["curso/level1"] = await this.api.Get("curso/level1")
@@ -55,6 +54,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["comentario"] = await this.api.Get("comentario")
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.data["email"] = await this.api.Get("email")
+    this.data["master"] = await this.api.Get("master")
     const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
       return this.data["email"].data.map((a: any) => a.Tipo).indexOf(item) === index;
     })
@@ -67,7 +67,7 @@ export class AppAdminPortalComponent implements OnInit {
   getUser = (userId: string): any => this.data["user"].data.find((a: any) => a.id === userId)?.User
   getCurso = (cursoId: string): any => this.data["curso/level1"].data.find((a: any) => a.id === cursoId)?.Name
 
-  OpenModal(data: any, router: "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email", accion: "create" | "update" | "delete") {
+  OpenModal(data: any, router: SQLClass, accion: SQLAccion) {
     this.sRouter = router
     this.sAccion = accion
     if (this.sAccion === "create") {
@@ -77,7 +77,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.modal = true
   }
 
-  Accion(data: any, router: "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email", accion: "create" | "update" | "delete") {
+  Accion(data: any, router: SQLClass, accion: SQLAccion) {
     this.loading = true
     setTimeout(async () => {
       await this.api.Accion(data, router, accion)
@@ -87,3 +87,6 @@ export class AppAdminPortalComponent implements OnInit {
     }, 0);
   }
 }
+
+type SQLClass = "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email" | "master"
+type SQLAccion = "create" | "update" | "delete"

@@ -9,6 +9,24 @@
 </ng-container>
 <div class="container">
 	<mat-tab-group *ngIf="!loading">
+		<mat-tab label="Master">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Master</td>
+						<td>Data</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let i1 of data['master'].data;index as i">
+						<tr (click)="OpenModal(i1,'master','update')">
+							<td>{{i1.master}}</td>
+							<td>{{i1.data}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</mat-tab>
 		<mat-tab label="Curso">
 			<table class="table table-striped">
 				<thead>
@@ -30,7 +48,7 @@
 							<td>{{i1.Description}}</td>
 						</tr>
 						<ng-container *ngFor="let i2 of data['curso/level2'].data;index as j">
-							<ng-container *ngIf="i1.id===i2.level1">w
+							<ng-container *ngIf="i1.id===i2.level1">
 								<tr (click)="OpenModal(i2,'curso/level2','update')">
 									<td>-</td>
 									<td style="background-color: orange" colspan="2">{{j+1}}</td>

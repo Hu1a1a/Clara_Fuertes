@@ -115,3 +115,24 @@ exports.delete_curso = (req, res) => {
     else res.json({ ok: false, msg: "Token no válido!" });
   } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
+
+exports.master = (req, res) => {
+  try {
+    SELECT("master", req, res);
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};
+
+exports.add_master = (req, res) => {
+  try {
+    if (authAdmin(req, res)) ADD("master", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};
+
+exports.update_master = (req, res) => {
+  try {
+    if (authAdmin(req, res)) UPDATE("master", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
+  }
+  catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};

@@ -18,7 +18,6 @@ router.get("/curso/video/", curso.video);
 router.get("/curso/curso/", curso.curso);
 router.get("/curso/curso/id/:id", curso.cursobyid);
 
-
 router.post("/curso/level1/create/", curso.add_level1);
 router.post("/curso/level2/create/", curso.add_level2);
 router.post("/curso/video/create/", curso.add_video);
@@ -28,6 +27,10 @@ router.post("/curso/level1/update/", curso.update_level1);
 router.post("/curso/level2/update/", curso.update_level2);
 router.post("/curso/video/update/", curso.update_video);
 router.post("/curso/curso/update/", curso.update_curso);
+
+router.get("/master/", curso.master);
+router.post("/master/create/", curso.add_master);
+router.post("/master/update/", curso.update_master);
 
 router.post("/curso/level1/delete/", curso.delete_level1);
 router.post("/curso/level2/delete/", curso.delete_level2);
