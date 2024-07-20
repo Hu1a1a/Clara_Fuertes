@@ -1,26 +1,3 @@
-.sandia {
-  width: 60%;
-  background-color: #ffffff99;
-  padding: 10px;
-  text-align: -webkit-center;
-  text-align-last: center;
-  @media only screen and (max-width: 990px) {
-    width: 100%;
-  }
-}
-
-.cactus {
-  width: 60%;
-  padding: 20px;
-  text-align-last: left;
-  text-align: left;
-
-  @media only screen and (max-width: 990px) {
-    width: 100%;
-    background-color: #ffffff99;
-  }
-}
-
 button {
   width: 170px;
   height: 30px;
@@ -37,11 +14,11 @@ button:hover {
 
 @keyframes buttonn {
   0% {
-    background-color: #c1e4d6;
+      background-color: #c1e4d6;
   }
 
   100% {
-    background-color: #8cd2a3;
+      background-color: #8cd2a3;
   }
 }
 
@@ -63,4 +40,26 @@ textarea {
 textarea {
   padding-top: 10px;
   resize: none;
+}
+
+.cactus {
+  width: 60%;
+  padding: 20px;
+  text-align-last: left;
+  text-align: left;
+
+  @media only screen and (max-width: 990px) {
+      width: 100%;
+      background-color: #ffffff99;
+  }
+}
+
+.parati {
+  width: 50%;
+  padding: 25px 2vw;
+
+  @media only screen and (max-width: 990px) {
+      width: 100%;
+      padding: 25px 0;
+  }
 }

@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../../service/api.service';
 import { FormsModule } from '@angular/forms';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
+import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-digestion',
@@ -16,7 +18,7 @@ import { ComponentCardGroupComponent } from '../../component/carousel-group/card
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
 export class AppDigestionComponent {
-  constructor(private dialog: MatDialog, private api: ApiService) { }
+  constructor(private dialog: MatDialog, private api: ApiService, public router: Router) { }
   comentario!: any
 
   openModal() {
@@ -25,6 +27,13 @@ export class AppDigestionComponent {
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Digestion")
+  }
+  async ComprarCurso() {
+    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_SANATUSDIGESTIONES })
+    if (data.ok) {
+      localStorage.setItem("stripe", data.url)
+      window.location.href = data.url
+    }
   }
 }
 
