@@ -23,7 +23,7 @@ export class AppMainComponent implements OnInit {
   plaza: string = "PLAZAS AGOTADAS"
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
-    this.comentario.data = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Home")
+    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Home")
     this.plaza = this.api.SQL_Master.data.find((a: any) => a.master === "Lista de espera").data
   }
 
