@@ -141,7 +141,6 @@
     <div class="aconpanamiento" (click)="router.navigate(['listadoEspera'])">
         <div
             style="border: 2px #3F3F3F dashed; position: absolute;width: 100%;height: 100%;top: -10px; left: 10px;">
-
         </div>
         <p style="color: #605E5E;">
             Acompañamiento 1:1
@@ -244,21 +243,8 @@
     ">
             ¡Y yo estoy aquí para que lo logres!
         </div>
-    </div> </div>
-<div class="row" style="height: 100%; margin-bottom: 50px;" *ngIf="comentario">
-    <div
-        style="position: absolute;width: 80%; left: 10%; background-color: #EEEEEE; border: #C1E4D6 3px solid;height: 40px;border-radius: 10px;margin-top: -20px;align-content: space-evenly;text-align: center;">
-        <span style="font-family: Poppins;
-            font-size: 13.5px;
-            font-weight: 700;
-    line-height: 21.87px;
-    text-align: center;
-    ">
-            Mira lo que dicen de este programa
-        </span>
     </div>
-    <app-component-carouselgroup
-        style="background-image: url(../../../../assets/main/backComentario.png);background-size: cover;padding: 100px 0px;background-position: bottom;"
-        [data]="comentario.data">
-    </app-component-carouselgroup>
 </div>
+
+<app-component-carouselgroup [data]="comentario" *ngIf="comentario">
+</app-component-carouselgroup>

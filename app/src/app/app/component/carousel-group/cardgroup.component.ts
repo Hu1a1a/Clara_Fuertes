@@ -27,7 +27,6 @@ export class ComponentCardGroupComponent implements OnInit {
     this.interval = undefined
     const data = this.data.shift()
     if (data) {
-      setTimeout(() => this.data = [], 0);
       const x: any[] = []
       x.push(...this.data, data)
       setTimeout(() => this.data = x, 0);
@@ -40,7 +39,6 @@ export class ComponentCardGroupComponent implements OnInit {
     this.interval = undefined
     const data = this.data.pop()
     if (data) {
-      setTimeout(() => this.data = [], 0);
       const x: any[] = []
       x.push(data, ...this.data)
       setTimeout(() => this.data = x, 0);

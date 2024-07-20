@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FooterAdminPanelComponent } from './layout/admin/footer/footer.component';
 import { FooterCursoPanelComponent } from './layout/curso/footer/footer.component';
 import { HeadAdminPanelComponent } from './layout/admin/head/head.component';
+import { ApiService } from './service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -25,5 +26,10 @@ import { HeadAdminPanelComponent } from './layout/admin/head/head.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(public router: Router) { }
+  constructor(public router: Router, private api: ApiService) { }
+  Loading: boolean = true
+  async ngOnInit() {
+    if (!this.api.SQL_Master) this.api.SQL_Master = await this.api.Get("master")
+    this.Loading = false
+  }
 }

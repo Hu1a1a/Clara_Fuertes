@@ -57,8 +57,8 @@
                 productos, y aún sigues creyendo que no solucionas el problema
                 porque no has encontrado el que va bien?</b>
             <br>
-            Déjame decirte que <b style="text-decoration-line: underline;"> no
-                lo vas a encontrar. </b>
+            Déjame decirte que <b style="text-decoration-line: underline;">
+                no&nbsp;lo&nbsp;vas&nbsp;a&nbsp;encontrar. </b>
         </p>
         <p style="
         font-family: Poppins;
@@ -82,8 +82,8 @@ text-align: center;">
                 Mediante un
             </span>
             <span style="color: #E0B167;">
-                programa de acompañamiento personalizado online de 14
-                semanas
+                programa de acompañamiento personalizado
+                online&nbsp;de&nbsp;14&nbsp;semanas
             </span>
         </p>
         <p style="font-family: Poppins;
@@ -168,8 +168,8 @@ text-align: center;">
             text-align: justify;
             ">
                     Me ocupo de que <b> despúes</b> <b
-                        style="font-size: 20px;color: #E0B167;"> puedas
-                        mantenerlo.</b>
+                        style="font-size: 20px;color: #E0B167;">
+                        puedas&nbsp;mantenerlo.</b>
 
                 </span>
             </p>
@@ -181,14 +181,13 @@ text-align: center;">
             <span
                 style="
             font-family: Handlee;
-            font-size: 30px;
+            font-size: 29px;
             font-weight: 400;
             line-height: 40.05px;
             text-align: center;
             color: #E0B167;
             background-color: #F7EAD6;
-            border-radius: 20px;
-            padding: 0 10px;">
+            border-radius: 20px;">
                 ¿Qué incluye el servicio?
             </span>
         </p>
@@ -287,9 +286,12 @@ text-align: center;">
         line-height: 27.7px;
         text-align: center;
         color: #4D5C52;">
-            Valoración inicial + Revisiones cada 15 días + contacto por whatsaap
-            + acceso a una plataforma con formación que incluye más de 7horas de
-            vídeos descargables y ejercicios
+            Valoración&nbsp;inicial
+            +&nbsp;Revisiones&nbsp;cada&nbsp;15&nbsp;días
+            +&nbsp;contacto&nbsp;por&nbsp;whatsaap
+            +&nbsp;acceso&nbsp;a una&nbsp;plataforma con&nbsp;formación
+            que&nbsp;incluye más&nbsp;de&nbsp;7horas de
+            vídeos&nbsp;descargables&nbsp;y&nbsp;ejercicios.
         </p>
         <p style="font-family: Poppins;
         font-size: 14.58px;
@@ -298,8 +300,8 @@ text-align: center;">
         line-height: 21.87px;
         text-align: center;
         color: #4D5C52;">
-            Y mi apoyo en todo el proceso. El paso a paso para conseguir tu
-            objetivo.
+            Y mi apoyo en todo el proceso.
+            El paso a paso para conseguir tu objetivo.
         </p>
         <div style="position: absolute;left: calc(50% - 150px);">
             <button (click)="ComprarCurso()"
@@ -326,7 +328,7 @@ text-align: center;">
                 <b>·</b> Imagina mirarte al espejo y estar <b>a gusto con lo que
                     ves y sientes.</b>
                 <br><br>
-                <b>·</b> Imagina sentirte con <b>más energía.</b>
+                <b>·</b> Imagina sentirte con <b>más&nbsp;energía.</b>
                 <br><br>
                 <b>·</b> Imagina conocer las bases de la <b>alimentación
                     antiinflamatoria e incorporarlas</b> a tu vida.
@@ -352,7 +354,7 @@ text-align: center;">
         </div>
     </div>
     <div class="row"
-        style="padding: 3%;background:url(../../../../assets/perdida/grisfondo.png);background-size: cover;background-position: bottom;margin-bottom: 5%;">
+        style="padding: 3%;background:url(../../../../assets/perdida/grisfondo.png);background-size: cover;background-position: bottom;margin-bottom: 50px;">
         <div class="parati">
             <p style="font-family: Sedan SC;
             font-size: 32px;
@@ -437,25 +439,11 @@ text-align: center;">
             </button>
         </div>
     </div>
-    <div class="row" style="height: 100%; margin-bottom: 50px;"
-        *ngIf="comentario">
-        <div
-            style="position: absolute;width: 80%; left: 10%; background-color: #EEEEEE; border: #C1E4D6 3px solid;height: 40px;border-radius: 10px;margin-top: -20px;align-content: space-evenly;">
-            <span style="font-family: Poppins;
-            font-size: 13.5px;
-            font-weight: 700;
-            line-height: 21.87px;
-            text-align: center;
-            ">
-                Mira lo que dicen de este programa
-            </span>
-        </div>
-        <app-component-carouselgroup
-            style="background-image: url(../../../../assets/main/backComentario.png);background-size: cover;padding: 100px 0px;background-position: bottom;"
-            [data]="comentario.data">
-        </app-component-carouselgroup>
-    </div>
 
+    <app-component-carouselgroup
+        *ngIf="comentario"
+        [data]="comentario">
+    </app-component-carouselgroup>
     <div>
         <button (click)="ComprarCurso()"
             style="height: 50px;width: 280px; background-color: #B4C7C0; border-radius: 15px;">
@@ -495,7 +483,7 @@ text-align: center;">
                     d="M11.0781 19.5898C15.6668 19.5898 19.3866 15.8699 19.3866 11.2812C19.3866 6.69252 15.6668 2.97266 11.0781 2.97266C6.4894 2.97266 2.76953 6.69252 2.76953 11.2812C2.76953 15.8699 6.4894 19.5898 11.0781 19.5898ZM10.8641 14.6417L15.48 9.10268L14.0616 7.92068L10.0929 12.6831L8.03816 10.6284L6.7326 11.934L9.50212 14.7035L10.2169 15.4183L10.8641 14.6417Z"
                     fill="#E0B167" />
             </svg>
-            <b> Entrevista inicial y elaboración del plan:</b> 67€
+            <b> Entrevista inicial y elaboración del plan:</b>&nbsp;67€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -508,7 +496,7 @@ text-align: center;">
                     d="M11.0781 19.5898C15.6668 19.5898 19.3866 15.8699 19.3866 11.2812C19.3866 6.69252 15.6668 2.97266 11.0781 2.97266C6.4894 2.97266 2.76953 6.69252 2.76953 11.2812C2.76953 15.8699 6.4894 19.5898 11.0781 19.5898ZM10.8641 14.6417L15.48 9.10268L14.0616 7.92068L10.0929 12.6831L8.03816 10.6284L6.7326 11.934L9.50212 14.7035L10.2169 15.4183L10.8641 14.6417Z"
                     fill="#E0B167" />
             </svg>
-            <b> 6 revisiones:</b> 240€ (40€ por sesión)
+            <b> 6 revisiones:</b>&nbsp;240€ (40€&nbsp;por&nbsp;sesión)
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -521,8 +509,8 @@ text-align: center;">
                     d="M11.0781 19.5898C15.6668 19.5898 19.3866 15.8699 19.3866 11.2812C19.3866 6.69252 15.6668 2.97266 11.0781 2.97266C6.4894 2.97266 2.76953 6.69252 2.76953 11.2812C2.76953 15.8699 6.4894 19.5898 11.0781 19.5898ZM10.8641 14.6417L15.48 9.10268L14.0616 7.92068L10.0929 12.6831L8.03816 10.6284L6.7326 11.934L9.50212 14.7035L10.2169 15.4183L10.8641 14.6417Z"
                     fill="#E0B167" />
             </svg>
-            <b> Resolución de dudas por Whatsapp o e-mail 3 meses y medio:</b>
-            100€
+            <b> Resolución de dudas por Whatsapp o e-mail 3 meses y
+                medio:</b>&nbsp;100€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -536,7 +524,7 @@ text-align: center;">
                     fill="#E0B167" />
             </svg>
             <b> Formación en cursos:</b> Casi 5horas (267min) de vídeos sobre
-            Nutrición: 200€
+            Nutrición:&nbsp;200€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -550,7 +538,7 @@ text-align: center;">
                     fill="#E0B167" />
             </svg>
             <b> Sesiones de Coaching Nutricional, </b>un total de 2h30min de
-            vídeos (154min) con ejercicios para aplicar: 150€
+            vídeos (154min) con ejercicios&nbsp;para&nbsp;aplicar:&nbsp;150€
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
@@ -573,6 +561,7 @@ text-align: center;">
         </p>
         <p style="font-family: Poppins;
         font-size: 14.77px;
+        line-height: 70px;
         letter-spacing: -0.46158626675605774px;
         text-align: left;
         ">
@@ -763,7 +752,7 @@ text-align: center;
     <div style="margin: 50px 0px 20px 0px;padding: 20px 5vw 5px 5vw;"
         class="square">
         <img src="assets/perdida/foto hierba.png" alt
-            style="max-width: 90%;width: 185px;float: left;">
+            style="max-width: 40%;width: 185px;float: left;margin: 10px 10px 10px 0px;">
         <p style="
             font-family: Poppins;
             font-size: 16px;
@@ -771,7 +760,7 @@ text-align: center;
             line-height: 24px;
             text-align: justify;
             color: #4D5C52;">
-            <span  style="
+            <span style="
             background-image: url(../../../../assets/perdida/lineanaranja.png);
             background-size: contain;
             background-position-y: bottom;
@@ -781,7 +770,7 @@ text-align: center;
             </span>
             Dietista-Nutricionista Colegiada y cuento con más de
             14
-            años de experiencia
+            años de experiencia.
             Estoy especializada en inflamación, patología digestiva y
             pérdida de
             grasa

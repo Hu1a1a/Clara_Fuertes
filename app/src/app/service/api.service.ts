@@ -12,6 +12,8 @@ export class ApiService {
     private options = ({ headers: new HttpHeaders({ 'Content-Type': 'application/json' }), });
     setHeader(token: string) { this.options = ({ headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: token }) }) }
     UrlApi: string = environment.URL_API
+    SQL_Master: any
+    SQL_Comment: any
 
     async Login(User: string, Password: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}login/`, { User, Password }, this.options));

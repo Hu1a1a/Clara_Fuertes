@@ -140,7 +140,7 @@
   cursor: pointer;
   animation: changeIMGaconp 1s infinite;
   align-content: space-evenly;
-  padding: 20px;
+  padding-bottom: 10px;
 
   @media only screen and (max-width: 800px) {
     position: relative;
@@ -150,7 +150,7 @@
 
   p {
     font-family: Reem Kufi Ink;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
     line-height: 18px;
     text-align: center;

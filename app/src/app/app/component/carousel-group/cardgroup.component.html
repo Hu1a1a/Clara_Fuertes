@@ -1,23 +1,38 @@
-<div [id]="id" class="carousel slide">
-    <div class="carousel-inner">
-        <ng-container *ngFor="let item of data;index as i">
-            <div [class]="'carousel-item ' + (i===0?'active':'')">
-                <div class="row" style="justify-content: space-evenly;">
-                    <ng-container *ngFor="let item of unit;index as j">
-                        <app-component-carousel
-                            class="carousel"
-                            [data]="data[i+j>data.length-1?i+j-data.length:i+j]"
-                            style="width: max-content;">
-                        </app-component-carousel>
-                    </ng-container>
-                </div>
-            </div>
-        </ng-container>
+<div class="row" style="height: 100%; margin-bottom: 50px;"
+    *ngIf="data.length>0">
+    <div
+        style="position: absolute;width: 80%; left: 10%; background-color: #EEEEEE; border: #C1E4D6 3px solid;height: 40px;border-radius: 10px;margin-top: -20px;align-content: space-evenly;text-align: center;z-index: 1;">
+        <span style="font-family: Poppins;
+            font-size: 13.5px;
+            font-weight: 700;
+    line-height: 21.87px;
+    text-align: center;
+    ">
+            Mira lo que dicen de este programa
+        </span>
     </div>
-    <button class="carousel-control-prev" type="button" (click)="prev()">
-        <img src="assets/prev.png" alt>
-    </button>
-    <button class="carousel-control-next" type="button" (click)="next()">
-        <img src="assets/next.png" alt>
-    </button>
+    <div [id]="id" class="carousel slide"
+        style="background-image: url(../../../../assets/main/backComentario.png);background-size: cover;padding: 7% 0px;background-position: bottom;">
+        <div class="carousel-inner">
+            <ng-container *ngFor="let item of data;index as i">
+                <div [class]="'carousel-item ' + (i===0?'active':'')">
+                    <div class="row" style="justify-content: space-evenly;">
+                        <ng-container *ngFor="let item of unit;index as j">
+                            <app-component-carousel
+                                class="carousel"
+                                [data]="data[i+j>data.length-1?i+j-data.length:i+j]"
+                                style="width: max-content;">
+                            </app-component-carousel>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <button class="carousel-control-prev" type="button" (click)="prev()">
+            <img src="assets/prev.png" alt>
+        </button>
+        <button class="carousel-control-next" type="button" (click)="next()">
+            <img src="assets/next.png" alt>
+        </button>
+    </div>
 </div>
