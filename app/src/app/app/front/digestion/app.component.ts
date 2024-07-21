@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../../service/api.service';
 import { FormsModule } from '@angular/forms';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
-import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,7 +28,7 @@ export class AppDigestionComponent {
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Digestion")
   }
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_SANATUSDIGESTIONES })
+    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Curso Sana").data })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url

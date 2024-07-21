@@ -8,8 +8,8 @@
 </div>
 <div class="headpanel"></div>
 
-<div class="body">
-    <router-outlet *ngIf="!Loading"> </router-outlet>
+<div class="body" *ngIf="!Loading">
+    <router-outlet> </router-outlet>
 </div>
 <div class="footer">
     <app-footer
