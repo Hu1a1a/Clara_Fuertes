@@ -12,7 +12,7 @@
         </span>
     </div>
     <div [id]="id" class="carousel slide"
-        style="background-image: url(../../../../assets/main/backComentario.png);background-size: cover;padding: 7% 0px;background-position: bottom;">
+        style="background-image: url(../../../../assets/main/backComentario.webp);background-size: cover;padding: 7% 0px;background-position: bottom;">
         <div class="carousel-inner">
             <ng-container *ngFor="let item of data;index as i">
                 <div [class]="'carousel-item ' + (i===0?'active':'')">
@@ -28,11 +28,13 @@
                 </div>
             </ng-container>
         </div>
-        <button class="carousel-control-prev" type="button" (click)="prev()">
-            <img src="assets/prev.png" alt>
+        <button class="carousel-control-prev" type="button" (click)="prev()"
+            aria-label="previous">
+            <img src="assets/prev.png" alt="previous">
         </button>
-        <button class="carousel-control-next" type="button" (click)="next()">
-            <img src="assets/next.png" alt>
+        <button class="carousel-control-next" type="button" (click)="next()"
+            aria-label="next">
+            <img src="assets/next.png" alt="next">
         </button>
     </div>
 </div>
