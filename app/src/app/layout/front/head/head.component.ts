@@ -17,7 +17,7 @@ export class HeadComponent {
   Menu: { Name: string, Router: string, Disabled?: boolean }[] = [
     { Name: "Inicio", Router: "" },
     { Name: "Recursos gratuitos", Router: "recursos" },
-    { Name: "Cursos para ti", Router: "compra", Disabled: true },
+    { Name: "Cursos para ti", Router: "/", Disabled: true },
     { Name: "Sana tus digestiones", Router: "digestion" },
     { Name: "Pérdida de grasa", Router: "perdidagrasa" },
     { Name: "Asesoramiento único", Router: "asesoramiento" },

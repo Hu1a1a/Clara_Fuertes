@@ -19,6 +19,7 @@
                         data-bs-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown">
                         <a class="nav-link menu" (click)="href(item)"
+                            [href]="item.Router"
                             [ngClass]="router.url==='/'+item.Router?'active':''"
                             (click)="openModal(item)">
                             {{item.Name}}
