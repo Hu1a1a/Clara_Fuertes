@@ -5,55 +5,67 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://www.claranutricion.com/</loc>
+    <loc>https://www.claranutricion.com</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/</loc>
+    <loc>https://www.claranutricion.com/recursos</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/recursos</loc>
+    <loc>https://www.claranutricion.com/digestion</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/digestion</loc>
+    <loc>https://www.claranutricion.com/compra</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/perdidagrasa</loc>
+    <loc>https://www.claranutricion.com/perdidagrasa</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/asesoramiento</loc>
+    <loc>https://www.claranutricion.com/listadoEspera</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/ensalada</loc>
+    <loc>https://www.claranutricion.com/asesoramiento</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/login</loc>
+    <loc>https://www.claranutricion.com/asesoramiento/patologia</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/curso/portal</loc>
+    <loc>https://www.claranutricion.com/asesoramiento/perdida</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/privacidad</loc>
+    <loc>https://www.claranutricion.com/ensalada</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/cookie</loc>
+    <loc>https://www.claranutricion.com/login</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/legal</loc>
+    <loc>https://www.claranutricion.com/resetPass</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/#/condicion</loc>
+    <loc>https://www.claranutricion.com/privacidad</loc>
+    <lastmod>2024-07-06T21:08:07+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.claranutricion.com/cookie</loc>
+    <lastmod>2024-07-06T21:08:07+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.claranutricion.com/legal</loc>
+    <lastmod>2024-07-06T21:08:07+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.claranutricion.com/condicion</loc>
     <lastmod>2024-07-06T21:08:07+00:00</lastmod>
   </url>
 </urlset>

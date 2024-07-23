@@ -60,11 +60,9 @@ export const routes: Routes = [
             { path: "**", redirectTo: "portal", pathMatch: "full" },
         ]
     },
-
     { path: 'privacidad', component: AppLegalPrivacidadComponent },
     { path: 'legal', component: AppLegalPoliticaComponent },
     { path: 'cookie', component: AppLegalCookieComponent },
     { path: 'condicion', component: AppCondicionComponent },
-
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

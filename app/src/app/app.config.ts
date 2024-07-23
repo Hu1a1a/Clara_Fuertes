@@ -6,7 +6,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { IMAGE_CONFIG } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withHashLocation(), withInMemoryScrolling({
+  providers: [provideRouter(routes, withInMemoryScrolling({
     scrollPositionRestoration: 'top',
     anchorScrolling: 'enabled',
   })), provideAnimations(), provideHttpClient(), {
