@@ -13,7 +13,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "baseHref": "/",
-            "outputPath": "../build",
+            "outputPath": "../build/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -74,6 +74,64 @@
           "options": {
             "buildTarget": "Clara_Fuertes:build"
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "../build/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Clara_Fuertes:build:development",
+              "serverTarget": "Clara_Fuertes:server:development"
+            },
+            "production": {
+              "browserTarget": "Clara_Fuertes:build:production",
+              "serverTarget": "Clara_Fuertes:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Clara_Fuertes:build:production",
+              "serverTarget": "Clara_Fuertes:server:production"
+            },
+            "development": {
+              "browserTarget": "Clara_Fuertes:build:development",
+              "serverTarget": "Clara_Fuertes:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

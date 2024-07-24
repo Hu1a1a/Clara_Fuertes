@@ -4,6 +4,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
+import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [{
@@ -19,5 +20,5 @@ export const appConfig: ApplicationConfig = {
       disableImageLazyLoadWarning: true
     },
 
-  }],
+  }, provideClientHydration()],
 };

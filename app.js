@@ -1,3 +1,4 @@
+require("./build/server/main") //run angular ssr server
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
@@ -22,5 +23,5 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
+//app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
 app.listen(process.env.PORT | 3000);
