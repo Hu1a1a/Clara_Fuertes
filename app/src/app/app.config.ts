@@ -3,10 +3,13 @@ import { provideRouter, withHashLocation, withInMemoryScrolling } from '@angular
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { IMAGE_CONFIG } from '@angular/common';
+import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withInMemoryScrolling({
+  providers: [{
+    provide: APP_BASE_HREF,
+    useValue: '/',
+  }, provideRouter(routes, withInMemoryScrolling({
     scrollPositionRestoration: 'top',
     anchorScrolling: 'enabled',
   })), provideAnimations(), provideHttpClient(), {
@@ -14,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     useValue: {
       disableImageSizeWarning: true,
       disableImageLazyLoadWarning: true
-    }
+    },
+
   }],
 };
