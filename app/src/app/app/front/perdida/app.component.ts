@@ -25,7 +25,7 @@ export class AppPerdidaComponent implements OnInit {
   }
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
-    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Perdida")
+    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Perdida"))
   }
 
   async ComprarCurso() {

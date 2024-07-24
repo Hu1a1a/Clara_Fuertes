@@ -25,7 +25,7 @@ export class AppDigestionComponent {
   }
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
-    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Digestion")
+    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Digestion"))
   }
   async ComprarCurso() {
     const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Curso Sana").data })
