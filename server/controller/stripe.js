@@ -119,8 +119,8 @@ exports.pay = async (req, res) => {
       phone_number_collection: { enabled: true },
       //invoice_creation: { enabled: true },
       mode: "payment",
-      success_url: `${process.env.FRONT_DOMAIN}pay/success`,
-      cancel_url: `${process.env.FRONT_DOMAIN}pay/fail`,
+      success_url: `${process.env.FRONT_DOMAIN}/pay/success`,
+      cancel_url: `${process.env.FRONT_DOMAIN}/pay/fail`,
       consent_collection: { terms_of_service: "required" },
       allow_promotion_codes: true,
       custom_text: {

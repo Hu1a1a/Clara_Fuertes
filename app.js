@@ -22,7 +22,5 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
-app = require("./build/server/main").app(app);
-
-//app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
+app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
 app.listen(process.env.PORT | 3000);
