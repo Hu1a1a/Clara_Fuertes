@@ -126,8 +126,8 @@ exports.email_resetPass = (req, res) => {
                 <br>
                 Tu usuario es ${r[0].User}
                 <br>
-                <a href="${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}">
-                ${process.env.FRONT_DOMAIN + "#/resetPass?token=" + token + "&email=" + req.body.Email}
+                <a href="${process.env.FRONT_DOMAIN + "resetPass?token=" + token + "&email=" + req.body.Email}">
+                ${process.env.FRONT_DOMAIN + "resetPass?token=" + token + "&email=" + req.body.Email}
                 </a>
                 <br>
                 Si tu no has solicitado el reset de contraseña, no tienes que hacer nada.

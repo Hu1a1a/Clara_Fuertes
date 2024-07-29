@@ -6,7 +6,6 @@ import { ComponentButtonComponent } from '../../component/button/c.component';
 import { ApiService } from '../../../service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-main',
@@ -18,12 +17,12 @@ import { AppComponent } from '../../../app.component';
 })
 
 export class AppMainComponent implements OnInit {
-  constructor(private api: ApiService, public dialog: MatDialog, public router: Router, private main: AppComponent) { }
+  constructor(private api: ApiService, public dialog: MatDialog, public router: Router,) { }
   comentario!: any
   plaza: string = "PLAZAS AGOTADAS"
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
-    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Home")
+    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Home"))
     this.plaza = this.api.SQL_Master.data.find((a: any) => a.master === "Lista de espera").data
   }
 

@@ -130,3 +130,23 @@ html {
 mat-dialog-content {
   background-color: white;
 }
+
+
+
+@keyframes disabnnn {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes aperea {
+  0% {
+    transform: translateY(30rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

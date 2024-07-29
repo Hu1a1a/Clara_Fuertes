@@ -21,7 +21,7 @@ export class AppAsesorPatologiaComponent {
     this.dialog.open(DialogPatologia, {})
   }
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_PATOLOGIA })
+    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Asesoramiento Patologia").data })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url

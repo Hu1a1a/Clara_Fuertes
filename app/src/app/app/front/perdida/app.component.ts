@@ -8,7 +8,6 @@ import { ApiService } from '../../../service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
-import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-perdida',
@@ -26,11 +25,11 @@ export class AppPerdidaComponent implements OnInit {
   }
   async ngOnInit() {
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
-    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type === "Perdida")
+    this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Perdida"))
   }
 
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: environment.STRIPE_PAGO_PERDIDADEGRASA })
+    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Curso Perdida").data })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url

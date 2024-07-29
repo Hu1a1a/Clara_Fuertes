@@ -1,16 +1,9 @@
 <div>
-  <button (click)="butonc()" class [ngClass]="disabled?'disabled':''">
-    <span class="bottontext1" *ngIf="text1">
-      {{text1}}
-    </span>
-
-    <span class="bottontext1" *ngIf="text1n">
-      <br>
-      {{text1n}}
-    </span>
-    <br *ngIf="text2">
-    <span class="bottontext2" *ngIf="text2">
-      {{text2}}
-    </span>
+  <button (click)="butonc()" class [ngClass]="disabled?'disabled':''"
+    [ariaLabel]="text1+text1n+text2">
+    <span class="bottontext1" *ngIf="text1"> {{text1}} </span>
+    <span class="bottontext1" *ngIf="text1n"> <br> {{text1n}} </span> <br
+      *ngIf="text2">
+    <span class="bottontext2" *ngIf="text2"> {{text2}} </span>
   </button>
 </div>

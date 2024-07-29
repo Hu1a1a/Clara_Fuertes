@@ -57,21 +57,4 @@ button {
   animation: disabnnn 1.25s, aperea 0.5s 1.25s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@keyframes aperea {
-  0% {
-    transform: translateY(30rem);
-  }
 
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes disabnnn {
-
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-}
