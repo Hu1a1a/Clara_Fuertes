@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const WebSocketServer = require("ws").Server;
-const ws = new WebSocketServer({ port: 3001 });
+const ws = new WebSocketServer({ port: process.env.PORTSOCKET | 3001 });
 
 ws.on('connection', (ws) => {
   ws.on('message', (data) => {
