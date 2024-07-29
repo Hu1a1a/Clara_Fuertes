@@ -3,15 +3,6 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-//const WebSocketServer = require("ws").Server;
-//const ws = new WebSocketServer({ port: process.env.PORTSOCKET });
-//
-//ws.on('connection', (ws) => {
-//  ws.on('message', (data) => {
-//    console.log(JSON.parse(data))
-//  });
-//  return ws.send(JSON.stringify({ ok: true }))
-//});
 
 app.set("json space", 2);
 app.use(cors());
@@ -32,4 +23,13 @@ app.use((req, res, next) => {
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
-app.listen(process.env.PORT);
+const server = app.listen(process.env.PORT);
+
+const ws = require('ws')
+const wsServer = new ws.Server({ noServer: true })
+
+server.on('upgrade', (req, socket, head) => {
+  wsServer.handleUpgrade(req, socket, head, (ws) => {
+    ws.send(1)
+  })
+})
