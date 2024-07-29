@@ -3,6 +3,15 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const WebSocketServer = require("ws").Server;
+const ws = new WebSocketServer({ port: 3001 });
+
+ws.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    console.log(JSON.parse(data))
+  });
+  return ws.send(JSON.stringify({ ok: true }))
+});
 
 app.set("json space", 2);
 app.use(cors());
