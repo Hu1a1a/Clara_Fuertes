@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const WebSocketServer = require("ws").Server;
-const ws = new WebSocketServer({ port: process.env.PORTSOCKET | 3001 });
+const ws = new WebSocketServer({ port: process.env.PORTSOCKET });
 
 ws.on('connection', (ws) => {
   ws.on('message', (data) => {
@@ -32,4 +32,4 @@ app.use((req, res, next) => {
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
 app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
-app.listen(process.env.PORT | 3000);
+app.listen(process.env.PORT);
