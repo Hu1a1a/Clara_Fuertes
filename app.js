@@ -25,5 +25,15 @@ app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./publ
 app.use("/api", require("./server/router/router"));
 app = require("./build/server/main").app(app);
 
+<<<<<<< HEAD
 //app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
 app.listen(process.env.PORT | 3000);
+=======
+server.listen(process.env.PORT | 3000);
+
+server.on('upgrade', (req, socket, head) => {
+  wsServer.handleUpgrade(req, socket, head, (ws) => {
+    ws.send(1)
+  })
+})
+>>>>>>> parent of 292141d (Revert "Merge branch 'main' into SSR-Version")

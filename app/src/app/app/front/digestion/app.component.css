@@ -14,11 +14,11 @@ button:hover {
 
 @keyframes buttonn {
   0% {
-      background-color: #c1e4d6;
+    background-color: #c1e4d6;
   }
 
   100% {
-      background-color: #8cd2a3;
+    background-color: #8cd2a3;
   }
 }
 
@@ -49,8 +49,8 @@ textarea {
   text-align: left;
 
   @media only screen and (max-width: 990px) {
-      width: 100%;
-      background-color: #ffffff99;
+    width: 100%;
+    background-color: #ffffff99;
   }
 }
 
@@ -59,7 +59,7 @@ textarea {
   padding: 25px 2vw;
 
   @media only screen and (max-width: 990px) {
-      width: 100%;
-      padding: 25px 0;
+    width: 100%;
+    padding: 25px 0;
   }
 }
