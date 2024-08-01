@@ -12,12 +12,12 @@ import { ComponentCardComponent } from '../carousel/card.component';
 export class ComponentCardGroupComponent implements OnInit {
   @Input() data!: any[]
   @Input() id: string = "card"
-  screen_width: number = innerWidth
+  screen_width: number = window.innerWidth
   unit: any = Array(Math.floor(this.screen_width * 0.95 / 320) || 1)
   interval: any
   ngOnInit(): void {
     addEventListener("resize", () => {
-      this.screen_width = innerWidth;
+      this.screen_width = window.innerWidth;
       this.unit = Array(Math.floor(this.screen_width * 0.95 / 320) || 1)
     })
     this.interval = setInterval(() => this.next(), 10000)

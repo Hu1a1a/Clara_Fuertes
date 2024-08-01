@@ -4,11 +4,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
+import { provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '/',
+
   }, provideRouter(routes, withInMemoryScrolling({
     scrollPositionRestoration: 'top',
     anchorScrolling: 'enabled',
@@ -19,5 +21,9 @@ export const appConfig: ApplicationConfig = {
       disableImageLazyLoadWarning: true
     },
 
-  }],
+  },
+  provideClientHydration(withHttpTransferCacheOptions({
+    includePostRequests: true
+  }))
+  ],
 };

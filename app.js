@@ -22,13 +22,14 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
-const server = app.listen(process.env.PORT);
+//app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
+const app_ssr = require("./build/server/main").app(app);
+const app_websocket = app_ssr.listen(process.env.PORT);
 
 const ws = require('ws')
 const wsServer = new ws.Server({ noServer: true })
 
-server.on('upgrade', (req, socket, head) => {
+app_websocket.on('upgrade', (req, socket, head) => {
   wsServer.handleUpgrade(req, socket, head, (ws) => {
     ws.send(1)
   })
