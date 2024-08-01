@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const app = express();
 
 app.set("json space", 2);
 app.use(cors());
@@ -25,3 +26,9 @@ app.use("/api", require("./server/router/router"));
 const server = require("./build/server/main").app(app);
 
 server.listen(process.env.PORT | 3000);
+
+server.on('upgrade', (req, socket, head) => {
+  wsServer.handleUpgrade(req, socket, head, (ws) => {
+    ws.send(1)
+  })
+})

@@ -26,7 +26,8 @@ export class AppCursoPortalComponent implements OnInit {
 
   UrlApi: string = environment.URL_PUBLIC
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.api.wsConnection()
     this.Get()
   }
 
