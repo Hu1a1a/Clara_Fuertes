@@ -2,7 +2,8 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-let app = express();
+const app = express();
+const app = express();
 
 app.set("json space", 2);
 app.use(cors());
