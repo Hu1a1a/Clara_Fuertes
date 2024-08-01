@@ -11,6 +11,7 @@ export function app(server: any): express.Express {
   const commonEngine = new CommonEngine();
   server.set('view engine', 'html');
   server.set('views', distFolder);
+  server.get('*.*', express.static(distFolder, { maxAge: '1m' }));
   server.get('*', (req: any, res: any, next: any) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
     commonEngine
@@ -19,7 +20,10 @@ export function app(server: any): express.Express {
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: distFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        providers: [{
+          provide: APP_BASE_HREF,
+          useValue: '/',
+        }],
       })
       .then((html) => res.send(html))
       .catch((err) => next(err));

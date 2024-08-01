@@ -2,7 +2,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-let app = express();
+const app = express();
 
 app.set("json space", 2);
 app.use(cors());
@@ -22,7 +22,6 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
-app = require("./build/server/main").app(app);
+const server = require("./build/server/main").app(app);
 
-//app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
-app.listen(process.env.PORT | 3000);
+server.listen(process.env.PORT | 3000);
