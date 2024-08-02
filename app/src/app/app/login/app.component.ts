@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../module/app.angular.material.component';
 import { AngularModule } from '../../module/app.angular.component copy';
 import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
 import { response } from 'express';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,16 @@ import { response } from 'express';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppLoginComponent {
+export class AppLoginComponent implements OnInit {
   User: string = ""
   Pass: string = ""
   Email: string = ""
   Response!: any
   Login: boolean = true
-  constructor(private api: ApiService, private router: Router) { }
-
+  constructor(private api: ApiService, private router: Router, private title: Title) { }
+  ngOnInit(): void {
+    this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
+  }
   async login() {
     this.Response = await this.api.Login(this.User, this.Pass)
     if (this.Response.ok) {

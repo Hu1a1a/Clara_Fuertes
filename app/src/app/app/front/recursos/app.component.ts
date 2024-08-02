@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ComponentButtonComponent } from '../../component/button/c.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recursos',
@@ -11,10 +12,13 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
-export class AppRecursoComponent {
-  constructor(public dialog: MatDialog) { }
+export class AppRecursoComponent implements OnInit {
+  constructor(public dialog: MatDialog, private title: Title) { }
   async openModal() {
     this.dialog.open(DialogRecursos, {});
+  }
+  ngOnInit(): void {
+    this.title.setTitle("Recursos gratuitos - Clara Fuertes Nutrición")
   }
 }
 

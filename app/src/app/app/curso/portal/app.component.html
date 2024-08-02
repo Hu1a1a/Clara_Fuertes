@@ -38,7 +38,8 @@
 				<div class="list-group list-group-flush border-bottom scrollarea">
 					<ng-container *ngFor="let i1 of level1.data;index as i">
 						<ng-container *ngIf="i1.active">
-							<a (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null"
+							<a
+								(click)="clickLevel1();slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null"
 								class="list-group-item list-group-item-action py-3 lh-sm level1"
 								aria-current="true">
 								<div class="d-flex w-100 align-items-center subtitulo">
@@ -51,7 +52,8 @@
 							<ng-container *ngIf="slevel1===i1">
 								<ng-container *ngFor="let i2 of level2.data;index as j">
 									<ng-container *ngIf="slevel1.id===i2.level1">
-										<a (click)="i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null"
+										<a
+											(click)="clickLevel2();i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null"
 											class="list-group-item list-group-item-action py-3 lh-sm level2"
 											aria-current="true">
 											<div class="d-flex w-100 align-items-center subtitulo">
@@ -69,8 +71,7 @@
 											<ng-container *ngFor="let v of video.data;index as j">
 												<ng-container *ngIf="slevel2.id===v.level2">
 													<a [ngClass]="svideo===v?'active':''"
-														(click)="v.active?svideo=svideo===v?null:v:null"
-														(click)="seeVideo(v)"
+														(click)="v.active?svideo=svideo===v?null:v:null;seeVideo(v)"
 														class="list-group-item list-group-item-action video"
 														aria-current="true"
 														data-bs-dismiss="offcanvas">
@@ -110,7 +111,8 @@
 			<div class="list-group list-group-flush border-bottom scrollarea">
 				<ng-container *ngFor="let i1 of level1.data;index as i">
 					<ng-container *ngIf="i1.active">
-						<a (click)="slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null"
+						<a
+							(click)="clickLevel1();slevel1=slevel1===i1?null:i1;slevel2=null;svideo=null"
 							class="list-group-item list-group-item-action py-3 lh-sm level1"
 							aria-current="true">
 							<div class="d-flex w-100 align-items-center subtitulo">
@@ -123,7 +125,8 @@
 						<ng-container *ngIf="slevel1===i1">
 							<ng-container *ngFor="let i2 of level2.data;index as j">
 								<ng-container *ngIf="slevel1.id===i2.level1">
-									<a (click)="i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null"
+									<a
+										(click)="clickLevel2();i2.active?slevel2=slevel2===i2?null:i2:null;svideo=null"
 										class="list-group-item list-group-item-action py-3 lh-sm level2"
 										aria-current="true">
 										<div class="d-flex w-100 align-items-center subtitulo">
@@ -141,8 +144,7 @@
 										<ng-container *ngFor="let v of video.data;index as j">
 											<ng-container *ngIf="slevel2.id===v.level2">
 												<a [ngClass]="svideo===v?'active':''"
-													(click)="v.active?svideo=svideo===v?null:v:null"
-													(click)="seeVideo(v)"
+													(click)="v.active?svideo=svideo===v?null:v:null;seeVideo(v)"
 													class="list-group-item list-group-item-action video"
 													aria-current="true"
 													data-bs-dismiss="offcanvas">
@@ -179,27 +181,29 @@
 			style="text-align: -webkit-center;">
 			<div class="titulo">{{svideo.Name}}</div>
 			<div *ngIf="svideo.Src"
-				style="max-height: 70vh; width: 85%;height: 600px;">
+				style="max-height: 70vh; width: 85%;height: 600px;border: 2px solid black;">
 				<iframe [src]="photoURL(svideo.Src)"
 					frameborder="0"
 					webkitallowfullscreen
 					mozallowfullscreen
 					allowfullscreen
-					style="height: 100%; width: 100%; max-height: 70vh;">
+					style="height: 100%; width: 100%; max-height: 70vh;"
+					[title]="svideo.Name+' - Video'">
 				</iframe>
 				<br>
 			</div>
 			<div [innerHTML]="svideo.Description"
-				class="cuerpo">
+				class="cuerpo" style="width: 85%;">
 			</div>
 			<br>
 			<div *ngIf="svideo.Canva"
-				style="max-height: 70vh;height: 600px;width: 85%;">
+				style="max-height: 70vh;height: 600px;width: 85%;border: 2px solid black;">
 				<iframe [src]="canvaURL(svideo.Canva)"
 					loading="lazy"
 					style="height: 100%; width: 100%; max-height: 70vh;"
 					allowfullscreen="allowfullscreen"
-					allow="fullscreen">
+					allow="fullscreen"
+					[title]="svideo.Name+' - Canva'">
 				</iframe>
 				<br>
 			</div>

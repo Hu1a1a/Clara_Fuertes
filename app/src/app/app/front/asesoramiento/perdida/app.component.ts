@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../../module/app.angular.material.component';
 import { AngularModule } from '../../../../module/app.angular.component copy';
 import { ComponentButtonComponent } from '../../../component/button/c.component';
@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../../service/api.service';
-import { environment } from '../../../../../environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-asesoramiento-perdida',
@@ -15,8 +15,11 @@ import { environment } from '../../../../../environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../../style.component.css"]
 })
-export class AppAsesorPerdidaComponent {
-  constructor(private dialog: MatDialog, private api: ApiService) { }
+export class AppAsesorPerdidaComponent implements OnInit {
+  constructor(private dialog: MatDialog, private api: ApiService, private title: Title) { }
+  ngOnInit(): void {
+    this.title.setTitle("Pérdida de grasa - Clara Fuertes Nutrición")
+  }
   openModal() {
     this.dialog.open(DialogPerdida, {})
   }

@@ -5,6 +5,7 @@ import { ComponentButtonComponent } from '../../component/button/c.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../service/api.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-listado-esperae',
@@ -17,7 +18,7 @@ export class AppListadoEsperaComponente implements OnInit {
   Name: string = ""
   Email: string = ""
   Msg: string = ""
-  constructor(public router: Router, private api: ApiService) { }
+  constructor(public router: Router, private api: ApiService, private title: Title) { }
 
   done: boolean = false
   async Send() {
@@ -26,6 +27,7 @@ export class AppListadoEsperaComponente implements OnInit {
   }
   plaza: string = "PLAZAS AGOTADAS"
   ngOnInit(): void {
+    this.title.setTitle("Lista de espera - Clara Fuertes Nutrición")
     this.api.Get("master").then((a) => this.plaza = a.data.find((a: any) => a.master === "Lista de espera").data)
   }
 }

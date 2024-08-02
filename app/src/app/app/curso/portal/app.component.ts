@@ -3,7 +3,7 @@ import { AngularMaterialModule } from '../../../module/app.angular.material.comp
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
 import { Router } from '@angular/router';
-import { DomSanitizer } from "@angular/platform-browser";
+import { DomSanitizer, Title } from "@angular/platform-browser";
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -14,7 +14,7 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppCursoPortalComponent implements OnInit {
-  constructor(private api: ApiService, private router: Router, private sanitizer: DomSanitizer) { }
+  constructor(private api: ApiService, private router: Router, private sanitizer: DomSanitizer, private title: Title) { }
 
   level1!: any
   slevel1!: any
@@ -27,6 +27,7 @@ export class AppCursoPortalComponent implements OnInit {
   UrlApi: string = environment.URL_PUBLIC
 
   ngOnInit() {
+    this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
     this.api.wsConnection()
     this.Get()
   }
@@ -54,8 +55,14 @@ export class AppCursoPortalComponent implements OnInit {
     localStorage.removeItem("jwt")
     this.router.navigate(["/login/"])
   }
-
+  clickLevel1() {
+    this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
+  }
+  clickLevel2() {
+    this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
+  }
   async seeVideo(v: any) {
+    this.title.setTitle(v.Name + " - Clara Fuertes Nutrición")
     if (!v.active) {
       for (const c of this.curso.data) {
         const data = JSON.parse(c.progreso || "[]")

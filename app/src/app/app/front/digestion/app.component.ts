@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ComponentButtonComponent } from '../../component/button/c.component';
@@ -8,6 +8,7 @@ import { ApiService } from '../../../service/api.service';
 import { FormsModule } from '@angular/forms';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-digestion',
@@ -16,14 +17,15 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
-export class AppDigestionComponent {
-  constructor(private dialog: MatDialog, private api: ApiService, public router: Router) { }
+export class AppDigestionComponent implements OnInit {
+  constructor(private dialog: MatDialog, private api: ApiService, public router: Router, private title: Title) { }
   comentario!: any
 
   openModal() {
     this.dialog.open(DialogDigestion, {})
   }
   async ngOnInit() {
+    this.title.setTitle("Sana tus digestiones - Clara Fuertes Nutrición")
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Digestion"))
   }

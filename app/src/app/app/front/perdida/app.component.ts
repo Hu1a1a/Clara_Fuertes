@@ -8,6 +8,7 @@ import { ApiService } from '../../../service/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ComponentCardGroupComponent } from '../../component/carousel-group/cardgroup.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-perdida',
@@ -17,13 +18,14 @@ import { ComponentCardGroupComponent } from '../../component/carousel-group/card
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
 export class AppPerdidaComponent implements OnInit {
-  constructor(private dialog: MatDialog, public router: Router, private api: ApiService) { }
+  constructor(private dialog: MatDialog, public router: Router, private api: ApiService, private title: Title) { }
   comentario!: any
 
   openModal() {
     this.dialog.open(DialogPerdida, {})
   }
   async ngOnInit() {
+    this.title.setTitle("Pérdida de grasa - Clara Fuertes Nutrición")
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Perdida"))
   }

@@ -6,7 +6,8 @@
     "outDir": "./out-tsc/server",
     "types": [
       "node"
-    ]
+    ],
+    "module": "commonjs"
   },
   "files": [
     "src/main.server.ts",

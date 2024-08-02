@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-portal',
@@ -11,7 +12,7 @@ import { ApiService } from '../../../service/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppAdminPortalComponent implements OnInit {
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private title: Title) { }
   data: {
     "curso/level1": any,
     "curso/level2": any,
@@ -32,7 +33,10 @@ export class AppAdminPortalComponent implements OnInit {
       "master": {},
     }
 
-  ngOnInit() { this.Get() }
+  ngOnInit() {
+    this.title.setTitle("Centro de admin - Clara Fuertes Nutrición")
+    this.Get()
+  }
 
   modal: boolean = false
   sData!: any
