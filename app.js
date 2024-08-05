@@ -28,7 +28,4 @@ const app_websocket = app_ssr.listen(process.env.PORT);
 const ws = require('ws')
 const wsServer = new ws.Server({ server: app_websocket })
 const { setup } = require("./server/controller/websocket")
-setup(app_websocket, wsServer)
-wsServer.on("connection", () =>
-  console.log(1)
-)
+setup(wsServer)

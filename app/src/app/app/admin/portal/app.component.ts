@@ -3,11 +3,12 @@ import { AngularMaterialModule } from '../../../module/app.angular.material.comp
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
 import { Title } from '@angular/platform-browser';
+import { ComponentChatComponent } from '../../component/chat/app.component';
 
 @Component({
   selector: 'app-admin-portal',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule],
+  imports: [AngularMaterialModule, AngularModule, ComponentChatComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

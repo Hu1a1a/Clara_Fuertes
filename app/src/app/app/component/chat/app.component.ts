@@ -23,7 +23,7 @@ export class ComponentChatComponent implements OnInit {
       this.chatForm = this.fb.group({ message: '', user: localStorage.getItem("jwt")?.split("_____")[1], data: new Date().toISOString() })
       this.subject = this.api.wsConnection()
       this.subject.onmessage = (data: any) => {
-        this.chatMessages = JSON.parse(data.data)
+        this.chatMessages.push(...JSON.parse(data.data))
         this.scrollDown()
       }
     }
@@ -31,7 +31,6 @@ export class ComponentChatComponent implements OnInit {
 
   sendMessage() {
     this.chatForm.patchValue({ data: new Date().toISOString().split(".")[0] })
-    this.chatMessages.push(this.chatForm.getRawValue())
     this.subject.send(JSON.stringify(this.chatForm.getRawValue()))
     this.chatForm.patchValue({ message: "" })
     this.scrollDown()
