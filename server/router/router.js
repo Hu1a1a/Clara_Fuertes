@@ -47,8 +47,6 @@ router.post("/comentario/create/", comentario.add);
 router.post("/comentario/update/", comentario.update);
 router.post("/comentario/delete/", comentario.delete);
 
-//router.post("/stripe/pay/", stripe.paySession);
-//router.post("/stripe/check/", stripe.checkSession);
 router.post("/stripe/pay/", stripe.pay);
 router.post("/stripe/webhook/", stripe.webhook);
 

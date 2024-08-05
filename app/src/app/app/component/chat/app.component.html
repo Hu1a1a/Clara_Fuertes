@@ -1,23 +1,39 @@
-<div class="chat">
-  <div class="chat-content">
+<div class="chat" *ngIf="showChat">
+  <div style="height: 40px;display: flex;
+  justify-content: space-between;
+  padding: 0 25px 0 15px;
+  align-items: center;">
+    <strong>Chat</strong>
+    <i class="bi bi-arrow-down" (click)="showChat=!showChat"></i>
+  </div>
+  <div class="chat-content" id="screen">
     <ul class="list-group list-group-flush">
       <li class="list-group-item"
-        *ngFor="let chatMessage of api.subject_data">
-        <strong>{{chatMessage.user}}: </strong>
+        *ngFor="let chatMessage of chatMessages">
+        <strong style="align-self: self-start;">{{chatMessage.user}}: </strong>
         <span>{{chatMessage.message}}</span>
+        <span
+          style="font-size: 5pt; color: gray;margin-left: auto;min-width: 34px;">{{chatMessage.data}}</span>
       </li>
     </ul>
   </div>
-  <!--(ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm"-->
-  <form>
+  <form (submit)="sendMessage()" [formGroup]="chatForm">
     <div class="chat-send row">
       <div class="col-9">
-        <input type="text" class="form-control" name="message"
-          id="input-message" ngModel>
+        <input type="text" class="form-control" formControlName="message">
       </div>
       <div class="col-3">
         <button type="submit" class="btn btn-primary">Send</button>
       </div>
     </div>
   </form>
+</div>
+<div *ngIf="!showChat" class="chat" style="width: 150px;">
+  <div style="height: 40px;display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  align-items: center;">
+    <strong>Chat</strong>
+    <i class="bi bi-arrow-up" (click)="showChat=!showChat;scrollDown() "></i>
+  </div>
 </div>
