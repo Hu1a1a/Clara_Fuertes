@@ -16,6 +16,16 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.claranutricion.com/ensalada</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.claranutricion.com/compra</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://www.claranutricion.com/digestion</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -46,12 +56,6 @@
   </url>
   <url>
     <loc>https://www.claranutricion.com/asesoramiento/perdida</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority> 1 </priority>
-  </url>
-  <url>
-    <loc>https://www.claranutricion.com/ensalada</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>

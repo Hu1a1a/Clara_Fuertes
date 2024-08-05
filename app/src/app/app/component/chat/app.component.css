@@ -1,0 +1,24 @@
+.chat {
+  position: fixed;
+  max-width: 100%;
+  width: 350px;
+  z-index: 9999;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 1rem 1rem 0rem 1rem;
+  padding: 10px 15px;
+  box-shadow: -2px -2px 20px 5px gray;
+}
+
+div.chat-content {
+  height: 80vh;
+}
+
+.card {
+  height: 100%;
+}
+
+.chat-send {
+  text-align: end;
+}

@@ -22,7 +22,6 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
-//app.get("*", (req, res) => res.sendFile(path.join(__dirname, "./build/index.html")));
 const app_ssr = require("./build/server/main").app(app);
 const app_websocket = app_ssr.listen(process.env.PORT);
 
@@ -31,6 +30,6 @@ const wsServer = new ws.Server({ noServer: true })
 
 app_websocket.on('upgrade', (req, socket, head) => {
   wsServer.handleUpgrade(req, socket, head, (ws) => {
-    ws.send(1)
+    ws.send(JSON.stringify([{ user: "aba", message: "fdsafudsaif" }]))
   })
 })

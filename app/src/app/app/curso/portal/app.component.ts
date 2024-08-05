@@ -5,11 +5,12 @@ import { ApiService } from '../../../service/api.service';
 import { Router } from '@angular/router';
 import { DomSanitizer, Title } from "@angular/platform-browser";
 import { environment } from '../../../../environments/environment';
+import { ComponentChatComponent } from '../../component/chat/app.component';
 
 @Component({
   selector: 'app-curso-portal',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule],
+  imports: [AngularMaterialModule, AngularModule, ComponentChatComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -28,7 +29,6 @@ export class AppCursoPortalComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
-    this.api.wsConnection()
     this.Get()
   }
 

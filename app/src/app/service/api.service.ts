@@ -58,12 +58,18 @@ export class ApiService {
     }
 
     subject!: WebSocket
-    wsConnection() {
+    subject_data: any
+    async wsConnection() {
         this.subject = new WebSocket(environment.URL_API_SOCKET)
-        this.subject.onopen = (e) => { this.wsChat() }
+        this.subject.onopen = () => {
+
+        }
+        this.subject.onmessage = (data: any) => {
+            this.subject_data = JSON.parse(data.data)
+        }
     }
 
-    wsChat() {
-        this.subject.send(JSON.stringify({ ok: false }))
+    wsChat(user: string, msg: string) {
+        this.subject.send(JSON.stringify({ user, msg }))
     }
 }

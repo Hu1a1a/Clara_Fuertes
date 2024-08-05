@@ -4,27 +4,31 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
-import { provideClientHydration, Title, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import { Meta, provideClientHydration, Title, withHttpTransferCacheOptions } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
-  providers: [{
-    provide: APP_BASE_HREF,
-    useValue: '/',
-
-  }, provideRouter(routes, withInMemoryScrolling({
-    scrollPositionRestoration: 'top',
-    anchorScrolling: 'enabled',
-  })), provideAnimations(), provideHttpClient(), {
-    provide: IMAGE_CONFIG,
-    useValue: {
-      disableImageSizeWarning: true,
-      disableImageLazyLoadWarning: true
+  providers: [
+    {
+      provide: APP_BASE_HREF,
+      useValue: '/',
     },
-
-  },
-  provideClientHydration(withHttpTransferCacheOptions({
-    includePostRequests: true
-  })),
-    Title
+    provideRouter(routes, withInMemoryScrolling({
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+    })),
+    provideAnimations(),
+    provideHttpClient(),
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        disableImageSizeWarning: true,
+        disableImageLazyLoadWarning: true
+      },
+    },
+    provideClientHydration(withHttpTransferCacheOptions({
+      includePostRequests: true
+    })),
+    Title,
+    Meta
   ],
 };

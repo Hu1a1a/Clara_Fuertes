@@ -1,0 +1,23 @@
+<div class="chat">
+  <div class="chat-content">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"
+        *ngFor="let chatMessage of api.subject_data">
+        <strong>{{chatMessage.user}}: </strong>
+        <span>{{chatMessage.message}}</span>
+      </li>
+    </ul>
+  </div>
+  <!--(ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm"-->
+  <form>
+    <div class="chat-send row">
+      <div class="col-9">
+        <input type="text" class="form-control" name="message"
+          id="input-message" ngModel>
+      </div>
+      <div class="col-3">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
