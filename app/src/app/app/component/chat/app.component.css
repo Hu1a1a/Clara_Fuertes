@@ -14,14 +14,8 @@
 div.chat-content {
   height: 80vh;
   overflow-y: auto;
-
-  li {
-    display: flex;
-    align-items: flex-end;
-
-    span {
-      line-break: anywhere;
-    }
+  span {
+    line-break: anywhere;
   }
 }
 

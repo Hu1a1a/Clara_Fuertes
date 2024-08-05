@@ -1,5 +1,5 @@
 <div class="chat" *ngIf="showChat">
-  <div style="height: 40px;display: flex;
+  <div style="height: 40px;
   justify-content: space-between;
   padding: 0 35px 0 25px;
   align-items: center;">
@@ -13,9 +13,11 @@
         <strong
           style="align-self: self-start;padding-right: 2px;">{{chatMessage.user}}:
         </strong>
-        <span>{{chatMessage.message}}</span>
         <span
           style="font-size: 5pt; color: gray;margin-left: auto;min-width: 34px;">{{chatMessage.data}}</span>
+        <br>
+        <span>{{chatMessage.message}}</span>
+
       </li>
     </ul>
   </div>
