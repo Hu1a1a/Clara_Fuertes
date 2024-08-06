@@ -136,3 +136,24 @@ exports.update_master = (req, res) => {
   }
   catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
+
+exports.chat = (req, res) => {
+  try {
+    if (auth(req, res)) SELECT("chat", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};
+exports.update_chat = (req, res) => {
+  try {
+    if (authAdmin(req, res)) UPDATE("chat", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
+  }
+  catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};
+
+exports.delete_chat = (req, res) => {
+  try {
+    if (authAdmin(req, res)) DELETE("chat", req, res);
+    else res.json({ ok: false, msg: "Token no válido!" });
+  } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};

@@ -14,6 +14,7 @@
 div.chat-content {
   height: 80vh;
   overflow-y: auto;
+
   span {
     line-break: anywhere;
   }
@@ -27,6 +28,12 @@ div.chat-content {
   text-align: end;
 }
 
-i {
+.header {
   cursor: pointer;
+}
+
+.avatar {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
 }
