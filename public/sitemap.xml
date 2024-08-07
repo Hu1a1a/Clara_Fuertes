@@ -5,88 +5,88 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://www.claranutricion.com</loc>
+    <loc>https://claranutricion.com</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/recursos</loc>
+    <loc>https://claranutricion.com/recursos</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/ensalada</loc>
+    <loc>https://claranutricion.com/ensalada</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/compra</loc>
+    <loc>https://claranutricion.com/compra</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/digestion</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority> 1 </priority>
-  </url>
-  <url>
-    <loc>https://www.claranutricion.com/perdidagrasa</loc>
+    <loc>https://claranutricion.com/digestion</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/listadoEspera</loc>
+    <loc>https://claranutricion.com/perdidagrasa</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/asesoramiento</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.claranutricion.com/asesoramiento/patologia</loc>
+    <loc>https://claranutricion.com/listadoEspera</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/asesoramiento/perdida</loc>
+    <loc>https://claranutricion.com/asesoramiento</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://claranutricion.com/asesoramiento/patologia</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority> 1 </priority>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/login</loc>
+    <loc>https://claranutricion.com/asesoramiento/perdida</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority> 1 </priority>
+  </url>
+  <url>
+    <loc>https://claranutricion.com/login</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/resetPass</loc>
+    <loc>https://claranutricion.com/resetPass</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/privacidad</loc>
+    <loc>https://claranutricion.com/privacidad</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/cookie</loc>
+    <loc>https://claranutricion.com/cookie</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/legal</loc>
+    <loc>https://claranutricion.com/legal</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.claranutricion.com/condicion</loc>
+    <loc>https://claranutricion.com/condicion</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>yearly</changefreq>
   </url>
