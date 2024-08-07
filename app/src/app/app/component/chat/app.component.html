@@ -9,7 +9,10 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item"
         *ngFor="let chatMessage of chatMessages">
-        <img src="assets/avatar.png" alt class="avatar"
+        <img src="assets/avatar.png"
+          alt="avatar de la clara"
+          title="avatar de la clara"
+          class="avatar"
           *ngIf="chatMessage.user==='ClaraFuertes'">
         <strong
           style="font-size: 25px;vertical-align: sub;padding: 0px 2px;">{{chatMessage.user==='ClaraFuertes'?'Clara':chatMessage.user}}:

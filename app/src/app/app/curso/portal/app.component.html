@@ -71,7 +71,7 @@
 											<ng-container *ngFor="let v of video.data;index as j">
 												<ng-container *ngIf="slevel2.id===v.level2">
 													<a [ngClass]="svideo===v?'active':''"
-														(click)="v.active?svideo=svideo===v?null:v:null;seeVideo(v)"
+														(click)="svideo=v;seeVideo(v)"
 														class="list-group-item list-group-item-action video"
 														aria-current="true"
 														data-bs-dismiss="offcanvas">
@@ -144,7 +144,7 @@
 										<ng-container *ngFor="let v of video.data;index as j">
 											<ng-container *ngIf="slevel2.id===v.level2">
 												<a [ngClass]="svideo===v?'active':''"
-													(click)="v.active?svideo=svideo===v?null:v:null;seeVideo(v)"
+													(click)="svideo=v;seeVideo(v)"
 													class="list-group-item list-group-item-action video"
 													aria-current="true"
 													data-bs-dismiss="offcanvas">
@@ -181,28 +181,33 @@
 			style="text-align: -webkit-center;">
 			<div class="titulo">{{svideo.Name}}</div>
 			<div *ngIf="svideo.Src"
-				style="max-height: 70vh; width: 85%;height: 600px;border: 2px solid black;">
-				<iframe [src]="photoURL(svideo.Src)"
+				class="iframeDiv">
+				<iframe [src]="photoURL(svideo.Src)" #iframe
 					frameborder="0"
 					webkitallowfullscreen
 					mozallowfullscreen
 					allowfullscreen
+					importance="high"
 					style="height: 100%; width: 100%; max-height: 70vh;"
 					[title]="svideo.Name+' - Video'">
 				</iframe>
 				<br>
 			</div>
 			<div [innerHTML]="svideo.Description"
-				class="cuerpo" style="width: 85%;">
+				[title]="svideo.Name+' - Descripción'"
+				class="cuerpo"
+				style="width: 85%;">
 			</div>
 			<br>
 			<div *ngIf="svideo.Canva"
-				style="max-height: 70vh;height: 600px;width: 85%;border: 2px solid black;">
+				class="iframeDiv">
 				<iframe [src]="canvaURL(svideo.Canva)"
-					loading="lazy"
 					style="height: 100%; width: 100%; max-height: 70vh;"
-					allowfullscreen="allowfullscreen"
-					allow="fullscreen"
+					allowfullscreen
+					webkitallowfullscreen
+					frameborder="0"
+					mozallowfullscreen
+					importance="high"
 					[title]="svideo.Name+' - Canva'">
 				</iframe>
 				<br>
@@ -212,7 +217,7 @@
 				style="margin: 15px;">
 				<p style="color: #9ba5af;
             font-size: 14px;">
-					Archivos para descargar
+					Archivo{{svideo.Adjunt.split(';').length>1?'s':null}} para descargar
 				</p>
 				<br>
 				<ng-container *ngFor="let link of svideo.Adjunt.split(';')">
@@ -222,7 +227,9 @@
 							class="btn"
 							target="_blank"
 							style="padding: 0;">
-							<mat-card style="width: 175px; min-height: 120px; align-items: center;">
+							<mat-card
+								style="width: 175px; min-height: 120px; align-items: center;justify-content: center;"
+								[title]="link">
 								<mat-card-content style="width: 100%;">
 									<mat-card-title style="width: 100%;">
 										<p style="font-weight: 700;
@@ -249,7 +256,8 @@
 			</div>
 			<div style="text-align-last: center;">
 				<img src="assets/LogoClaraM.jpg" alt="Logo Clara Fuertes Nutrición"
-					style="width: 100%;max-width: 300px;">
+					style="width: 100%;max-width: 300px;"
+					title="Bienvenido a tu curso personalizado!">
 			</div>
 		</div>
 	</div>
