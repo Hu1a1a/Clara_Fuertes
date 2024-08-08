@@ -189,7 +189,8 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Correo">
-			<mat-button-toggle-group [(ngModel)]="emailFilter">
+			<mat-button-toggle-group [(ngModel)]="emailFilter"
+				style="flex-wrap: wrap;justify-content: space-around;">
 				<mat-button-toggle> All </mat-button-toggle>
 				<mat-button-toggle
 					*ngFor="let type of emailColor" [value]="type.Name"
