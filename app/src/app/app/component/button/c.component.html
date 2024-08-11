@@ -1,5 +1,6 @@
 <div>
   <button (click)="butonc()" class [ngClass]="disabled?'disabled':''"
+    [title]="text1+text1n+text2"
     [ariaLabel]="text1+text1n+text2">
     <span class="bottontext1" *ngIf="text1"> {{text1}} </span>
     <span class="bottontext1" *ngIf="text1n"> <br> {{text1n}} </span> <br

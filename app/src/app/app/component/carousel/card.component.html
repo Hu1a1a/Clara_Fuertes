@@ -1,4 +1,5 @@
-<div class="card" style="max-width: 18rem;width:100%;height: 260px;">
+<div class="card" style="max-width: 18rem;width:100%;height: 260px;"
+  [title]="data.Name +' - '+ data.Description">
   <img class="card-img-top" alt>
   <div class="card-body">
     <p class="card-text"
@@ -28,11 +29,11 @@
     <ng-container *ngFor="let item of [1,2,3,4,5]">
       <ng-container *ngIf="item<=data.Star">
         <img src="assets/starx.png" alt="Estrella Vacia" class="non star"
-          title="Estrella Vacia">
+          [title]="'Calificación: '+data.Star+' estrella'">
       </ng-container>
       <ng-container *ngIf="item>data.Star">
         <img src="assets/star.png" alt="Estrella Llena" class="star"
-          title="Estrella Llena">
+          [title]="'Calificación: '+data.Star+' estrella'">
       </ng-container>
     </ng-container>
   </div>

@@ -66,8 +66,8 @@ button:hover {
 
 .pincelada {
   position: absolute;
-  top: 5%;
-  height: 105%;
+  height: 120%;
   left: -7.5%;
   z-index: -1;
+  width: 115%;
 }

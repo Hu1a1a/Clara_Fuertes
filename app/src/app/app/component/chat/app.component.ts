@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../service/api.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Data } from 'ws';
 
 @Component({
   selector: 'app-component-chat',
@@ -12,8 +11,8 @@ import { Data } from 'ws';
   styleUrl: './app.component.css'
 })
 export class ComponentChatComponent implements OnInit {
-  constructor(public api: ApiService, private fb: FormBuilder) { }
-  chatMessages: { message: string, user: string, data: Data }[] = []
+  constructor(private api: ApiService, private fb: FormBuilder) { }
+  chatMessages: { message: string, user: string, data: Date }[] = []
   chatForm!: FormGroup
   subject!: WebSocket
   showChat: boolean = false
