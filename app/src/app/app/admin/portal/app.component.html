@@ -64,7 +64,7 @@
 											<td style="background-color: orangered;">{{k+1}}</td>
 											<td>{{v.Orden}}</td>
 											<td>{{v.Name}}</td>
-											<td>
+											<td [title]="v.Description">
 												{{v.Description.slice(0,100)}}{{v.Description.length>100?'...':''}}
 											</td>
 										</tr>
@@ -174,7 +174,8 @@
 						<tr (click)="OpenModal(u,'comentario','update')">
 							<td>{{u.id}}</td>
 							<td>{{u.Name}}</td>
-							<td>{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
+							<td
+								[title]="u.Description">{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
 							<td>{{u.Star}}</td>
 							<td>{{u.Type}}</td>
 						</tr>
@@ -187,8 +188,9 @@
 				Añadir Comentario
 			</button>
 		</mat-tab>
-		<mat-tab label="Envio de correo">
-			<mat-button-toggle-group [(ngModel)]="emailFilter">
+		<mat-tab label="Correo">
+			<mat-button-toggle-group [(ngModel)]="emailFilter"
+				style="flex-wrap: wrap;justify-content: space-around;">
 				<mat-button-toggle> All </mat-button-toggle>
 				<mat-button-toggle
 					*ngFor="let type of emailColor" [value]="type.Name"
@@ -214,7 +216,28 @@
 							<td>{{u.Date}}</td>
 							<td
 								[style.backgroundColor]="getColor(u.Tipo)">{{u.Tipo}}</td>
-							<td>{{u.msg?.slice(0,100)}}{{u.msg?.length>100?'...”':''}}</td>
+							<td
+								[title]="u.msg">{{u.msg?.slice(0,100)}}{{u.msg?.length>100?'...”':''}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</mat-tab>
+		<mat-tab label="Chat">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Usuario</td>
+						<td>Mensaje</td>
+						<td>Fecha</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['chat'].data;index as i">
+						<tr (click)="OpenModal(u,'chat','update')">
+							<td>{{u.user}}</td>
+							<td>{{u.message}}</td>
+							<td>{{u.data}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
@@ -222,7 +245,7 @@
 		</mat-tab>
 	</mat-tab-group>
 </div>
-<section *ngIf="modal"
+<section *ngIf="modal" (click)="modalClick($event)"
 	class="modal-form">
 	<div class="form-container">
 		<div (click)="modal=false"
@@ -280,3 +303,5 @@
 		</button>
 	</div>
 </section>
+
+<app-component-chat></app-component-chat>

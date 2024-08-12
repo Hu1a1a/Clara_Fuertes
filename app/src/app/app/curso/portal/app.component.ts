@@ -50,7 +50,6 @@ export class AppCursoPortalComponent implements OnInit {
   canvaURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replaceAll("&#x2F;", "/"));
   }
-
   CerrarSession() {
     localStorage.removeItem("jwt")
     this.router.navigate(["/login/"])
@@ -77,6 +76,9 @@ export class AppCursoPortalComponent implements OnInit {
       left: 0,
       behavior: 'smooth'
     });
+    const sx = this.svideo
+    setTimeout(() => this.svideo = null, 0);
+    setTimeout(() => this.svideo = sx, 0);
   }
 
   checkprogress() {

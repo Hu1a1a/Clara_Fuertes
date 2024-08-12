@@ -32,6 +32,10 @@ router.get("/master/", curso.master);
 router.post("/master/create/", curso.add_master);
 router.post("/master/update/", curso.update_master);
 
+router.get("/chat/", curso.chat);
+router.post("/chat/update/", curso.update_chat);
+router.post("/chat/delete/", curso.delete_chat);
+
 router.post("/curso/level1/delete/", curso.delete_level1);
 router.post("/curso/level2/delete/", curso.delete_level2);
 router.post("/curso/video/delete/", curso.delete_video);
@@ -47,8 +51,6 @@ router.post("/comentario/create/", comentario.add);
 router.post("/comentario/update/", comentario.update);
 router.post("/comentario/delete/", comentario.delete);
 
-//router.post("/stripe/pay/", stripe.paySession);
-//router.post("/stripe/check/", stripe.checkSession);
 router.post("/stripe/pay/", stripe.pay);
 router.post("/stripe/webhook/", stripe.webhook);
 

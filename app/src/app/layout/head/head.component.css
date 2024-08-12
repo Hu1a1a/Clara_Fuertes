@@ -1,0 +1,45 @@
+a {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Rajdhani;
+  color: #6a6056;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+nav {
+  background-color: #dae4e0;
+}
+
+ul {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+a:hover {
+  color: #9baba4;
+}
+
+.nav-link.active {
+  color: #9baba4;
+}
+
+li {
+  margin: 0px 5px;
+}
+
+.dropdown-menu {
+  background-color: #dae4e0;
+}
+
+.navbar-collapse {
+  background-color: #dae4e0;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+img {
+  width: 356px;
+  height: 114px;
+}

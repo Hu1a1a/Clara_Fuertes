@@ -16,9 +16,7 @@ export class ApiService {
     SQL_Master: any
     SQL_Comment: any
 
-    back() {
-        this.router.navigate(['login'])
-    }
+    back() { this.router.navigate(['login']) }
 
     async Login(User: string, Password: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}login/`, { User, Password }, this.options))
@@ -57,19 +55,6 @@ export class ApiService {
         return await firstValueFrom(this.http.post(`${this.UrlApi}email/contacto/`, { Email, Name, Msg, Title }, this.options));
     }
 
-    subject!: WebSocket
-    subject_data: any
-    async wsConnection() {
-        this.subject = new WebSocket(environment.URL_API_SOCKET)
-        this.subject.onopen = () => {
+    wsConnection() { return new WebSocket(environment.URL_API_SOCKET) }
 
-        }
-        this.subject.onmessage = (data: any) => {
-            this.subject_data = JSON.parse(data.data)
-        }
-    }
-
-    wsChat(user: string, msg: string) {
-        this.subject.send(JSON.stringify({ user, msg }))
-    }
 }

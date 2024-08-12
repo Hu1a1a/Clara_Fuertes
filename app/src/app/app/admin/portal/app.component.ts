@@ -3,11 +3,12 @@ import { AngularMaterialModule } from '../../../module/app.angular.material.comp
 import { AngularModule } from '../../../module/app.angular.component copy';
 import { ApiService } from '../../../service/api.service';
 import { Title } from '@angular/platform-browser';
+import { ComponentChatComponent } from '../../component/chat/app.component';
 
 @Component({
   selector: 'app-admin-portal',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule],
+  imports: [AngularMaterialModule, AngularModule, ComponentChatComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -21,7 +22,8 @@ export class AppAdminPortalComponent implements OnInit {
     "user": any,
     "comentario": any,
     "email": any,
-    "master": any
+    "master": any,
+    "chat": any
   } = {
       "curso/level1": {},
       "curso/level2": {},
@@ -31,6 +33,7 @@ export class AppAdminPortalComponent implements OnInit {
       "comentario": {},
       "email": {},
       "master": {},
+      "chat": {},
     }
 
   ngOnInit() {
@@ -59,6 +62,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.data["email"] = await this.api.Get("email")
     this.data["master"] = await this.api.Get("master")
+    this.data["chat"] = await this.api.Get("chat")
     const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
       return this.data["email"].data.map((a: any) => a.Tipo).indexOf(item) === index;
     })
@@ -81,16 +85,15 @@ export class AppAdminPortalComponent implements OnInit {
     this.modal = true
   }
 
-  Accion(data: any, router: SQLClass, accion: SQLAccion) {
-    this.loading = true
-    setTimeout(async () => {
-      await this.api.Accion(data, router, accion)
-      this.data[router] = await this.api.Get(router)
-      this.modal = false
-      this.loading = false
-    }, 0);
+  async Accion(data: any, router: SQLClass, accion: SQLAccion) {
+    await this.api.Accion(data, router, accion)
+    this.data[router] = await this.api.Get(router)
+    this.modal = false
+  }
+  modalClick(event: any) {
+    if (event.target.localName === "section") this.modal = false
   }
 }
 
-type SQLClass = "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email" | "master"
+type SQLClass = "curso/level1" | "curso/level2" | "curso/video" | "curso/curso" | "user" | "comentario" | "email" | "master" | "chat"
 type SQLAccion = "create" | "update" | "delete"

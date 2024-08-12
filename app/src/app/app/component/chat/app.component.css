@@ -7,12 +7,17 @@
   right: 0;
   background-color: white;
   border-radius: 1rem 1rem 0rem 1rem;
-  padding: 10px 15px;
+  padding: 10px 5px;
   box-shadow: -2px -2px 20px 5px gray;
 }
 
 div.chat-content {
   height: 80vh;
+  overflow-y: auto;
+
+  span {
+    line-break: anywhere;
+  }
 }
 
 .card {
@@ -21,4 +26,14 @@ div.chat-content {
 
 .chat-send {
   text-align: end;
+}
+
+.header {
+  cursor: pointer;
+}
+
+.avatar {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
 }

@@ -154,3 +154,12 @@ button.session:hover {
     flex-wrap: nowrap;
   }
 }
+
+.iframeDiv {
+  max-height: 70vh;
+  width: 85%;
+  height: 600px;
+  border: 2px solid black;
+  background: url(../../../../assets/200w.gif) center center no-repeat;
+  background-color: black;
+}

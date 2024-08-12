@@ -41,13 +41,11 @@ exports.checkToken = (req, res) => {
 };
 
 exports.auth = (req) => {
-  if (auth(req) > 0) return true;
-  return false
+  return Boolean(auth(req) > 0)
 };
 
 exports.authAdmin = (req) => {
-  if (auth(req) > 1) return true;
-  return false
+  return Boolean(auth(req) > 1)
 };
 
 exports.resetPassword = (req, res) => {

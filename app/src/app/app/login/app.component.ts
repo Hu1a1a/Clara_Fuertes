@@ -3,7 +3,6 @@ import { AngularMaterialModule } from '../../module/app.angular.material.compone
 import { AngularModule } from '../../module/app.angular.component copy';
 import { ApiService } from '../../service/api.service';
 import { Router } from '@angular/router';
-import { response } from 'express';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -23,6 +22,7 @@ export class AppLoginComponent implements OnInit {
   ngOnInit(): void {
     this.title.setTitle("Portal de curso - Clara Fuertes Nutrición")
   }
+
   async login() {
     this.Response = await this.api.Login(this.User, this.Pass)
     if (this.Response.ok) {
@@ -38,6 +38,7 @@ export class AppLoginComponent implements OnInit {
       this.api.setHeader(this.Response.token)
     }
   }
+
   async passwordReset() {
     this.Response = await this.api.PasswordReset(this.Email)
   }

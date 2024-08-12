@@ -63,3 +63,11 @@ button:hover {
     background-color: #8cd2a3;
   }
 }
+
+.pincelada {
+  position: absolute;
+  height: 120%;
+  left: -7.5%;
+  z-index: -1;
+  width: 115%;
+}

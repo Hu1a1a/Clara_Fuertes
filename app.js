@@ -26,10 +26,6 @@ const app_ssr = require("./build/server/main").app(app);
 const app_websocket = app_ssr.listen(process.env.PORT);
 
 const ws = require('ws')
-const wsServer = new ws.Server({ noServer: true })
-
-app_websocket.on('upgrade', (req, socket, head) => {
-  wsServer.handleUpgrade(req, socket, head, (ws) => {
-    ws.send(JSON.stringify([{ user: "aba", message: "fdsafudsaif" }]))
-  })
-})
+const wsServer = new ws.Server({ server: app_websocket })
+const { setup } = require("./server/controller/websocket")
+setup(wsServer)
