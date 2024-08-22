@@ -44,8 +44,8 @@ export class AppCursoPortalComponent implements OnInit {
       this.checkprogress()
     } else this.router.navigate(["login"])
   }
-  photoURL(src: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed"));
+  videoURL(src: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed") + "?autoplay=1&hideEmbedTopBar=true");
   }
   canvaURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replaceAll("&#x2F;", "/"));
