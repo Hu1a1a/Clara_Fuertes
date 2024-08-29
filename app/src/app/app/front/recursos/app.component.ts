@@ -28,5 +28,4 @@ export class AppRecursoComponent implements OnInit {
   standalone: true,
   imports: [AngularMaterialModule],
 })
-export class DialogRecursos {
-}
+export class DialogRecursos { }

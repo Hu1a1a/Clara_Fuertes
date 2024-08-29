@@ -6,9 +6,7 @@ import { provideClientHydration, withHttpTransferCacheOptions } from '@angular/p
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    provideClientHydration(withHttpTransferCacheOptions({
-      includePostRequests: true
-    }))
+    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true }))
   ]
 };
 

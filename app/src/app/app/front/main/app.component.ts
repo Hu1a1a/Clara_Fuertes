@@ -21,7 +21,7 @@ export class AppMainComponent implements OnInit {
   comentario!: any
   plaza: string = "PLAZAS AGOTADAS"
   async ngOnInit() {
-    this.title.setTitle("Clara Fuertes Nutrición")
+    this.title.setTitle("Clara Fuertes Nutrición - Dieta antiinflamatoria")
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Home"))
     this.plaza = this.api.SQL_Master.data.find((a: any) => a.master === "Lista de espera").data

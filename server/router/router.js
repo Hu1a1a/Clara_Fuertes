@@ -7,7 +7,7 @@ const user = require("../controller/user");
 const comentario = require("../controller/comment");
 const stripe = require("../controller/stripe");
 
-router.post("/email/ensalada/", email.email_ensalada);
+router.post("/email/recursos/", email.email_recursos);
 router.post("/email/contacto/", email.email_contacto);
 router.get("/email/", email.get);
 router.post("/resetPass/", email.email_resetPass);

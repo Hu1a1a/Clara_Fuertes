@@ -21,36 +21,46 @@ export class ApiService {
     async Login(User: string, Password: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}login/`, { User, Password }, this.options))
     }
+
     async PasswordReset(Email: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}resetPass/`, { Email }, this.options));
     }
+
     async PasswordReset2(email: string, token: string, password: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}resetPassword/`, { email, token, password }, this.options));
     }
+
     async Token(): Promise<any> {
         return await firstValueFrom(this.http.get(`${this.UrlApi}token/`, this.options))
             .then((data: any) => !data.ok ? this.back() : data)
     }
-    async SendEmail(Email: string, Name: string): Promise<any> {
-        return await firstValueFrom(this.http.post(`${this.UrlApi}email/ensalada/`, { Email, Name }, this.options));
+
+    async SendRecursos(Email: string, Name: string, Doc: string): Promise<any> {
+        return await firstValueFrom(this.http.post(`${this.UrlApi}email/recursos/`, { Email, Name, Doc }, this.options));
     }
+
     async Get(router: string): Promise<any> {
         return await firstValueFrom(this.http.get(`${this.UrlApi}${router}/`, this.options))
             .then((data: any) => !data.ok ? this.back() : data)
     }
+
     async GetID(router: string, id: number): Promise<any> {
         return await firstValueFrom(this.http.get(`${this.UrlApi}${router}/id/` + id, this.options))
             .then((data: any) => !data.ok ? this.back() : data)
     }
+
     async Accion(data: any, router: string, accion: "create" | "update" | "delete"): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}${router}/${accion}/`, { data }, this.options));
     }
+
     async paySession(item: { StripeId: string }): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/pay/`, item, this.options));
     }
+
     async checkSession(url: string, CallBack: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}stripe/${CallBack}/check/`, { url, CallBack }, this.options));
     }
+
     async SendContacto(Email: string, Name: string, Msg: string, Title: string): Promise<any> {
         return await firstValueFrom(this.http.post(`${this.UrlApi}email/contacto/`, { Email, Name, Msg, Title }, this.options));
     }

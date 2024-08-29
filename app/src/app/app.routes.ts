@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AppMainComponent } from './app/front/main/app.component';
-import { AppEnsaladaComponent } from './app/front/ensalada/app.component';
 import { AppCursoPortalComponent } from './app/curso/portal/app.component';
 import { AppCompraComponent } from './app/front/compra/app.component';
 import { AppAdminPortalComponent } from './app/admin/portal/app.component';
@@ -21,11 +20,19 @@ import { AppLegalPoliticaComponent } from './app/legal/legal/app.component';
 import { AppCondicionComponent } from './app/legal/condicion/app.component';
 import { AppListadoEsperaComponente } from './app/front/listado_espera/app.component';
 import { AppCompraFailComponent } from './app/front/pay/fail/app.component';
+import { AppEnsaladaComponent } from './app/front/recursos/ensalada/app.component';
+import { AppIntestinalComponent } from './app/front/recursos/intestinal/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
-    { path: 'recursos', component: AppRecursoComponent },
-    { path: 'ensalada', component: AppEnsaladaComponent },
+    {
+        path: 'recursos', children: [
+            { path: "", component: AppRecursoComponent },
+            { path: "ensalada", component: AppEnsaladaComponent },
+            { path: "intestinal", component: AppIntestinalComponent },
+            { path: "**", redirectTo: "", pathMatch: "full" },
+        ]
+    },
     { path: 'compra', component: AppCompraComponent },
     { path: 'digestion', component: AppDigestionComponent },
     { path: 'perdidagrasa', component: AppPerdidaComponent },

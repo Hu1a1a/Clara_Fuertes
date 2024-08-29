@@ -1,0 +1,89 @@
+<div class="container" ngSkipHydration>
+    <div class="row">
+        <div class="div1">
+            <div class="row">
+                <h2 style="font-family: Poppins;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21.87px;
+            text-align: center;
+            text-align-last: center;
+            color: #4D5C52;">
+                    Averigua con este Test&nbsp;Rápido tu salud&nbsp;digestiva
+                </h2>
+
+            </div>
+
+            <h3 class="row">
+                <span
+                    style="white-space: pre-line;text-align-last: start;font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: justify;
+                    ">
+                    Un intestino hiperpermeable está estrechamente relacionado
+                    con la inflamación, y no solo inflamación intestinal, si no
+                    que esta inflamación se traslada a otras partes del
+                    organismo.
+                    <br><br>
+                    Descubre si esto puede ser un problema en tu caso,
+                    resolviendo este TEST DE PERMEABILIDAD INTESTINAL.
+                </span>
+            </h3>
+            <br>
+            <div
+                style="background-color: #DAE4E0;border-radius: 15px;padding: 20px 10px;text-align: center;">
+                <h1 style="font-family: Poppins;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 21.87px;
+                text-align: center;color: #4D5C52;
+                ">
+                    ¡Descarga el Test de Permeabilidad&nbsp;Intestinal <span
+                        style="border-radius: 10px;line-height: 30px;position: relative;z-index: 0;">
+                        GRATUITO!
+                        <img
+                            src="assets/recursos/ensalada/pincelada amarilla.png"
+                            alt="pincelada"
+                            title="pincelada"
+                            class="pincelada">
+                    </span> Y&nbsp;averigua tu&nbsp;puntuación
+
+                </h1>
+                <div style="margin: 15px;">
+                    <input type="text" [(ngModel)]="Name"
+                        placeholder="Tu nombre">
+                    <br>
+                    <input type="text" [(ngModel)]="Email"
+                        placeholder="Tu email">
+                    <br>
+                    <br>
+                    <input type="checkbox" class="form-check-input"
+                        [(ngModel)]="Condicion"
+                        style="height: 24px;width: 24px; padding: 0;margin: 0px 5px;">
+                    <span style="font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: justify;">
+                        Acepto los
+                        <a href="/privacidad"> términos&nbsp;y&nbsp;condiciones. </a>
+                    </span>
+                    <br>
+                    <button type="submit" (click)="sendGuia()">
+                        OBTEN EL RESULTADO DEL TEST AHORA
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="div2">
+            <div style="text-align-last: center">
+                <img src="assets/recursos/intestinal/image.png"
+                    alt="Foto Guia Ensalada Clara Fuertes Nutrición"
+                    style="max-width: 100%;"
+                    title="foto guia ensalada">
+            </div>
+        </div>
+    </div>
+</div>

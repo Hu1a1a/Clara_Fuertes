@@ -1,0 +1,120 @@
+<div class="container" ngSkipHydration>
+    <div class="row">
+        <div class="div1">
+            <div class="row">
+                <h2 style="font-family: Poppins;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21.87px;
+            text-align: center;
+            text-align-last: center;
+            color: #4D5C52;">
+                    Te regalo la guía
+                    <span style="position: relative;">
+                        GRATUITA!
+                        <img
+                            src="assets/recursos/ensalada/pincelada amarilla.png"
+                            alt="pincelada"
+                            title="pincelada"
+                            class="pincelada">
+                    </span>
+                    para hacer tus ensaladas equilibradas, completas y
+                    suficientes
+                </h2>
+
+            </div>
+            <div class="row" style="justify-content: center;padding: 15px 0px;">
+                <span style="position: relative;font-family: Rajdhani;
+            font-size: 20px;
+            font-weight: 700;   
+            line-height: 19.94px;
+            text-align: center;color: #7DAD9B;width: fit-content;
+            ">
+                    ¡Se acabaron las dudas!
+                    <img src="assets/recursos/ensalada/pincelada amarilla.png"
+                        alt="pincelada"
+                        title="pincelada"
+                        class="pincelada">
+                </span>
+            </div>
+            <h3 class="row">
+                <span
+                    style="white-space: pre-line;text-align-last: start;font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: justify;
+                    ">
+                    ✔ Llega el buen tiempo y sabes que vas a recurrir más de una
+                    vez a las ensaladas.
+                    <br><br>
+                    ✔ Deja de preguntarte si tus ensaladas están bien hechas, te
+                    descubro todo lo que debes saber.
+                    <br><br>
+                    ✔ ¿Qué lleva una ensalada que sirve de acompañamiento? ¿Qué
+                    lleva una ensalada que es plato único?
+                    <br><br>
+                    ✔ ¿Una ensalada es buena opción en una alimentación
+                    antiinflamatoria? Te explico como potenciarlo.
+                    <br><br>
+                    ✔ ¡Resuelve todas tus dudas sobre este plato tan recurrido y
+                    disfrútalas sabiendo que te lo estás haciendo bien!
+                </span>
+            </h3>
+        </div>
+        <div class="div2">
+            <div
+                style="background-color: #DAE4E0;border-radius: 15px;padding: 20px 10px;text-align: center;">
+                <h1 style="font-family: Poppins;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 21.87px;
+                text-align: center;color: #4D5C52;
+                ">
+                    ¡Recibe tu guía
+                    <span
+                        style="border-radius: 10px;line-height: 30px;position: relative;z-index: 0;">
+                        GRATUITA!
+                        <img
+                            src="assets/recursos/ensalada/pincelada amarilla.png"
+                            alt="pincelada"
+                            title="pincelada"
+                            class="pincelada">
+                    </span>
+                    de ensaladas a tu correo!
+                </h1>
+                <div style="margin: 15px;">
+                    <input type="text" [(ngModel)]="Name"
+                        placeholder="Tu nombre">
+                    <br>
+                    <input type="text" [(ngModel)]="Email"
+                        placeholder="Tu email">
+                    <br>
+                    <br>
+                    <input type="checkbox" class="form-check-input"
+                        [(ngModel)]="Condicion"
+                        style="height: 24px;width: 24px; padding: 0;margin: 0px 5px;">
+                    <span style="font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: justify;">
+                        Acepto los
+                        <a href="/privacidad"> términos&nbsp;y&nbsp;condiciones. </a>
+                    </span>
+                    <br>
+                    <button type="submit" (click)="sendGuia()">
+                        OBTEN EL RESULTADO DEL TEST AHORA
+                    </button>
+                </div>
+
+            </div>
+            <div style="text-align-last: center">
+                <img src="assets/recursos/ensalada/Post.png"
+                    alt="Foto Guia Ensalada Clara Fuertes Nutrición"
+                    style="max-width: 100%;"
+                    title="foto guia ensalada">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<mat-dialog-content style="width: 360px;
+height: 90px; max-width: 80vw;
+align-content: space-evenly;
+border-color: #4D5C52;
+overflow: hidden;
+border: 2px solid black;
+border-radius: 20px;
+background-color: white;
+  ">
+
+    <p style="font-family: Rajdhani;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 23.44px;
+        text-align: center;margin: 0;
+        ">
+        <ng-container *ngIf="data.ok">
+
+            Tienes Tu Guía de Ensaladas <span style="color: #7DAD9B;">
+                en tu
+                e-mail.</span>
+            Espero de corazón que te sirva de ayuda.
+
+        </ng-container>
+        <ng-container *ngIf="!data.ok">
+            {{data.msg}}
+        </ng-container>
+    </p>
+
+</mat-dialog-content>

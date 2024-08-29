@@ -8,10 +8,7 @@ import { Meta, provideClientHydration, Title, withHttpTransferCacheOptions } fro
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    {
-      provide: APP_BASE_HREF,
-      useValue: '/',
-    },
+    { provide: APP_BASE_HREF, useValue: '/' },
     provideRouter(routes, withInMemoryScrolling({
       scrollPositionRestoration: 'top',
       anchorScrolling: 'enabled',
@@ -25,9 +22,7 @@ export const appConfig: ApplicationConfig = {
         disableImageLazyLoadWarning: true
       },
     },
-    provideClientHydration(withHttpTransferCacheOptions({
-      includePostRequests: true
-    })),
+    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true })),
     Title,
     Meta
   ],
