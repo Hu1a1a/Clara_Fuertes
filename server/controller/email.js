@@ -8,7 +8,7 @@ const footer = `
       <br>
       ¡Un super abrazo!
       <br><br>
-      Clara Fuertes
+      Clara Fuertes Camprubí
       </h4>
       Colegiada CAT00866
       <br>
