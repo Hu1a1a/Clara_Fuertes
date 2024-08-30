@@ -61,6 +61,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["comentario"] = await this.api.Get("comentario")
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.data["email"] = await this.api.Get("email")
+    this.data["email"].data = this.data["email"].data.sort((a: any, b: any) => a.Date >= b.Date ? -1 : 1)
     this.data["master"] = await this.api.Get("master")
     this.data["chat"] = await this.api.Get("chat")
     const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
