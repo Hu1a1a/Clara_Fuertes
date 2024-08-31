@@ -214,35 +214,23 @@
 			</div>
 			<div *ngIf="svideo.Adjunt"
 				class="row"
-				style="margin: 15px;">
-				<p style="color: #9ba5af;
-            font-size: 14px;">
-					Archivo{{svideo.Adjunt.split(';').length>1?'s':null}} para descargar
-				</p>
-				<br>
+				style="margin: 15px;justify-content: space-evenly;">
 				<ng-container *ngFor="let link of svideo.Adjunt.split(';')">
-					<div class="col">
+					<div class="card border-secondary mb-3" style="max-width: 18rem">
+						<div class="card-header">Descargable</div>
 						<a [href]="UrlApi + link"
 							[download]="link"
 							class="btn"
 							target="_blank"
 							style="padding: 0;">
-							<mat-card
-								style="width: 175px; min-height: 120px; align-items: center;justify-content: center;"
-								[title]="link">
-								<mat-card-content style="width: 100%;">
-									<mat-card-title style="width: 100%;">
-										<p style="font-weight: 700;
-                                    font-size: 14px;line-height: 15px;">{{link}}</p>
-									</mat-card-title>
-									<mat-card-subtitle style="width: 100%; color: rgb(231, 76, 60);">
-										<p>
-											<i class="bi bi-file-earmark-pdf"></i>
-											{{link.split(".")[link.split(".").length-1]}}
-										</p>
-									</mat-card-subtitle>
-								</mat-card-content>
-							</mat-card>
+							<div class="card-body" [title]="link">
+								<h5 class="card-title">{{link}}</h5>
+								<p class="card-text"
+									style="width: 90%; color: rgb(231, 76, 60);text-align-last: right;">
+									<i class="bi bi-file-earmark-pdf"></i>
+									{{link.split(".")[link.split(".").length-1]}}
+								</p>
+							</div>
 						</a>
 					</div>
 				</ng-container>

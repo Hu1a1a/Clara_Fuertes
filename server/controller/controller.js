@@ -1,3 +1,4 @@
+"use strict";
 const pool = require("../../db/db");
 
 exports.SELECT = (Table, req, res) => {

@@ -1,3 +1,4 @@
+"use strict";
 const { nodemailer, config } = require("../../mail/mail");
 const pool = require("../../db/db");
 const { SELECT } = require("./controller");

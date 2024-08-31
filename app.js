@@ -1,3 +1,4 @@
+"use strict";
 require("dotenv").config();
 const path = require("path");
 const express = require("express");
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 app.get("/public/:file", (req, res) => res.sendFile(path.join(__dirname, "./public/" + req.params.file)));
 app.use("/api", require("./server/router/router"));
+app.use((err, req, res, next) => res.status(500).send('Something went wrong!'));
 const app_ssr = require("./build/server/main").app(app);
 const app_websocket = app_ssr.listen(process.env.PORT);
 
