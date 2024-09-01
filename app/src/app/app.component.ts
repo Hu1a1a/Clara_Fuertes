@@ -26,6 +26,7 @@ export class AppComponent {
     this.Loading = false
     this.meta.addTags([
       { name: 'twitter:site', content: '@clara_nutricion)' },
+      { name: 'og:site_name', content: 'Clara Fuertes Nutrición)' },
       { name: 'og:image', content: 'https://www.claranutricion.com/assets/main/Clara%20v2.webp' },
       { name: 'og:url', content: 'https://www.claranutricion.com/' },
       { name: 'keywords', content: 'Nutricionista, Dieta antiinflamatoria, Sibo, Nutricionista digestiva, Pérdida de grasa, Microbiota' },
