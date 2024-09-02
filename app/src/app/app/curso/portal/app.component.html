@@ -182,12 +182,7 @@
 			<div class="titulo">{{svideo.Name}}</div>
 			<div *ngIf="svideo.Src"
 				class="iframeDiv">
-				<iframe [src]="videoURL(svideo.Src)" #iframe
-					frameborder="0"
-					webkitallowfullscreen
-					mozallowfullscreen
-					allowfullscreen
-					importance="high"
+				<iframe [src]="videoURL(svideo.Src)"
 					style="height: 100%; width: 100%; max-height: 70vh;"
 					[title]="svideo.Name+' - Video'">
 				</iframe>

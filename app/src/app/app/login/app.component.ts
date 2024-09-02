@@ -31,7 +31,7 @@ export class AppLoginComponent implements OnInit {
         localStorage.setItem("jwt", this.Response.token + "_____" + this.User + "_____Admin")
       }
       else {
-        this.router.navigate(["/curso/portal/"])
+        window.location.pathname = "/curso/portal/"
         localStorage.setItem("jwt", this.Response.token + "_____" + this.User)
       }
       localStorage.setItem("jwz", this.Response.id)

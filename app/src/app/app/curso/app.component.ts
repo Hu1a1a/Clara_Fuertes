@@ -10,7 +10,7 @@ import { ApiService } from '../../service/api.service';
 })
 export class AppCursoComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { }
-  async ngOnInit() {
+  ngOnInit() {
     const token = localStorage.getItem("jwt")
     const user = localStorage.getItem("jwz")
     if (token && user) this.api.setHeader(token)
