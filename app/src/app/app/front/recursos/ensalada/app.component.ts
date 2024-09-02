@@ -38,7 +38,7 @@ export class AppEnsaladaComponent implements OnInit {
 }
 
 @Component({
-  selector: 'dialog-component',
+  selector: 'dialog-component-ensalada',
   templateUrl: 'dialog.component.html',
   standalone: true,
   imports: [AngularMaterialModule, CommonModule],

@@ -29,18 +29,18 @@ export class AppIntestinalComponent implements OnInit {
         this.api.SendRecursos(this.Email, this.Name, "intestinal")
       } else this.Response = { msg: "Introduce tu nombre y tu correo!" }
     } else this.Response = { msg: "Acepte los términos y condiciones!" }
-    this.dialog.open(DialogEnsalada, {
+    this.dialog.open(DialogIntestinal, {
       data: { msg: this.Response.msg, ok: this.Response.ok }
     });
   }
 }
 
 @Component({
-  selector: 'dialog-component',
+  selector: 'dialog-component-Intestinal',
   templateUrl: 'dialog.component.html',
   standalone: true,
   imports: [AngularMaterialModule, CommonModule],
 })
-export class DialogEnsalada {
+export class DialogIntestinal {
   constructor(@Inject(MAT_DIALOG_DATA) public data: { msg: string, ok: boolean }) { }
 }

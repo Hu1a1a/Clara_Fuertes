@@ -45,7 +45,7 @@ export class AppCursoPortalComponent implements OnInit {
     } else this.router.navigate(["login"])
   }
   videoURL(src: string) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed") + "?autoplay=1&hideEmbedTopBar=true");
+    return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed") + "?hideEmbedTopBar=true");
   }
   canvaURL(src: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replaceAll("&#x2F;", "/"));
@@ -76,9 +76,6 @@ export class AppCursoPortalComponent implements OnInit {
       left: 0,
       behavior: 'smooth'
     });
-    const sx = this.svideo
-    setTimeout(() => this.svideo = null, 0);
-    setTimeout(() => this.svideo = sx, 0);
   }
 
   checkprogress() {
