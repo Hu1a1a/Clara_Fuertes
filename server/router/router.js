@@ -11,6 +11,9 @@ const stripe = require("../controller/stripe");
 router.post("/email/recursos/", email.email_recursos);
 router.post("/email/contacto/", email.email_contacto);
 router.get("/email/", email.get);
+router.post("/email/delete/", email.delete_by_email);
+
+
 router.post("/resetPass/", email.email_resetPass);
 
 router.get("/curso/level1/", curso.level1);

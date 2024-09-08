@@ -63,3 +63,13 @@ exports.SELECTBYID = (Table, req, res) => {
     });
   });
 };
+
+exports.DELETEBY = (Table, idName, req, res) => {
+  pool.getConnection((e, c) => {
+    pool.query(`DELETE FROM ${Table} WHERE ${idName} = '${req.body.data.id}';`, (e, r) => {
+      c.release();
+      if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
+      else return res.json({ ok: true, data: r });
+    });
+  });
+};

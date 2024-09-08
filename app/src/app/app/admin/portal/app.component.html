@@ -189,6 +189,17 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Correo">
+			<div class="row" style="width: 100%;margin-top: 5px;">
+				<mat-form-field style="width: 70%;">
+					<mat-label> Unsubscriber </mat-label>
+					<input [(ngModel)]="UnsubscriberMail" matInput>
+				</mat-form-field>
+				<button mat-fab extended style="width: 25%;margin: 0 2.5%;"
+					(click)="Unsubscriber()">
+					<mat-icon>delete</mat-icon>
+					Unsubscriber
+				</button>
+			</div>
 			<mat-button-toggle-group [(ngModel)]="emailFilter"
 				style="flex-wrap: wrap;justify-content: space-around;">
 				<mat-button-toggle> All </mat-button-toggle>
@@ -210,7 +221,8 @@
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let u of data['email'].data;index as i">
-						<tr *ngIf="!emailFilter || emailFilter===u.Tipo">
+						<tr *ngIf="!emailFilter || emailFilter===u.Tipo"
+							(click)="UnsubscriberMail=u.Email">
 							<td>{{u.Name}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Date}}</td>

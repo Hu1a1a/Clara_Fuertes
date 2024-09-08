@@ -49,6 +49,8 @@ export class AppAdminPortalComponent implements OnInit {
   emailColor: { Name: string, Color: string }[] = []
   emailFilter: string = ""
 
+  UnsubscriberMail: string = ""
+
   Key(data: any) { return Object.keys(data) }
 
   async Get() {
@@ -93,6 +95,11 @@ export class AppAdminPortalComponent implements OnInit {
   }
   modalClick(event: any) {
     if (event.target.localName === "section") this.modal = false
+  }
+
+  async Unsubscriber() {
+    await this.api.Accion({ id: this.UnsubscriberMail }, "email", "delete")
+    this.data["email"] = await this.api.Get("email")
   }
 }
 

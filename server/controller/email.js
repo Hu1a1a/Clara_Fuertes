@@ -1,7 +1,7 @@
 "use strict";
 const { nodemailer, config } = require("../../mail/mail");
 const pool = require("../../db/db");
-const { SELECT } = require("./controller");
+const { SELECT, DELETEBY } = require("./controller");
 const crypto = require("crypto");
 const from = `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`
 const footer = `
@@ -238,5 +238,10 @@ exports.email_contacto = (req, res) => {
 
 exports.get = (req, res) => {
   try { SELECT("regemail", req, res); }
+  catch (e) { return res.json({ ok: false, msg: e.toString() }); }
+};
+
+exports.delete_by_email = (req, res) => {
+  try { DELETEBY("regemail", "Email", req, res); }
   catch (e) { return res.json({ ok: false, msg: e.toString() }); }
 };
