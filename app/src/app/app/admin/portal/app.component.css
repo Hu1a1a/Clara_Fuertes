@@ -26,3 +26,11 @@ td {
 mat-tab-group {
   z-index: -50 !important
 }
+
+.Manual {
+  font-family: Handlee;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+}

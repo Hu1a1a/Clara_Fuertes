@@ -56,14 +56,11 @@ export class AppAdminPortalComponent implements OnInit {
   async Get() {
     this.data["curso/level1"] = await this.api.Get("curso/level1")
     this.data["curso/level2"] = await this.api.Get("curso/level2")
-    this.data["curso/level2"].data = this.data["curso/level2"].data.sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
     this.data["curso/video"] = await this.api.Get("curso/video")
-    this.data["curso/video"].data = this.data["curso/video"].data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
     this.data["user"] = await this.api.Get("user")
     this.data["comentario"] = await this.api.Get("comentario")
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.data["email"] = await this.api.Get("email")
-    this.data["email"].data = this.data["email"].data.sort((a: any, b: any) => a.Date >= b.Date ? -1 : 1)
     this.data["master"] = await this.api.Get("master")
     this.data["chat"] = await this.api.Get("chat")
     const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
@@ -72,11 +69,19 @@ export class AppAdminPortalComponent implements OnInit {
     for (const tip of tipo) this.emailColor.push({
       Name: tip, Color: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
     })
+    this.sort()
     this.loading = false
   }
+
   getColor = (tipo: string): any => this.emailColor.find((a: any) => a.Name === tipo)?.Color
   getUser = (userId: string): any => this.data["user"].data.find((a: any) => a.id === userId)?.User
   getCurso = (cursoId: string): any => this.data["curso/level1"].data.find((a: any) => a.id === cursoId)?.Name
+
+  sort() {
+    this.data["curso/level2"].data = this.data["curso/level2"].data.sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
+    this.data["curso/video"].data = this.data["curso/video"].data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
+    this.data["email"].data = this.data["email"].data.sort((a: any, b: any) => a.Date >= b.Date ? -1 : 1)
+  }
 
   OpenModal(data: any, router: SQLClass, accion: SQLAccion) {
     this.sRouter = router
@@ -91,6 +96,7 @@ export class AppAdminPortalComponent implements OnInit {
   async Accion(data: any, router: SQLClass, accion: SQLAccion) {
     await this.api.Accion(data, router, accion)
     this.data[router] = await this.api.Get(router)
+    this.sort()
     this.modal = false
   }
   modalClick(event: any) {

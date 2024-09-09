@@ -10,6 +10,13 @@
 <div class="container">
 	<mat-tab-group *ngIf="!loading">
 		<mat-tab label="Master">
+			<div class="Manual">
+				PS:
+				<br>
+				Data: Valor a modificar que influye en la pantalla principal
+				<br>
+				No modificar el Master en ningún caso, puede romper la página web.
+			</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -28,6 +35,17 @@
 			</table>
 		</mat-tab>
 		<mat-tab label="Curso">
+			<div class="Manual">
+				PS:
+				<br>
+				Dividido entre curso, fase y item
+				<br>
+				En fase, indicar el level 1 donde viene colgado, tambien seleccionar en el
+				depId la rama anterior que se debe de finalizar antes de abrir el siguiente.
+				<br>
+				La duración funciona según la fecha de creación del usuario +x días apartir
+				de entonces.
+			</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -52,7 +70,7 @@
 								<tr (click)="OpenModal(i2,'curso/level2','update')">
 									<td>-</td>
 									<td style="background-color: orange" colspan="2">{{j+1}}</td>
-									<td>+{{i2.depId}} día</td>
+									<td>+{{i2.Duracion}} día</td>
 									<td>{{i2.Name}}</td>
 									<td>{{i2.Description}}</td>
 								</tr>
@@ -106,7 +124,6 @@
 						<td>User</td>
 						<td>Email</td>
 						<td>Telefono</td>
-						<td>Expiración</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -117,7 +134,6 @@
 							<td>{{u.User}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Phone}}</td>
-							<td>{{u.Expiration}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
@@ -128,7 +144,13 @@
 				Añadir Usuario
 			</button>
 		</mat-tab>
-		<mat-tab label="Curso">
+		<mat-tab label="Progreso">
+			<div class="Manual">
+				PS:
+				<br>
+				Aquí se debe de crear el progreso nuevo para cada usuario nuevo en su nuevo
+				curso.
+			</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -159,6 +181,12 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Comentario">
+			<div class="Manual">
+				PS:
+				<br>
+				Dispones aquí de un input donde le permitirá eliminar todos los registros de
+				aquel correo que indiques, no tiene afectación ninguna en la web.
+			</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -271,15 +299,23 @@
 		</h2>
 		<ng-container *ngFor="let item of Key(sData)">
 			<ng-container
-				*ngIf="item === 'level1' || item === 'level2'; else elseTemplate">
+				*ngIf="item === 'level1' || item === 'level2' || item === 'depId'; else elseTemplate">
 				<mat-form-field style="width: 100%;">
 					<mat-label>{{item}}</mat-label>
 					<mat-select [(ngModel)]="sData[item]">
 						<mat-option
-							*ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data"
-							[value]="i.id">
-							{{i.Name}}
+							*ngIf=" item === 'depId'"
+							[value]="0">
+							Sin dependencia
 						</mat-option>
+						<ng-container
+							*ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data">
+							<mat-option
+								*ngIf="item !== 'depId' || (item === 'depId' && i.level1 === sData.level1)"
+								[value]="i.id">
+								{{i.Name}}
+							</mat-option>
+						</ng-container>
 					</mat-select>
 				</mat-form-field>
 			</ng-container>
