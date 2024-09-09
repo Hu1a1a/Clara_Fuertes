@@ -45,7 +45,6 @@ export class AppCursoPortalComponent implements OnInit {
     } else this.router.navigate(["login"])
   }
   videoURL(src: string) {
-    console.log(1)
     return this.sanitizer.bypassSecurityTrustResourceUrl(src.replace("share", "embed") + "?hideEmbedTopBar=true");
   }
   canvaURL(src: string) {
@@ -91,9 +90,8 @@ export class AppCursoPortalComponent implements OnInit {
       const now = new Date()
       const inicio = new Date(c.inicio)
       for (const l2 of this.level2.data) {
-        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion)) || l2.depId === 0) {
-          l2["active"] = true
-        }
+        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion)) || l2.depId === 0) l2["active"] = true
+        else l2["active"] = false
       }
       for (const l2 of this.level2.data) {
         let act = true
@@ -101,9 +99,7 @@ export class AppCursoPortalComponent implements OnInit {
         for (const v of this.video.data) {
           if (l2.id === v.level2) {
             vacio = false
-            if (!v["active"]) {
-              act = false
-            }
+            if (!v["active"]) act = false
           }
         }
         if (!act || vacio) {

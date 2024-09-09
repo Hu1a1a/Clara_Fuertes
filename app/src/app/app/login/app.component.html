@@ -16,31 +16,23 @@
 	</span>
 	<br>
 	<br>
-	<ng-container *ngIf="Login">
+	<form (submit)="login()" *ngIf="Login">
 		<input [(ngModel)]="User"
 			type="text"
 			name="User"
+			autocomplete="username"
 			class="form-control"
 			placeholder="Usuario"
 			(input)="Response=undefined">
 		<input [(ngModel)]="Pass"
 			type="password"
 			name="Password"
+			autocomplete="current-password"
 			class="form-control"
 			placeholder="Contraseña"
 			(input)="Response=undefined">
-	</ng-container>
-	<ng-container *ngIf="!Login">
-		<input [(ngModel)]="Email"
-			type="email"
-			name="Email"
-			class="form-control"
-			placeholder="Correo electrónico"
-			(input)="Response=undefined">
-	</ng-container>
-	<ng-container *ngIf="Login">
-		<button (click)="login()"
-			type="button">
+		<button
+			type="submit">
 			<span>INICIAR SESIÓN</span>
 		</button>
 		<br>
@@ -53,10 +45,16 @@
 		</button>
 		<br>
 		<br>
-	</ng-container>
-	<ng-container *ngIf="!Login">
-		<button (click)="passwordReset()"
-			type="button">
+	</form>
+	<form (submit)="passwordReset()" *ngIf="!Login">
+		<input [(ngModel)]="Email"
+			type="email"
+			name="Email"
+			class="form-control"
+			placeholder="Correo electrónico"
+			(input)="Response=undefined">
+		<button
+			type="submit">
 			<span>
 				RESETEAR TU CONTRASEÑA
 			</span>
@@ -67,11 +65,12 @@
 			type="button">
 			<span>INICIAR SESIÓN</span>
 		</button>
-	</ng-container>
+	</form>
+
 	<div *ngIf="Response?.msg"
 		class="row" style="justify-content: center;">
 		<div class="alert alert-danger fade show"
-			style="margin: 50px 0px;width: 50%;"
+			style="margin: 25px 0px;width: 50%;"
 			role="alert">
 			{{Response.msg}}
 		</div>

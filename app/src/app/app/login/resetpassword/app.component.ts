@@ -25,6 +25,5 @@ export class AppResetPasswordComponent implements OnInit {
 
   async passwordReset() {
     this.Response = await this.api.PasswordReset2(this.email, this.token, this.password)
-    console.log(this.Response)
   }
 }

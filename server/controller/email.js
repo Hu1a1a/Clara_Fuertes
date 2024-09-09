@@ -146,7 +146,7 @@ exports.email_resetPass = (req, res) => {
       const token = crypto.randomBytes(64).toString("hex");
       pool.getConnection((e, c) => {
         pool.query(`SELECT User FROM user WHERE Email = '${req.body.Email}';`, (e, r) => {
-          if (r) {
+          if (r && r[0]) {
             pool.query(`UPDATE user SET Token = '${token}' WHERE Email = '${req.body.Email}';`, (e, rx) => {
               c.release();
               const transporter = nodemailer.createTransport(config);
@@ -183,7 +183,7 @@ exports.email_resetPass = (req, res) => {
                 else {
                   pool.getConnection((e, c) => {
                     pool.query(`INSERT INTO regemail VALUES (?,?,?,?,?,?);`, [, "", req.body.Email, new Date(), "Reset contraseña", ""], () => {
-                      res.json({ ok: true, msg: "Guia enviada correctamente, comprueba en su bandeja de entrada!" });
+                      res.json({ ok: true, msg: "Reset de contraseña enviada correctamente, comprueba en su bandeja de entrada!" });
                       c.release();
                     });
                   });
