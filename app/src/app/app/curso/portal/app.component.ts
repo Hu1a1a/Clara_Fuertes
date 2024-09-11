@@ -80,32 +80,34 @@ export class AppCursoPortalComponent implements OnInit {
 
   checkprogress() {
     for (const c of this.curso.data) {
-      const l1 = this.level1.data.find((a: any) => a.id === c.cursoId)
-      l1["active"] = true
-      const progress = JSON.parse(c.progreso || "[]")
-      for (const p of progress) {
-        const v = this.video.data.find((a: any) => a.id === p.id)
-        if (v) v["active"] = true
-      }
       const now = new Date()
       const inicio = new Date(c.inicio)
-      for (const l2 of this.level2.data) {
-        if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion)) || l2.depId === 0) l2["active"] = true
-        else l2["active"] = false
-      }
-      for (const l2 of this.level2.data) {
-        let act = true
-        let vacio = true
-        for (const v of this.video.data) {
-          if (l2.id === v.level2) {
-            vacio = false
-            if (!v["active"]) act = false
-          }
+      const l1 = this.level1.data.find((a: any) => a.id === c.cursoId && new Date(c.inicio) <= now && new Date(c.expiro) >= now)
+      if (l1) {
+        l1["active"] = true
+        const progress = JSON.parse(c.progreso || "[]")
+        for (const p of progress) {
+          const v = this.video.data.find((a: any) => a.id === p.id)
+          if (v) v["active"] = true
         }
-        if (!act || vacio) {
-          const l2d = this.level2.data.filter((a: any) => a.depId === l2.id)
-          for (const d of l2d) {
-            d["active"] = false
+        for (const l2 of this.level2.data) {
+          if (now > new Date(inicio.setDate(inicio.getDate() + l2.Duracion)) || l2.depId === 0) l2["active"] = true
+          else l2["active"] = false
+        }
+        for (const l2 of this.level2.data) {
+          let act = true
+          let vacio = true
+          for (const v of this.video.data) {
+            if (l2.id === v.level2) {
+              vacio = false
+              if (!v["active"]) act = false
+            }
+          }
+          if (!act || vacio) {
+            const l2d = this.level2.data.filter((a: any) => a.depId === l2.id)
+            for (const d of l2d) {
+              d["active"] = false
+            }
           }
         }
       }

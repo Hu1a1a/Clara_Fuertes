@@ -48,10 +48,8 @@ export class AppAdminPortalComponent implements OnInit {
   loading: boolean = true
   emailColor: { Name: string, Color: string }[] = []
   emailFilter: string = ""
-
+  now: Date = new Date()
   UnsubscriberMail: string = ""
-
-  Key(data: any) { return Object.keys(data) }
 
   async Get() {
     this.data["curso/level1"] = await this.api.Get("curso/level1")
@@ -63,16 +61,15 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["email"] = await this.api.Get("email")
     this.data["master"] = await this.api.Get("master")
     this.data["chat"] = await this.api.Get("chat")
-    const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => {
-      return this.data["email"].data.map((a: any) => a.Tipo).indexOf(item) === index;
-    })
-    for (const tip of tipo) this.emailColor.push({
-      Name: tip, Color: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
-    })
+    const tipo = this.data["email"].data.map((a: any) => a.Tipo).filter((item: any, index: any) => this.data["email"].data.map((a: any) => a.Tipo).indexOf(item) === index)
+    for (const tip of tipo) this.emailColor.push({ Name: tip, Color: '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6) })
     this.sort()
     this.loading = false
   }
 
+  Date = (data: string): Date => { return new Date(data) }
+  Key = (data: any): string[] => { return Object.keys(data) }
+  getTIP = (tip: string): string => this.api.SQL_Master.data.find((a: any) => a.master === tip).data
   getColor = (tipo: string): any => this.emailColor.find((a: any) => a.Name === tipo)?.Color
   getUser = (userId: string): any => this.data["user"].data.find((a: any) => a.id === userId)?.User
   getCurso = (cursoId: string): any => this.data["curso/level1"].data.find((a: any) => a.id === cursoId)?.Name
