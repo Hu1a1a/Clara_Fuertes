@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../../service/api.service';
 import { Title } from '@angular/platform-browser';
+import { PlantillaComponent } from '../plantilla/plantilla.component';
 
 @Component({
   selector: 'app-asesoramiento-perdida',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent],
+  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, PlantillaComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../../style.component.css"]
 })
@@ -23,12 +24,13 @@ export class AppAsesorPerdidaComponent implements OnInit {
   openModal() {
     this.dialog.open(DialogPerdida, {})
   }
-  async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Asesoramiento Perdida").data })
-    if (data.ok) {
-      localStorage.setItem("stripe", data.url)
-      window.location.href = data.url
-    }
+  ComprarCurso() {
+    this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Asesoramiento Perdida").data }).then((data) => {
+      if (data.ok && data.url) {
+        localStorage.setItem("stripe", data.url)
+        window.location.href = data.url
+      }
+    })
   }
 }
 

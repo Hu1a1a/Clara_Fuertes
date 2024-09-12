@@ -1,0 +1,46 @@
+<div class="center">
+    <div class="row page">
+        <div class="divider dtext">
+            <span>
+                <p class="pl_title">
+                    <ng-content select="[title1]"></ng-content>
+                </p>
+            </span>
+            <span class="pl_body">
+                <ng-content select="[body1]"></ng-content>
+            </span>
+        </div>
+        <div class="divider img izquierda">
+            <ng-content select="[img1]"></ng-content>
+        </div>
+    </div>
+    <div class="row page">
+        <div class="divider img derecha">
+            <ng-content select="[img2]"></ng-content>
+        </div>
+        <div class="divider dtext">
+            <span>
+                <p class="pl_title">
+                    <ng-content select="[title2]"></ng-content>
+                </p>
+            </span>
+            <h2 class="pl_body">
+                <ng-content select="[body2]"></ng-content>
+            </h2>
+        </div>
+    </div>
+    <div class="row page">
+        <div class="divider dtext">
+            <span>
+                <p class="pl_title"> <ng-content select="[title3]"></ng-content>
+                </p>
+            </span>
+            <span class="pl_body">
+                <ng-content select="[body3]"></ng-content>
+            </span>
+        </div>
+        <div class="divider img izquierda">
+            <ng-content select="[img3]"></ng-content>
+        </div>
+    </div>
+</div>

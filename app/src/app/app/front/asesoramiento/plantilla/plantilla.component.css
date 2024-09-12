@@ -1,0 +1,178 @@
+.pl_title {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    text-align: center;
+    color: #4D5C52;
+    background-image: url(../../../../../assets/asesoramiento/linea1.png);
+    background-position-y: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 15px;
+    width: fit-content;
+}
+
+.pl_body {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: justify;
+    color: #4D5C52;
+}
+
+.page {
+    margin-top: 15px;
+    max-width: 1400px;
+    @media only screen and (max-width: 1000px) {
+        position: relative;
+        width: 100%;
+    }
+}
+
+.center {
+    text-align: -webkit-center;
+}
+
+.divider {
+    width: 50%;
+    min-width: 400px;
+
+    @media only screen and (max-width: 1000px) {
+        width: 100%;
+        background-color: #ffffff99;
+        min-width: 0px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 90%;
+
+        @media only screen and (max-width: 1000px) {
+            max-height: 100%;
+            border: 5px solid #CDDDD7;
+            border-radius: 5px;
+        }
+    }
+
+    span {
+        text-align: -webkit-center
+    }
+}
+
+.dtext {
+    background-color: white;
+    text-align: justify;
+    border: 5px solid #CDDDD7;
+    border-radius: 5px;
+    padding: 3.5%;
+
+    @media only screen and (max-width: 1000px) {
+        background-color: #ffffff99;
+    }
+}
+
+.izquierda {
+    animation: fadeIn 3s;
+    z-index: -1;
+}
+
+.derecha {
+    animation: fadeOut 3s;
+    z-index: -1;
+
+    @media only screen and (max-width: 1000px) {
+        animation: fadeIn 3s;
+    }
+
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateX(-30rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateX(30rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+.divider.img {
+    align-content: space-around;
+
+    @media only screen and (max-width: 1000px) {
+        position: absolute;
+        background-color: #ffffff99;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+
+}
+
+
+button {
+    width: 170px;
+    height: 100%;
+    border-radius: 40px;
+    background-color: #c1e4d6;
+    border-color: transparent;
+    box-shadow: 7px 6px 16px 1px #c1e4d6;
+}
+
+button:hover {
+    background-color: #8cd2a3;
+    animation: buttonn 500ms;
+}
+
+@keyframes buttonn {
+    0% {
+        background-color: #c1e4d6;
+    }
+
+    100% {
+        background-color: #8cd2a3;
+    }
+}
+
+
+input,
+textarea {
+    width: 90%;
+    font-family: Rajdhani;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.94px;
+    text-align: left;
+    color: #4D5C52;
+    margin: 10px 0px;
+    border: 1px solid #4D5C52;
+    border-radius: 15px;
+    padding: 0px 15px;
+}
+
+textarea {
+    padding-top: 10px;
+    resize: none;
+}

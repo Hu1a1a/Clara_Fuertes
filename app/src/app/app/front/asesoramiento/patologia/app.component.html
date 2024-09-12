@@ -1,164 +1,82 @@
 <div style="padding: 25px" ngSkipHydration>
-	<div class="row page">
-		<div class="divider dtext">
-			<span style="text-align: -webkit-center;">
-				<p style="font-family: Poppins;
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 26px;
-				text-align: center;
-				color: #4D5C52;
-				background-image: url(../../../../../assets/asesoramiento/linea1.png);
-				background-position-y: bottom;
-				background-size: contain;
-				background-repeat: no-repeat;
-				padding-bottom: 15px;
-				width: fit-content;
-				">
-					¿De qué trata el acompañamiento?
-				</p>
-			</span>
-			<span style="font-family: Poppins;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 18px;
-        text-align: justify;
-        color: #4D5C52;">
-				·
-				<b>Entrevista inicial mediante cuestionario</b>
-				que te envío que incluye todas las
-				preguntas que necesito para conocer tu caso en profundidad.
-				<br>
-				<br>
-				·
-				<b>Test de síntomas </b>
-				para que rellenes para hacer una valoración más profunda
-				<br>
-				<br>
-				· Además, puedes enviarme un email con todas tus inquietudes.
-				<br>
-				<br>
-				·
-				Reviso mediante un registro alimentario los hábitos actuales, para valorar
-				qué podemos mantener y qué deberíamos modificar para alcanzar tus objetivos.
-				<br>
-				<br>
-				·
-				Reviso las últimas analíticas o pruebas complementarias de las que
-				dispongas.
-				<br>
-				<br>
-				·
-				Te <b>elaboro una ruta personalizada:</b> te asesoro de lo que deberías
-				hacer en
-				este momento para mejorar tu situación, y de los pasos posteriores a seguir.
-				<br>
-				<br>
-				·
-				Te <b>envío el plan junto con un vídeo explicativo personalizado</b> de tu
-				proceso
-				y de las pautas que te envío, para que te sea muy sencillo entenderlo.
-			</span>
-		</div>
-		<div class="divider img izquierda">
-			<img src="assets/asesoramiento/pato1.webp"
-				alt="Foto fondo Asesoramiento Patologia 1 Clara Fuertes Nutrición"
-				title="foto asesoramiento">
-		</div>
-	</div>
-	<div class="row page">
-		<div class="divider img derecha">
-			<img src="assets/asesoramiento/pato2.webp"
-				alt="Foto fondo Asesoramiento Patologia 2 Clara Fuertes Nutrición"
-				title="foto asesoramiento">
-		</div>
-		<div class="divider dtext">
-			<span style="text-align: -webkit-center;">
-				<p style="font-family: Poppins;
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 26px;
-				text-align: center;
-				color: #4D5C52;
-				background-image: url(../../../../../assets/asesoramiento/linea2.png);
-				background-position-y: bottom;
-				background-size: contain;
-				background-repeat: no-repeat;
-				padding-bottom: 15px;
-				width: fit-content;
-				">
-					¿Qué incluye en plan?
-				</p>
-			</span>
-			<h2 style="font-family: Poppins;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 18px;
-        text-align: justify;
-        color: #4D5C52;">
-				·
-				En base a la patología diagnosticada y sobre todo en base a tu
-				sintomatología elaboro unas pautas personalizadas 100% para ti.
-				<br>
-				<br>
-				· Con estas pautas se pretende tratar la patología, pero sobre todo la causa
-				de base y las disfunciones asociadas, para tratar el problema de raíz y
-				evitar recidivas.
-				<br>
-				<br>
-				· En el plan se incluyen recomendaciones a nivel nutricional y de
-				suplementación, en caso de considerarse necesarias.
-				<br>
-				<br>
-				· Elaboro una hoja de ruta explicándote cómo debería ser la continuidad de
-				tu tratamiento con la patología y sintomatología actual.
-				<br>
-				<br>
-				· Resuelvo las <b>posibles dudas </b>que te puedan surgir durante las 48
-				horas
-				posteriores al envío de las pautas.
-			</h2>
-		</div>
-	</div>
-	<div class="row page">
-		<div class="divider dtext">
-			<span style="text-align: -webkit-center;">
-				<p style="font-family: Poppins;
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 26px;
-				text-align: center;
-				color: #4D5C52;
-				background-image: url(../../../../../assets/asesoramiento/linea3.png);
-				background-position-y: bottom;
-				background-size: contain;
-				background-repeat: no-repeat;
-				padding-bottom: 15px;
-				width: fit-content;
-				">
-					¿Qué NO incluye el plan?
-				</p>
-			</span>
-			<span style="font-family: Poppins;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 18px;
-        text-align: justify;
-        color: #4D5C52;">
-				· Este plan se elabora en base a un estudio de la situación actual, si la
-				situación cambia en las próximas semanas o días, porque hay un nuevo
-				diagnóstico no se hacen modificaciones del mismo.
-				<br>
-				<br>
-				· No incluye un seguimiento del proceso por parte del profesional.
-			</span>
-		</div>
-		<div class="divider img izquierda">
-			<img src="assets/asesoramiento/pato3.webp"
-				alt="Foto Fondo Asesoramiento Patologia 3 Clara Fuertes Nutrición"
-				title="foto fondo asesoramiento">
-		</div>
-	</div>
+	<app-plantilla>
+		<ng-content #sss>¿De qué trata el acompañamiento?</ng-content>
+
+		<ng-container title1> ¿De qué trata el acompañamiento? </ng-container>
+		<ng-container title2> ¿Qué incluye en plan? </ng-container>
+		<ng-container title3> ¿Qué NO incluye el plan? </ng-container>
+		<ng-container body1>
+			· <b>Entrevista inicial mediante cuestionario</b>
+			que te envío que incluye todas las
+			preguntas que necesito para conocer tu caso en profundidad.
+			<br>
+			<br>
+			· <b>Test de síntomas </b>
+			para que rellenes para hacer una valoración más profunda
+			<br>
+			<br>
+			· Además, puedes enviarme un email con todas tus inquietudes.
+			<br>
+			<br>
+			· Reviso mediante un registro alimentario los hábitos actuales, para valorar
+			qué podemos mantener y qué deberíamos modificar para alcanzar tus objetivos.
+			<br>
+			<br>
+			· Reviso las últimas analíticas o pruebas complementarias de las que
+			dispongas.
+			<br>
+			<br>
+			· Te <b>elaboro una ruta personalizada:</b> te asesoro de lo que deberías
+			hacer en
+			este momento para mejorar tu situación, y de los pasos posteriores a seguir.
+			<br>
+			<br>
+			· Te <b>envío el plan junto con un vídeo explicativo personalizado</b> de tu
+			proceso
+			y de las pautas que te envío, para que te sea muy sencillo entenderlo.
+		</ng-container>
+		<ng-container body2>
+			· En base a la patología diagnosticada y sobre todo en base a tu
+			sintomatología elaboro unas pautas personalizadas 100% para ti.
+			<br>
+			<br>
+			· Con estas pautas se pretende tratar la patología, pero sobre todo la causa
+			de base y las disfunciones asociadas, para tratar el problema de raíz y
+			evitar recidivas.
+			<br>
+			<br>
+			· En el plan se incluyen recomendaciones a nivel nutricional y de
+			suplementación, en caso de considerarse necesarias.
+			<br>
+			<br>
+			· Elaboro una hoja de ruta explicándote cómo debería ser la continuidad de
+			tu tratamiento con la patología y sintomatología actual.
+			<br>
+			<br>
+			· Resuelvo las <b>posibles dudas </b>que te puedan surgir durante las 48
+			horas
+			posteriores al envío de las pautas.
+		</ng-container>
+		<ng-container body3>
+			· Este plan se elabora en base a un estudio de la situación actual, si la
+			situación cambia en las próximas semanas o días, porque hay un nuevo
+			diagnóstico no se hacen modificaciones del mismo.
+			<br>
+			<br>
+			· No incluye un seguimiento del proceso por parte del profesional.
+		</ng-container>
+		<img src="assets/asesoramiento/pato1.webp"
+			img1
+			alt="Foto fondo Asesoramiento Patologia 1 Clara Fuertes Nutrición"
+			title="foto asesoramiento">
+		<img src="assets/asesoramiento/pato2.webp"
+			img2
+			alt="Foto fondo Asesoramiento Patologia 2 Clara Fuertes Nutrición"
+			title="foto asesoramiento">
+		<img src="assets/asesoramiento/pato3.webp" img3
+			alt="Foto Fondo Asesoramiento Patologia 3 Clara Fuertes Nutrición"
+			title="foto fondo asesoramiento">
+	</app-plantilla>
 	<br>
 	<div style="text-align: center;">
 		<h1 (click)="ComprarCurso()"
