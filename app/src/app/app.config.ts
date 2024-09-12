@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
 import { Meta, provideClientHydration, Title, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +25,6 @@ export const appConfig: ApplicationConfig = {
     },
     provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true })),
     Title,
-    Meta
+    Meta, provideAnimationsAsync()
   ],
 };
