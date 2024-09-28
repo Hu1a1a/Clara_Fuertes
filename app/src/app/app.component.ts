@@ -21,8 +21,8 @@ import { Meta } from '@angular/platform-browser';
 export class AppComponent {
   constructor(private api: ApiService, private meta: Meta) { }
   Loading: boolean = true
-  async ngOnInit() {
-    if (!this.api.SQL_Master) this.api.SQL_Master = await this.api.Get("master")
+  ngOnInit() {
+    if (!this.api.SQL_Master) this.api.Get("master").then((data) => this.api.SQL_Master = data)
     this.Loading = false
     this.meta.addTags([
       { name: 'twitter:site', content: '@clara_nutricion)' },
