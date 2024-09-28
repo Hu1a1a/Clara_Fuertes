@@ -4,7 +4,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF, IMAGE_CONFIG } from '@angular/common';
-import { Meta, provideClientHydration, Title, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import { Meta, provideClientHydration, Title, withNoHttpTransferCache } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
         disableImageLazyLoadWarning: true
       },
     },
-    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true })),
+    provideClientHydration(withNoHttpTransferCache()),
     Title,
     Meta, provideAnimationsAsync()
   ],
