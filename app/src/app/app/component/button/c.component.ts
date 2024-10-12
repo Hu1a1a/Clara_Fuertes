@@ -16,6 +16,9 @@ export class ComponentButtonComponent {
   @Input() text2: string = ""
   @Input() ref: string = ""
   @Input() disabled: boolean = false
+  @Input() new: boolean = false
+
+
   butonc() {
     if (this.ref) this.router.navigate([this.ref])
   }

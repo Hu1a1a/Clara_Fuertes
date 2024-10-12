@@ -1,0 +1,74 @@
+.div1 {
+  width: 50%;
+  padding: 25px;
+  text-align-last: center;
+
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+.div2 {
+  width: 50%;
+  padding: 25px;
+
+  @media only screen and (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+button {
+  height: 60px;
+  width: 140px;
+  border-radius: 10px;
+  background-color: #b4c7c0;
+  border-color: transparent;
+  box-shadow: 7px 6px 16px 1px #c1e4d6;
+  padding: 5px 15px;
+  font-family: Reem Kufi Ink;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  color: #6a6056;
+  margin-top: 15px;
+  word-spacing: 2px;
+}
+
+input {
+  background-color: #ffffff;
+  width: 100%;
+  margin: 5px 0px;
+  border-radius: 15px;
+  font-family: Rajdhani;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19.94px;
+  text-align: left;
+  color: #4d5c52;
+  padding: 5px 15px;
+  border-color: transparent;
+}
+
+button:hover {
+  background-color: #8cd2a3;
+  animation: buttonn 1s;
+}
+
+@keyframes buttonn {
+  0% {
+    background-color: #b4c7c0;
+  }
+
+  100% {
+    background-color: #8cd2a3;
+  }
+}
+
+.pincelada {
+  position: absolute;
+  height: 120%;
+  left: -7.5%;
+  z-index: -1;
+  width: 115%;
+}

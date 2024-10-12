@@ -22,6 +22,7 @@ import { AppListadoEsperaComponente } from './app/front/listado_espera/app.compo
 import { AppCompraFailComponent } from './app/front/pay/fail/app.component';
 import { AppEnsaladaComponent } from './app/front/recursos/ensalada/app.component';
 import { AppIntestinalComponent } from './app/front/recursos/intestinal/app.component';
+import { AppDesayunoComponent } from './app/front/recursos/desayuno/app.component';
 
 export const routes: Routes = [
     { path: '', component: AppMainComponent },
@@ -30,6 +31,7 @@ export const routes: Routes = [
             { path: "", component: AppRecursoComponent },
             { path: "ensalada", component: AppEnsaladaComponent },
             { path: "intestinal", component: AppIntestinalComponent },
+            { path: "desayuno", component: AppDesayunoComponent },
             { path: "**", redirectTo: "", pathMatch: "full" },
         ]
     },

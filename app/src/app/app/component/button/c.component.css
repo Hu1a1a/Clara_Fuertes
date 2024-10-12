@@ -65,3 +65,18 @@ button:hover.disabled {
     background-position: 100% 10%
   }
 }
+
+.novedad {
+  position: absolute;
+  right: -20px;
+  top: -50%;
+
+  @media only screen and (max-width: 670px) {
+    right: -10px;
+  }
+
+}
+
+button {
+  position: relative;
+}
