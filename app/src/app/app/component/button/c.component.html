@@ -2,7 +2,8 @@
   <button (click)="butonc()" class [ngClass]="disabled?'disabled':''"
     [title]="text1+text1n+text2"
     [ariaLabel]="text1+text1n+text2">
-    <img src="assets/new.png" alt class="novedad" *ngIf="new">
+    <img src="assets/new.png" alt class="novedad" *ngIf="nuevo">
+    <img src="assets/whats-new.png" alt class="novedad" *ngIf="novedad">
     <span class="bottontext1" *ngIf="text1"> {{text1}} </span>
     <span class="bottontext1" *ngIf="text1n"> <br> {{text1n}} </span> <br
       *ngIf="text2">

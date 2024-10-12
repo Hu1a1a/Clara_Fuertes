@@ -70,6 +70,8 @@ button:hover.disabled {
   position: absolute;
   right: -20px;
   top: -50%;
+  width: 64px;
+  height: 64px;
 
   @media only screen and (max-width: 670px) {
     right: -10px;

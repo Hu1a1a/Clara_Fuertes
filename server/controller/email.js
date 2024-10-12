@@ -6,7 +6,6 @@ const crypto = require("crypto");
 const from = `Clara Fuertes Nutrición <${process.env.EMAIL_USER}>`
 const footer = `
       <h4>
-      <br>
       ¡Un super abrazo!
       <br><br>
       Clara Fuertes Camprubí

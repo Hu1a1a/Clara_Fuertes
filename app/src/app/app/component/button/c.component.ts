@@ -16,7 +16,8 @@ export class ComponentButtonComponent {
   @Input() text2: string = ""
   @Input() ref: string = ""
   @Input() disabled: boolean = false
-  @Input() new: boolean = false
+  @Input() nuevo: boolean = false
+  @Input() novedad: boolean = false
 
 
   butonc() {
