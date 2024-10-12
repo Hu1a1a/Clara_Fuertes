@@ -97,8 +97,26 @@ const recursos = [
       filename: "/TEST PERMEABILIDAD INTESTINAL.pdf",
       path: __dirname + "/../../public/TEST PERMEABILIDAD INTESTINAL.pdf",
     }
+  },
+  {
+    Req: "desayuno",
+    Title: "EMPIEZA EL DÍA SIN INFLAMACIÓN - El desayuno: La comida más importante del día",
+    Html: `
+      <div class="e0">Ebook gratuito Todo sobre el Desayuno</div>
+      <div>
+      Te regalo el Ebook sobre desayunos más completo, para que empieces el día sin inflamación. Apréndelo todo sobre la comida más importante del día.
+      <br>
+      Además, tienes marcadas las opciones aptas en una dieta baja en FODMAP.
+      </div>
+      ${footer}`,
+    Doc: {
+      filename: "/Empieza el día sin inflamación. Desayuno, la comida más importante.pdf",
+      path: __dirname + "/../../public/Empieza el día sin inflamación. Desayuno, la comida más importante.pdf",
+    }
   }
 ]
+
+
 exports.email_recursos = (req, res) => {
   try {
     if (req.body.Name && req.body.Email) {
