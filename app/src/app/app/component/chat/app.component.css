@@ -14,10 +14,6 @@
 div.chat-content {
   height: 80vh;
   overflow-y: auto;
-
-  span {
-    line-break: anywhere;
-  }
 }
 
 .card {

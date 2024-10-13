@@ -2,7 +2,8 @@
   <div style="height: 40px;
   padding: 0 35px 0 25px;display: flex;justify-content: space-between;
   align-items: center;" (click)="showChat=!showChat" class="header">
-    <strong>Chat</strong>
+    <i class="bi bi-chat-dots"></i>
+    <strong>Chat Público</strong>
     <i class="bi bi-arrow-down"></i>
   </div>
   <div class="chat-content" id="screen">
@@ -18,7 +19,9 @@
           style="font-size: 25px;vertical-align: sub;padding: 0px 2px;">{{chatMessage.user==='ClaraFuertes'?'Clara':chatMessage.user}}:
         </strong>
         <span
-          style="font-size: 5pt; color: gray;margin-left: auto;min-width: 34px;vertical-align: sub;">{{chatMessage.data}}</span>
+          style="font-size: 5pt; color: gray;margin-left: auto;min-width: 34px;vertical-align: sub;">
+          {{chatMessage.data}}
+        </span>
         <br>
         <span>{{chatMessage.message}}</span>
       </li>
@@ -42,6 +45,7 @@
   padding: 0 25px;
   align-items: center;" class="header"
     (click)="showChat=!showChat;scrollDown()">
+    <i class="bi bi-chat-dots"></i>
     <strong>Chat</strong>
     <i class="bi bi-arrow-up"></i>
   </div>

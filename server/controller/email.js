@@ -147,7 +147,7 @@ exports.email_recursos = (req, res) => {
                 pool.query(`INSERT INTO regemail VALUES (?,?,?,?,?,?);`, [, req.body.Name, req.body.Email, new Date(), "Recursos - " + req.body.Doc, ""], () => {
                   res.json({ ok: true, msg: "Recurso enviado correctamente, comprueba en su bandeja de entrada!" });
                   c.release();
-                });
+                }); 
               });
             } catch (e) { return res.json({ ok: false, msg: e.toString() }); }
           }
