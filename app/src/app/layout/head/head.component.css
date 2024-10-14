@@ -27,7 +27,13 @@ a:hover {
 
 li {
   margin: 0px 5px;
+  transition: transform 0.3s ease;
 }
+
+li:hover {
+  transform: scale(1.2);
+}
+
 
 .dropdown-menu {
   background-color: #dae4e0;

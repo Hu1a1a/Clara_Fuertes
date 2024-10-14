@@ -36,7 +36,7 @@ export class AppDesayunoComponent implements OnInit {
 }
 
 @Component({
-  selector: 'dialog-component-Intestinal',
+  selector: 'dialog-component-desayuno',
   templateUrl: 'dialog.component.html',
   standalone: true,
   imports: [AngularMaterialModule, CommonModule],

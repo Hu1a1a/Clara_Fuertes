@@ -14,6 +14,11 @@
 .contaco img {
   height: 28px;
   width: 28px;
+  transition: transform 0.3s ease;
+}
+
+.contaco img:hover {
+  transform: scale(1.3);
 }
 
 .contacticon {

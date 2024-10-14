@@ -3,6 +3,12 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Roboto:wght@300;400;500;700;900&display=swap");
 
+:root {
+  --primary-color: #6a6056;
+  --hover-color: #9baba4;
+  --background-color: #dae4e0;
+}
+
 .body {
   min-height: 75vh;
   width: 100%;
