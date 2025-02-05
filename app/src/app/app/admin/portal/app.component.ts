@@ -75,7 +75,7 @@ export class AppAdminPortalComponent implements OnInit {
   getCurso = (cursoId: string): any => this.data["curso/level1"].data.find((a: any) => a.id === cursoId)?.Name
 
   sort() {
-    this.data["curso/level2"].data = this.data["curso/level2"].data.sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
+    this.data["curso/level2"].data = this.data["curso/level2"].data.sort((a: any, b: any) => a.orden >= b.orden ? 1 : -1).sort((a: any, b: any) => a.depId >= b.depId ? 1 : -1)
     this.data["curso/video"].data = this.data["curso/video"].data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
     this.data["email"].data = this.data["email"].data.sort((a: any, b: any) => a.Date >= b.Date ? -1 : 1)
   }

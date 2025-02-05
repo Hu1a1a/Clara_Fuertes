@@ -49,3 +49,9 @@ img {
   width: 356px;
   height: 114px;
 }
+
+@media only screen and (max-width: 400px) {
+  .sessionClose {
+    display: none
+  }
+}

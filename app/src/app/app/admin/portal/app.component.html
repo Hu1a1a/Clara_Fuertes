@@ -1,13 +1,10 @@
 <ng-container *ngIf="loading">
-	<div
-		style="position: fixed;z-index: 100;height: 100vh;width: 100vw;background-color: black;opacity: 0.3;">
-		<div class="spinner-border text-success"
-			role="status"
-			style="width: 100px;height: 100px;">
+	<div style="position: fixed;z-index: 100;height: 100vh;width: 100vw;background-color: black;opacity: 0.3;">
+		<div class="spinner-border text-success" role="status" style="width: 100px;height: 100px;">
 		</div>
 	</div>
 </ng-container>
-<div class="container">
+<div>
 	<mat-tab-group *ngIf="!loading">
 		<mat-tab label="Master">
 			<div class="Manual" [innerHTML]="getTIP('TIP_Master')"> </div>
@@ -33,40 +30,50 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<td>Curso</td>
-						<td>Fase</td>
-						<td>item</td>
-						<td>Orden</td>
-						<td width="35%">Nombre</td>
-						<td width="35%">Descripción</td>
+						<td style="width: 60px;">Curso</td>
+						<td style="width: 60px;">Fase</td>
+						<td style="width: 60px;">item</td>
+						<td style="width: 60px;">Orden</td>
+						<td>Nombre</td>
+						<td>Descripción</td>
+						<td style="width: 40px;"></td>
 					</tr>
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let i1 of data['curso/level1'].data;index as i">
-						<tr (click)="OpenModal(i1,'curso/level1','update')">
+						<tr (click)="i1.showModal=i1.showModal?false:true">
 							<td style="background-color: green;" colspan="3"> {{i+1}}</td>
-							<td>-</td>
+							<td></td>
 							<td>{{i1.Name}}</td>
 							<td>{{i1.Description}}</td>
+							<td (click)="$event.stopPropagation();OpenModal(i1,'curso/level1','update')">
+								<mat-icon> edit </mat-icon>
+							</td>
 						</tr>
 						<ng-container *ngFor="let i2 of data['curso/level2'].data;index as j">
 							<ng-container *ngIf="i1.id===i2.level1">
-								<tr (click)="OpenModal(i2,'curso/level2','update')">
-									<td>-</td>
-									<td style="background-color: orange" colspan="2">{{j+1}}</td>
+								<tr (click)="i2.showModal=i2.showModal?false:true"
+									[style.display]="i1.showModal?'':'none'">
+									<td></td>
+									<td style="background-color: orange">{{j+1}}</td>
 									<td>+{{i2.Duracion}} día</td>
+									<td>{{i2.orden}}</td>
 									<td>{{i2.Name}}</td>
 									<td>{{i2.Description}}</td>
+									<td (click)="$event.stopPropagation();OpenModal(i2,'curso/level2','update')">
+										<mat-icon> edit </mat-icon>
+									</td>
 								</tr>
 								<ng-container *ngFor="let v of data['curso/video'].data;index as k">
 									<ng-container *ngIf="i2.id===v.level2">
-										<tr (click)="OpenModal(v,'curso/video','update')">
-											<td>-</td>
-											<td>-</td>
+										<tr (click)="OpenModal(v,'curso/video','update')"
+											[style.display]="(i1.showModal && i2.showModal)?'':'none'">
+											<td></td>
+											<td></td>
 											<td style="background-color: orangered;">{{k+1}}</td>
 											<td>{{v.Orden}}</td>
 											<td>{{v.Name}}</td>
-											<td [title]="v.Description">
+											<td [title]="v.Description" colspan="2">
 												{{v.Description.slice(0,100)}}{{v.Description.length>100?'...':''}}
 											</td>
 										</tr>
@@ -77,25 +84,16 @@
 					</ng-container>
 				</tbody>
 			</table>
-			<button
-				(click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')"
-				mat-raised-button
-				aria-label="Añadir Grupo"
-				color="primary">
+			<button (click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')" mat-raised-button
+				aria-label="Añadir Grupo" color="primary">
 				Añadir Grupo
 			</button>
-			<button
-				(click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')"
-				mat-raised-button
-				aria-label="Añadir Fase"
-				color="primary">
+			<button (click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')" mat-raised-button
+				aria-label="Añadir Fase" color="primary">
 				Añadir Fase
 			</button>
-			<button
-				(click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')"
-				mat-raised-button
-				aria-label="Añadir Video"
-				color="primary">
+			<button (click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')" mat-raised-button
+				aria-label="Añadir Video" color="primary">
 				Añadir Video
 			</button>
 		</mat-tab>
@@ -123,9 +121,7 @@
 					</ng-container>
 				</tbody>
 			</table>
-			<button (click)="OpenModal(data['user'].data[0],'user','create')"
-				mat-raised-button
-				color="primary">
+			<button (click)="OpenModal(data['user'].data[0],'user','create')" mat-raised-button color="primary">
 				Añadir Usuario
 			</button>
 		</mat-tab>
@@ -147,17 +143,13 @@
 							<td>{{u.id}}</td>
 							<td>{{u.cursoId}} - {{getCurso(u.cursoId)}}</td>
 							<td>{{u.userId}} - {{getUser(u.userId)}}</td>
-							<td
-								[style.backgroundColor]="Date(u.inicio)>now?'orange':''">{{u.inicio}}</td>
-							<td
-								[style.backgroundColor]="Date(u.expiro)<now?'orange':''">{{u.expiro}}</td>
+							<td [style.backgroundColor]="Date(u.inicio)>now?'orange':''">{{u.inicio}}</td>
+							<td [style.backgroundColor]="Date(u.expiro)<now?'orange':''">{{u.expiro}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
 			</table>
-			<button
-				(click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')"
-				mat-raised-button
+			<button (click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')" mat-raised-button
 				color="primary">
 				Añadir Curso
 			</button>
@@ -179,16 +171,15 @@
 						<tr (click)="OpenModal(u,'comentario','update')">
 							<td>{{u.id}}</td>
 							<td>{{u.Name}}</td>
-							<td
-								[title]="u.Description">{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
+							<td [title]="u.Description">
+								{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
 							<td>{{u.Star}}</td>
 							<td>{{u.Type}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
 			</table>
-			<button (click)="OpenModal(data['comentario'].data[0],'comentario','create')"
-				mat-raised-button
+			<button (click)="OpenModal(data['comentario'].data[0],'comentario','create')" mat-raised-button
 				color="primary">
 				Añadir Comentario
 			</button>
@@ -200,17 +191,14 @@
 					<mat-label> Unsubscriber </mat-label>
 					<input [(ngModel)]="UnsubscriberMail" matInput>
 				</mat-form-field>
-				<button mat-fab extended style="width: 25%;margin: 0 2.5%;"
-					(click)="Unsubscriber()">
+				<button mat-fab extended style="width: 25%;margin: 0 2.5%;" (click)="Unsubscriber()">
 					<mat-icon>delete</mat-icon>
 					Unsubscriber
 				</button>
 			</div>
-			<mat-button-toggle-group [(ngModel)]="emailFilter"
-				style="flex-wrap: wrap;justify-content: space-around;">
+			<mat-button-toggle-group [(ngModel)]="emailFilter" style="flex-wrap: wrap;justify-content: space-around;">
 				<mat-button-toggle> All </mat-button-toggle>
-				<mat-button-toggle
-					*ngFor="let type of emailColor" [value]="type.Name"
+				<mat-button-toggle *ngFor="let type of emailColor" [value]="type.Name"
 					[style.backgroundColor]="type.Color">
 					{{type.Name}}
 				</mat-button-toggle>
@@ -227,16 +215,12 @@
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let u of data['email'].data;index as i">
-						<tr *ngIf="!emailFilter || emailFilter===u.Tipo"
-							(click)="UnsubscriberMail=u.Email">
+						<tr *ngIf="!emailFilter || emailFilter===u.Tipo" (click)="UnsubscriberMail=u.Email">
 							<td>{{u.Name}}</td>
 							<td>{{u.Email}}</td>
 							<td>{{u.Date}}</td>
-							<td
-								[style.backgroundColor]="getColor(u.Tipo)"
-								(click)="emailFilter=u.Tipo">{{u.Tipo}}</td>
-							<td
-								[title]="u.msg">{{u.msg?.slice(0,100)}}{{u.msg?.length>100?'...”':''}}</td>
+							<td [style.backgroundColor]="getColor(u.Tipo)" (click)="emailFilter=u.Tipo">{{u.Tipo}}</td>
+							<td [title]="u.msg">{{u.msg?.slice(0,100)}}{{u.msg?.length>100?'...”':''}}</td>
 						</tr>
 					</ng-container>
 				</tbody>
@@ -265,68 +249,46 @@
 		</mat-tab>
 	</mat-tab-group>
 </div>
-<section *ngIf="modal" (click)="modalClick($event)"
-	class="modal-form">
+
+<section *ngIf="modal" (click)="modalClick($event)" class="modal-form">
 	<div class="form-container">
-		<div (click)="modal=false"
-			class="close-modal"
-			style="justify-content: center;">
+		<div (click)="modal=false" class="close-modal" style="justify-content: center;">
 			x
 		</div>
 		<h2 style="margin: 0;">
 			{{ sAccion }} {{ sRouter }}
 		</h2>
-		<ng-container *ngFor="let item of Key(sData)">
-			<ng-container
-				*ngIf="item === 'level1' || item === 'level2' || item === 'depId'; else elseTemplate">
-				<mat-form-field style="width: 100%;">
-					<mat-label>{{item}}</mat-label>
-					<mat-select [(ngModel)]="sData[item]">
-						<mat-option
-							*ngIf=" item === 'depId'"
-							[value]="0">
-							Sin dependencia
+		<ng-container *ngFor="let item of Key(sData)" [ngSwitch]="item">
+			<ng-container *ngSwitchCase="'showModal'"></ng-container>
+			<mat-form-field style="width: 100%;"
+				*ngSwitchCase="(item === 'level1' || item === 'level2' || item === 'depId')?item:''">
+				<mat-label>{{item}}</mat-label>
+				<mat-select [(ngModel)]="sData[item]">
+					<mat-option *ngIf="item==='depId'" [value]="0">
+						Sin dependencia
+					</mat-option>
+					<ng-container *ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data">
+						<mat-option *ngIf="item !== 'depId' || (item === 'depId' && i.level1 === sData.level1)"
+							[value]="i.id">
+							{{i.Name}}
 						</mat-option>
-						<ng-container
-							*ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data">
-							<mat-option
-								*ngIf="item !== 'depId' || (item === 'depId' && i.level1 === sData.level1)"
-								[value]="i.id">
-								{{i.Name}}
-							</mat-option>
-						</ng-container>
-					</mat-select>
-				</mat-form-field>
-			</ng-container>
-			<ng-template #elseTemplate>
-				<ng-container
-					*ngIf="item === 'Description' || item === 'progreso' || item === 'data'; else elseTemplate">
-					<mat-form-field style="width: 100%;">
-						<mat-label>{{item}}</mat-label>
-						<textarea [(ngModel)]="sData[item]"
-							matInput
-							rows="5"></textarea>
-					</mat-form-field>
-				</ng-container>
-				<ng-template #elseTemplate>
-					<mat-form-field style="width: 100%;">
-						<mat-label>{{item}}</mat-label>
-						<input [(ngModel)]="sData[item]"
-							[disabled]="item==='id'"
-							matInput>
-					</mat-form-field>
-				</ng-template>
-			</ng-template>
+					</ng-container>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field style="width: 100%;"
+				*ngSwitchCase="(item === 'Description' || item === 'progreso' || item === 'data')?item:''">
+				<mat-label>{{item}}</mat-label>
+				<textarea [(ngModel)]="sData[item]" matInput rows="5"></textarea>
+			</mat-form-field>
+			<mat-form-field style="width: 100%;" *ngSwitchDefault>
+				<mat-label>{{item}}</mat-label>
+				<input [(ngModel)]="sData[item]" [disabled]="item==='id'" matInput>
+			</mat-form-field>
 		</ng-container>
-		<button (click)="Accion(sData,sRouter,sAccion)"
-			mat-raised-button
-			color="primary">
+		<button (click)="Accion(sData,sRouter,sAccion)" mat-raised-button color="primary">
 			{{ sAccion }} {{ sRouter }}
 		</button>
-		<button *ngIf="sAccion==='update'"
-			(click)="Accion(sData,sRouter,'delete')"
-			mat-raised-button
-			color="primary">
+		<button *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')" mat-raised-button color="primary">
 			delete {{ sRouter }}
 		</button>
 	</div>
