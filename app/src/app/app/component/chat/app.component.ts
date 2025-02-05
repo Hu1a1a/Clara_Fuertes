@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../service/api.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-component-chat',
@@ -19,7 +19,11 @@ export class ComponentChatComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem("jwt")?.split("_____")[1]) {
-      this.chatForm = this.fb.group({ message: '', user: localStorage.getItem("jwt")?.split("_____")[1], data: new Date().toISOString() })
+      this.chatForm = this.fb.group({
+        message: new FormControl('', [Validators.required, Validators.minLength(1)]),
+        user: localStorage.getItem("jwt")?.split("_____")[1],
+        data: new Date().toISOString()
+      })
       this.subject = this.api.wsConnection()
       this.subject.onmessage = (data: any) => {
         this.chatMessages.push(...JSON.parse(data.data))
@@ -29,10 +33,12 @@ export class ComponentChatComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chatForm.patchValue({ data: new Date().toISOString().split(".")[0] })
-    this.subject.send(JSON.stringify(this.chatForm.getRawValue()))
-    this.chatForm.patchValue({ message: "" })
-    this.scrollDown()
+    if (this.chatForm.status === "VALID") {
+      this.chatForm.patchValue({ data: new Date().toISOString().split(".")[0] })
+      this.subject.send(JSON.stringify(this.chatForm.getRawValue()))
+      this.chatForm.patchValue({ message: "" })
+      this.scrollDown()
+    }
   }
 
   scrollDown() {
