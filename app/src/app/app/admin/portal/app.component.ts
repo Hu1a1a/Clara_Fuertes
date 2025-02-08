@@ -91,6 +91,7 @@ export class AppAdminPortalComponent implements OnInit {
   }
 
   async Accion(data: any, router: SQLClass, accion: SQLAccion) {
+    delete data.showModal
     await this.api.Accion(data, router, accion)
     this.data[router] = await this.api.Get(router)
     this.sort()
@@ -103,6 +104,10 @@ export class AppAdminPortalComponent implements OnInit {
   async Unsubscriber() {
     await this.api.Accion({ id: this.UnsubscriberMail }, "email", "delete")
     this.data["email"] = await this.api.Get("email")
+  }
+  Duplicar() {
+    this.sAccion = "create"
+    this.sData.id = null
   }
 }
 

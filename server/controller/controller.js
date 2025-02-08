@@ -17,7 +17,7 @@ exports.ADD = (Table, req, res) => {
   for (const key of Object.keys(req.body.data)) {
     if (key !== "id") {
       stringK += `, ${key}`;
-      stringd += `, '${req.body.data[key]}'`;
+      stringd += typeof req.body.data[key] === "string" ? `, '${req.body.data[key]}'` : `, ${req.body.data[key]}`;
     }
   }
   stringK = stringK.replace(",", "");
@@ -33,11 +33,15 @@ exports.ADD = (Table, req, res) => {
 
 exports.UPDATE = (Table, req, res) => {
   let string = "";
-  for (const key of Object.keys(req.body.data)) string += `, ${key}  = '${req.body.data[key]}'`;
+  for (const key of Object.keys(req.body.data)) {
+    string += `, ${key}  = `
+    string += typeof req.body.data[key] === "string" ? `'${req.body.data[key]}'` : `${req.body.data[key]}`;
+  }
   string = string.replace(",", "");
   pool.getConnection((e, c) => {
     pool.query(`UPDATE ${Table} SET ${string} WHERE id = ${req.body.data.id};`, (e, r) => {
       c.release();
+      console.log(e)
       if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
       else return res.json({ ok: true, data: r });
     });

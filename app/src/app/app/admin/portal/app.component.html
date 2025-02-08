@@ -85,16 +85,16 @@
 				</tbody>
 			</table>
 			<button (click)="OpenModal(data['curso/level1'].data[0],'curso/level1','create')" mat-raised-button
-				aria-label="Añadir Grupo" color="primary">
-				Añadir Grupo
+				aria-label="Añadir Curso" color="primary">
+				Añadir Curso
 			</button>
 			<button (click)="OpenModal(data['curso/level2'].data[0], 'curso/level2','create')" mat-raised-button
 				aria-label="Añadir Fase" color="primary">
 				Añadir Fase
 			</button>
 			<button (click)="OpenModal(data['curso/video'].data[0], 'curso/video','create')" mat-raised-button
-				aria-label="Añadir Video" color="primary">
-				Añadir Video
+				aria-label="Añadir Item" color="primary">
+				Añadir Item
 			</button>
 		</mat-tab>
 		<mat-tab label="Usuario">
@@ -264,7 +264,7 @@
 				*ngSwitchCase="(item === 'level1' || item === 'level2' || item === 'depId')?item:''">
 				<mat-label>{{item}}</mat-label>
 				<mat-select [(ngModel)]="sData[item]">
-					<mat-option *ngIf="item==='depId'" [value]="0">
+					<mat-option *ngIf="item==='depId'" [value]="null">
 						Sin dependencia
 					</mat-option>
 					<ng-container *ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data">
@@ -286,10 +286,13 @@
 			</mat-form-field>
 		</ng-container>
 		<button (click)="Accion(sData,sRouter,sAccion)" mat-raised-button color="primary">
-			{{ sAccion }} {{ sRouter }}
+			{{ sAccion | uppercase}} {{ sRouter }}
 		</button>
-		<button *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')" mat-raised-button color="primary">
-			delete {{ sRouter }}
+		<button *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')" mat-raised-button color="warn">
+			BORRAR {{ sRouter }}
+		</button>
+		<button *ngIf="sAccion==='update'" (click)="Duplicar()" mat-raised-button color="info">
+			DUPLICAR {{ sRouter }}
 		</button>
 	</div>
 </section>
