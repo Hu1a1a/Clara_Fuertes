@@ -79,7 +79,6 @@ export class AppAdminPortalComponent implements OnInit {
     this.data["curso/video"].data = this.data["curso/video"].data.sort((a: any, b: any) => a.Orden >= b.Orden ? 1 : -1)
     this.data["email"].data = this.data["email"].data.sort((a: any, b: any) => a.Date >= b.Date ? -1 : 1)
     this.data["master"].data = this.data["master"].data.sort((a: any, b: any) => a.master.split(" - ")[0] >= b.master.split(" - ")[0] ? 1 : -1)
-    console.log(this.data["master"])
   }
 
   OpenModal(data: any, router: SQLClass, accion: SQLAccion) {

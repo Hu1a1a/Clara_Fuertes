@@ -16,7 +16,7 @@
                 <ul class="navbar-nav">
                     <ng-container *ngFor="let item of Menu">
                         <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                            *ngIf="find(api.SQL_Master.data,'master','Visibilidad - '+item.Name).data"
+                            *ngIf="api.SQL_Master && find(api.SQL_Master.data,'master','Visibilidad - '+item.Name)?.data"
                             aria-controls="navbarNavDropdown">
                             <a class="nav-link menu" (click)="href(item)" [href]="item.Router"
                                 [ngClass]="router.url==='/'+item.Router?'active':''"

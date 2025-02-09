@@ -23,7 +23,7 @@ export class AppComponent {
   Loading: boolean = true
   ngOnInit() {
     if (!this.api.SQL_Master) this.api.Get("master").then((data) => this.api.SQL_Master = data)
-    this.Loading = false
+    setTimeout(() => this.Loading = false, 0);
     this.meta.addTags([
       { name: 'twitter:site', content: '@clara_nutricion)' },
       { name: 'og:site_name', content: 'Clara Fuertes Nutrición)' },

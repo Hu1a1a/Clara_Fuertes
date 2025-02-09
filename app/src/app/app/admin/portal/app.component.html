@@ -80,7 +80,7 @@
 											<td>{{v.Orden}}</td>
 											<td>{{v.Name}}</td>
 											<td [title]="v.Description" colspan="2">
-												{{v.Description.slice(0,100)}}{{v.Description.length>100?'...':''}}
+												{{v.Description?.slice(0,100)}}{{v.Description?.length>100?'...':''}}
 											</td>
 										</tr>
 									</ng-container>
@@ -178,7 +178,7 @@
 							<td>{{u.id}}</td>
 							<td>{{u.Name}}</td>
 							<td [title]="u.Description">
-								{{u.Description.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
+								{{u.Description?.slice(0,100)}}{{u.Description.length>100?'...”':''}}</td>
 							<td>{{u.Star}}</td>
 							<td>{{u.Type}}</td>
 						</tr>
