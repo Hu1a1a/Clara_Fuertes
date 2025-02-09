@@ -139,8 +139,9 @@
     style="justify-content: center;flex-direction: column;align-items: center;margin: 25px 15px 50px 15px;text-align: -webkit-center;">
     <img src="assets/main/ayudarte.png" alt="foto ayudarte" title="ayudarte"
         style="width: 245px; max-width: 90vw; margin-bottom: 10px;">
+    @defer() {
     <div class="aconpanamiento" (click)="router.navigate(['listadoEspera'])" ngSkipHydration
-        *ngIf="find(api.SQL_Master.data,'master','Control - Lista de espera')?.data || true">
+        *ngIf="find(api.SQL_Master.data,'master','Control - Lista de espera').data">
         <div style="border: 2px #3F3F3F dashed; position: absolute;width: 100%;height: 100%;top: -10px; left: 10px;">
         </div>
         <p style="color: #605E5E;">
@@ -181,6 +182,7 @@
         </app-component-button>
     </div>
     <br>
+    }
 </div>
 <div class="row" ngSkipHydration
     style="width: 100%;background-color: #E5E5E55C;padding: 50px 1vw;border-bottom: 15px solid #C1E4D6;justify-content: center;">
