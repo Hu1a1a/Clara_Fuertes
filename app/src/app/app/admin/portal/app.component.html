@@ -11,14 +11,20 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<td>Master</td>
+						<td style="width: 120px;">Control</td>
+						<td style="width: 180px;">Master</td>
 						<td>Data</td>
 					</tr>
 				</thead>
 				<tbody>
 					<ng-container *ngFor="let i1 of data['master'].data;index as i">
-						<tr (click)="OpenModal(i1,'master','update')">
-							<td>{{i1.master}}</td>
+						<tr (click)="showGroup('master', i1.master.split(' - ')[0])"
+							*ngIf="i===0 || data['master'].data[i-1].master.split(' - ')[0] !==i1.master.split(' - ')[0]">
+							<td colspan="3">{{i1.master.split(" - ")[0]}}</td>
+						</tr>
+						<tr (click)="OpenModal(i1,'master','update')" [style.display]="i1.showModal?'':'none'">
+							<td></td>
+							<td>{{i1.master.split(" - ")[1]}}</td>
 							<td>{{i1.data}}</td>
 						</tr>
 					</ng-container>

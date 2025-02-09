@@ -139,7 +139,7 @@
     style="justify-content: center;flex-direction: column;align-items: center;margin: 25px 15px 50px 15px;text-align: -webkit-center;">
     <img src="assets/main/ayudarte.png" alt="foto ayudarte" title="ayudarte"
         style="width: 245px; max-width: 90vw; margin-bottom: 10px;">
-    <div class="aconpanamiento" (click)="router.navigate(['listadoEspera'])"
+    <div class="aconpanamiento" (click)="router.navigate(['listadoEspera'])" ngSkipHydration
         *ngIf="find(api.SQL_Master.data,'master','Control - Lista de espera')?.data || true">
         <div style="border: 2px #3F3F3F dashed; position: absolute;width: 100%;height: 100%;top: -10px; left: 10px;">
         </div>
@@ -156,20 +156,20 @@
             para ser la primera en enterarte y&nbsp;puedas&nbsp;reservar la tuya
         </p>
     </div>
-    <app-component-button text1="CURSOS PARA TI" (click)="openModal()"
-        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Cursos para ti')?.data || true">
+    <app-component-button text1="CURSOS PARA TI" (click)="openModal()" ngSkipHydration
+        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Cursos para ti').data">
     </app-component-button> <br>
-    <app-component-button text1="SANA TUS DIGESTIONES" text2="Acompañamiento 1:1" ref="digestion"
-        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Sana tus digestiones')?.data || true">
+    <app-component-button text1="SANA TUS DIGESTIONES" text2="Acompañamiento 1:1" ref="digestion" ngSkipHydration
+        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Sana tus digestiones').data">
     </app-component-button> <br>
-    <app-component-button text1="PÉRDIDA DE GRASA" text2="Acompañamiento 1:1" ref="perdidagrasa"
-        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Pérdida de grasa')?.data || true">
+    <app-component-button text1="PÉRDIDA DE GRASA" text2="Acompañamiento 1:1" ref="perdidagrasa" ngSkipHydration
+        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Pérdida de grasa').data">
     </app-component-button> <br>
-    <app-component-button text1="ÚNICO ASESORAMIENTO" ref="asesoramiento"
-        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Asesoramiento único')?.data || true">
+    <app-component-button text1="ÚNICO ASESORAMIENTO" ref="asesoramiento" ngSkipHydration
+        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Asesoramiento único').data">
     </app-component-button><br>
-    <app-component-button text1="RECURSOS GRATUITOS" ref="recursos" [novedad]="true"
-        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Recursos gratuitos')?.data || true">
+    <app-component-button text1="RECURSOS GRATUITOS" ref="recursos" [novedad]="true" ngSkipHydration
+        *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Recursos gratuitos').data">
     </app-component-button> <br>
 </div>
 <div class="row" ngSkipHydration
