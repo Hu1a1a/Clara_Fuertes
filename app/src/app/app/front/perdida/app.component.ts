@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../module/app.angular.material.component';
 import { AngularModule } from '../../../module/app.angular.component copy';
-import { ComponentButtonComponent } from '../../component/button/c.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../service/api.service';
@@ -13,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-perdida',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, CommonModule, ComponentCardGroupComponent],
+  imports: [AngularMaterialModule, AngularModule, CommonModule, ComponentCardGroupComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
@@ -31,7 +30,7 @@ export class AppPerdidaComponent implements OnInit {
   }
 
   async ComprarCurso() {
-    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Curso Perdida").data })
+    const data = await this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price - Curso Perdida").data })
     if (data.ok) {
       localStorage.setItem("stripe", data.url)
       window.location.href = data.url

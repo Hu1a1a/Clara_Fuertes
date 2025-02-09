@@ -85,7 +85,7 @@ export class AppAdminPortalComponent implements OnInit {
     this.sAccion = accion
     if (this.sAccion === "create") {
       this.sData = JSON.parse(JSON.stringify(data))
-      for (const d of Object.keys(this.sData)) this.sData[d] = ""
+      for (const d of Object.keys(this.sData)) this.sData[d] = null
     } else this.sData = data
     this.modal = true
   }

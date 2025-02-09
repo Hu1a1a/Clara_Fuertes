@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularMaterialModule } from '../../../../module/app.angular.material.component';
 import { AngularModule } from '../../../../module/app.angular.component copy';
-import { ComponentButtonComponent } from '../../../component/button/c.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,7 +11,7 @@ import { PlantillaComponent } from '../plantilla/plantilla.component';
 @Component({
   selector: 'app-asesoramiento-patologia',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, PlantillaComponent],
+  imports: [AngularMaterialModule, AngularModule, PlantillaComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../../style.component.css"]
 })
@@ -25,7 +24,7 @@ export class AppAsesorPatologiaComponent implements OnInit {
     this.dialog.open(DialogPatologia, {})
   }
   ComprarCurso() {
-    this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price Asesoramiento Patologia").data })
+    this.api.paySession({ StripeId: this.api.SQL_Master.data.find((a: any) => a.master === "Stripe Price - Asesoramiento Patologia").data })
       .then((data) => {
         if (data.ok && data.url) {
           localStorage.setItem("stripe", data.url)

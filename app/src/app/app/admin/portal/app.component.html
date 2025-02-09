@@ -7,7 +7,7 @@
 <div>
 	<mat-tab-group *ngIf="!loading">
 		<mat-tab label="Master">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Master')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Master')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -26,7 +26,7 @@
 			</table>
 		</mat-tab>
 		<mat-tab label="Curso">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Curso')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Curso')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -98,7 +98,7 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Usuario">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Usuario')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Usuario')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -126,7 +126,7 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Progreso">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Progreso')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Progreso')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -155,7 +155,7 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Comentario">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Comentario')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Comentario')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -185,7 +185,7 @@
 			</button>
 		</mat-tab>
 		<mat-tab label="Correo">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Correo')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Correo')"> </div>
 			<div class="row" style="width: 100%;margin-top: 5px;">
 				<mat-form-field style="width: 70%;">
 					<mat-label> Unsubscriber </mat-label>
@@ -227,7 +227,7 @@
 			</table>
 		</mat-tab>
 		<mat-tab label="Chat">
-			<div class="Manual" [innerHTML]="getTIP('TIP_Chat')"> </div>
+			<div class="Manual" [innerHTML]="getTIP('TIP - Chat')"> </div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -288,10 +288,11 @@
 		<button (click)="Accion(sData,sRouter,sAccion)" mat-raised-button color="primary">
 			{{ sAccion | uppercase}} {{ sRouter }}
 		</button>
-		<button *ngIf="sAccion==='update'" (click)="Accion(sData,sRouter,'delete')" mat-raised-button color="warn">
+		<button *ngIf="sAccion==='update' && sRouter !=='master'" (click)="Accion(sData,sRouter,'delete')"
+			mat-raised-button color="warn">
 			BORRAR {{ sRouter }}
 		</button>
-		<button *ngIf="sAccion==='update'" (click)="Duplicar()" mat-raised-button color="info">
+		<button *ngIf="sAccion==='update' && sRouter !=='master'" (click)="Duplicar()" mat-raised-button color="info">
 			DUPLICAR {{ sRouter }}
 		</button>
 	</div>

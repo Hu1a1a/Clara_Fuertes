@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularMaterialModule } from '../../module/app.angular.material.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-head',
@@ -12,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './head.component.css'
 })
 export class HeadComponent {
-  constructor(public router: Router, public dialog: MatDialog) { }
+  constructor(public router: Router, public dialog: MatDialog, public api: ApiService) { }
 
   Menu: { Name: string, Router: string, Disabled?: boolean }[] = [
     { Name: "Inicio", Router: "" },
@@ -37,6 +38,9 @@ export class HeadComponent {
   CerrarSession() {
     localStorage.removeItem("jwt")
     this.router.navigate(["/login/"])
+  }
+  find(array: any[], value: string, data: string) {
+    return array.find((a: any) => a[value] === data)
   }
 }
 

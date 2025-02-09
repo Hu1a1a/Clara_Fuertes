@@ -17,18 +17,22 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class AppMainComponent implements OnInit {
-  constructor(private api: ApiService, public dialog: MatDialog, public router: Router, private title: Title) { }
+  constructor(public api: ApiService, public dialog: MatDialog, public router: Router, private title: Title) { }
   comentario!: any
   plaza: string = "PLAZAS AGOTADAS"
   async ngOnInit() {
     this.title.setTitle("Clara Fuertes Nutrición - Dieta antiinflamatoria")
     if (!this.api.SQL_Comment) this.api.SQL_Comment = await this.api.Get("comentario")
     this.comentario = this.api.SQL_Comment.data.filter((a: any) => a.Type.split(" ").includes("Home"))
-    this.plaza = this.api.SQL_Master.data.find((a: any) => a.master === "Lista de espera").data
+    this.plaza = this.api.SQL_Master.data.find((a: any) => a.master === "Control - Lista de espera").data
   }
 
   openModal() {
     this.dialog.open(DialogDisable, {});
+  }
+
+  find(array: any[], value: string, data: string) {
+    return array.find((a: any) => a[value] === data)
   }
 }
 

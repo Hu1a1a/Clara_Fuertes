@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-listado-esperae',
   standalone: true,
-  imports: [AngularMaterialModule, AngularModule, ComponentButtonComponent, CommonModule],
+  imports: [AngularMaterialModule, AngularModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', "../style.component.css"]
 })
@@ -28,6 +28,6 @@ export class AppListadoEsperaComponente implements OnInit {
   plaza: string = "PLAZAS AGOTADAS"
   ngOnInit(): void {
     this.title.setTitle("Lista de espera - Clara Fuertes Nutrición")
-    this.api.Get("master").then((a) => this.plaza = a.data.find((a: any) => a.master === "Lista de espera").data)
+    this.api.Get("master").then((a) => this.plaza = a.data.find((a: any) => a.master === "Control - Lista de espera").data)
   }
 }
