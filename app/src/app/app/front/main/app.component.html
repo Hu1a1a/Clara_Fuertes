@@ -160,28 +160,28 @@
     <div ngSkipHydration *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Cursos para ti').data">
         <app-component-button text1="CURSOS PARA TI" (click)="openModal()">
         </app-component-button>
+        <br>
     </div>
-    <br>
     <div ngSkipHydration *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Sana tus digestiones').data">
         <app-component-button text1="SANA TUS DIGESTIONES" text2="Acompañamiento 1:1" ref="digestion">
         </app-component-button>
+        <br>
     </div>
-    <br>
     <div ngSkipHydration *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Pérdida de grasa').data">
         <app-component-button text1="PÉRDIDA DE GRASA" text2="Acompañamiento 1:1" ref="perdidagrasa">
         </app-component-button>
+        <br>
     </div>
-    <br>
     <div ngSkipHydration *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Asesoramiento único').data">
         <app-component-button text1="ÚNICO ASESORAMIENTO" ref="asesoramiento">
         </app-component-button>
+        <br>
     </div>
-    <br>
     <div ngSkipHydration *ngIf="find(api.SQL_Master.data,'master','Visibilidad - Recursos gratuitos').data">
         <app-component-button text1="RECURSOS GRATUITOS" ref="recursos" [novedad]="true">
         </app-component-button>
+        <br>
     </div>
-    <br>
     }
 </div>
 <div class="row" ngSkipHydration

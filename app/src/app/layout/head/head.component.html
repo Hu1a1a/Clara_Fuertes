@@ -12,6 +12,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
+            @defer() {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <ng-container *ngFor="let item of Menu">
@@ -22,7 +23,7 @@
                                 aria-controls="navbarNavDropdown">
                                 <a class="nav-link menu" (click)="href(item)" [href]="item.Router"
                                     [ngClass]="router.url==='/'+item.Router?'active':''"
-                                    [title]="'Ir al apartado de '+item.Name" >
+                                    [title]="'Ir al apartado de '+item.Name">
                                     {{item.Name}}
                                 </a>
                             </li>
@@ -30,6 +31,7 @@
                     </ng-container>
                 </ul>
             </div>
+            }
         </ng-container>
         <ng-container *ngIf="router.url.startsWith('/admin/')">
             <button mat-raised-button color="primary" (click)="CerrarSession()" class="sessionClose">
