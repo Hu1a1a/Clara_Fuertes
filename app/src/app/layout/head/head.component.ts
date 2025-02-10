@@ -24,15 +24,13 @@ export class HeadComponent {
     { Name: "Asesoramiento único", Router: "asesoramiento" },
     { Name: "Portal Curso", Router: "login" },
   ]
-  openModal(item: { Name: string, Router: string, Disabled?: boolean }) {
-    if (item.Disabled) {
-      event?.preventDefault()
-      this.dialog.open(DialogDisabled, {});
-    }
-  }
+
   href(item: any) {
     if (!item.Disabled) {
       this.router.navigate([item.Router])
+    } else if (item.Disabled) {
+      event?.preventDefault()
+      this.dialog.open(DialogDisabled, {});
     }
   }
   CerrarSession() {

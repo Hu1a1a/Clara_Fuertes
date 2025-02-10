@@ -267,16 +267,37 @@
 		<ng-container *ngFor="let item of Key(sData)" [ngSwitch]="item">
 			<ng-container *ngSwitchCase="'showModal'"></ng-container>
 			<mat-form-field style="width: 100%;"
-				*ngSwitchCase="(item === 'level1' || item === 'level2' || item === 'depId')?item:''">
+				*ngSwitchCase="(item === 'level1' || item === 'cursoId' || item === 'level2' || item === 'depId')?item:''">
 				<mat-label>{{item}}</mat-label>
 				<mat-select [(ngModel)]="sData[item]">
 					<mat-option *ngIf="item==='depId'" [value]="null">
 						Sin dependencia
 					</mat-option>
-					<ng-container *ngFor="let i of data[item === 'level1'?'curso/level1':'curso/level2'].data">
+					<ng-container
+						*ngFor="let i of data[(item === 'level1'||item === 'cursoId')?'curso/level1':'curso/level2'].data">
 						<mat-option *ngIf="item !== 'depId' || (item === 'depId' && i.level1 === sData.level1)"
 							[value]="i.id">
 							{{i.Name}}
+						</mat-option>
+					</ng-container>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field style="width: 100%;" *ngSwitchCase="(item === 'userId')?item:''">
+				<mat-label>{{item}}</mat-label>
+				<mat-select [(ngModel)]="sData[item]">
+					<ng-container *ngFor="let i of data['user'].data">
+						<mat-option [value]="i.id">
+							{{i.User}}
+						</mat-option>
+					</ng-container>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field style="width: 100%;" *ngSwitchCase="(item === 'user')?item:''">
+				<mat-label>{{item}}</mat-label>
+				<mat-select [(ngModel)]="sData[item]">
+					<ng-container *ngFor="let i of data['user'].data">
+						<mat-option [value]="i.User">
+							{{i.User}}
 						</mat-option>
 					</ng-container>
 				</mat-select>

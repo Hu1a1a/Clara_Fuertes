@@ -22,7 +22,7 @@
                                 aria-controls="navbarNavDropdown">
                                 <a class="nav-link menu" (click)="href(item)" [href]="item.Router"
                                     [ngClass]="router.url==='/'+item.Router?'active':''"
-                                    [title]="'Ir al apartado de '+item.Name" (click)="openModal(item)">
+                                    [title]="'Ir al apartado de '+item.Name" >
                                     {{item.Name}}
                                 </a>
                             </li>
