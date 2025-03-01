@@ -135,6 +135,7 @@ export class AppAdminPortalComponent implements OnInit {
     }
     this.data["curso/curso"] = await this.api.Get("curso/curso")
     this.modalProgress = false
+    this.ProgressForm = []
   }
 }
 
