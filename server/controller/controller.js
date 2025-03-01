@@ -41,7 +41,6 @@ exports.UPDATE = (Table, req, res) => {
   pool.getConnection((e, c) => {
     pool.query(`UPDATE ${Table} SET ${string} WHERE id = ${req.body.data.id};`, (e, r) => {
       c.release();
-      console.log(e)
       if (e) return res.json({ ok: false, msg: JSON.stringify(e) });
       else return res.json({ ok: true, data: r });
     });

@@ -42,6 +42,7 @@ export class AppAdminPortalComponent implements OnInit {
   }
 
   modal: boolean = false
+  modalProgress: boolean = false
   sData!: any
   sRouter!: SQLClass
   sAccion!: SQLAccion
@@ -69,6 +70,8 @@ export class AppAdminPortalComponent implements OnInit {
 
   Date = (data: string): Date => { return new Date(data) }
   Key = (data: any): string[] => { return Object.keys(data) }
+  find = (table: any[], value: string, key: string) => table.find((a: any) => a[key] === value)
+  find2 = (table: any[], value: string, key: string, value2: string, key2: string) => table.find((a: any) => a[key] === value && a[key2] === value2)
   getTIP = (tip: string): string => this.api.SQL_Master.data.find((a: any) => a.master === tip).data
   getColor = (tipo: string): any => this.emailColor.find((a: any) => a.Name === tipo)?.Color
   getUser = (userId: string): any => this.data["user"].data.find((a: any) => a.id === userId)?.User
@@ -99,7 +102,8 @@ export class AppAdminPortalComponent implements OnInit {
     this.modal = false
   }
   modalClick(event: any) {
-    if (event.target.localName === "section") this.modal = false
+    if (event.target.localName === "section") return false
+    return true
   }
 
   async Unsubscriber() {
@@ -116,6 +120,21 @@ export class AppAdminPortalComponent implements OnInit {
         item.showModal = !item.showModal || false
       }
     }
+  }
+
+  ProgressForm: any[] = []
+  async createProgress() {
+    for await (let progress of this.ProgressForm) {
+      await this.api.Accion({
+        cursoId: progress,
+        expiro: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),
+        inicio: new Date().toISOString(),
+        progreso: "",
+        userId: this.sData.id
+      }, "curso/curso", "create")
+    }
+    this.data["curso/curso"] = await this.api.Get("curso/curso")
+    this.modalProgress = false
   }
 }
 

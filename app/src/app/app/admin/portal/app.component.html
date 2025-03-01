@@ -131,35 +131,6 @@
 				Añadir Usuario
 			</button>
 		</mat-tab>
-		<mat-tab label="Progreso">
-			<div class="Manual" [innerHTML]="getTIP('TIP - Progreso')"> </div>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<td>id</td>
-						<td>Curso</td>
-						<td>Usuario</td>
-						<td>Inicio</td>
-						<td>Fin</td>
-					</tr>
-				</thead>
-				<tbody>
-					<ng-container *ngFor="let u of data['curso/curso'].data;index as i">
-						<tr (click)="OpenModal(u,'curso/curso','update')">
-							<td>{{u.id}}</td>
-							<td>{{u.cursoId}} - {{getCurso(u.cursoId)}}</td>
-							<td>{{u.userId}} - {{getUser(u.userId)}}</td>
-							<td [style.backgroundColor]="Date(u.inicio)>now?'orange':''">{{u.inicio}}</td>
-							<td [style.backgroundColor]="Date(u.expiro)<now?'orange':''">{{u.expiro}}</td>
-						</tr>
-					</ng-container>
-				</tbody>
-			</table>
-			<button (click)="OpenModal(data['curso/curso'].data[0],'curso/curso','create')" mat-raised-button
-				color="primary">
-				Añadir Curso
-			</button>
-		</mat-tab>
 		<mat-tab label="Comentario">
 			<div class="Manual" [innerHTML]="getTIP('TIP - Comentario')"> </div>
 			<table class="table table-striped">
@@ -256,7 +227,7 @@
 	</mat-tab-group>
 </div>
 
-<section *ngIf="modal" (click)="modalClick($event)" class="modal-form">
+<section *ngIf="modal" (click)="modal=modalClick($event)" class="modal-form">
 	<div class="form-container">
 		<div (click)="modal=false" class="close-modal" style="justify-content: center;">
 			x
@@ -312,6 +283,34 @@
 				<input [(ngModel)]="sData[item]" [disabled]="item==='id'" matInput>
 			</mat-form-field>
 		</ng-container>
+		<ng-container *ngIf="sRouter==='user'">
+			<div class="Manual" [innerHTML]="getTIP('TIP - Progreso')"> </div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>id</td>
+						<td>Curso</td>
+						<td>Usuario</td>
+						<td>Inicio</td>
+						<td>Fin</td>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let u of data['curso/curso'].data;index as i">
+						<tr (click)="OpenModal(u,'curso/curso','update')" *ngIf="u.userId===sData.id">
+							<td>{{u.id}}</td>
+							<td>{{u.cursoId}} - {{getCurso(u.cursoId)}}</td>
+							<td>{{u.userId}} - {{getUser(u.userId)}}</td>
+							<td [style.backgroundColor]="Date(u.inicio)>now?'orange':''">{{u.inicio}}</td>
+							<td [style.backgroundColor]="Date(u.expiro)<now?'orange':''">{{u.expiro}}</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+			<button (click)="modalProgress=true" mat-raised-button color="primary">
+				AÑADIR progress
+			</button>
+		</ng-container>
 		<button (click)="Accion(sData,sRouter,sAccion)" mat-raised-button color="primary">
 			{{ sAccion | uppercase}} {{ sRouter }}
 		</button>
@@ -321,6 +320,31 @@
 		</button>
 		<button *ngIf="sAccion==='update' && sRouter !=='master'" (click)="Duplicar()" mat-raised-button color="info">
 			DUPLICAR {{ sRouter }}
+		</button>
+	</div>
+</section>
+
+<section *ngIf="modalProgress" (click)="modalProgress=modalClick($event)" class="modal-form">
+	<div class="form-container">
+		<div (click)="modalProgress=false" class="close-modal" style="justify-content: center;">
+			x
+		</div>
+		<h2 style="margin: 0;">
+			AÑADIR progress
+		</h2>
+		<mat-form-field style="width: 100%;">
+			<mat-label>cursoId</mat-label>
+			<mat-select multiple [(ngModel)]="ProgressForm">
+				<ng-container *ngFor="let i of data['curso/level1'].data">
+					<mat-option [value]="i.id"
+						*ngIf="!find2(data['curso/curso'].data,sData.id,'userId',i.id,'cursoId')">
+						{{i.Name}}
+					</mat-option>
+				</ng-container>
+			</mat-select>
+		</mat-form-field>
+		<button (click)="createProgress()" mat-raised-button color="primary">
+			AÑADIR progress
 		</button>
 	</div>
 </section>
